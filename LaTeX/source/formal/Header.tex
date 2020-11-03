@@ -1,0 +1,71 @@
+\documentclass[12pt, a4paper, ngerman, numbers=noenddot, twoside, open=right]{scrreprt}
+\setkomafont{sectioning}{\normalfont\normalcolor\bfseries}
+
+\usepackage{graphicx}
+\usepackage{scrhack}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[printonlyused]{acronym}
+\usepackage[colorlinks, pdfpagelabels, pdfstartview=FitH, bookmarksopen=true, bookmarksnumbered=true, linkcolor=black, plainpages=false, hypertexnames=false, citecolor=black]{hyperref}
+
+\usepackage{float}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+\usepackage{todonotes}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{thesis}
+\setcounter{secnumdepth}{3}
+
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ #1}{}}
+\fancyhead[RO,LE]{\leftmark}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[RE,LO]{}
+\fancyfoot[C]{}
+\fancyfoot[RO,LE]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\addto\captionsngerman{\renewcommand{\lstlistingname}{Quelltext}}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{bytefield}
+
+\definecolor{hellgrau}{rgb}{0.98,0.98,0.98}
+\definecolor{hellgelb}{rgb}{1,1,0.8}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+
+\lstset{
+    float=hbp
+    basicstyle=\ttfamily\small,
+    identifierstyle=\color{colIdentifier},
+    keywordstyle=\color{colKeys},
+    stringstyle=\color{colString},
+    commentstyle=\color{colComments},
+    columns=flexible,
+    tabsize=2,
+    frame=single,
+    extendedchars=true,
+    showspaces=false,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny,
+    breaklines=true,
+    backgroundcolor=\color{hellgrau},
+    breakautoindent=true,
+    rulesep=1pt,
+    captionpos=b,
+    abovecaptionskip=10pt,
+    aboveskip=20pt
+}
