@@ -16,12 +16,12 @@ from bs4 import BeautifulSoup
 
 
 # User Input
-DUMP_PATH = "./open_legal_dump\\part-1.json"
-META_PATH = "./meta_files\\data_open_legal_part_1.xlsx"
+DUMP_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\json_dump\\part-1.json"
+META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_open_legal_part_1.xlsx"
 
 
 # Global Variables
-TEXT_PATH = "./text_files\\"
+TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 DATAFRAME = None
 EXPORT_PROGRESS = 0
 

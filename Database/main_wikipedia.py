@@ -19,8 +19,8 @@ LIMIT = 150000
 
 
 # Global Variables
-EXPORT_PATH_TEXT = "./text_files\\"
-EXPORT_PATH_META = "./meta_files\\data_wikipedia_" + str(INITIAL_CATEGORY).lower() + ".xlsx"
+EXPORT_PATH_TEXT = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
+EXPORT_PATH_META = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_wikipedia_" + str(INITIAL_CATEGORY).lower() + ".xlsx"
 STOP_SECTIONS = "./stop_sections.txt"
 DATAFRAME = None
 ITERATION_NUM = 0
@@ -109,12 +109,8 @@ def analyze_category(wiki_engine, stop_sections, category):
     global LIMIT
     global ITERATION_NUM
 
-    try:
-        print(f"Kategorie: {category}")
-        category_page = wiki_engine.page("Category:" + str(category))
-
-    except Exception as e:
-        print(e)
+    print(f"Kategorie: {category}")
+    category_page = wiki_engine.page("Category:" + str(category))
 
     for member in category_page.categorymembers:
         if ITERATION_NUM % 1000 == 0 or ITERATION_NUM == LIMIT:
@@ -142,7 +138,12 @@ def main():
     wiki_engine = wp.Wikipedia(language="de", extract_format=wp.ExtractFormat.WIKI)
     stop_sections = get_stop_sections(STOP_SECTIONS)
     initialize_dataframe()
-    analyze_category(wiki_engine, stop_sections, INITIAL_CATEGORY)
+
+    try:
+        analyze_category(wiki_engine, stop_sections, INITIAL_CATEGORY)
+
+    except Exception as e:
+        print(e)
 
 
 if __name__ == "__main__":
