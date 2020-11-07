@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Temp\ATS\Database\Code\venv"
+VIRTUAL_ENV="C:\Users\didid\GitHub-Respository\AutomaticTextSummarization\Database\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
