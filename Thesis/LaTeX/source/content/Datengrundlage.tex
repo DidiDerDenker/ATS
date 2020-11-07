@@ -4,11 +4,15 @@
 
 Notizen:
 \begin{itemize}
+	\item Kapitel ggf. umbenennen, d.h. nicht nur die Datengrundlage beschreiben, sondern auch die Herkunft bzw. den Prozess der Datenerfassung
 	\item Modelle erfordern keine gelabelten Daten, wohl aber gesichtete Daten
 	\item Datengrundlage besteht aus frei verfügbaren allgemeinsprachlichen, ausreichend langen und deutschsprachigen Daten, verschiedene Herkünfte
-	\item Skripte zur Datenakquise in Python, damit Wikipedia und ähnliche Texte gezogen, Skript beschreiben, Zielform der Daten beschreiben, rekursiv Wikipedia durchforsten
+	\item Skripte zur Datenakquise in Python, damit Wikipedia und ähnliche Texte gezogen, Skript beschreiben, Zielform der Daten beschreiben, rekursiv Wikipedia durchforsten, Annahme, dass Texte dort grammatikalisch korrekt sind, ebenso bei Open Legal Data, Quellen jeweils aus dem Kopf des Quellcodes entnehmen, auch hier die Annahme, dass möglichst allgemeinsprachliche, lange und inhaltlich verschiedenste Texte enthalten sind, Behandlung von Paragraphen ausstehend
 	\item Später dann zwecks Adaption auch unternehmensinterne fachspezifische Daten möglich, genauer beschreiben, perspektivisch (ggf. im Ausblick erst erwähnen) fachspezifische, dialogorientierte oder auch mehrsprachige Modelle möglich, dementsprechend mehr Daten benötigt, Mindestlänge definieren und begründen, es wird angenommen, dass 1000 Wörtern vorliegen müssen, um eine Zusammenfassung erforderlich zu machen, später auch Tests auf 1000 Wörtern bspw. denkbar
+	\item Auf Grundlage dieser Allgemeinsprache und den eben genannten Vorhaben, sollte ein grundlegendes Modell trainiert werden und später für den Use Case eine Art Adaptive Learning betrieben werden, d.h. wenn bekannt ist, dass das Modell für medizinische Texte angewandt werden soll, sollte man vorher die Parameter des Modells finetunen
 	\item Beschreiben, auf welche Form die Daten gebracht werden, ggf. auf Python-Skripte verweisen
 	\item Weitergehende Besonderheiten innerhalb der Texte werden toleriert, da diese auch im Praxisbetrieb auftreten könnten und somit gekannt werden sollten
+	\item Verwendete Packages aus den Skripten sorgfältig beschreiben, inklusive deren Herkunft und hauptsächlicher Zweck
+	\item Natural Language Generation bspw. zum Generieren von Texten anhand von Stichworten benutzen, sollte bereits in gutem Zustand implementierfähig sein, möglicherweise Strukturen hiervon für die Generierung der Zusammenfassung verwenden, NLP-Links: \url{https://www.analyticsvidhya.com/blog/2020/08/build-a-natural-language-generation-nlg-system-using-pytorch/}, \url{https://www.analyticsvidhya.com/blog/2019/09/introduction-to-pytorch-from-scratch/?utm_source=blog&utm_medium=Natural_Language_Generation_System_using_PyTorch}, \url{https://courses.analyticsvidhya.com/courses/natural-language-processing-nlp?utm_source=blog&utm_medium=Natural_Language_Generation_System_using_PyTorch}
 	\item Siehe Abstract im Exposé
 \end{itemize}
