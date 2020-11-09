@@ -1,27 +1,29 @@
 Biologie
 Chemie
 Physik
-Kunst
 Sport
+!Sport (ab Buchstabe c)
 Politik
-Astronomie
+!Politik (ab Buchstabe l)
+Astronomie (ab Buchstabe d)
+!Astronomie
 Computerspiele
 Informatik
-Musik
-Pädagogik
-Philosophie
-Raumfahrt
-Religion
-Geschichte
-Literatur
-Medizin
-Statistik
-Tanzen
-Unternehmer
-Visualisierung
-Wirtschaft
-Geschichte
-Gesellschaft
-Geographie
-Technik
-Geboren & Gestorben
+!Musik
+!Pädagogik
+!Philosophie
+!Raumfahrt
+!Religion
+!Geschichte
+!Literatur
+!Medizin
+!Statistik
+!Tanzen
+!Unternehmer
+!Visualisierung
+!Wirtschaft
+!Geschichte
+!Gesellschaft
+!Geographie
+!Technik
+!Geboren & Gestorben

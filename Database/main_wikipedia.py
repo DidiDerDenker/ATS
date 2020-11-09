@@ -13,9 +13,9 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Biologie"
+INITIAL_CATEGORY = "Informatik"
 MIN_LENGTH = 1000
-LIMIT = 150000
+LIMIT = 100000
 
 
 # Global Variables
@@ -109,7 +109,7 @@ def analyze_category(wiki_engine, stop_sections, category):
     global LIMIT
     global ITERATION_NUM
 
-    print(f"Kategorie: {category}")
+    print(f"\nKategorie: {category}")
     category_page = wiki_engine.page("Category:" + str(category))
 
     for member in category_page.categorymembers:
