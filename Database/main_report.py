@@ -5,21 +5,24 @@ import collections
 
 
 # Global Variables
-PATH = "C:\\Temp\\Corpus\\"
+TEXT_FILES = "C:\\Temp\\Corpus\\"
+META_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
 
 
 # Methods
 def read_files():
-    global PATH
+    global TEXT_FILES
 
-    os.chdir(PATH)
+    os.chdir(TEXT_FILES)
     files = glob.glob("*.txt")
 
     return files
 
 
 def get_corpus(files):
-    corpus = [read_text(PATH + file) for file in files]
+    global TEXT_FILES
+
+    corpus = [read_text(TEXT_FILES + file) for file in files]
     print(f"Anzahl der Textdateien: {len(corpus)}")
     print(corpus[:3])
 
@@ -48,8 +51,16 @@ def clean_text(text):
     return text
 
 
+def get_sector_distribution():
+    global META_FILES
+
+    # TODO: Use meta-files to generate a sector distribution, export graphics
+    distribution = {}
+    print(f"Verteilung der Datenquellen: {distribution}")
+
+
 def get_document_lengths(corpus):
-    # TODO: Build dictionary of document lengths and their frequencies
+    # TODO: Build dictionary of document lengths and their frequencies, export graphics
     distribution =  {}
     print(f"Verteilung der Textlänge: {distribution}")
 
@@ -62,17 +73,26 @@ def get_words(corpus):
 
 
 def get_word_distribution(corpus):
+    # TODO: Setup a vocabulary, export graphics
     words = get_words(corpus)
     mcw = collections.Counter(words).most_common(100)
     print(f"Wort-Verteilung: {mcw}")
+
+
+def get_n_grams(corpus, n):
+    # TODO: Extract all n-grams in the corpus, export head and tail as a graphic
+    distribution = {}
+    print(f"Top N-Gramme: {distribution}")
 
 
 # Main
 def main():
     files = read_files()
     corpus = get_corpus(files)
+    get_sector_distribution()
     get_document_lengths(corpus)
     get_word_distribution(corpus)
+    get_n_grams(corpus, 3)
 
 
 if __name__ == "__main__":

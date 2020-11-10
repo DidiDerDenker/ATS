@@ -1,9 +1,3 @@
-# Documentation
-'''
-https://pypi.org/project/Wikipedia-API/
-'''
-
-
 # Imports
 import pandas as pd
 import wikipediaapi as wp
@@ -13,7 +7,7 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Informatik"
+INITIAL_CATEGORY = "Religion"
 MIN_LENGTH = 1000
 LIMIT = 100000
 

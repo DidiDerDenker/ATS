@@ -2,18 +2,15 @@ Biologie
 Chemie
 Physik
 Sport
-!Sport (ab Buchstabe c)
 Politik
-!Politik (ab Buchstabe l)
-Astronomie (ab Buchstabe d)
-!Astronomie
+Astronomie
 Computerspiele
 Informatik
-!Musik
-!Pädagogik
-!Philosophie
-!Raumfahrt
-!Religion
+Musik
+Pädagogik
+Philosophie
+Raumfahrt
+Religion
 !Geschichte
 !Literatur
 !Medizin
@@ -27,3 +24,5 @@ Informatik
 !Geographie
 !Technik
 !Geboren & Gestorben
+
+!Weitere Kategorien zu Sport, Politik, Informatik
