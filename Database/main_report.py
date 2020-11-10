@@ -2,7 +2,9 @@
 import glob
 import os
 import pandas as pd
-import collections
+import itertools
+
+from collections import Counter
 
 
 # Global Variables
@@ -49,14 +51,10 @@ def read_text(files):
 
 
 def clean_text(text):
-    # TODO: Check and clean texts properly
+    text = text.lower()
+    text = text.replace(r"[^A-Za-z0-9öäüÖÄÜß()!?]", " ")
 
-    '''
-    text = text.str.lower()
-    text = text.str.replace(r"@", "")
-    text = text.str.replace(r"[^A-Za-z0-9öäüÖÄÜß()!?]", " ")
-    text = text.str.replace("\s{2,}", " ")
-    '''
+    # TODO: Check and clean texts properly, e.g. punctuation
 
     return text
 
@@ -69,9 +67,9 @@ def get_sector_distribution():
 
     distribution = {"data_open_legal": 0,
                     "data_wikipedia": 0,
-                    "data_corpus": 0,
                     "data_enron": 0,
-                    "data_mendeley": 0}
+                    "data_mendeley": 0,
+                    "data_uci": 0}
 
     for file in files:
         df = pd.read_excel(file)
@@ -79,9 +77,9 @@ def get_sector_distribution():
 
         distribution["data_open_legal"] += size if "data_open_legal" in file else 0
         distribution["data_wikipedia"] += size if "data_wikipedia" in file else 0
-        distribution["data_corpus"] += size if "data_corpus" in file else 0
         distribution["data_enron"] += size if "data_enron" in file else 0
         distribution["data_mendeley"] += size if "data_mendeley" in file else 0
+        distribution["data_uci"] += size if "data_uci" in file else 0
 
     # TODO: Export graphics, add total text-file-count
     print(f"\tDistribution of sectors: {distribution}")
@@ -90,8 +88,8 @@ def get_sector_distribution():
 def get_text_length_distribution(corpus):
     distribution = {}
 
-    for file in corpus:
-        size = len(file)
+    for text in corpus:
+        size = len(text)
 
         if size in distribution:
             distribution[size] += 1
@@ -105,27 +103,39 @@ def get_text_length_distribution(corpus):
     print(f"\tDistribution of text lengths: {distribution}")
 
 
-def get_words(corpus):
-    words = []
-
-    # TODO: Extract all words in a non-distinct style from all documents and append each word to the list
-
-    return words
-
-
 def get_word_distribution(corpus):
-    words = get_words(corpus)
-    mcw = collections.Counter(words).most_common(100)
+    vocabulary = {}
 
-    # TODO: Setup a vocabulary, export graphics
-    print(f"\tDistribution of words: {mcw}")
+    for text in corpus:
+        tokens = text.split()
+
+        for token in tokens:
+            if token in vocabulary:
+                vocabulary[token] += 1
+
+            else:
+                vocabulary[token] = 1
+
+    vocabulary = sorted(vocabulary.items(), key=lambda kv: (kv[1], kv[0]))
+
+    # TODO: Export graphics, head as well as tail items, after cleaning all texts
+    print(f"\tDistribution of words: {vocabulary}")
 
 
-def get_n_grams(corpus, n):
-    distribution = {}
+def get_n_gram_statistics(corpus, n):
+    tokens = []
 
-    # TODO: Extract all n-grams in the corpus, export head and tail as a graphic
-    print(f"\t: {distribution}")
+    for text in corpus:
+        for token in text.split():
+            if token != "":
+                tokens.append(token)
+
+    n_grams = zip(*[tokens[i:] for i in range(n)])
+    n_grams = [" ".join(n_gram) for n_gram in n_grams]
+    distribution = Counter(n_grams)
+
+    # TODO: Export graphics, head as well as tail items, after cleaning all texts
+    print(distribution.most_common(20))
 
 
 # Main
@@ -143,10 +153,12 @@ def main():
     get_text_length_distribution(corpus)
 
     print("Exporting word distribution...")
-    # get_word_distribution(corpus)
+    get_word_distribution(corpus)
 
     print("Exporting n-gram-statistics...")
-    # get_n_grams(corpus, 3)
+    get_n_gram_statistics(corpus, 2)
+    get_n_gram_statistics(corpus, 3)
+    get_n_gram_statistics(corpus, 5)
 
 
 if __name__ == "__main__":

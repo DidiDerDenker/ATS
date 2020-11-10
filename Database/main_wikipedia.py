@@ -8,7 +8,6 @@ import uuid
 
 # User Input
 INITIAL_CATEGORY = "Geschichte"
-MIN_LENGTH = 1000
 LIMIT = 100000
 
 
@@ -60,12 +59,11 @@ def initialize_dataframe():
 
 
 def update_dataframe(title, text):
-    global MIN_LENGTH
     global DATAFRAME
     global ITERATION_NUM
     global EXPORT_PROGRESS
 
-    if len(text) > MIN_LENGTH and title not in list(DATAFRAME["Title"].values):
+    if len(text) > 1000 and title not in list(DATAFRAME["Title"].values):
         id = str(uuid.uuid4()).upper()
         df = pd.DataFrame(data=[[id, title]], columns=["ID", "Title"])
         DATAFRAME = pd.concat([DATAFRAME, df], axis=0)

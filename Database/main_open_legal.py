@@ -63,10 +63,12 @@ def main():
         soup = BeautifulSoup(row["content"], features="html.parser")
         raw_text = soup.get_text().strip()
         text = clean_text(raw_text)
-        id = str(uuid.uuid4()).upper()
-        df = pd.DataFrame(data=[[id]], columns=["ID"])
-        DATAFRAME = pd.concat([DATAFRAME, df], axis=0)
-        export_text(id, text)
+
+        if len(text) > 1000:
+            id = str(uuid.uuid4()).upper()
+            df = pd.DataFrame(data=[[id]], columns=["ID"])
+            DATAFRAME = pd.concat([DATAFRAME, df], axis=0)
+            export_text(id, text)
 
     DATAFRAME[["ID"]].to_excel(META_PATH, index=False)
 

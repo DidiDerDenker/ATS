@@ -11,9 +11,9 @@ Notizen:
 
 \section{Akquise}
 Notizen:
-	\item Akquise mittels Skripten in Python
+	\item Akquise mittels Skripten in Python, zunächst mit grober Vorverarbeitung, noch nicht entsprechend der NLP-Pipeline
 	\item Zielform der Textdateien beschreiben, Ablagestruktur ebenfalls
-	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/}), CORPUS (\url{https://archive.ics.uci.edu/ml/datasets/Legal+Case+Reports}), ENROS (\url{https://www.cs.cmu.edu/~./enron/}), MENDELEY (\url{https://data.mendeley.com/datasets/zm33cdndxs/2})
+	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/}), CORPUS (\url{https://archive.ics.uci.edu/ml/datasets/Legal+Case+Reports}), ENRON (\url{https://www.cs.cmu.edu/~./enron/}), MENDELEY (\url{https://data.mendeley.com/datasets/zm33cdndxs/2})
 	\item Datenherkünfte beschreiben, d.h. Dateiformat, Größe, Sprache etc. beschreiben
 	\item Nicht-deutschsprachige Texte werden übersetzt und geprüft
 	\item Von den Datenquellen wird vermutet und nach manueller Einsicht bestätigt, dass Texte dort grammatikalisch korrekt sind, außerdem allgemeinsprachlich und ausreichend lang (> 1000 Wörter, es wird angenommen, dass 1000 Wörtern vorliegen müssen, um eine Zusammenfassung erforderlich zu machen) sind und möglichst diversifizierten Themengebieten entstammen
@@ -21,7 +21,7 @@ Notizen:
 
 \section{Vorverarbeitung}
 Notizen:
-	\item Daten iterieren und vorverarbeitet abspeichern, Ausführung der NLP-Pipeline erwähnen, ebenfalls für tokenisierte und lemmatisierte Versionen, d.h. später nur noch Durchlauf eines bestimmten Ordners, zuvor alle möglichen Dateien sichten und möglichst viele Fehler im Laufe des erneuten Exportes eliminieren, Ablageorte und Textdateiversionen beschreiben
+	\item Daten iterieren, jeweils die Klassen zum Data Cleaning, Tokenisierung, Lemmatisieren etc. für einen einzelnen Text aufrufen, ggf. per weiteren Exporten zwischenspeichern, zuvor alle möglichen Dateien sichten und möglichst viele Fehler im Laufe des erneuten Exportes eliminieren, Ablageorte und Textdateiversionen beschreiben, dann Train-Test-Split, Übergabe der vorverarbeiteten Daten an die Modelle, welche den Korpus von einer Klasse namens NLP-Pipeline bekommt
 	\item Weitergehende Besonderheiten innerhalb der Texte werden toleriert, da diese auch im Praxisbetrieb auftreten könnten und somit gekannt werden sollten
 	\item Möglicherweise Spell Checking von Google RS für die deutsche Sprache einbinden
 
