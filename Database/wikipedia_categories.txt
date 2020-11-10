@@ -11,7 +11,7 @@ Pädagogik
 Philosophie
 Raumfahrt
 Religion
-!Geschichte
+Geschichte
 !Literatur
 !Medizin
 !Statistik
@@ -19,7 +19,6 @@ Religion
 !Unternehmer
 !Visualisierung
 !Wirtschaft
-!Geschichte
 !Gesellschaft
 !Geographie
 !Technik

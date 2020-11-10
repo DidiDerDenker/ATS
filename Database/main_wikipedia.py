@@ -7,7 +7,7 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Religion"
+INITIAL_CATEGORY = "Geschichte"
 MIN_LENGTH = 1000
 LIMIT = 100000
 
