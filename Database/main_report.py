@@ -106,12 +106,12 @@ def get_word_distribution(corpus):
     vocabulary = {}
 
     for text in corpus:
-        for token in text:
-            if token in vocabulary:
-                vocabulary[token] += 1
+        for word in text:
+            if word in vocabulary:
+                vocabulary[word] += 1
 
             else:
-                vocabulary[token] = 1
+                vocabulary[word] = 1
 
     vocabulary = sorted(vocabulary.items(), key=lambda kv: (kv[1], kv[0]))
 

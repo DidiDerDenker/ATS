@@ -7,7 +7,7 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Geschichte"
+INITIAL_CATEGORY = "Literatur"
 LIMIT = 100000
 
 
