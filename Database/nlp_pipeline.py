@@ -39,6 +39,10 @@ class Pipeline:
             l.process()
             self.corpus_lemmatized.append(l.words)
 
+    def export(self):
+        # TODO: Export all properties into a given output-directory in order to read them later
+        exit()
+
 
 '''
 Input: Text-object

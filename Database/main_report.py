@@ -99,10 +99,6 @@ def get_text_length_distribution(corpus):
 
 
 def get_word_distribution(corpus):
-    agent = nlp.Pipeline(corpus)
-    agent.process()
-    print(f"text: {agent.text_corpus}")
-
     vocabulary = {}
 
     for text in corpus:
@@ -123,7 +119,7 @@ def get_n_gram_statistics(corpus, n):
     tokens = []
 
     for text in corpus:
-        for token in text.split():
+        for token in text:
             if token != "":
                 tokens.append(token)
 
@@ -143,19 +139,23 @@ def main():
     print("Reading text...")
     corpus = read_text(files)
 
+    print("Processing nlp-pipeline...")
+    agent = nlp.Pipeline(corpus)
+    agent.process()
+
     print("Exporting sector distribution...")
-    # get_sector_distribution()
+    get_sector_distribution()
 
     print("Exporting text length distribution...")
-    # get_text_length_distribution(corpus)
+    get_text_length_distribution(agent.raw_corpus)
 
     print("Exporting word distribution...")
-    get_word_distribution(corpus)
+    get_word_distribution(agent.corpus_lemmatized)
 
     print("Exporting n-gram-statistics...")
-    # get_n_gram_statistics(corpus, 2)
-    # get_n_gram_statistics(corpus, 3)
-    # get_n_gram_statistics(corpus, 5)
+    get_n_gram_statistics(agent.corpus_lemmatized, 2)
+    get_n_gram_statistics(agent.corpus_lemmatized, 3)
+    get_n_gram_statistics(agent.corpus_lemmatized, 5)
 
 
 if __name__ == "__main__":
