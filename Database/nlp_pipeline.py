@@ -1,32 +1,41 @@
 # Imports
 import re
+import nltk
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from german_lemmatizer import lemmatize
+from germalemma import GermaLemma
 
 
 # Classes
 class Pipeline:
     def __init__(self, corpus):
-        self.corpus = corpus
+        self.raw_corpus = corpus
         self.corpus_cleaned = []
         self.corpus_tokenized = []
+        self.corpus_tagged = []
         self.corpus_lemmatized = []
+        self.text_corpus = []
 
     def process(self):
-        for text in self.corpus:
+        for text in self.raw_corpus:
             c = Cleaner(text)
-            c.Process()
+            c.process()
             self.corpus_cleaned.append(c.text)
 
-            t = Tokenizer(text)
-            t.Process()
-            self.corpus_tokenized.append(t.text)
+            t = Tokenizer(c.text)
+            t.process()
+            self.corpus_tokenized.append(t.tokens)
 
-            l = Lemmatizer(text)
-            l.Process()
-            self.corpus_lemmatized.append(l.text)
+            p = Tagger(t.tokens)
+            p.process()
+            self.corpus_tagged.append(p.tuples)
+
+            l = Lemmatizer(p.tuples)
+            l.process()
+            self.corpus_lemmatized.append(l.words)
+
+            self.text_corpus.append(l.text)
 
 
 class Cleaner:
@@ -50,13 +59,34 @@ class Tokenizer:
         self.tokens = word_tokenize(self.text)
 
 
-class Lemmatizer:
+class Tagger:
     def __init__(self, tokens):
         self.tokens = tokens
-        self.words = None
+        self.pos_tags = None
+        self.tuples = []
 
     def process(self):
-        words = self.tokens
-        stop_words = stopwords.words("german")
+        self.tuples = nltk.pos_tag(self.tokens)  # TODO: Optimize tagger
 
-        self.words = [lemmatize(word) for word in words if word not in stop_words]
+
+class Lemmatizer:
+    def __init__(self, tuples):
+        self.stopwords = stopwords.words("german")
+        self.lemmatizer = GermaLemma()
+        self.tuples = tuples
+        self.words = []
+        self.text = None
+
+    def process(self):
+        for tuple in self.tuples:
+            word = tuple[0]
+            pos_tag = tuple[1]
+
+            try:
+                lemma = self.lemmatizer.find_lemma(word, pos_tag)  # TODO: Optimize lemmatizer
+                self.words.append(lemma.lower())
+
+            except Exception as e:
+                print(e)
+
+        self.text = " ".join(self.words)
