@@ -2,7 +2,7 @@
 import glob
 import os
 import pandas as pd
-import itertools
+import nlp_pipeline as nlp
 
 from collections import Counter
 
@@ -41,22 +41,17 @@ def read_text(files):
             with open(file, "r", encoding="utf8", errors="ignore") as f:
                 lines = f.readlines()
                 text = "\n".join(lines)
-                text = clean_text(text)
+
+                c = nlp.Cleaner(text)
+                c.process()
+                text = c.text
+
                 corpus.append(text)
 
         except Exception as e:
             print(e)
 
     return corpus
-
-
-def clean_text(text):
-    text = text.lower()
-    text = text.replace(r"[^A-Za-z0-9öäüÖÄÜß()!?]", " ")
-
-    # TODO: Check and clean texts properly, e.g. punctuation
-
-    return text
 
 
 def get_sector_distribution():
@@ -104,6 +99,19 @@ def get_text_length_distribution(corpus):
 
 
 def get_word_distribution(corpus):
+    for text in corpus:
+        t = nlp.Tokenizer(text)
+        t.process()
+        tokens = t.tokens
+
+        l = nlp.Lemmatizer(tokens)
+        l.process()
+        words = l.words
+
+        print(tokens)
+        print(words)
+    exit()
+
     vocabulary = {}
 
     for text in corpus:
@@ -147,10 +155,10 @@ def main():
     corpus = read_text(files)
 
     print("Exporting sector distribution...")
-    get_sector_distribution()
+    # get_sector_distribution()
 
     print("Exporting text length distribution...")
-    get_text_length_distribution(corpus)
+    # get_text_length_distribution(corpus)
 
     print("Exporting word distribution...")
     get_word_distribution(corpus)
