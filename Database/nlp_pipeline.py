@@ -10,7 +10,7 @@ from spacy_iwnlp import spaCyIWNLP
 class Pipeline:
     def __init__(self, raw_corpus, model, lemmatizer):
         self.raw_corpus = raw_corpus
-        self.processed_corpus = []
+        self.new_corpus = []
         self.model = model
         self.lemmatizer = lemmatizer
         self.stopwords = stopwords.words("german")
@@ -19,23 +19,17 @@ class Pipeline:
         nlp = spacy.load(self.model)
         nlp.add_pipe(spaCyIWNLP(lemmatizer_path=self.lemmatizer))
 
-        for text in self.raw_corpus:
-            doc = nlp(clean_text(text))
-            tuples = []
+        for doc in self.raw_corpus:
+            doc = nlp(clean_text(doc))
+            words = []
 
             for token in doc:
                 if token.lemma_ not in self.stopwords:
-                    word = token.text
-                    pos_tag = token.pos_
-                    lemma = token._.iwnlp_lemmas[0] if token._.iwnlp_lemmas is not None else "TBD"
+                    # print(token.text, token.pos_, token._.iwnlp_lemmas
+                    words.append(token.text)
 
-                    tuple = (word, pos_tag, lemma)
-                    tuples.append(tuple)
-
-            self.processed_corpus.append(tuples)
-            print(tuples)
-
-        print(self.processed_corpus)
+            text = " ".join(word for word in words)
+            self.new_corpus.append(text)
 
         # TODO: Export lemmatized texts
         # TODO: Update return value according to the needed output

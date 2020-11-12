@@ -143,8 +143,9 @@ def main():
     print("Processing nlp-pipeline...")
     nlp_pipeline = nlp.Pipeline(raw_corpus, MODEL, LEMMATIZER)
     nlp_pipeline.process()
-    processed_corpus = nlp_pipeline.processed_corpus
-    # TODO: Extract text_corpus
+    new_corpus = nlp_pipeline.new_corpus # TODO: Check text_corpus, next would be train-test-split and vectorizer
+    print(new_corpus)
+    exit()
 
     print("Exporting sector distribution...")
     get_sector_distribution()
@@ -153,12 +154,12 @@ def main():
     get_text_length_distribution(raw_corpus)
 
     print("Exporting word distribution...")
-    get_word_distribution(text_corpus)
+    get_word_distribution(new_corpus)
 
     print("Exporting n-gram-statistics...")
-    get_n_gram_statistics(text_corpus, 2)
-    get_n_gram_statistics(text_corpus, 3)
-    get_n_gram_statistics(text_corpus, 5)
+    get_n_gram_statistics(new_corpus, 2)
+    get_n_gram_statistics(new_corpus, 3)
+    get_n_gram_statistics(new_corpus, 5)
 
 
 if __name__ == "__main__":
