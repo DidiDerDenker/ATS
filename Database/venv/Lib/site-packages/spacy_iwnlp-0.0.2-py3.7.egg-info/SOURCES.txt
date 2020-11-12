@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+spacy_iwnlp/__init__.py
+spacy_iwnlp.egg-info/PKG-INFO
+spacy_iwnlp.egg-info/SOURCES.txt
+spacy_iwnlp.egg-info/dependency_links.txt
+spacy_iwnlp.egg-info/requires.txt
+spacy_iwnlp.egg-info/top_level.txt
+tests/__init__.py
+tests/test_spacy_iwnlp_lemmatize.py
+tests/test_spacy_iwnlp_lemmatize_plain.py

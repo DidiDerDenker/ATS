@@ -14,9 +14,9 @@ Religion
 Geschichte
 Literatur
 Medizin
-!Statistik
-!Tanzen
-!Unternehmer
+Statistik
+Tanzen
+Unternehmer
 !Visualisierung
 !Wirtschaft
 !Gesellschaft

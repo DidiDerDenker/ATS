@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: iwnlp
+Version: 0.1.7
+Summary: Python implementation for IWNLP
+Home-page: https://github.com/Liebeck/IWNLP-py
+Author: Matthias Liebeck
+Author-email: liebeck@cs.uni-duesseldorf.de
+License: UNKNOWN
+Download-URL: https://github.com/Liebeck/IWNLP-py/archive/0.1.6.tar.gz
+Description: UNKNOWN
+Keywords: IWNLP,NLP,German,lemmatization,Wiktionary
+Platform: UNKNOWN

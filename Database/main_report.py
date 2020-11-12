@@ -10,6 +10,8 @@ from collections import Counter
 # Global Variables
 TEXT_FILES = "C:\\Temp\\Corpus\\"
 META_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
+MODEL = "de_core_news_sm"
+LEMMATIZER = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\iwnlp_lemmatizer.json"
 
 
 # Methods
@@ -41,11 +43,7 @@ def read_text(files):
             with open(file, "r", encoding="utf8", errors="ignore") as f:
                 lines = f.readlines()
                 text = "\n".join(lines)
-
-                c = nlp.Cleaner(text)
-                c.process()
-                text = c.text
-
+                text = nlp.clean_text(text)
                 corpus.append(text)
 
         except Exception as e:
@@ -133,29 +131,34 @@ def get_n_gram_statistics(corpus, n):
 
 # Main
 def main():
+    global MODEL
+    global LEMMATIZER
+
     print("Reading files...")
     files = read_files()
 
     print("Reading text...")
-    corpus = read_text(files)
+    raw_corpus = read_text(files)
 
     print("Processing nlp-pipeline...")
-    agent = nlp.Pipeline(corpus)
-    agent.process()
+    nlp_pipeline = nlp.Pipeline(raw_corpus, MODEL, LEMMATIZER)
+    nlp_pipeline.process()
+    processed_corpus = nlp_pipeline.processed_corpus
+    # TODO: Extract text_corpus
 
     print("Exporting sector distribution...")
     get_sector_distribution()
 
     print("Exporting text length distribution...")
-    get_text_length_distribution(agent.raw_corpus)
+    get_text_length_distribution(raw_corpus)
 
     print("Exporting word distribution...")
-    get_word_distribution(agent.corpus_lemmatized)
+    get_word_distribution(text_corpus)
 
     print("Exporting n-gram-statistics...")
-    get_n_gram_statistics(agent.corpus_lemmatized, 2)
-    get_n_gram_statistics(agent.corpus_lemmatized, 3)
-    get_n_gram_statistics(agent.corpus_lemmatized, 5)
+    get_n_gram_statistics(text_corpus, 2)
+    get_n_gram_statistics(text_corpus, 3)
+    get_n_gram_statistics(text_corpus, 5)
 
 
 if __name__ == "__main__":
