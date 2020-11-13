@@ -34,8 +34,7 @@ class Pipeline:
             self.new_corpus.append(text)
 
         # TODO: Include numbers and punctuation
-        # TODO: Export lemmatized texts
-        # TODO: Update return value according to the needed output
+        # TODO: Export every lemmatized text to a separate directory
 
 
 # Methods

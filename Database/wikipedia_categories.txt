@@ -22,5 +22,8 @@ Gesellschaft
 !Geographie
 !Technik
 !Geboren & Gestorben
-
-!Weitere Kategorien zu Sport, Politik, Informatik
+!Terrorismus
+!Fußball
+!Eishockey
+!Schule
+!Bildung
