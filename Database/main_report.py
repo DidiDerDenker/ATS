@@ -10,8 +10,8 @@ from collections import Counter
 # Global Variables
 TEXT_FILES = "C:\\Temp\\Corpus\\"
 META_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-MODEL = "de_core_news_sm"
-LEMMATIZER = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\iwnlp_lemmatizer.json"
+MODEL = "de_core_news_lg" # de_core_news_sm
+LEMMATIZER = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Database\\iwnlp_lemmatizer.json"
 
 
 # Methods
@@ -92,7 +92,7 @@ def get_text_length_distribution(corpus):
 
     distribution = sorted(distribution.items(), key=lambda kv: (kv[1], kv[0]))
 
-    # TODO: Export graphic, search for stacked (value-grouped) charts
+    # TODO: Export graphic, search for stacked (value-grouped) charts, e.g. dense-representation
     print(f"\tDistribution of text lengths: {distribution}")
 
 
@@ -100,7 +100,7 @@ def get_word_distribution(corpus):
     vocabulary = {}
 
     for text in corpus:
-        for word in text:
+        for word in text.split():
             if word in vocabulary:
                 vocabulary[word] += 1
 
@@ -117,7 +117,7 @@ def get_n_gram_statistics(corpus, n):
     tokens = []
 
     for text in corpus:
-        for token in text:
+        for token in text.split():
             if token != "":
                 tokens.append(token)
 
@@ -143,15 +143,13 @@ def main():
     print("Processing nlp-pipeline...")
     nlp_pipeline = nlp.Pipeline(raw_corpus, MODEL, LEMMATIZER)
     nlp_pipeline.process()
-    new_corpus = nlp_pipeline.new_corpus # TODO: Check text_corpus, next would be train-test-split and vectorizer
-    print(new_corpus)
-    exit()
+    new_corpus = nlp_pipeline.new_corpus
 
     print("Exporting sector distribution...")
     get_sector_distribution()
 
     print("Exporting text length distribution...")
-    get_text_length_distribution(raw_corpus)
+    get_text_length_distribution(new_corpus)
 
     print("Exporting word distribution...")
     get_word_distribution(new_corpus)

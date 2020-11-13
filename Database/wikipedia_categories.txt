@@ -17,9 +17,8 @@ Medizin
 Statistik
 Tanzen
 Unternehmer
-!Visualisierung
-!Wirtschaft
-!Gesellschaft
+Wirtschaft
+Gesellschaft
 !Geographie
 !Technik
 !Geboren & Gestorben

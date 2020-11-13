@@ -24,13 +24,16 @@ class Pipeline:
             words = []
 
             for token in doc:
-                if token.lemma_ not in self.stopwords:
-                    # print(token.text, token.pos_, token._.iwnlp_lemmas
-                    words.append(token.text)
+                if token._.iwnlp_lemmas is not None:
+                    lemma = token._.iwnlp_lemmas[0]
+
+                    if lemma not in self.stopwords:
+                        words.append(lemma)
 
             text = " ".join(word for word in words)
             self.new_corpus.append(text)
 
+        # TODO: Include numbers and punctuation
         # TODO: Export lemmatized texts
         # TODO: Update return value according to the needed output
 

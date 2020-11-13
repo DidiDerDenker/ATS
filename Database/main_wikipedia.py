@@ -7,7 +7,7 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Unternehmer"
+INITIAL_CATEGORY = "Gesellschaft"
 LIMIT = 100000
 
 
