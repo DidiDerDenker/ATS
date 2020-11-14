@@ -7,7 +7,7 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Gesellschaft"
+INITIAL_CATEGORY = "Politik"
 LIMIT = 100000
 
 

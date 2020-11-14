@@ -4,11 +4,9 @@ Physik
 Sport
 Politik
 Astronomie
-Computerspiele
 Informatik
 Musik
 Pädagogik
-Philosophie
 Raumfahrt
 Religion
 Geschichte
@@ -19,7 +17,7 @@ Tanzen
 Unternehmer
 Wirtschaft
 Gesellschaft
-!Geographie
+Geographie
 !Technik
 !Geboren & Gestorben
 !Terrorismus
