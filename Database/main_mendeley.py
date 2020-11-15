@@ -22,6 +22,9 @@ for file in files:
         data = json.load(f)
         sentences = [item["sentence"] for item in data["body_text"]]
         text = "\n".join(sentences)
-        print(text)
-        print(len(text))
+
+        if len(text) > 1000:
+            print(text)
+            print(len(text))
+
         exit()

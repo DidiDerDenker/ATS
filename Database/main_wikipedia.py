@@ -7,7 +7,7 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Politik"
+INITIAL_CATEGORY = "Fußball"
 LIMIT = 100000
 
 

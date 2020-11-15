@@ -18,10 +18,9 @@ Unternehmer
 Wirtschaft
 Gesellschaft
 Geographie
-!Technik
-!Geboren & Gestorben
-!Terrorismus
-!Fußball
+Technik
+Terrorismus
+Fußball
 !Eishockey
 !Schule
 !Bildung
