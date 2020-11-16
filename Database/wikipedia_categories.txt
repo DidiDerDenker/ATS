@@ -21,6 +21,4 @@ Geographie
 Technik
 Terrorismus
 Fußball
-!Eishockey
-!Schule
-!Bildung
+Bildung

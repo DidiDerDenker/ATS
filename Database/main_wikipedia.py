@@ -7,13 +7,13 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Fußball"
+INITIAL_CATEGORY = "Bildung"
 LIMIT = 100000
 
 
 # Global Variables
-EXPORT_PATH_TEXT = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
-EXPORT_PATH_META = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_wikipedia_" + str(INITIAL_CATEGORY).lower() + ".xlsx"
+TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
+META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_wikipedia_" + str(INITIAL_CATEGORY).lower() + ".xlsx"
 STOP_SECTIONS = "./stop_sections.txt"
 DATAFRAME = None
 ITERATION_NUM = 0
@@ -48,11 +48,11 @@ def clean_text(text):
 
 
 def initialize_dataframe():
-    global EXPORT_PATH_META
+    global META_PATH
     global DATAFRAME
 
-    if os.path.exists(EXPORT_PATH_META):
-        DATAFRAME = pd.read_excel(EXPORT_PATH_META)
+    if os.path.exists(META_PATH):
+        DATAFRAME = pd.read_excel(META_PATH)
 
     else:
         DATAFRAME = pd.DataFrame(data=[], columns=["ID", "Title"])
@@ -76,18 +76,18 @@ def update_dataframe(title, text):
 
 
 def export_dataframe():
-    global EXPORT_PATH_META
+    global META_PATH
     global DATAFRAME
 
     DATAFRAME = DATAFRAME.sort_values(by=["Title"])
-    DATAFRAME[["ID", "Title"]].to_excel(EXPORT_PATH_META, index=False)
+    DATAFRAME[["ID", "Title"]].to_excel(META_PATH, index=False)
 
 
 def export_text(id, text):
     global INITIAL_CATEGORY
-    global EXPORT_PATH_TEXT
+    global TEXT_PATH
 
-    file_path = EXPORT_PATH_TEXT + id + ".txt"
+    file_path = TEXT_PATH + id + ".txt"
 
     try:
         with open(file_path, "w", encoding="utf8") as f:
