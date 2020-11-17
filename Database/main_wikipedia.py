@@ -7,7 +7,7 @@ import uuid
 
 
 # User Input
-INITIAL_CATEGORY = "Bildung"
+INITIAL_CATEGORY = "Informatik"
 LIMIT = 100000
 
 

@@ -11,9 +11,9 @@ from googletrans import Translator
 
 
 # Global Variables
-JSON_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\dump_mendeley\\"
+JSON_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\dump_mendeley\\Part (1)\\"
 TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
-META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_mendeley.xlsx"
+META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_mendeley_part_01.xlsx"
 DATAFRAME = None
 EXPORT_PROGRESS = 0
 
@@ -106,7 +106,7 @@ def process_files(files):
             text = "\n".join(sentences)
             update_dataframe(text)
 
-            if EXPORT_PROGRESS % 1000 == 0:
+            if EXPORT_PROGRESS % 500 == 0:
                 export_dataframe()
 
 

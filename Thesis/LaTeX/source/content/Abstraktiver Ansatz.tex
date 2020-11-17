@@ -7,7 +7,7 @@ Notizen:
 	\item Abgrenzung zum extraktiven Ansatz beschreiben
 	\item Vorteile gegenüber referenzierten Modellen herausstellen
 	\item Generierung neuer Sätze sowohl mit vorkommenden als auch mit nicht-vorkommenden Wörtern (vgl. Paper: „Automatic Text Summarization with Machine Learning“)
-	\item BERT: \url{https://towardsdatascience.com/summarization-has-gotten-commoditized-thanks-to-bert-9bb73f2d6922}
+	\item Verschiedene Ansätze \url{https://medium.com/analytics-vidhya/deep-reinforcement-learning-deeprl-for-abstractive-text-summarization-made-easy-tutorial-9-c6914999c76c}, evtl. im Forschungsstand erwähnen
 	\item Siehe Abstract im Exposé
 \end{itemize}
 
@@ -16,6 +16,8 @@ Notizen:
 Notizen:
 \begin{itemize}
 	\item Netzwerk des abstraktiven Ansatzes als Pipeline skizzieren
+	\item Seq2Seq \url{https://github.com/yaserkl/RLSeq2Seq#dataset}
+	\item Deep Reinforcement Learning (DeepRL) for Abstractive Text Summarization \url{https://medium.com/analytics-vidhya/deep-reinforcement-learning-deeprl-for-abstractive-text-summarization-made-easy-tutorial-9-c6914999c76c}
 \end{itemize}
 
 
@@ -40,5 +42,5 @@ Notizen:
 	\item Praktische Nutzung durch Implementation eines vortrainierten Modells in ein Skript oder eine Software
 	\item Es muss eine Metrik existieren, mit der man die Genauigkeit bzw. Qualität der Zusammenfassung messen kann, d.h. man möchte die Texte nicht mit menschlich generierten Zusammenfassungen vergleichen, sondern automatisiert lernen, ggf. sollte man auch Grammatik und Inhalt separat prüfen
 	\item For a given document there is no summary which is objectively the best. As a general rule, many of them that would be judged equally good by a human. It is hard to define precisely what a good summary is and what score we should use for its evaluation. Good training data has long been scarce and expensive to collect. Human evaluation of a summary is subjective and involves judgments like style, coherence, completeness and readability. Unfortunately no score is currently known which is both easy to compute and faithful to human judgment. The ROUGE score [6] is the best we have but it has obvious shortcomings as we shall see. ROUGE simply counts the number of words, or n-grams, that are common to the summary produced by a machine and a reference summary written by a human. \url{https://towardsdatascience.com/deep-learning-models-for-automatic-summarization-4c2b89f2a9ea}
-	\item Bei der Anwendung einer Architektur, in der das Modell durch Reinforcement Learning trainiert wird, braucht man keine massenhaft menschlich generierten Referenztexte, sondern eine wohlbedachte Kostenfunktion, der ein entsprechender Aufwand entgegen gebracht werden muss
+	\item Bei der Anwendung einer Architektur, in der das Modell durch Reinforcement Learning trainiert wird, braucht man keine massenhaft menschlich generierten Referenztexte, sondern eine wohlbedachte Kostenfunktion, der ein entsprechender Aufwand entgegen gebracht werden muss, d.h. die Herausforderung liegt beim RL eher darin, eine Umwelt und eine geeignete Funktion zum Belohnen und Bestrafen zu konstruieren, hier sind bspw. auch Evaluationsmetriken notwendig
 \end{itemize}
