@@ -2,6 +2,8 @@
 import glob
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 import nlp_pipeline as nlp
 
 from collections import Counter
@@ -24,10 +26,11 @@ def read_files():
     text_files = []
 
     for file in meta_files:
-        df = pd.read_excel(file)
+        if "wikipedia" in file:
+            df = pd.read_excel(file)
 
-        for id in df["ID"]:
-            text_files.append(TEXT_FILES + id + ".txt")
+            for id in df["ID"]:
+                text_files.append(TEXT_FILES + id + ".txt")
 
     print(f"\tNumber of meta-files: {len(meta_files)}")
     print(f"\tNumber of text-files: {len(text_files)}")
@@ -74,26 +77,32 @@ def get_sector_distribution():
         distribution["data_mendeley"] += size if "data_mendeley" in file else 0
         distribution["data_uci"] += size if "data_uci" in file else 0
 
-    # TODO: Export graphics, add total text-file-count
-    print(f"\tDistribution of sectors: {distribution}")
+    n = sum(distribution.values())
+
+    fig, ax = plt.subplots(figsize=[10, 6], tight_layout=True)
+    labels = distribution.keys()
+    plt.pie(x=distribution, autopct="%.1f%%", explode=[0.05] * 2, labels=labels, pctdistance=0.5)
+    plt.title("Sector distribution (" + n + " files)", fontsize=14)
+    fig.savefig("./corpus_report/sector_distribution.png")
+    plt.clf()
 
 
 def get_text_length_distribution(corpus):
-    distribution = {}
+    distribution = []
 
     for text in corpus:
         size = len(text)
+        distribution.append(size)
 
-        if size in distribution:
-            distribution[size] += 1
+    fig = sns.distplot(distribution, hist=True, kde=False,
+                       bins=int(max(distribution) / min(distribution)),
+                       color="blue", hist_kws={"edgecolor": "black"})
 
-        else:
-            distribution[size] = 1
-
-    distribution = sorted(distribution.items(), key=lambda kv: (kv[1], kv[0]))
-
-    # TODO: Export graphic, search for stacked (value-grouped) charts, e.g. dense-representation
-    print(f"\tDistribution of text lengths: {distribution}")
+    plt.title("Text length distribution")
+    plt.xlabel("Length in words")
+    plt.ylabel("Number of documents")
+    fig.savefig("./corpus_report/text_length_distribution.png")
+    plt.clf()
 
 
 def get_word_distribution(corpus):
@@ -109,8 +118,11 @@ def get_word_distribution(corpus):
 
     vocabulary = sorted(vocabulary.items(), key=lambda kv: (kv[1], kv[0]))
 
-    # TODO: Export graphics, head as well as tail items, after cleaning all texts
-    print(f"\tDistribution of words: {vocabulary}")
+    items = vocabulary.items()
+    distribution = list(items)[:20]
+    distribution.plot() # TODO
+    plt.show()
+    plt.clf()
 
 
 def get_n_gram_statistics(corpus, n):
@@ -125,7 +137,7 @@ def get_n_gram_statistics(corpus, n):
     n_grams = [" ".join(n_gram) for n_gram in n_grams]
     distribution = Counter(n_grams)
 
-    # TODO: Export graphics, head as well as tail items, after cleaning all texts
+    # TODO: Export graphics
     print(distribution.most_common(20))
 
 

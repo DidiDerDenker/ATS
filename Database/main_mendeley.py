@@ -10,10 +10,13 @@ import pandas as pd
 from googletrans import Translator
 
 
-# Global Variables
+# User Input
 JSON_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\dump_mendeley\\Part (1)\\"
-TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_mendeley_part_01.xlsx"
+
+
+# Global Variables
+TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 DATAFRAME = None
 EXPORT_PROGRESS = 0
 
@@ -99,7 +102,7 @@ def process_files(files):
 
     for file in files:
         with open(file) as f:
-            translator = Translator()
+            translator = Translator() # TODO
             data = json.load(f)
             sentences = [translate_sentence(translator, item["sentence"]) for item in data["body_text"]]
             sentences = filter(None, sentences)
