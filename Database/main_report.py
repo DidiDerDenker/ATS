@@ -1,9 +1,10 @@
 # Imports
 import glob
 import os
+import math
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import nlp_pipeline as nlp
 
 from collections import Counter
@@ -63,7 +64,6 @@ def get_sector_distribution():
 
     distribution = {"data_open_legal": 0,
                     "data_wikipedia": 0,
-                    "data_enron": 0,
                     "data_mendeley": 0,
                     "data_uci": 0}
 
@@ -73,35 +73,71 @@ def get_sector_distribution():
 
         distribution["data_open_legal"] += size if "data_open_legal" in file else 0
         distribution["data_wikipedia"] += size if "data_wikipedia" in file else 0
-        distribution["data_enron"] += size if "data_enron" in file else 0
         distribution["data_mendeley"] += size if "data_mendeley" in file else 0
         distribution["data_uci"] += size if "data_uci" in file else 0
 
+    distribution = {k: v for k, v in distribution.items() if int(v) != 0}
     n = sum(distribution.values())
+    cnt = len(distribution.values())
 
     fig, ax = plt.subplots(figsize=[10, 6], tight_layout=True)
-    labels = distribution.keys()
-    plt.pie(x=distribution, autopct="%.1f%%", explode=[0.05] * 2, labels=labels, pctdistance=0.5)
-    plt.title("Sector distribution (" + n + " files)", fontsize=14)
-    fig.savefig("./corpus_report/sector_distribution.png")
+    plt.pie([float(v) for v in distribution.values()],
+            labels=[str(k) for k in distribution.keys()],
+            colors=plt.cm.magma(np.linspace(0.2, 0.8, cnt)),
+            autopct="%1.1f%%", pctdistance=1.25, explode=[0.05] * cnt)
+
+    plt.title("Sector distribution (" + str(n) + " files)", fontsize=14)
+    fig.savefig("C:\\Temp/corpus_report/sector_distribution.png")
     plt.clf()
 
 
+def get_stacked_distribution(values, n_parts):
+    v_min = min(values)
+    v_max = max(values)
+    n_size = math.floor((v_max - v_min) / (n_parts - 1))
+    parts = []
+    distribution = {}
+
+    for i in range(0, n_parts - 1):
+        n = v_min + i * n_size
+        parts.append(n)
+
+    for part in parts:
+        distribution[str(part) + "-" + str(part + n_size - 1)] = 0
+
+    for v in values:
+        for d in distribution.keys():
+            start = int(d.split("-")[0])
+            end = int(d.split("-")[1])
+
+            if start <= v <= end:
+                distribution[d] += 1
+
+    return distribution
+
+
 def get_text_length_distribution(corpus):
-    distribution = []
+    values = []
 
     for text in corpus:
-        size = len(text)
-        distribution.append(size)
+        size = len(str(text))
+        values.append(size)
 
-    fig = sns.distplot(distribution, hist=True, kde=False,
-                       bins=int(max(distribution) / min(distribution)),
-                       color="blue", hist_kws={"edgecolor": "black"})
+    n_parts = 20
+    distribution = get_stacked_distribution(values, n_parts)
+
+    # TODO: Display bars correctly, e.g. try another plot, maybe barh as well
+    print(distribution)
+    fig, ax = plt.subplots(figsize=[14, 6], tight_layout=True)
+    plt.bar([int(k.split("-")[0]) for k in distribution.keys()], [int(v) for v in distribution.values()],
+            color=plt.cm.magma(np.linspace(0.8, 0.2, n_parts)),
+            tick_label=[str(k) for k in distribution.keys()], width=0.8)
 
     plt.title("Text length distribution")
     plt.xlabel("Length in words")
     plt.ylabel("Number of documents")
-    fig.savefig("./corpus_report/text_length_distribution.png")
+    plt.xticks(rotation=30)
+    fig.savefig("C:\\Temp/corpus_report/text_length_distribution.png")
     plt.clf()
 
 
@@ -116,12 +152,21 @@ def get_word_distribution(corpus):
             else:
                 vocabulary[word] = 1
 
-    vocabulary = sorted(vocabulary.items(), key=lambda kv: (kv[1], kv[0]))
+    n_top = 20
+    distribution = {k: v for k, v in sorted(vocabulary.items(), key=lambda x: x[1], reverse=True)}
+    distribution = list(distribution.items())[:n_top]
 
-    items = vocabulary.items()
-    distribution = list(items)[:20]
-    distribution.plot() # TODO
-    plt.show()
+    words = [str(x[0]) for x in distribution]
+    counts = [int(x[1]) for x in distribution]
+    y_pos = np.arange(len(words))
+
+    fig, ax = plt.subplots(figsize=[10, 6], tight_layout=True)
+    plt.title("Word distribution")
+    plt.barh(y_pos, counts, align="center", color=plt.cm.magma(np.linspace(0.2, 0.8, n_top)))
+    plt.xlabel("Counts")
+    plt.yticks(y_pos, labels=words)
+    plt.gca().invert_yaxis()
+    fig.savefig("C:\\Temp/corpus_report/word_distribution.png")
     plt.clf()
 
 
@@ -133,12 +178,23 @@ def get_n_gram_statistics(corpus, n):
             if token != "":
                 tokens.append(token)
 
+    n_top = 20
     n_grams = zip(*[tokens[i:] for i in range(n)])
     n_grams = [" ".join(n_gram) for n_gram in n_grams]
-    distribution = Counter(n_grams)
+    distribution = Counter(n_grams).most_common(n_top)
 
-    # TODO: Export graphics
-    print(distribution.most_common(20))
+    n_grams = [str(v[0]) for v in distribution]
+    counts = [int(v[1]) for v in distribution]
+    y_pos = np.arange(len(n_grams))
+
+    fig, ax = plt.subplots(figsize=[10, 6], tight_layout=True)
+    plt.title("N-Gram statistics (n=" + str(n) + ")")
+    plt.barh(y_pos, counts, align="center", color=plt.cm.magma(np.linspace(0.2, 0.8, n_top)))
+    plt.xlabel("Counts")
+    plt.yticks(y_pos, labels=n_grams)
+    plt.gca().invert_yaxis()
+    fig.savefig("C:\\Temp/corpus_report/n_gram_statistics_for_n_equals_" + str(n) + ".png")
+    plt.clf()
 
 
 # Main
