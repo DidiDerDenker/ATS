@@ -27,14 +27,13 @@ def read_files():
     text_files = []
 
     for file in meta_files:
-        if "wikipedia" in file:
-            df = pd.read_excel(file)
+        df = pd.read_excel(file)
 
-            for id in df["ID"]:
-                text_files.append(TEXT_FILES + id + ".txt")
+        for id in df["ID"]:
+            text_files.append(TEXT_FILES + id + ".txt")
 
     print(f"\tNumber of meta-files: {len(meta_files)}")
-    print(f"\tNumber of text-files: {len(text_files)}") # TODO: Remove wikipedia-filter
+    print(f"\tNumber of text-files: {len(text_files)}")
 
     return text_files
 
@@ -91,19 +90,16 @@ def get_sector_distribution():
     plt.clf()
 
 
-def get_stacked_distribution(values, n_parts):
-    v_min = 1000 # min(values)
-    v_max = max(values)
-    n_size = math.floor((v_max - v_min) / (n_parts - 1))
-    parts = []
+def get_stacked_distribution(values, n):
+    v_min = 1000.0
+    v_max = 10000.0
+    step_size = (v_max - v_min) / (n - 1)
+    borders = np.linspace(v_min, v_max, num=n)
+    parts = [str(b)[:-2] + "-" + str(b + step_size - 1)[:-2] for b in borders][:-1]
     distribution = {}
 
-    for i in range(0, n_parts - 1):
-        n = v_min + i * n_size
-        parts.append(n)
-
     for part in parts:
-        distribution[str(part) + "-" + str(part + n_size - 1)] = 0
+        distribution[str(part)] = 0
 
     for v in values:
         for d in distribution.keys():
@@ -123,12 +119,12 @@ def get_text_length_distribution(corpus):
         size = len(str(text))
         values.append(size)
 
-    n_parts = 20
-    distribution = get_stacked_distribution(values, n_parts)
+    n = 25
+    distribution = get_stacked_distribution(values, n)
 
     fig, ax = plt.subplots(figsize=[14, 6], tight_layout=True)
     plt.bar(distribution.keys(), distribution.values(),
-            color=plt.cm.magma(np.linspace(0.8, 0.2, n_parts)))
+            color=plt.cm.magma(np.linspace(0.8, 0.2, n)))
 
     plt.title("Text length distribution")
     plt.xlabel("Length in words")
