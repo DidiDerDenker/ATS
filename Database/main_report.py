@@ -11,10 +11,10 @@ from collections import Counter
 
 
 # Global Variables
-TEXT_FILES = "C:\\Temp\\Corpus\\"
+TEXT_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 META_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-MODEL = "de_core_news_lg" # de_core_news_sm
 LEMMATIZER = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Database\\iwnlp_lemmatizer.json"
+MODEL = "de_core_news_lg" # de_core_news_sm
 
 
 # Methods
@@ -34,7 +34,7 @@ def read_files():
                 text_files.append(TEXT_FILES + id + ".txt")
 
     print(f"\tNumber of meta-files: {len(meta_files)}")
-    print(f"\tNumber of text-files: {len(text_files)}")
+    print(f"\tNumber of text-files: {len(text_files)}") # TODO: Remove wikipedia-filter
 
     return text_files
 
@@ -92,7 +92,7 @@ def get_sector_distribution():
 
 
 def get_stacked_distribution(values, n_parts):
-    v_min = min(values)
+    v_min = 1000 # min(values)
     v_max = max(values)
     n_size = math.floor((v_max - v_min) / (n_parts - 1))
     parts = []
@@ -126,47 +126,15 @@ def get_text_length_distribution(corpus):
     n_parts = 20
     distribution = get_stacked_distribution(values, n_parts)
 
-    # TODO: Display bars correctly, e.g. try another plot, maybe barh as well
-    print(distribution)
     fig, ax = plt.subplots(figsize=[14, 6], tight_layout=True)
-    plt.bar([int(k.split("-")[0]) for k in distribution.keys()], [int(v) for v in distribution.values()],
-            color=plt.cm.magma(np.linspace(0.8, 0.2, n_parts)),
-            tick_label=[str(k) for k in distribution.keys()], width=0.8)
+    plt.bar(distribution.keys(), distribution.values(),
+            color=plt.cm.magma(np.linspace(0.8, 0.2, n_parts)))
 
     plt.title("Text length distribution")
     plt.xlabel("Length in words")
     plt.ylabel("Number of documents")
     plt.xticks(rotation=30)
     fig.savefig("C:\\Temp/corpus_report/text_length_distribution.png")
-    plt.clf()
-
-
-def get_word_distribution(corpus):
-    vocabulary = {}
-
-    for text in corpus:
-        for word in text.split():
-            if word in vocabulary:
-                vocabulary[word] += 1
-
-            else:
-                vocabulary[word] = 1
-
-    n_top = 20
-    distribution = {k: v for k, v in sorted(vocabulary.items(), key=lambda x: x[1], reverse=True)}
-    distribution = list(distribution.items())[:n_top]
-
-    words = [str(x[0]) for x in distribution]
-    counts = [int(x[1]) for x in distribution]
-    y_pos = np.arange(len(words))
-
-    fig, ax = plt.subplots(figsize=[10, 6], tight_layout=True)
-    plt.title("Word distribution")
-    plt.barh(y_pos, counts, align="center", color=plt.cm.magma(np.linspace(0.2, 0.8, n_top)))
-    plt.xlabel("Counts")
-    plt.yticks(y_pos, labels=words)
-    plt.gca().invert_yaxis()
-    fig.savefig("C:\\Temp/corpus_report/word_distribution.png")
     plt.clf()
 
 
@@ -219,13 +187,10 @@ def main():
     print("Exporting text length distribution...")
     get_text_length_distribution(new_corpus)
 
-    print("Exporting word distribution...")
-    get_word_distribution(new_corpus)
-
     print("Exporting n-gram-statistics...")
+    get_n_gram_statistics(new_corpus, 1)
     get_n_gram_statistics(new_corpus, 2)
     get_n_gram_statistics(new_corpus, 3)
-    get_n_gram_statistics(new_corpus, 5)
 
 
 if __name__ == "__main__":
