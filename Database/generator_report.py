@@ -1,58 +1,26 @@
 # Imports
 import glob
 import os
-import math
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import nlp_pipeline as nlp
 
 from collections import Counter
 
 
 # Global Variables
-TEXT_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 META_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-LEMMATIZER = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Database\\iwnlp_lemmatizer.json"
-MODEL = "de_core_news_lg" # de_core_news_sm
+LEMMATIZED_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_files\\"
 
 
 # Methods
-def read_files():
-    global TEXT_FILES
-    global META_FILES
+def read_text(file_path):
+    with open(file_path, "r", encoding="utf8", errors="ignore") as f:
+        lines = f.readlines()
+        text = "\n".join(lines)
+        f.close()
 
-    os.chdir(META_FILES)
-    meta_files = glob.glob("*.xlsx")
-    text_files = []
-
-    for file in meta_files:
-        df = pd.read_excel(file)
-
-        for id in df["ID"]:
-            text_files.append(TEXT_FILES + id + ".txt")
-
-    print(f"\tNumber of meta-files: {len(meta_files)}")
-    print(f"\tNumber of text-files: {len(text_files)}")
-
-    return text_files
-
-
-def read_text(files):
-    corpus = []
-
-    for file in files:
-        try:
-            with open(file, "r", encoding="utf8", errors="ignore") as f:
-                lines = f.readlines()
-                text = "\n".join(lines)
-                text = nlp.clean_text(text)
-                corpus.append(text)
-
-        except Exception as e:
-            print(e)
-
-    return corpus
+    return text
 
 
 def get_sector_distribution():
@@ -163,30 +131,31 @@ def get_n_gram_statistics(corpus, n):
 
 # Main
 def main():
-    global MODEL
-    global LEMMATIZER
+    global META_FILES
+    global LEMMATIZED_FILES
 
-    print("Reading files...")
-    files = read_files()
+    os.chdir(META_FILES)
+    meta_files = glob.glob("*.xlsx")
+    corpus = []
 
-    print("Reading text...")
-    raw_corpus = read_text(files)
+    for file in meta_files:
+        df = pd.read_excel(file)
 
-    print("Processing nlp-pipeline...")
-    nlp_pipeline = nlp.Pipeline(raw_corpus, MODEL, LEMMATIZER)
-    nlp_pipeline.process()
-    new_corpus = nlp_pipeline.new_corpus
+        for id in df["ID"]:
+            file_path = LEMMATIZED_FILES + id + ".txt"
+            text = read_text(file_path)
+            corpus.append(text)
 
     print("Exporting sector distribution...")
     get_sector_distribution()
 
     print("Exporting text length distribution...")
-    get_text_length_distribution(new_corpus)
+    get_text_length_distribution(corpus)
 
     print("Exporting n-gram-statistics...")
-    get_n_gram_statistics(new_corpus, 1)
-    get_n_gram_statistics(new_corpus, 2)
-    get_n_gram_statistics(new_corpus, 3)
+    get_n_gram_statistics(corpus, 1)
+    get_n_gram_statistics(corpus, 2)
+    get_n_gram_statistics(corpus, 3)
 
 
 if __name__ == "__main__":
