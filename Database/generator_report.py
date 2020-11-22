@@ -4,6 +4,7 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import data_loader_corpus as dlc
 
 from collections import Counter
 
@@ -14,15 +15,6 @@ LEMMATIZED_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\
 
 
 # Methods
-def read_text(file_path):
-    with open(file_path, "r", encoding="utf8", errors="ignore") as f:
-        lines = f.readlines()
-        text = "\n".join(lines)
-        f.close()
-
-    return text
-
-
 def get_sector_distribution():
     global META_FILES
 
@@ -134,17 +126,8 @@ def main():
     global META_FILES
     global LEMMATIZED_FILES
 
-    os.chdir(META_FILES)
-    meta_files = glob.glob("*.xlsx")
-    corpus = []
-
-    for file in meta_files:
-        df = pd.read_excel(file)
-
-        for id in df["ID"]:
-            file_path = LEMMATIZED_FILES + id + ".txt"
-            text = read_text(file_path)
-            corpus.append(text)
+    print("Reading corpus...")
+    corpus = dlc.main(META_FILES, LEMMATIZED_FILES)
 
     print("Exporting sector distribution...")
     get_sector_distribution()
