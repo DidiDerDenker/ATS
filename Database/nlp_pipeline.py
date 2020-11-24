@@ -3,6 +3,7 @@ import glob
 import os
 import pandas as pd
 import re
+import string
 import spacy
 import sys
 
@@ -34,7 +35,8 @@ def read_text(file_path):
 def clean_text(text):
     text = text.lower()
     text = re.sub(r"http\S+", "", text)
-    text = re.sub("[\(§\[§].*?[\)\]]", "", text)
+    text = text.translate(None, string.punctuation)
+    # text = re.sub("[\(§\[§].*?[\)\]]", "", text)
 
     return text
 
@@ -69,35 +71,46 @@ def export_text(file_path, doc):
             f.write(doc)
             f.close()
 
-        sys.stdout.write("\rFile %i..." % (EXPORT_PROGRESS + 1))
-        sys.stdout.flush()
         EXPORT_PROGRESS += 1
+        print_progress()
 
     except Exception as e:
         print(e)
+
+
+def print_progress():
+    global EXPORT_PROGRESS
+
+    sys.stdout.write("\rFile %i..." % EXPORT_PROGRESS)
+    sys.stdout.flush()
 
 
 # Main
 def main():
     global TEXT_FILES
     global META_FILES
+    global EXPORT_PROGRESS
 
     os.chdir(META_FILES)
     meta_files = glob.glob("*.xlsx")
 
     for file in meta_files:
-        if "open_legal" not in file:
+        if "tensorflow" in file:
             df = pd.read_excel(file)
 
             for id in df["ID"]:
                 input_path = TEXT_FILES + id + ".txt"
                 output_path = LEMMATIZED_FILES + id + ".txt"
-                text = read_text(input_path)
-                text = clean_text(text)
-                doc = lemmatize_text(text)
 
-                if len(doc) > 500:
+                if not os.path.isfile(output_path):
+                    text = read_text(input_path)
+                    text = clean_text(text)
+                    doc = lemmatize_text(text)
                     export_text(output_path, doc)
+
+                else:
+                    EXPORT_PROGRESS += 1
+                    print_progress()
 
 
 if __name__ == "__main__":

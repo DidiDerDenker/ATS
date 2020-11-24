@@ -13,10 +13,11 @@ Notizen:
 Notizen:
 	\item Data Collection: Akquise mittels Skripten in Python, zunächst mit grober Vorverarbeitung, noch nicht entsprechend der NLP-Pipeline
 	\item Zielform der Textdateien beschreiben, Ablagestruktur ebenfalls
-	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/}), CORPUS (\url{https://archive.ics.uci.edu/ml/datasets/Legal+Case+Reports}), ENRON (\url{https://www.cs.cmu.edu/~./enron/}), MENDELEY (\url{https://data.mendeley.com/datasets/zm33cdndxs/2})
+	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/}), tensorflow-datasets (use latex-boxes when using bib), also \url{https://www.tensorflow.org/datasets/catalog/wikihow} mit ~157.252 Sätzen, \url{https://www.tensorflow.org/datasets/catalog/gigaword} mit ~3.803.957 Texten und \url{https://www.tensorflow.org/datasets/catalog/cnn_dailymail} mit ~x Texten, jeweils mit entsprechender Zusammenfassung)
 	\item Datenherkünfte beschreiben, d.h. Dateiformat, Größe, Sprache etc. beschreiben
 	\item Nicht-deutschsprachige Texte werden übersetzt und geprüft
-	\item Von den Datenquellen wird vermutet und nach manueller Einsicht bestätigt, dass Texte dort grammatikalisch korrekt sind, außerdem allgemeinsprachlich und ausreichend lang (> 1000 Wörter, es wird angenommen, dass 1000 Wörtern vorliegen müssen, um eine Zusammenfassung erforderlich zu machen) sind und möglichst diversifizierten Themengebieten entstammen
+	\item Von den Datenquellen wird vermutet und nach manueller Einsicht bestätigt, dass Texte dort grammatikalisch korrekt sind, außerdem allgemeinsprachlich und ausreichend lang (> 1000 Wörter, es wird angenommen, dass 1000 Wörtern vorliegen müssen, um eine Zusammenfassung erforderlich zu machen, kleiner Korpus mit Sätzen wird zur Robustheit ergänzt) sind und möglichst diversifizierten Themengebieten entstammen
+	\item Testdaten aus anderen Domänen vorbereiten und dokumentieren
 
 
 \section{Vorverarbeitung}
@@ -24,6 +25,7 @@ Notizen:
 	\item Daten iterieren, jeweils die Klassen zum Data Cleaning, Tokenisierung, Lemmatisieren etc. für einen einzelnen Text aufrufen, ggf. per weiteren Exporten zwischenspeichern, zuvor alle möglichen Dateien sichten und möglichst viele Fehler im Laufe des erneuten Exportes eliminieren, Ablageorte und Textdateiversionen beschreiben, dann Train-Test-Split, Übergabe der vorverarbeiteten Daten an die Modelle, welche den Korpus von einer Klasse namens NLP-Pipeline bekommt
 	\item Weitergehende Besonderheiten innerhalb der Texte werden toleriert, da diese auch im Praxisbetrieb auftreten könnten und somit gekannt werden sollten
 	\item Möglicherweise Spell Checking von Google RS für die deutsche Sprache einbinden
+	\item Interne Pipeline: Skripte zum Herunterladen erledigen Data Cleaning, NLP-Pipeline erledigt Tokenisierung und Lemmatisierung
 
 
 \section{Datensatz}
@@ -31,4 +33,6 @@ Notizen:
 	\item Datengrundlage besteht aus frei verfügbaren allgemeinsprachlichen, ausreichend langen und deutschsprachigen Daten, verschiedene Herkünfte
 	\item Auf Grundlage dieser Allgemeinsprache und den eben genannten Vorhaben, sollte ein grundlegendes Modell trainiert werden und später für den Use Case eine Art Adaptive Learning betrieben werden, d.h. wenn bekannt ist, dass das Modell für medizinische Texte angewandt werden soll, sollte man vorher die Parameter des Modells finetunen
 	\item Später dann zwecks Adaption auch unternehmensinterne fachspezifische Daten notwendig, genauer beschreiben, perspektivisch sogar fachspezifische, dialogorientierte oder auch mehrsprachige Modelle möglich, dementsprechend mehr Daten benötigt, ggf. erst im Ausblick erwähnen
+	\item Ähneln medizinische Texte "normalen" Texten? Gefahr: Hohe Informationsdichte bei Diktaten - "Was fällt raus?"
+	\item Ergebnisse beim Domänenübergriff? "falsch-positiv"?
 	\item Skript zum Einlesen entwickeln, bspw. "data_loader"

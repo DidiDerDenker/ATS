@@ -21,16 +21,17 @@ def main(META_FILES, LEMMATIZED_FILES):
     corpus = []
 
     for file in meta_files:
-        df = pd.read_excel(file)
+        if "tensorflow" in file:
+            df = pd.read_excel(file)
 
-        for id in df["ID"]:
-            try:
-                file_path = LEMMATIZED_FILES + id + ".txt"
-                text = read_text(file_path)
-                corpus.append(text)
+            for id in df["ID"]:
+                try:
+                    file_path = LEMMATIZED_FILES + id + ".txt"
+                    text = read_text(file_path)
+                    corpus.append(text)
 
-            except Exception as e:
-                print(e)
+                except Exception as e:
+                    print(e)
 
     return corpus
 
