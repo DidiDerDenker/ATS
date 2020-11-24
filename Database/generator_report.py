@@ -10,15 +10,15 @@ from collections import Counter
 
 
 # Global Variables
-META_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-LEMMATIZED_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_files\\"
+META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
+LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_files\\"
 
 
 # Methods
 def get_sector_distribution():
-    global META_FILES
+    global META_PATH
 
-    os.chdir(META_FILES)
+    os.chdir(META_PATH)
     files = glob.glob("*.xlsx")
 
     distribution = {"data_open_legal": 0,
@@ -123,11 +123,11 @@ def get_n_gram_statistics(corpus, n):
 
 # Main
 def main():
-    global META_FILES
-    global LEMMATIZED_FILES
+    global META_PATH
+    global LEMMATIZATION_PATH
 
     print("Reading corpus...")
-    corpus = dlc.main(META_FILES, LEMMATIZED_FILES)
+    corpus = dlc.main(META_PATH, LEMMATIZATION_PATH)
 
     print("Exporting sector distribution...")
     get_sector_distribution()

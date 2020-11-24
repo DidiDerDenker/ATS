@@ -9,7 +9,7 @@ import pandas as pd
 
 # Global Variables
 TEXT_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
-META_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
+META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
 
 
 # Methods
@@ -24,7 +24,7 @@ def clean_text(text):
 # Main
 def main():
     global TEXT_FILES
-    global META_FILES
+    global META_PATH
 
     token_count = 0
     vocab = {}

@@ -13,10 +13,10 @@ Notizen:
 Notizen:
 	\item Data Collection: Akquise mittels Skripten in Python, zunächst mit grober Vorverarbeitung, noch nicht entsprechend der NLP-Pipeline
 	\item Zielform der Textdateien beschreiben, Ablagestruktur ebenfalls
-	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/}), tensorflow-datasets (use latex-boxes when using bib), also \url{https://www.tensorflow.org/datasets/catalog/wikihow} mit ~157.252 Sätzen, \url{https://www.tensorflow.org/datasets/catalog/gigaword} mit ~3.803.957 Texten und \url{https://www.tensorflow.org/datasets/catalog/cnn_dailymail} mit ~x Texten, jeweils mit entsprechender Zusammenfassung)
+	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/}), tensorflow-datasets (use latex-boxes when using bib), also \url{https://www.tensorflow.org/datasets/catalog/wikihow} mit ~157.252 Texten, in denen Themen beantwortet werden, \url{https://www.tensorflow.org/datasets/catalog/gigaword} mit ~3.803.957 Sätzen und \url{https://www.tensorflow.org/datasets/catalog/cnn_dailymail} mit ~287.113 Newsartikel, jeweils mit entsprechender Zusammenfassung)
 	\item Datenherkünfte beschreiben, d.h. Dateiformat, Größe, Sprache etc. beschreiben
 	\item Nicht-deutschsprachige Texte werden übersetzt und geprüft
-	\item Von den Datenquellen wird vermutet und nach manueller Einsicht bestätigt, dass Texte dort grammatikalisch korrekt sind, außerdem allgemeinsprachlich und ausreichend lang (> 1000 Wörter, es wird angenommen, dass 1000 Wörtern vorliegen müssen, um eine Zusammenfassung erforderlich zu machen, kleiner Korpus mit Sätzen wird zur Robustheit ergänzt) sind und möglichst diversifizierten Themengebieten entstammen
+	\item Von den Datenquellen wird vermutet und nach manueller Einsicht bestätigt, dass Texte dort grammatikalisch korrekt sind, außerdem allgemeinsprachlich und ausreichend lang (> 1000 Wörter, es wird angenommen, dass 1000 Wörtern vorliegen müssen, um eine Zusammenfassung erforderlich zu machen) sind und möglichst diversifizierten Themengebieten entstammen
 	\item Testdaten aus anderen Domänen vorbereiten und dokumentieren
 
 
@@ -36,3 +36,4 @@ Notizen:
 	\item Ähneln medizinische Texte "normalen" Texten? Gefahr: Hohe Informationsdichte bei Diktaten - "Was fällt raus?"
 	\item Ergebnisse beim Domänenübergriff? "falsch-positiv"?
 	\item Skript zum Einlesen entwickeln, bspw. "data_loader"
+	\item Sätze nur in geringem Anteil verwenden, d.h. knapp unter 500.000 realen Trainings- und/ oder Testdaten
