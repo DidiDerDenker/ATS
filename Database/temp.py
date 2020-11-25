@@ -16,7 +16,7 @@ META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\
 def clean_text(text):
     text = text.lower()
     text = re.sub(r"http\S+", "", text)
-    text = text.translate(None, string.punctuation)
+    text = re.sub("[^a-zäöüA-ZÄÖÜß]", " ", text)
 
     return text
 
@@ -29,13 +29,14 @@ def main():
     token_count = 0
     vocab = {}
 
-    os.chdir(META_FILES)
+    os.chdir(META_PATH)
     meta_files = glob.glob("*.xlsx")
 
     for file in meta_files:
         corpus = ""
 
-        if "open_legal" not in file:
+        if "wikipedia" in file:
+            print("Starting iteration...")
             df = pd.read_excel(file)
 
             for id in df["ID"]:
@@ -63,14 +64,17 @@ def main():
                 else:
                     vocab[token] += freq
 
+            print(vocab)
+            print(f"Finished iteration ({file})")
+
     print(f"Distinct token: {len(vocab.keys())}")
     print(f"Total token: {token_count}")
 
-    df = pd.DataFrame.from_dict(vocab)
+    df = pd.DataFrame.from_dict(vocab, orient="index")
     df.to_excel("C:\\Temp\\Types.xlsx")
 
-    # TODO: Use lemmatized text-files, send report again
-    # TODO: Implement analysis in the report, alternatively rename this script
+    # TODO: Send report again
+    # TODO: Remove this script
 
 
 if __name__ == "__main__":
