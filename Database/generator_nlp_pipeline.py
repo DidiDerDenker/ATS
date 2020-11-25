@@ -96,7 +96,7 @@ def main():
     meta_files = glob.glob("*.xlsx")
 
     for file in meta_files:
-        if "tensorflow" in file:
+        if "tensorflow" in file: # TODO: Select corpus
             df = pd.read_excel(file)
 
             for id in df["ID"]:

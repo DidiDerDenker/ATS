@@ -156,7 +156,7 @@ def get_n_gram_statistics(corpus, n):
 # Main
 def main():
     print("Reading corpus...")
-    corpus = data_loader("tensorflow")
+    corpus = data_loader("tensorflow") # TODO: Select corpus
 
     print("Exporting sector distribution...")
     get_sector_distribution()

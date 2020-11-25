@@ -1,16 +1,13 @@
 # Imports
-import sys
+import json
 import uuid
 import pandas as pd
-import tensorflow as tf
-import tensorflow_datasets.public_api as tfds
 
 
 # Global Variables
 TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 SUMMARY_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\summary_files\\"
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-EXPORT_PROGRESS = 0
 
 
 # Methods
@@ -23,16 +20,25 @@ def export_meta_file(meta_name, log):
     df[["ID", "Title"]].to_excel(meta_path, index=False)
 
 
-def iterate_dataset(ds, name_text, name_summary, meta_name):
+# Main
+def main():
     global TEXT_PATH
     global SUMMARY_PATH
     global META_PATH
-    global EXPORT_PROGRESS
 
+    temp_file = "C:\\Users\\didid\\Downloads\\TLDR-TEMP\\tldr-training-data.jsonl" # TODO: Remove file afterwards, update this path
     log = []
 
-    for entry in tfds.as_numpy(ds):
-        text, summary = str(entry[name_text])[2:-1], str(entry[name_summary])[2:-1]
+    iteration_num = 0
+    export_num = 1
+
+    for line in open(temp_file):
+        d = json.loads(line)
+        text = d["content"]
+        summary = d["summary"]
+
+        # TODO: Test and run
+
         id = str(uuid.uuid4()).upper()
         text_path = TEXT_PATH + id + ".txt"
         summary_path = SUMMARY_PATH + id + ".txt"
@@ -47,28 +53,18 @@ def iterate_dataset(ds, name_text, name_summary, meta_name):
                 f.close()
 
             log.append((id, "-"))
-            sys.stdout.write("\rFile %i..." % (EXPORT_PROGRESS + 1))
-            sys.stdout.flush()
-            EXPORT_PROGRESS += 1
+            iteration_num += 1
 
         except Exception as e:
             print(e)
 
+        if iteration_num % 100000 == 0:
+            meta_name = "tldr_" + str(export_num)
+            export_meta_file(log)
+            export_num += 1
+            log = []
+
     export_meta_file(meta_name, log)
-
-
-# Main
-def main():
-    ds_wikihow, info = tfds.load("wikihow", split="train", with_info=True)
-    iterate_dataset(ds_wikihow, "text", "headline", "data_tensorflow_wikihow")
-
-    # TODO: Test and run
-
-    ds_gigaword, info = tfds.load("gigaword", split="train", with_info=True)
-    iterate_dataset(ds_gigaword, "document", "summary", "data_tensorflow_gigaword")
-
-    ds_cnn_dailymail, info = tfds.load("cnn_dailymail", split="train", with_info=True) # TODO: Clear and parse texts
-    iterate_dataset(ds_cnn_dailymail, "article", "highlights", "data_tensorflow_cnn_dailymail")
 
 
 if __name__ == "__main__":
