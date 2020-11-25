@@ -64,7 +64,6 @@ def main():
                 else:
                     vocab[token] += freq
 
-            print(vocab)
             print(f"Finished iteration ({file})")
 
     print(f"Distinct token: {len(vocab.keys())}")

@@ -4,7 +4,6 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import data_loader_corpus as dlc
 
 from collections import Counter
 
@@ -15,6 +14,39 @@ LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]
 
 
 # Methods
+def read_text(file_path):
+    with open(file_path, "r", encoding="utf8", errors="ignore") as f:
+        lines = f.readlines()
+        text = "\n".join(lines)
+        f.close()
+
+    return text
+
+
+def data_loader(manual_filter):
+    global META_PATH
+    global LEMMATIZATION_PATH
+
+    os.chdir(META_PATH)
+    meta_files = glob.glob("*.xlsx")
+    corpus = []
+
+    for file in meta_files:
+        if manual_filter in file:
+            df = pd.read_excel(file)
+
+            for id in df["ID"]:
+                try:
+                    file_path = LEMMATIZATION_PATH + id + ".txt"
+                    text = read_text(file_path)
+                    corpus.append(text)
+
+                except Exception as e:
+                    print(e)
+
+    return corpus
+
+
 def get_sector_distribution():
     global META_PATH
 
@@ -123,11 +155,8 @@ def get_n_gram_statistics(corpus, n):
 
 # Main
 def main():
-    global META_PATH
-    global LEMMATIZATION_PATH
-
     print("Reading corpus...")
-    corpus = dlc.main(META_PATH, LEMMATIZATION_PATH)
+    corpus = data_loader("tensorflow")
 
     print("Exporting sector distribution...")
     get_sector_distribution()
