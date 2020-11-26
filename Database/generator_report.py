@@ -64,8 +64,10 @@ def get_sector_distribution():
 
         distribution["data_open_legal"] += size if "data_open_legal" in file else 0
         distribution["data_wikipedia"] += size if "data_wikipedia" in file else 0
-        distribution["data_mendeley"] += size if "data_mendeley" in file else 0
-        distribution["data_uci"] += size if "data_uci" in file else 0
+        distribution["data_tensorflow_wikihow"] += size if "data_tensorflow_wikihow" in file else 0
+        distribution["data_tensorflow_gigaword"] += size if "data_tensorflow_gigaword" in file else 0
+        distribution["data_tensorflow_cnn_dailymail"] += size if "data_tensorflow_cnn_dailymail" in file else 0
+        distribution["data_tldr"] += size if "data_tldr" in file else 0
 
     distribution = {k: v for k, v in distribution.items() if int(v) != 0}
     n = sum(distribution.values())
@@ -156,7 +158,7 @@ def get_n_gram_statistics(corpus, n):
 # Main
 def main():
     print("Reading corpus...")
-    corpus = data_loader("tensorflow") # TODO: Select corpus
+    corpus = data_loader("tensorflow_wikihow") # TODO: Select corpus, e.g. "tensorflow_cnn_dailymail"
 
     print("Exporting sector distribution...")
     get_sector_distribution()

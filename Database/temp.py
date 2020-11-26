@@ -12,17 +12,17 @@ TEXT_FILES = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
 
 
-# Methods
-def clean_text(text):
-    text = text.lower()
-    text = re.sub(r"http\S+", "", text)
-    text = re.sub("[^a-zäöüA-ZÄÖÜß]", " ", text)
-
-    return text
-
-
 # Main
 def main():
+    '''
+    df = pd.read_csv("C:\\Temp\\Types.csv", encoding="utf8")
+    df.columns = ["Type", "Freq"]
+    df = df.sort_values(by=["Freq"], ascending=False)
+    df.to_csv("C:\\Temp\\Types.txt", sep="\t", encoding="utf8", index=False, header=False)
+    df.to_csv("C:\\Temp\\Types.csv", encoding="utf8", index=False)
+    exit()
+    '''
+
     global TEXT_FILES
     global META_PATH
 
@@ -35,8 +35,8 @@ def main():
     for file in meta_files:
         corpus = ""
 
-        if "wikipedia" in file:
-            print("Starting iteration...")
+        if "wikipedia" in file: # TODO: Select corpus
+            print(f"Starting iteration ({file})")
             df = pd.read_excel(file)
 
             for id in df["ID"]:
@@ -48,7 +48,6 @@ def main():
                     corpus = corpus + " " + text
                     f.close()
 
-            corpus = clean_text(corpus)
             tokens = [token.lower() for token in nltk.word_tokenize(corpus)]
             freq = nltk.FreqDist(tokens)
             df = pd.DataFrame(freq.items(), columns=["Token", "Freq"])
@@ -70,7 +69,7 @@ def main():
     print(f"Total token: {token_count}")
 
     df = pd.DataFrame.from_dict(vocab, orient="index")
-    df.to_excel("C:\\Temp\\Types.xlsx")
+    df.to_csv("C:\\Temp\\Types.csv")
 
     # TODO: Send report again
     # TODO: Remove this script

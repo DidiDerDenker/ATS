@@ -3,9 +3,9 @@ import glob
 import os
 import pandas as pd
 import re
-import string
 import spacy
 import sys
+import string
 
 from nltk.corpus import stopwords
 from spacy_iwnlp import spaCyIWNLP
@@ -16,10 +16,15 @@ TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
 LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_files\\"
 
+MODEL = "en_core_web_log"
+STOPWORDS = stopwords.words("english")
+EXPORT_PROGRESS = 0
+
+'''
 MODEL = "de_core_news_lg" # de_core_news_sm
 LEMMATIZER = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Database\\iwnlp_lemmatizer.json"
 STOPWORDS = stopwords.words("german")
-EXPORT_PROGRESS = 0
+'''
 
 
 # Methods
@@ -43,9 +48,15 @@ def clean_text(text):
 
 def lemmatize_text(text):
     global MODEL
-    global LEMMATIZER
     global STOPWORDS
 
+    nlp = spacy.load(MODEL)
+    doc = nlp(text)
+    text = " ".join([token.lemma_ for token in doc if token.lemma_ not in STOPWORDS])
+
+    # TODO: Test and use, search for comparison of best lemmatizer, clarify needed text format, what about POS?
+
+    '''
     nlp = spacy.load(MODEL)
     nlp.add_pipe(spaCyIWNLP(lemmatizer_path=LEMMATIZER))
     doc = nlp(text)
@@ -59,6 +70,7 @@ def lemmatize_text(text):
                 words.append(lemma)
 
     text = " ".join(word for word in words)
+    '''
 
     return text
 
@@ -96,7 +108,7 @@ def main():
     meta_files = glob.glob("*.xlsx")
 
     for file in meta_files:
-        if "tensorflow" in file: # TODO: Select corpus
+        if "tensorflow_wikihow" or "tensorflow_cnn_dailymail" in file: # TODO: Select corpora
             df = pd.read_excel(file)
 
             for id in df["ID"]:

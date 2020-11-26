@@ -11,13 +11,14 @@ META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\
 
 
 # Methods
-def export_meta_file(meta_name, log):
+def export_meta_file(name, log):
     global META_PATH
 
-    meta_path = META_PATH + meta_name + ".xlsx"
+    meta_path = META_PATH + name + ".xlsx"
     df = pd.DataFrame(data=log, columns=["ID", "Title"])
     df = df.sort_values(by=["Title"])
     df[["ID", "Title"]].to_excel(meta_path, index=False)
+    print("Export done...")
 
 
 # Main
@@ -26,18 +27,15 @@ def main():
     global SUMMARY_PATH
     global META_PATH
 
-    temp_file = "C:\\Users\\didid\\Downloads\\TLDR-TEMP\\tldr-training-data.jsonl" # TODO: Remove file afterwards, update this path
+    temp_file = "C:\\Users\\didid\\Downloads\\TLDR-TEMP\\tldr.jsonl" # TODO: Remove file afterwards from directory, update this path
     log = []
-
     iteration_num = 0
     export_num = 1
 
-    for line in open(temp_file):
+    for line in open(temp_file, encoding="utf8"):
         d = json.loads(line)
         text = d["content"]
         summary = d["summary"]
-
-        # TODO: Test and run
 
         id = str(uuid.uuid4()).upper()
         text_path = TEXT_PATH + id + ".txt"
@@ -59,12 +57,13 @@ def main():
             print(e)
 
         if iteration_num % 100000 == 0:
-            meta_name = "tldr_" + str(export_num)
-            export_meta_file(log)
+            name = "data_tldr_" + str(export_num)
+            export_meta_file(name, log)
             export_num += 1
             log = []
 
-    export_meta_file(meta_name, log)
+    name = "data_tldr_" + str(export_num)
+    export_meta_file(name, log)
 
 
 if __name__ == "__main__":
