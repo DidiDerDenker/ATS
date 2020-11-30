@@ -72,9 +72,8 @@ def main():
     # ds_wikihow, info = tfds.load("wikihow", split="train", with_info=True)
     # iterate_dataset(ds_wikihow, "text", "headline", "data_tensorflow_wikihow")
 
-    ds_gigaword, info = tfds.load("gigaword", split="train", with_info=True)
-    iterate_dataset(ds_gigaword, "document", "summary", "data_tensorflow_gigaword")
-    exit()
+    # ds_gigaword, info = tfds.load("gigaword", split="train", with_info=True)
+    # iterate_dataset(ds_gigaword, "document", "summary", "data_tensorflow_gigaword")
 
     ds_cnn_dailymail, info = tfds.load("cnn_dailymail", split="train", with_info=True) # TODO: Clear and parse texts
     iterate_dataset(ds_cnn_dailymail, "article", "highlights", "data_tensorflow_cnn_dailymail")

@@ -14,7 +14,7 @@ from spacy_iwnlp import spaCyIWNLP
 # Global Variables
 TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_files\\"
+LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_text_files\\"
 
 MODEL = "en_core_web_log"
 STOPWORDS = stopwords.words("english")
@@ -114,6 +114,8 @@ def main():
             for id in df["ID"]:
                 input_path = TEXT_PATH + id + ".txt"
                 output_path = LEMMATIZATION_PATH + id + ".txt"
+
+                # TODO: What about summaries?
 
                 if not os.path.isfile(output_path):
                     text = read_text(input_path)

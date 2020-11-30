@@ -10,7 +10,7 @@ from collections import Counter
 
 # Global Variables
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_files\\"
+LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_text_files\\"
 
 
 # Methods
@@ -26,6 +26,8 @@ def read_text(file_path):
 def data_loader(manual_filter):
     global META_PATH
     global LEMMATIZATION_PATH
+
+    # TODO: What about summaries?
 
     os.chdir(META_PATH)
     meta_files = glob.glob("*.xlsx")
@@ -158,7 +160,7 @@ def get_n_gram_statistics(corpus, n):
 # Main
 def main():
     print("Reading corpus...")
-    corpus = data_loader("tensorflow_wikihow") # TODO: Select corpus, e.g. "tensorflow_cnn_dailymail"
+    corpus = data_loader("tensorflow_wikihow") # TODO: Select corpus, e.g. "tensorflow_wikihow" or "tensorflow_cnn_dailymail"
 
     print("Exporting sector distribution...")
     get_sector_distribution()
