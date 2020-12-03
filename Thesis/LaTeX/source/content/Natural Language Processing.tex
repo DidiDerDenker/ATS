@@ -15,6 +15,7 @@ Notizen:
 	\item Lemmatizer: \url{https://github.com/Liebeck/spacy-iwnlp}
 	\item Transfer Learning with German BERT? \url{https://deepset.ai/german-bert} -> Modell muss die deutsche Sprache nicht alleine und von neu  mit den Trainingsdaten lernen, sondern erhält einen großen Vorsprung, BERT ist Modell, welches der Transformer-Architektur nachkommt, d.h. Transformer sind bestimmte Architekturen, eventuell hiermit die Struktur dieses Kapitels überarbeiten, hier für vor allem aus meinem privaten Verzeichnis das Paper "Pre-Training of Deep Bidirectional Transformers for Language Understanding using BERT" nutzen
 	\item GLoVe-Embeddings nutzen, weil TF-IDF etc. nicht den Kontext eines Satzes betrachten
+	\item Supervised Learning nutzen, aber es ist eventuell nicht genug, hier kommt bspw. Transfer Learning mit BERT zur Abhilfe, zudem bspw. semi-supervised Learning mit Auto-Encoders? Self-supervised Training
 	\item Siehe Abstract im Exposé
 \end{itemize}
 
@@ -29,7 +30,9 @@ Notizen:
 
 \subsection{Textbereinigung}
 Notizen:
+\begin{itemize}
 	\item Siehe vergangene Aufgaben in GitHub
+\end{itemize}
 
 
 \subsection{Tokenisierung}
@@ -42,6 +45,8 @@ Notizen:
 
 \subsection{Lemmatisierung}
 Notizen:
+	\item Lemmatisierung eventuell irrelevant, weil Wort-Tokenisierung bei modernen Architekturen und Modellen oftmals ausreicht
+	\item Nach erfolgreichem Aufsetzen der Pipeline kann man die Eingangsdaten testweise immer noch der Lemmatisierung oder weiteren Vorverarbeitungsschritten unterziehen, um deren Auswirkungen zu messen
 
 
 \subsection{Entfernen von Stoppwörtern}

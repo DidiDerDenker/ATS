@@ -15,6 +15,27 @@ META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\
 
 
 # Methods
+def clean_cnn_dailymail(text):
+    preambles = ["| . UPDATED: . ", "UPDATED: . ", "UPDATED: "]
+    patterns = ["(CNN)", "(CNN Student News)", "Daily Mail Reporter .", " -- ", "By . ", "CREATED: . ", "NEW: ",
+                "(Oprah.com)", "(EW.com)", "(Wired)", "(Kaiser Health News)", "(PEOPLE.com)", "(Rolling Stone)"]
+
+    for preamble in preambles:
+        if preamble in text:
+            text = text.split(preamble)[1]
+
+    for pattern in patterns:
+        text = text.replace(pattern, "")
+
+    if "EST" in text.split(".")[0] or len(text.split(".")[0].split()) < 3:
+        parts = text.split(".")
+        text = "".join(parts[1:len(parts)])
+
+    text = text.replace(" .", ".")
+
+    return text
+
+
 def export_meta_file(name, log):
     global META_PATH
 
@@ -37,6 +58,10 @@ def iterate_dataset(ds, name_text, name_summary, meta_name):
     for entry in tfds.as_numpy(ds):
         text = str(entry[name_text], "utf-8")
         summary = str(entry[name_summary], "utf-8")
+
+        if "cnn_dailymail" in meta_name:
+            text = clean_cnn_dailymail(text)
+            summary = clean_cnn_dailymail(summary)
 
         id = str(uuid.uuid4()).upper()
         text_path = TEXT_PATH + id + ".txt"
@@ -75,7 +100,7 @@ def main():
     # ds_gigaword, info = tfds.load("gigaword", split="train", with_info=True)
     # iterate_dataset(ds_gigaword, "document", "summary", "data_tensorflow_gigaword")
 
-    ds_cnn_dailymail, info = tfds.load("cnn_dailymail", split="train", with_info=True) # TODO: Clear and parse texts
+    ds_cnn_dailymail, info = tfds.load("cnn_dailymail", split="train", with_info=True)
     iterate_dataset(ds_cnn_dailymail, "article", "highlights", "data_tensorflow_cnn_dailymail")
 
 

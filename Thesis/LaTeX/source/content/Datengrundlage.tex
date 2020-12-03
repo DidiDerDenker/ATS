@@ -15,13 +15,12 @@ Notizen:
 	\item Zielform der Textdateien beschreiben, Ablagestruktur ebenfalls
 	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv für ~263.000 Texte), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/} für ~100.000 Texte), tensorflow-datasets (use latex-boxes when using bib), also \url{https://www.tensorflow.org/datasets/catalog/wikihow} mit ~157.252 Texten, in denen Themen beantwortet werden, \url{https://www.tensorflow.org/datasets/catalog/gigaword} mit ~3.803.957 Sätzen, \url{https://zenodo.org/record/1168855#.X75WfmhKiUk} mit ~3.084.410 Sätzen und \url{https://www.tensorflow.org/datasets/catalog/cnn_dailymail} mit ~287.113 Newsartikel, jeweils mit entsprechender Zusammenfassung), Unterschiede und Dokumentation siehe Excel (bspw. EN-DE)
 	\item Datenherkünfte beschreiben, d.h. Dateiformat, Größe, Sprache etc. beschreiben
-	\item Nicht-deutschsprachige Texte werden übersetzt und geprüft
 	\item Von den Datenquellen wird vermutet und nach manueller Einsicht bestätigt, dass Texte dort grammatikalisch korrekt sind, außerdem allgemeinsprachlich und ausreichend lang (> 1000 Wörter, es wird angenommen, dass 1000 Wörtern vorliegen müssen, um eine Zusammenfassung erforderlich zu machen) sind und möglichst diversifizierten Themengebieten entstammen
 	\item Testdaten aus anderen Domänen vorbereiten und dokumentieren
 	\item V1: Englischsprachige Korpora aus verschiedenen Branchen aus Text-Zusammenfassung-Paaren beschaffen und übersetzen
 	\item V2: Deutschsprachige Korpora aus Text-Zusammenfassung-Paaren anfragen
 	\item V3: Englischsprachige Korpora verwenden, um Modellarchitektur zu entwickeln und Modell zu trainieren, Adaption auf die deutsche Sprache als separates anschließendes Arbeitspaket, NLP-Vorverarbeitung überarbeiten und Modell neu trainieren
-	\item V3 nutzen, bei Erfolg auf V1 ummünzen
+	\item V3 nutzen, bei Erfolg auf V1 ummünzen, oder: Eigenen deutschen Korpus aus den lokalen Agenturen aufbereiten und nutzen, Herkunft und Struktur beschreiben, Vorgang der Akquise ebenfalls, dann Fine-Tuning mit diesen Daten
 
 
 \section{Vorverarbeitung}
@@ -29,7 +28,7 @@ Notizen:
 	\item Daten iterieren, jeweils die Klassen zum Data Cleaning, Tokenisierung, Lemmatisieren etc. für einen einzelnen Text aufrufen, ggf. per weiteren Exporten zwischenspeichern, zuvor alle möglichen Dateien sichten und möglichst viele Fehler im Laufe des erneuten Exportes eliminieren, Ablageorte und Textdateiversionen beschreiben, dann Train-Test-Split, Übergabe der vorverarbeiteten Daten an die Modelle, welche den Korpus von einer Klasse namens NLP-Pipeline bekommt
 	\item Weitergehende Besonderheiten innerhalb der Texte werden toleriert, da diese auch im Praxisbetrieb auftreten könnten und somit gekannt werden sollten
 	\item Möglicherweise Spell Checking von Google RS für die deutsche Sprache einbinden
-	\item Interne Pipeline: Skripte zum Herunterladen erledigen Data Cleaning, NLP-Pipeline erledigt Tokenisierung und Lemmatisierung
+	\item Interne Pipeline: Skripte zum Herunterladen erledigen Data Cleaning, NLP-Pipeline erledigt Tokenisierung und Lemmatisierung, Lemmatisierung ausschließen, mit der Vermutung, dass neuartige Verfahren ohne viele Vorverarbeitungsschritte auskommen, außerdem Notiz zu Capitalization, Punctuation, Zeilenumbrüchen: Stark modellabhängig, tiefe Modelle wie bspw. Transformer-Architekturen (BERT) kommen damit ganz gut klar, d.h. an denen orientieren, vermutlich Plain-Text reingeben, "die machen nicht mal lower-case", Annahme: "Alles was ich reinstecke, kann ein potenzielles Feature sein", andere Vorverarbeitungsschritte verfälschen das Ergebnis insofern, als dass das Training anders erfolgt, als das Modell selbst trainiert wurde
 
 
 \section{Datensatz}
