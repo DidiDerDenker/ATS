@@ -159,8 +159,14 @@ def get_n_gram_statistics(corpus, n):
 
 # Main
 def main():
+    '''
+    "tensorflow_wikihow": Online-Wissensdatenbank als Antwort auf Texte
+    "tensorflow_cnn_dailymail": Nicht anonymisierte Nachrichtenartikel
+    "tldr": News aus Reddit-Threads
+    '''
+
     print("Reading corpus...")
-    corpus = data_loader("tensorflow_wikihow") # TODO: Select corpus, e.g. "tensorflow_wikihow" or "tensorflow_cnn_dailymail"
+    corpus = data_loader("tensorflow_wikihow") # TODO: Select corpus
 
     print("Exporting sector distribution...")
     get_sector_distribution()

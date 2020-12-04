@@ -1,11 +1,7 @@
 # Imports
-import sys
 import uuid
 import pandas as pd
-import tensorflow as tf
 import tensorflow_datasets.public_api as tfds
-
-from collections import Counter
 
 
 # Global Variables
@@ -94,11 +90,11 @@ def iterate_dataset(ds, name_text, name_summary, meta_name):
 
 # Main
 def main():
-    # ds_wikihow, info = tfds.load("wikihow", split="train", with_info=True)
-    # iterate_dataset(ds_wikihow, "text", "headline", "data_tensorflow_wikihow")
+    ds_wikihow, info = tfds.load("wikihow", split="train", with_info=True)
+    iterate_dataset(ds_wikihow, "text", "headline", "data_tensorflow_wikihow")
 
-    # ds_gigaword, info = tfds.load("gigaword", split="train", with_info=True)
-    # iterate_dataset(ds_gigaword, "document", "summary", "data_tensorflow_gigaword")
+    ds_gigaword, info = tfds.load("gigaword", split="train", with_info=True)
+    iterate_dataset(ds_gigaword, "document", "summary", "data_tensorflow_gigaword")
 
     ds_cnn_dailymail, info = tfds.load("cnn_dailymail", split="train", with_info=True)
     iterate_dataset(ds_cnn_dailymail, "article", "highlights", "data_tensorflow_cnn_dailymail")
