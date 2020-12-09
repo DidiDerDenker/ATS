@@ -68,8 +68,6 @@ def main():
 
         print(summary)
         print(text)
-        print(summary_path)
-        print(text_path)
         exit() # TODO: Test and use
 
         try:
