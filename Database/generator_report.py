@@ -30,12 +30,12 @@ def data_loader(manual_filter):
     # TODO: What about summaries?
 
     os.chdir(META_PATH)
-    meta_files = glob.glob("*.xlsx")
+    meta_files = glob.glob("*.csv")
     corpus = []
 
     for file in meta_files:
         if manual_filter in file:
-            df = pd.read_excel(file)
+            df = pd.read_csv(file, index_col=0)
 
             for id in df["ID"]:
                 try:
@@ -53,23 +53,27 @@ def get_sector_distribution():
     global META_PATH
 
     os.chdir(META_PATH)
-    files = glob.glob("*.xlsx")
+    files = glob.glob("*.csv")
 
-    distribution = {"data_open_legal": 0,
-                    "data_wikipedia": 0,
-                    "data_mendeley": 0,
-                    "data_uci": 0}
+    distribution = {
+        "cnn_dailymail": 0,
+        "gigaword": 0,
+        "open_legal": 0,
+        "tldr": 0,
+        "wikihow": 0,
+        "wikipedia": 0
+    }
 
     for file in files:
         df = pd.read_excel(file)
         size = len(df)
 
-        distribution["data_open_legal"] += size if "data_open_legal" in file else 0
-        distribution["data_wikipedia"] += size if "data_wikipedia" in file else 0
-        distribution["data_tensorflow_wikihow"] += size if "data_tensorflow_wikihow" in file else 0
-        distribution["data_tensorflow_gigaword"] += size if "data_tensorflow_gigaword" in file else 0
-        distribution["data_tensorflow_cnn_dailymail"] += size if "data_tensorflow_cnn_dailymail" in file else 0
-        distribution["data_tldr"] += size if "data_tldr" in file else 0
+        distribution["cnn_dailymail"] += size if "cnn_dailymail" in file else 0
+        distribution["gigaword"] += size if "gigaword" in file else 0
+        distribution["open_legal"] += size if "open_legal" in file else 0
+        distribution["tldr"] += size if "tldr" in file else 0
+        distribution["wikihow"] += size if "wikihow" in file else 0
+        distribution["wikipedia"] += size if "wikipedia" in file else 0
 
     distribution = {k: v for k, v in distribution.items() if int(v) != 0}
     n = sum(distribution.values())
@@ -160,13 +164,13 @@ def get_n_gram_statistics(corpus, n):
 # Main
 def main():
     '''
-    "tensorflow_wikihow": Online-Wissensdatenbank als Antwort auf Texte
-    "tensorflow_cnn_dailymail": Nicht anonymisierte Nachrichtenartikel
+    "cnn_dailymail": Nicht anonymisierte Nachrichtenartikel
+    "wikihow": Online-Wissensdatenbank als Antwort auf Texte
     "tldr": News aus Reddit-Threads
     '''
 
     print("Reading corpus...")
-    corpus = data_loader("tensorflow_wikihow") # TODO: Select corpus
+    corpus = data_loader("cnn_dailymail") # TODO: Select corpus
 
     print("Exporting sector distribution...")
     get_sector_distribution()

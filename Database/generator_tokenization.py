@@ -8,17 +8,19 @@ import sys
 import string
 
 from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 from spacy_iwnlp import spaCyIWNLP
 
 
 # Global Variables
-TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
+TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
+SUMMARY_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\summary_files\\"
 TOKENIZED_TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\tokenized_text_files\\"
 TOKENIZED_SUMMARY_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\tokenized_summary_files\\"
 
-MODEL = "en_core_web_log"
 STOPWORDS = stopwords.words("english")
+MODEL = "en_core_web_log"
 EXPORT_PROGRESS = 0
 
 '''
@@ -32,12 +34,13 @@ STOPWORDS = stopwords.words("german")
 def read_text(file_path):
     with open(file_path, "r", encoding="utf8", errors="ignore") as f:
         lines = f.readlines()
-        text = "\n".join(lines)
+        text = ". ".join(lines)
         f.close()
 
     return text
 
 
+'''
 def clean_text(text):
     text = text.lower()
     text = re.sub(r"http\S+", "", text)
@@ -48,32 +51,29 @@ def clean_text(text):
 
 
 def lemmatize_text(text):
-    global MODEL
     global STOPWORDS
+    global MODEL
 
     nlp = spacy.load(MODEL)
     doc = nlp(text)
     text = " ".join([token.lemma_ for token in doc if token.lemma_ not in STOPWORDS])
 
-    # TODO: Test and use, search for comparison of best lemmatizer, clarify needed text format, what about POS?
+    # nlp = spacy.load(MODEL)
+    # nlp.add_pipe(spaCyIWNLP(lemmatizer_path=LEMMATIZER))
+    # doc = nlp(text)
+    # words = []
 
-    '''
-    nlp = spacy.load(MODEL)
-    nlp.add_pipe(spaCyIWNLP(lemmatizer_path=LEMMATIZER))
-    doc = nlp(text)
-    words = []
+    # for token in doc:
+    #     if token._.iwnlp_lemmas is not None:
+    #         lemma = token._.iwnlp_lemmas[0]
 
-    for token in doc:
-        if token._.iwnlp_lemmas is not None:
-            lemma = token._.iwnlp_lemmas[0]
+    #         if lemma not in STOPWORDS:
+    #             words.append(lemma)
 
-            if lemma not in STOPWORDS:
-                words.append(lemma)
-
-    text = " ".join(word for word in words)
-    '''
-
+    # text = " ".join(word for word in words)
+    
     return text
+'''
 
 
 def export_text(file_path, doc):
@@ -102,31 +102,35 @@ def print_progress():
 def main():
     global TEXT_PATH
     global META_PATH
-    global LEMMATIZATION_PATH
-    global EXPORT_PROGRESS
+    global TOKENIZED_TEXT_PATH
+    global TOKENIZED_SUMMARY_PATH
 
     os.chdir(META_PATH)
-    meta_files = glob.glob("*.xlsx")
+    meta_files = glob.glob("*.csv")
 
     for file in meta_files:
-        if "tensorflow_wikihow" or "tensorflow_cnn_dailymail" in file: # TODO: Select corpora
-            df = pd.read_excel(file)
+        if "cnn_dailymail" in file or "wikihow" in file or "tldr" in file: # TODO: Select corpora
+            df = pd.read_csv(file, index_col=0)
 
             for id in df["ID"]:
-                input_path = TEXT_PATH + id + ".txt"
-                output_path = LEMMATIZATION_PATH + id + ".txt"
+                text_file = TEXT_PATH + id + ".txt"
+                tokenized_text_file = TOKENIZED_TEXT_PATH + id + ".txt"
 
-                # TODO: What about summaries?
+                summary_file = SUMMARY_PATH + id + ".txt"
+                tokenized_summary_file = TOKENIZED_SUMMARY_PATH + id + ".txt"
 
-                if not os.path.isfile(output_path):
-                    text = read_text(input_path)
-                    text = clean_text(text)
-                    doc = lemmatize_text(text)
-                    export_text(output_path, doc)
+                if os.path.isfile(text_file) \
+                        and os.path.isfile(summary_file) \
+                        and not os.path.isfile(tokenized_text_file) \
+                        and not os.path.isfile(tokenized_summary_file):
+                    text = read_text(text_file)
+                    summary = read_text(summary_file)
 
-                else:
-                    EXPORT_PROGRESS += 1
-                    print_progress()
+                    tokenized_text = word_tokenize(text)
+                    tokenized_summary = word_tokenize(summary)
+
+                    export_text(tokenized_text_file, tokenized_text)
+                    export_text(tokenized_summary_file, tokenized_summary)
 
 
 if __name__ == "__main__":
