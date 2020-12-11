@@ -10,7 +10,8 @@ from collections import Counter
 
 # Global Variables
 META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-LEMMATIZATION_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\lemmatized_text_files\\"
+TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
+SUMMARY_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\summary_files\\"
 
 
 # Methods
@@ -23,30 +24,38 @@ def read_text(file_path):
     return text
 
 
-def data_loader(manual_filter):
+def data_loader(corpus_name):
     global META_PATH
-    global LEMMATIZATION_PATH
-
-    # TODO: What about summaries?
+    global TEXT_PATH
+    global SUMMARY_PATH
 
     os.chdir(META_PATH)
     meta_files = glob.glob("*.csv")
-    corpus = []
+
+    text_corpus = []
+    summary_corpus = []
 
     for file in meta_files:
-        if manual_filter in file:
+        if corpus_name in file:
             df = pd.read_csv(file, index_col=0)
 
             for id in df["ID"]:
                 try:
-                    file_path = LEMMATIZATION_PATH + id + ".txt"
-                    text = read_text(file_path)
-                    corpus.append(text)
+                    text_file = TEXT_PATH + id + ".txt"
+                    summary_file = SUMMARY_PATH + id + ".txt"
+
+                    text = read_text(text_file)
+                    summary = read_text(summary_file)
+
+                    text_corpus.append(text)
+                    summary_corpus.append(summary)
 
                 except Exception as e:
                     print(e)
 
-    return corpus
+    # corpus = list(zip(text_corpus, summary_corpus))
+
+    return text_corpus, summary_corpus
 
 
 def get_sector_distribution():
@@ -112,7 +121,7 @@ def get_stacked_distribution(values, n):
     return distribution
 
 
-def get_text_length_distribution(corpus):
+def get_length_distribution(corpus, name):
     values = []
 
     for text in corpus:
@@ -130,7 +139,7 @@ def get_text_length_distribution(corpus):
     plt.xlabel("Length in words")
     plt.ylabel("Number of documents")
     plt.xticks(rotation=30)
-    fig.savefig("C:\\Temp/corpus_report/text_length_distribution.png")
+    fig.savefig("C:\\Temp/corpus_report/" + str(name) + "_length_distribution.png")
     plt.clf()
 
 
@@ -170,18 +179,19 @@ def main():
     '''
 
     print("Reading corpus...")
-    corpus = data_loader("cnn_dailymail") # TODO: Select corpus
+    text_corpus, summary_corpus = data_loader("cnn_dailymail") # TODO: Select corpus
 
     print("Exporting sector distribution...")
     get_sector_distribution()
 
     print("Exporting text length distribution...")
-    get_text_length_distribution(corpus)
+    get_length_distribution(text_corpus, "text")
+    get_length_distribution(summary_corpus, "summary")
 
     print("Exporting n-gram-statistics...")
-    get_n_gram_statistics(corpus, 1)
-    get_n_gram_statistics(corpus, 2)
-    get_n_gram_statistics(corpus, 3)
+    get_n_gram_statistics(text_corpus, 1)
+    get_n_gram_statistics(text_corpus, 2)
+    get_n_gram_statistics(text_corpus, 3)
 
 
 if __name__ == "__main__":
