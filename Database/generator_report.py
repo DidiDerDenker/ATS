@@ -74,7 +74,7 @@ def get_sector_distribution():
     }
 
     for file in files:
-        df = pd.read_excel(file)
+        df = pd.read_csv(file, index_col=0)
         size = len(df)
 
         distribution["cnn_dailymail"] += size if "cnn_dailymail" in file else 0
@@ -172,14 +172,8 @@ def get_n_gram_statistics(corpus, n):
 
 # Main
 def main():
-    '''
-    "cnn_dailymail": Nicht anonymisierte Nachrichtenartikel
-    "wikihow": Online-Wissensdatenbank als Antwort auf Texte
-    "tldr": News aus Reddit-Threads
-    '''
-
     print("Reading corpus...")
-    text_corpus, summary_corpus = data_loader("cnn_dailymail") # TODO: Select corpus
+    text_corpus, summary_corpus = data_loader("wikihow") # TODO: Select corpus
 
     print("Exporting sector distribution...")
     get_sector_distribution()
