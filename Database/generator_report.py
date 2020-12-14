@@ -9,9 +9,9 @@ from collections import Counter
 
 
 # Global Variables
-META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\"
-TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
-SUMMARY_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\summary_files\\"
+META_PATH = "C:\\Temp\\Corpus\\meta_files\\"
+TEXT_PATH = "C:\\Temp\\Corpus\\text_files\\"
+SUMMARY_PATH = "C:\\Temp\\Corpus\\summary_files\\"
 
 
 # Methods

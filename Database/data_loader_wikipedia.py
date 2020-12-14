@@ -12,8 +12,8 @@ LIMIT = 100000
 
 
 # Global Variables
-TEXT_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
-META_PATH = "\\\\NAS-SYSTEM\\home\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_wikipedia_" + str(INITIAL_CATEGORY).lower() + ".xlsx"
+TEXT_PATH = "B:\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\text_files\\"
+META_PATH = "B:\\CloudStation\\Drive\\Server [Daniel]\\Active\\[Karriere]\\Organisationen\\Data Science\\AutomaticTextSummarization\\Database\\meta_files\\data_wikipedia_" + str(INITIAL_CATEGORY).lower() + ".xlsx"
 STOP_SECTIONS = "./stop_sections.txt"
 DATAFRAME = None
 ITERATION_NUM = 0
