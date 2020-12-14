@@ -56,7 +56,7 @@ def copy_files(meta_corpus):
             copyfile(summary_file, new_summary_file)
 
             n_iter += 1
-            print(f"File {n_iter}/{n_load} | {(n_iter / n_load):.5f}%")
+            print(f"File {n_iter}/{n_load} | {(n_iter / n_load) * 100:.5f}%")
 
         except Exception as e:
             print(e)

@@ -1,5 +1,6 @@
 # Imports
 from data_loader import DataLoader
+from transformers import pipeline
 from rouge import Rouge
 
 
@@ -10,6 +11,17 @@ SUMMARY_PATH = "C:\\Temp\\Corpus\\summary_files\\"
 
 
 # Methods
+def process_transformers(text_corpus):
+    # Models: ["bert-base-cased", "bert-large-cased", "gpt2-large", "albert-large-v2"]
+    # Parameters: ["model", "tokenizer", "max_length"]
+    summarizer = pipeline("summarization")
+    summary_corpus = []
+
+    for text in text_corpus:
+        summary = summarizer(text)
+        summary_corpus.append(summary)
+
+    return summary_corpus
 
 
 # Main
@@ -34,18 +46,13 @@ def main():
     exit()
 
     ''' MODEL-SECTION '''
-    model.train(X_train, y_train)
-    y_hyps = model.predict(X_test)
+    # model.train(X_train, y_train)
+    y_hyps = process_transformers(X_test)
     y_refs = y_test
-    exit()
 
     ''' SCORE-SECTION '''
     instance = Rouge()
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
-
-    print(scores)
-
-    exit()
 
 
 if __name__ == "__main__":
