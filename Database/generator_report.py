@@ -95,7 +95,7 @@ def get_sector_distribution():
             autopct="%1.1f%%", pctdistance=1.25, explode=[0.05] * cnt)
 
     plt.title("Sector distribution (" + str(n) + " files)", fontsize=14)
-    fig.savefig("C:\\Temp/corpus_report/sector_distribution.png")
+    fig.savefig("C:\\Temp\\Corpus\\Report\\sector_distribution.png")
     plt.clf()
 
 
@@ -139,7 +139,7 @@ def get_length_distribution(corpus, name):
     plt.xlabel("Length in words")
     plt.ylabel("Number of documents")
     plt.xticks(rotation=30)
-    fig.savefig("C:\\Temp/corpus_report/" + str(name) + "_length_distribution.png")
+    fig.savefig("C:\\Temp\\Corpus\\Report\\" + str(name) + "_length_distribution.png")
     plt.clf()
 
 
@@ -166,7 +166,7 @@ def get_n_gram_statistics(corpus, n):
     plt.xlabel("Counts")
     plt.yticks(y_pos, labels=n_grams)
     plt.gca().invert_yaxis()
-    fig.savefig("C:\\Temp/corpus_report/n_gram_statistics_for_n_equals_" + str(n) + ".png")
+    fig.savefig("C:\\Temp\\Corpus\\Report\\n_gram_statistics_for_n_equals_" + str(n) + ".png")
     plt.clf()
 
 

@@ -1,6 +1,7 @@
 # Imports
 from data_loader import DataLoader
 from transformers import pipeline
+from transformers import AutoModelWithLMHead, AutoTokenizer
 from rouge import Rouge
 
 
@@ -12,16 +13,23 @@ SUMMARY_PATH = "C:\\Temp\\Corpus\\summary_files\\"
 
 # Methods
 def process_transformers(text_corpus):
-    # Models: ["bert-base-cased", "bert-large-cased", "gpt2-large", "albert-large-v2"]
-    # Parameters: ["model", "tokenizer", "max_length"]
-    summarizer = pipeline("summarization")
-    summary_corpus = []
-
-    for text in text_corpus:
-        summary = summarizer(text)
-        summary_corpus.append(summary)
+    pretrained_model = "t5-base" # ["bert-base-cased", "bert-large-cased", "albert-large-v2"]
+    model = AutoModelWithLMHead.from_pretrained(pretrained_model)
+    tokenizer = AutoTokenizer.from_pretrained(pretrained_model)
+    summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
+    summary_corpus = [summarizer(text)[0]["summary_text"] for text in text_corpus]
 
     return summary_corpus
+
+
+def print_rouge_scores(scores):
+    rouge_1 = scores["rouge-1"]
+    rouge_2 = scores["rouge-2"]
+    rouge_l = scores["rouge-l"]
+
+    print(f"Rouge-1:\tf: {rouge_1['f']:.4f} | p: {rouge_1['p']:.4f} | r: {rouge_1['r']:.4f}")
+    print(f"Rouge-2:\tf: {rouge_2['f']:.4f} | p: {rouge_2['p']:.4f} | r: {rouge_2['r']:.4f}")
+    print(f"Rouge-l:\tf: {rouge_l['f']:.4f} | p: {rouge_l['p']:.4f} | r: {rouge_l['r']:.4f}")
 
 
 # Main
@@ -46,13 +54,13 @@ def main():
     exit()
 
     ''' MODEL-SECTION '''
-    # model.train(X_train, y_train)
     y_hyps = process_transformers(X_test)
     y_refs = y_test
 
     ''' SCORE-SECTION '''
     instance = Rouge()
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
+    print_rouge_scores(scores)
 
 
 if __name__ == "__main__":

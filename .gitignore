@@ -28,3 +28,6 @@ Database/venv/Lib/site-packages/de_core_news_lg/meta.json
 Database/venv/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
 Models/venv/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
 Models/venv/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
+Models/venv/Lib/site-packages/torch/lib/dnnl.lib
+Models/venv/Lib/site-packages/torch/lib/mkldnn.lib
+Models/venv/Lib/site-packages/torch/lib/torch_cpu.dll
