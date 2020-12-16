@@ -17,7 +17,7 @@ def process_transformers(text_corpus):
     model = AutoModelWithLMHead.from_pretrained(pretrained_model)
     tokenizer = AutoTokenizer.from_pretrained(pretrained_model)
     summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
-    summary_corpus = [summarizer(text)[0]["summary_text"] for text in text_corpus]
+    summary_corpus = [summarizer(text, max_length=0.25 * len(text))[0]["summary_text"] for text in text_corpus]
 
     return summary_corpus
 
@@ -42,16 +42,6 @@ def main():
     corpus_filter = ["wikihow"] # ["cnn_dailymail", "wikihow", "tldr"]
     instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
     X_train, y_train, X_test, y_test = instance.train_test_split(size=0.75, shuffle=True)
-
-    print(X_train)
-    print(y_train)
-
-    print(len(X_train))
-    print(len(y_train))
-    print(len(X_test))
-    print(len(y_test))
-
-    exit()
 
     ''' MODEL-SECTION '''
     y_hyps = process_transformers(X_test)
