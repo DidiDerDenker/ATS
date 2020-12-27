@@ -39,7 +39,7 @@ def main():
     global SUMMARY_PATH
 
     ''' DATA-SECTION '''
-    corpus_filter = ["wikihow"] # ["cnn_dailymail", "wikihow", "tldr"]
+    corpus_filter = ["wikihow"] # ["cnn_dailymail", "wikihow"]
     instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
     X_train, y_train, X_test, y_test = instance.train_test_split(size=0.75, shuffle=True)
 

@@ -66,11 +66,11 @@ def get_sector_distribution():
 
     distribution = {
         "cnn_dailymail": 0,
-        "gigaword": 0,
-        "open_legal": 0,
-        "tldr": 0,
         "wikihow": 0,
-        "wikipedia": 0
+        # "tldr": 0,
+        # "gigaword": 0,
+        # "open_legal": 0,
+        # "wikipedia": 0,
     }
 
     for file in files:
@@ -78,11 +78,11 @@ def get_sector_distribution():
         size = len(df)
 
         distribution["cnn_dailymail"] += size if "cnn_dailymail" in file else 0
-        distribution["gigaword"] += size if "gigaword" in file else 0
-        distribution["open_legal"] += size if "open_legal" in file else 0
-        distribution["tldr"] += size if "tldr" in file else 0
         distribution["wikihow"] += size if "wikihow" in file else 0
-        distribution["wikipedia"] += size if "wikipedia" in file else 0
+        # distribution["tldr"] += size if "tldr" in file else 0
+        # distribution["gigaword"] += size if "gigaword" in file else 0
+        # distribution["open_legal"] += size if "open_legal" in file else 0
+        # distribution["wikipedia"] += size if "wikipedia" in file else 0
 
     distribution = {k: v for k, v in distribution.items() if int(v) != 0}
     n = sum(distribution.values())
@@ -121,7 +121,7 @@ def get_stacked_distribution(values, n):
     return distribution
 
 
-def get_length_distribution(corpus, name):
+def get_length_distribution(corpus, corpus_name, type_name):
     values = []
 
     for text in corpus:
@@ -139,11 +139,11 @@ def get_length_distribution(corpus, name):
     plt.xlabel("Length in words")
     plt.ylabel("Number of documents")
     plt.xticks(rotation=30)
-    fig.savefig("C:\\Temp\\Corpus\\Report\\" + str(name) + "_length_distribution.png")
+    fig.savefig("C:\\Temp\\Corpus\\Report\\" + str(corpus_name) + "_" + str(type_name) + "_length_distribution.png")
     plt.clf()
 
 
-def get_n_gram_statistics(corpus, n):
+def get_n_gram_statistics(corpus, name, n):
     tokens = []
 
     for text in corpus:
@@ -166,26 +166,29 @@ def get_n_gram_statistics(corpus, n):
     plt.xlabel("Counts")
     plt.yticks(y_pos, labels=n_grams)
     plt.gca().invert_yaxis()
-    fig.savefig("C:\\Temp\\Corpus\\Report\\n_gram_statistics_for_n_equals_" + str(n) + ".png")
+    fig.savefig("C:\\Temp\\Corpus\\Report\\" + str(name) + "_n_gram_statistics_for_n_equals_" + str(n) + ".png")
     plt.clf()
 
 
 # Main
 def main():
     print("Reading corpus...")
-    text_corpus, summary_corpus = data_loader("wikihow") # TODO: Select corpus
+    name = "cnn_dailymail" # TODO: Select corpus
+    text_corpus, summary_corpus = data_loader(name)
 
     print("Exporting sector distribution...")
     get_sector_distribution()
 
     print("Exporting text length distribution...")
-    get_length_distribution(text_corpus, "text")
-    get_length_distribution(summary_corpus, "summary")
+    get_length_distribution(text_corpus, name, "text")
+    get_length_distribution(summary_corpus, name, "summary")
 
     print("Exporting n-gram-statistics...")
-    get_n_gram_statistics(text_corpus, 1)
-    get_n_gram_statistics(text_corpus, 2)
-    get_n_gram_statistics(text_corpus, 3)
+    get_n_gram_statistics(text_corpus, name, 1)
+    get_n_gram_statistics(text_corpus, name, 2)
+    get_n_gram_statistics(text_corpus, name, 3)
+    get_n_gram_statistics(text_corpus, name, 4)
+    get_n_gram_statistics(text_corpus, name, 5)
 
 
 if __name__ == "__main__":
