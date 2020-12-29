@@ -24,17 +24,29 @@ def process_transformers(text_corpus):
 
 def process_rl_seq_seq(text_corpus):
     # https://github.com/yaserkl/RLSeq2Seq, https://arxiv.org/abs/1805.09461
-    exit()
+
+    model = None
+    summary_corpus = None
+
+    return summary_corpus
 
 
 def process_bert_encoder_transformer_decoder(text_corpus):
     # https://github.com/santhoshkolloju/Abstractive-Summarization-With-Transfer-Learning
-    exit()
+
+    model = None
+    summary_corpus = None
+
+    return summary_corpus
 
 
 def process_seq_seq_attention(text_corpus):
     # https://github.com/JRC1995/Abstractive-Summarization
-    exit()
+
+    model = None
+    summary_corpus = None
+
+    return summary_corpus
 
 
 def print_rouge_scores(scores):
@@ -59,7 +71,10 @@ def main():
     X_train, y_train, X_test, y_test = instance.train_test_split(size=0.75, shuffle=True)
 
     ''' MODEL-SECTION '''
-    y_hyps = process_transformers(X_test)
+    # y_hyps = process_transformers(X_test)
+    y_hyps = process_rl_seq_seq(X_test)
+    # y_hyps = process_bert_encoder_transformer_decoder(X_test)
+    # y_hyps = process_seq_seq_attention(X_test)
     y_refs = y_test
 
     ''' SCORE-SECTION '''
