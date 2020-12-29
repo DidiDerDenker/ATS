@@ -31,3 +31,7 @@ Models/venv/Lib/site-packages/tensorflow/python/_pywrap_tensorflow_internal.pyd
 Models/venv/Lib/site-packages/torch/lib/dnnl.lib
 Models/venv/Lib/site-packages/torch/lib/mkldnn.lib
 Models/venv/Lib/site-packages/torch/lib/torch_cpu.dll
+Models/models/seq_to_seq_attention/embeddings/glove.6B.100d.txt
+Models/models/seq_to_seq_attention/embeddings/glove.6B.200d.txt
+Models/models/seq_to_seq_attention/embeddings/glove.6B.50d.txt
+Models/models/seq_to_seq_attention/embeddings/glove.6B.300d.txt

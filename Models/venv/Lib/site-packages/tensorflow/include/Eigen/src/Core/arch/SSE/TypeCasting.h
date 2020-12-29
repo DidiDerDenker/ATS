@@ -77,7 +77,6 @@ template<> EIGEN_STRONG_INLINE Packet4f preinterpret<Packet4f,Packet4i>(const Pa
   return _mm_castsi128_ps(a);
 }
 
-
 // Disable the following code since it's broken on too many platforms / compilers.
 //#elif defined(EIGEN_VECTORIZE_SSE) && (!EIGEN_ARCH_x86_64) && (!EIGEN_COMP_MSVC)
 #if 0

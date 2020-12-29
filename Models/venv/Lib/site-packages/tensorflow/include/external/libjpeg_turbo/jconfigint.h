@@ -14,6 +14,9 @@
 #endif
 
 
+/* How to obtain thread-local storage */
+#define THREAD_LOCAL  @THREAD_LOCAL@
+
 /* Define to the full name of this package. */
 #define PACKAGE_NAME  "libjpeg-turbo"
 

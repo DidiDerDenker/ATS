@@ -82,7 +82,8 @@ inline void throw_std_bad_alloc()
     //
     new int[huge];
     #else
-    ::operator new(huge);
+    void* unused = ::operator new(huge);
+    EIGEN_UNUSED_VARIABLE(unused);
     #endif
   #endif
 }
@@ -213,7 +214,7 @@ EIGEN_DEVICE_FUNC inline void aligned_free(void *ptr)
   */
 inline void* aligned_realloc(void *ptr, std::size_t new_size, std::size_t old_size)
 {
-  EIGEN_UNUSED_VARIABLE(old_size);
+  EIGEN_UNUSED_VARIABLE(old_size)
 
   void *result;
 #if (EIGEN_DEFAULT_ALIGN_BYTES==0) || EIGEN_MALLOC_ALREADY_ALIGNED

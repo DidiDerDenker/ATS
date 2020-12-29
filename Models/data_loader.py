@@ -2,7 +2,8 @@
 import os
 import glob
 import pandas as pd
-import random
+
+from nltk import word_tokenize
 
 
 # Methods
@@ -15,6 +16,8 @@ class DataLoader:
 
         self.meta_corpus = pd.DataFrame()
         self.corpus = []
+        self.tokenized_corpus = []
+        self.vocab2idx = {}
 
         self.read_meta_files()
         self.setup_corpus()
@@ -36,6 +39,11 @@ class DataLoader:
         text_corpus = []
         summary_corpus = []
 
+        tokenized_text_corpus = []
+        tokenized_summary_corpus = []
+
+        vocab2idx = {}
+
         for id in self.meta_corpus["ID"]:
             text_file = self.text_path + id + ".txt"
             summary_file = self.summary_path + id + ".txt"
@@ -44,33 +52,30 @@ class DataLoader:
                 text = self.read_text(text_file)
                 summary = self.read_text(summary_file)
 
+                tokenized_text = word_tokenize(text)
+                tokenized_summary = word_tokenize(summary)
+
                 if len(text) >= 1000:
+                    for word in tokenized_text:
+                        if word not in vocab2idx:
+                            vocab2idx[word] = len(vocab2idx)
+
+                    for word in tokenized_summary:
+                        if word not in vocab2idx:
+                            vocab2idx[word] = len(vocab2idx)
+
                     text_corpus.append(text)
                     summary_corpus.append(summary)
+
+                    tokenized_text_corpus.append(tokenized_text)
+                    tokenized_summary_corpus.append(tokenized_summary)
 
             except Exception as e:
                 print(e)
 
+        self.vocab2idx = vocab2idx
         self.corpus = list(zip(text_corpus, summary_corpus))
-
-    def train_test_split(self, size, shuffle):
-        train_data = []
-        test_data = []
-
-        if shuffle:
-            random.shuffle(self.corpus)
-
-        for pair in self.corpus:
-            selector = random.random()
-            train_data.append(pair) if selector < size else test_data.append(pair)
-
-        X_train = [pair[0] for pair in train_data]
-        y_train = [pair[1] for pair in train_data]
-
-        X_test = [pair[0] for pair in test_data]
-        y_test = [pair[1] for pair in test_data]
-
-        return X_train, y_train, X_test, y_test
+        self.tokenized_corpus = list(zip(tokenized_text_corpus, tokenized_summary_corpus))
 
     @staticmethod
     def read_text(file_path):

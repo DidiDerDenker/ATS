@@ -14,15 +14,13 @@
 #ifndef MLIR_DIALECT_SHAPE_TRANSFORMS_PASSES_H_
 #define MLIR_DIALECT_SHAPE_TRANSFORMS_PASSES_H_
 
-#include <memory>
+#include "mlir/Pass/Pass.h"
 
 namespace mlir {
+class BufferizeTypeConverter;
+} // namespace mlir
 
-class FunctionPass;
-class MLIRContext;
-class OwningRewritePatternList;
-class Pass;
-
+namespace mlir {
 /// Creates an instance of the ShapeToShapeLowering pass that legalizes Shape
 /// dialect to be convertible to Standard. For example, `shape.num_elements` get
 /// transformed to `shape.reduce`, which can be lowered to SCF and Standard.
@@ -41,6 +39,24 @@ void populateShapeRewritePatterns(MLIRContext *context,
 void populateRemoveShapeConstraintsPatterns(OwningRewritePatternList &patterns,
                                             MLIRContext *ctx);
 std::unique_ptr<FunctionPass> createRemoveShapeConstraintsPass();
+
+void populateShapeTypeConversionPatterns(MLIRContext *ctx,
+                                         BufferizeTypeConverter &converter,
+                                         OwningRewritePatternList &patterns);
+// Bufferizes shape dialect ops.
+//
+// Note that most shape dialect ops must be converted to std before
+// bufferization happens, as they are intended to be bufferized at the std
+// level.
+std::unique_ptr<FunctionPass> createShapeBufferizePass();
+
+//===----------------------------------------------------------------------===//
+// Registration
+//===----------------------------------------------------------------------===//
+
+/// Generate the code for registering passes.
+#define GEN_PASS_REGISTRATION
+#include "mlir/Dialect/Shape/Transforms/Passes.h.inc"
 
 } // end namespace mlir
 

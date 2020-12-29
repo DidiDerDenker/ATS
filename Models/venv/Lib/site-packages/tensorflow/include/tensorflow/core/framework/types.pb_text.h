@@ -13,6 +13,10 @@ namespace tensorflow {
 const char* EnumName_DataType(
     ::tensorflow::DataType value);
 
+// Enum text output for tensorflow.SpecializedType
+const char* EnumName_SpecializedType(
+    ::tensorflow::SpecializedType value);
+
 }  // namespace tensorflow
 
 #endif  // tensorflow_core_framework_types_proto_H_
