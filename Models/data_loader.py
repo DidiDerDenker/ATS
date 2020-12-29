@@ -44,8 +44,9 @@ class DataLoader:
                 text = self.read_text(text_file)
                 summary = self.read_text(summary_file)
 
-                text_corpus.append(text)
-                summary_corpus.append(summary)
+                if len(text) >= 1000:
+                    text_corpus.append(text)
+                    summary_corpus.append(summary)
 
             except Exception as e:
                 print(e)

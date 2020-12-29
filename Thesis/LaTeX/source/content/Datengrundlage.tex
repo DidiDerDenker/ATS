@@ -12,6 +12,7 @@ Notizen:
 \section{Akquise}
 Notizen:
 \begin{itemize}
+	\item Wikihow- und CNN-Dailymail-Korpora beschreiben, bspw. sind etwa 230.000 Wikihow-Paare zu erwarten, aber per Skript auswerten, Texte mit unter 1.000 Wörtern ausschließen, d.h. 444.365 Paare aus beiden Korpora schrumpfen um 33.177 Paare auf 411.188 in die Trainingsdaten eingehende Paare
 	\item Data Collection: Akquise mittels Skripten in Python, zunächst mit grober Vorverarbeitung, noch nicht entsprechend der NLP-Pipeline
 	\item Zielform der Textdateien beschreiben, Ablagestruktur ebenfalls
 	\item Datenquellen: Wikipedia-API (\url{https://pypi.org/project/Wikipedia-API/}, rekursiv für ~263.000 Texte), OpenLegalData-Dumps (\url{https://de.openlegaldata.io/pages/api/}, \url{https://static.openlegaldata.io/dumps/de/2019-10-21/} für ~100.000 Texte), tensorflow-datasets (use latex-boxes when using bib), also \url{https://www.tensorflow.org/datasets/catalog/wikihow} mit ~157.252 Texten, in denen Themen beantwortet werden, \url{https://www.tensorflow.org/datasets/catalog/gigaword} mit ~3.803.957 Sätzen, \url{https://zenodo.org/record/1168855#.X75WfmhKiUk} mit ~3.084.410 Sätzen und \url{https://www.tensorflow.org/datasets/catalog/cnn_dailymail} mit ~287.113 Newsartikel, jeweils mit entsprechender Zusammenfassung), Unterschiede und Dokumentation siehe Excel (bspw. EN-DE)

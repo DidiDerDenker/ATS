@@ -17,9 +17,24 @@ def process_transformers(text_corpus):
     model = AutoModelWithLMHead.from_pretrained(pretrained_model)
     tokenizer = AutoTokenizer.from_pretrained(pretrained_model)
     summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
-    summary_corpus = [summarizer(text, max_length=0.25 * len(text))[0]["summary_text"] for text in text_corpus]
+    summary_corpus = [summarizer(text, max_length=int(0.15 * len(text)))[0]["summary_text"] for text in text_corpus]
 
     return summary_corpus
+
+
+def process_rl_seq_seq(text_corpus):
+    # https://github.com/yaserkl/RLSeq2Seq, https://arxiv.org/abs/1805.09461
+    exit()
+
+
+def process_bert_encoder_transformer_decoder(text_corpus):
+    # https://github.com/santhoshkolloju/Abstractive-Summarization-With-Transfer-Learning
+    exit()
+
+
+def process_seq_seq_attention(text_corpus):
+    # https://github.com/JRC1995/Abstractive-Summarization
+    exit()
 
 
 def print_rouge_scores(scores):
