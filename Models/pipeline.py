@@ -52,7 +52,7 @@ def process_transformers(corpus, shuffle=True, size=0.75):
     print_rouge_scores(scores)
 
 
-def process_seq_to_seq_attention(corpus, vocab2idx):
+def process_seq_to_seq_attention(): # corpus, vocab2idx
     glove_file_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\models\\seq_to_seq_attention\\embeddings\\glove.6B.100d.txt"
     json_file_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\models\\seq_to_seq_attention\\data\\processed_data.json"
 
@@ -102,14 +102,14 @@ def main():
     global TEXT_PATH
     global SUMMARY_PATH
 
-    corpus_filter = ["cnn_dailymail", "wikihow"]
-    instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
+    # corpus_filter = ["wikihow"] # ["cnn_dailymail", "wikihow"]
+    # instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
 
     ''' TRANSFORMERS '''
     # process_transformers(instance.corpus)
 
     ''' SEQ-TO-SEQ-ATTENTION '''
-    process_seq_to_seq_attention(instance.tokenized_corpus, instance.vocab2idx)
+    process_seq_to_seq_attention() # instance.tokenized_corpus, instance.vocab2idx
 
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
     # process_bert_encoder_transformer_decoder()

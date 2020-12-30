@@ -3,10 +3,12 @@ import numpy as np
 import json
 import random
 import pickle
+import nltk
 import tensorflow.compat.v1 as tf
 
 
 # Global Variables
+nltk.download("punkt")
 summary_max_len = 30 # TODO: Set maximum summary length dynamically
 
 
@@ -93,15 +95,19 @@ def prepare_batches(vec_texts, vec_summaries, embeddings, vocab2idx, output_path
 
     d["vocab"] = vocab2idx
     d["embd"] = embeddings.tolist()
+
     d["train_batches_text"] = train_batches_text
-    d["test_batches_text"] = test_batches_text
     d["val_batches_text"] = val_batches_text
+    d["test_batches_text"] = test_batches_text
+
     d["train_batches_summary"] = train_batches_summary
-    d["test_batches_summary"] = test_batches_summary
     d["val_batches_summary"] = val_batches_summary
+    d["test_batches_summary"] = test_batches_summary
+
     d["train_batches_true_text_len"] = train_batches_true_text_len
     d["val_batches_true_text_len"] = val_batches_true_text_len
     d["test_batches_true_text_len"] = test_batches_true_text_len
+
     d["train_batches_true_summary_len"] = train_batches_true_summary_len
     d["val_batches_true_summary_len"] = val_batches_true_summary_len
     d["test_batches_true_summary_len"] = test_batches_true_summary_len
@@ -172,25 +178,29 @@ def model_notebook(file_path):
     window_len = 2 * local_attention_window_size + 1
     l2 = 1e-6
 
-    # Processed Data
+    # Load Data
     with open(file_path) as f:
         for json_data in f:
             saved_data = json.loads(json_data)
 
             vocab2idx = saved_data["vocab"]
             embd = saved_data["embd"]
+
             train_batches_text = saved_data["train_batches_text"]
-            test_batches_text = saved_data["test_batches_text"]
             val_batches_text = saved_data["val_batches_text"]
+            test_batches_text = saved_data["test_batches_text"] # TODO: Use
+
             train_batches_summary = saved_data["train_batches_summary"]
-            test_batches_summary = saved_data["test_batches_summary"]
             val_batches_summary = saved_data["val_batches_summary"]
+            test_batches_summary = saved_data["test_batches_summary"] # TODO: Use
+
             train_batches_true_text_len = saved_data["train_batches_true_text_len"]
             val_batches_true_text_len = saved_data["val_batches_true_text_len"]
-            test_batches_true_text_len = saved_data["test_batches_true_text_len"]
+            test_batches_true_text_len = saved_data["test_batches_true_text_len"]  # TODO: Use
+
             train_batches_true_summary_len = saved_data["train_batches_true_summary_len"]
             val_batches_true_summary_len = saved_data["val_batches_true_summary_len"]
-            test_batches_true_summary_len = saved_data["test_batches_true_summary_len"]
+            test_batches_true_summary_len = saved_data["test_batches_true_summary_len"]  # TODO: Use
 
             break
 
@@ -348,6 +358,7 @@ def model_notebook(file_path):
 
         load = input("\nLoad checkpoint? y/n: ")
         print("")
+
         saver = tf.train.Saver()
 
         if load.lower() == "y":
@@ -388,7 +399,7 @@ def model_notebook(file_path):
                 j = int(batches_indices[i])
 
                 cost, prediction, acc, _ \
-                    = sess.run([cross_entropy, outputs, accuracy, train_op],
+                    = sess.run([cross_entropy, outputs, accuracy, train_op], # values depend on the dict-items
                                feed_dict={tf_text: train_batches_text[j],
                                           tf_embd: embd,
                                           tf_summary: train_batches_summary[j],
