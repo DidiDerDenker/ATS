@@ -56,10 +56,13 @@ def process_seq_to_seq_attention(corpus, vocab2idx):
     glove_file_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\models\\seq_to_seq_attention\\embeddings\\glove.6B.100d.txt"
     json_file_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\models\\seq_to_seq_attention\\data\\processed_data.json"
 
+    '''
     embeddings = help.load_embeddings(glove_file_path)
     embeddings, vocab2idx = help.setup_vocabulary(embeddings, vocab2idx)
     vec_texts, vec_summaries = help.vectorize_and_shuffle_data(corpus, vocab2idx)
     help.prepare_batches(vec_texts, vec_summaries, embeddings, vocab2idx, json_file_path)
+    '''
+
     help.model_notebook(json_file_path)
 
     # TODO: Understand every function and every line
