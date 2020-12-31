@@ -1,6 +1,5 @@
 # Imports
 import random
-import models.seq_to_seq_attention.helpers as help
 
 from data_loader import DataLoader
 from transformers import pipeline
@@ -12,6 +11,12 @@ from rouge import Rouge
 META_PATH = "C:\\Temp\\Corpus\\meta_files\\"
 TEXT_PATH = "C:\\Temp\\Corpus\\text_files\\"
 SUMMARY_PATH = "C:\\Temp\\Corpus\\summary_files\\"
+
+
+'''
+Note: Commented snippets are scripts that have to be executed only once
+Note: Methods of models with a concluding exit-statement are not working right now)
+'''
 
 
 # Methods
@@ -51,33 +56,32 @@ def process_transformers(corpus, shuffle=True, size=0.75):
 
 
 def process_seq_to_seq_attention(): # corpus, vocab2idx
+    import models.seq_to_seq_with_attention.helpers as temp
+
     glove_file_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\models\\seq_to_seq_attention\\embeddings\\glove.6B.100d.txt"
     json_file_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\models\\seq_to_seq_attention\\data\\processed_data.json"
 
     '''
-    embeddings = help.load_embeddings(glove_file_path)
-    embeddings, vocab2idx = help.setup_vocabulary(embeddings, vocab2idx)
-    vec_texts, vec_summaries = help.vectorize_and_shuffle_data(corpus, vocab2idx)
-    help.prepare_batches(vec_texts, vec_summaries, embeddings, vocab2idx, json_file_path)
+    embeddings = temp.load_embeddings(glove_file_path)
+    embeddings, vocab2idx = temp.setup_vocabulary(embeddings, vocab2idx)
+    vec_texts, vec_summaries = temp.vectorize_and_shuffle_data(corpus, vocab2idx)
+    temp.prepare_batches(vec_texts, vec_summaries, embeddings, vocab2idx, json_file_path)
     '''
 
-    help.model_notebook(json_file_path)
-    # TODO: Load model and use test-data to generate y_hyps, get y_refs from helpers
+    y_hyps, y_refs = temp.model_notebook(json_file_path) # TODO: Load model and check y
 
-    '''
     instance = Rouge()
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
     print_rouge_scores(scores)
-    '''
 
-    exit()
-
-
-def process_seq_to_seq_library(text_corpus):
     exit()
 
 
 def process_bert_encoder_transformer_decoder(text_corpus):
+    exit()
+
+
+def process_seq_to_seq_library(text_corpus):
     exit()
 
 
@@ -116,22 +120,22 @@ def main():
     process_transformers(instance.corpus)
 
     ''' SEQ-TO-SEQ-ATTENTION '''
-    # process_seq_to_seq_attention() # instance.tokenized_corpus, instance.vocab2idx
+    # process_seq_to_seq_attention(instance.tokenized_corpus, instance.vocab2idx)
 
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
-    # process_bert_encoder_transformer_decoder()
+    # process_bert_encoder_transformer_decoder(instance.corpus)
 
     ''' SEQ-TO-SEQ-LIBRARY '''
-    # process_seq_to_seq_library()
+    # process_seq_to_seq_library(instance.corpus)
 
     ''' RL-SEQ-TO-SEQ '''
-    # process_rl_seq_to_seq()
+    # process_rl_seq_to_seq(instance.corpus)
 
     ''' SEQ-TO-SEQ-WITH-RNN '''
-    # process_seq_to_seq_with_rnn()
+    # process_seq_to_seq_with_rnn(instance.corpus)
 
     ''' DEEP-REINFORCED-MODEL-WITH-PYTORCH '''
-    # process_deep_reinforced_model_with_pytorch()
+    # process_deep_reinforced_model_with_pytorch(instance.corpus)
 
 
 if __name__ == "__main__":
