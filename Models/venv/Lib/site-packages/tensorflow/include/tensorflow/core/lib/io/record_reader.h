@@ -20,8 +20,6 @@ limitations under the License.
 #include "tensorflow/core/lib/core/stringpiece.h"
 #include "tensorflow/core/lib/io/inputstream_interface.h"
 #if !defined(IS_SLIM_BUILD)
-#include "tensorflow/core/lib/io/snappy/snappy_compression_options.h"
-#include "tensorflow/core/lib/io/snappy/snappy_inputstream.h"
 #include "tensorflow/core/lib/io/zlib_compression_options.h"
 #include "tensorflow/core/lib/io/zlib_inputstream.h"
 #endif  // IS_SLIM_BUILD
@@ -34,12 +32,9 @@ class RandomAccessFile;
 
 namespace io {
 
-struct RecordReaderOptions {
-  enum CompressionType {
-    NONE = 0,
-    ZLIB_COMPRESSION = 1,
-    SNAPPY_COMPRESSION = 2
-  };
+class RecordReaderOptions {
+ public:
+  enum CompressionType { NONE = 0, ZLIB_COMPRESSION = 1 };
   CompressionType compression_type = NONE;
 
   // If buffer_size is non-zero, then all reads must be sequential, and no
@@ -51,9 +46,8 @@ struct RecordReaderOptions {
       const string& compression_type);
 
 #if !defined(IS_SLIM_BUILD)
-  // Options specific to compression.
+  // Options specific to zlib compression.
   ZlibCompressionOptions zlib_options;
-  SnappyCompressionOptions snappy_options;
 #endif  // IS_SLIM_BUILD
 };
 
@@ -69,8 +63,8 @@ class RecordReader {
   //  uint32    masked crc of length
   //  byte      data[length]
   //  uint32    masked crc of data
-  static constexpr size_t kHeaderSize = sizeof(uint64) + sizeof(uint32);
-  static constexpr size_t kFooterSize = sizeof(uint32);
+  static const size_t kHeaderSize = sizeof(uint64) + sizeof(uint32);
+  static const size_t kFooterSize = sizeof(uint32);
 
   // Statistics (sizes are in units of bytes)
   struct Stats {
@@ -95,14 +89,7 @@ class RecordReader {
   // Read the record at "*offset" into *record and update *offset to
   // point to the offset of the next record.  Returns OK on success,
   // OUT_OF_RANGE for end of file, or something else for an error.
-  Status ReadRecord(uint64* offset, tstring* record);
-
-  // Skip num_to_skip record starting at "*offset" and update *offset
-  // to point to the offset of the next num_to_skip + 1 record.
-  // Return OK on success, OUT_OF_RANGE for end of file, or something
-  // else for an error. "*num_skipped" records the number of records that
-  // are actually skipped. It should be equal to num_to_skip on success.
-  Status SkipRecords(uint64* offset, int num_to_skip, int* num_skipped);
+  Status ReadRecord(uint64* offset, string* record);
 
   // Return the metadata of the Record file.
   //
@@ -116,8 +103,7 @@ class RecordReader {
   Status GetMetadata(Metadata* md);
 
  private:
-  Status ReadChecksummed(uint64 offset, size_t n, tstring* result);
-  Status PositionInputStream(uint64 offset);
+  Status ReadChecksummed(uint64 offset, size_t n, string* result);
 
   RecordReaderOptions options_;
   std::unique_ptr<InputStreamInterface> input_stream_;
@@ -141,21 +127,13 @@ class SequentialRecordReader {
 
   virtual ~SequentialRecordReader() = default;
 
-  // Read the next record in the file into *record. Returns OK on success,
+  // Reads the next record in the file into *record. Returns OK on success,
   // OUT_OF_RANGE for end of file, or something else for an error.
-  Status ReadRecord(tstring* record) {
+  Status ReadRecord(string* record) {
     return underlying_.ReadRecord(&offset_, record);
   }
 
-  // Skip the next num_to_skip record in the file. Return OK on success,
-  // OUT_OF_RANGE for end of file, or something else for an error.
-  // "*num_skipped" records the number of records that are actually skipped.
-  // It should be equal to num_to_skip on success.
-  Status SkipRecords(int num_to_skip, int* num_skipped) {
-    return underlying_.SkipRecords(&offset_, num_to_skip, num_skipped);
-  }
-
-  // Return the current offset in the file.
+  // Returns the current offset in the file.
   uint64 TellOffset() { return offset_; }
 
   // Seek to this offset within the file and set this offset as the current

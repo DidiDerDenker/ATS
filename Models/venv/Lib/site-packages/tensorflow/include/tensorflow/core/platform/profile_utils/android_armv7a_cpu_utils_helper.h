@@ -36,8 +36,7 @@ class AndroidArmV7ACpuUtilsHelper : public ICpuUtilsHelper {
   AndroidArmV7ACpuUtilsHelper() = default;
   void ResetClockCycle() final;
   uint64 GetCurrentClockCycle() final;
-  void EnableClockCycleProfiling() final;
-  void DisableClockCycleProfiling() final;
+  void EnableClockCycleProfiling(bool enable) final;
   int64 CalculateCpuFrequency() final;
 
  private:

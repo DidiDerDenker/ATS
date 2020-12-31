@@ -33,7 +33,7 @@ tf_export(
 # Tag for the `training` graph.
 TRAINING = "train"
 tf_export(
-    "saved_model.TRAINING",
+    "saved_model.TRANING",
     v1=["saved_model.TRAINING",
         "saved_model.tag_constants.TRAINING"]).export_constant(
             __name__, "TRAINING")

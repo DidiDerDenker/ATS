@@ -16,15 +16,13 @@ limitations under the License.
 #ifndef TENSORFLOW_CORE_PLATFORM_DEFAULT_STACKTRACE_H_
 #define TENSORFLOW_CORE_PLATFORM_DEFAULT_STACKTRACE_H_
 
-// clang-format off
 #include "tensorflow/core/platform/platform.h"
-// clang-format on
-
-#if !defined(IS_MOBILE_PLATFORM) && (defined(__clang__) || defined(__GNUC__))
-#define TF_HAS_STACKTRACE
+#if !defined(IS_MOBILE_PLATFORM) && defined(PLATFORM_POSIX) && \
+    (defined(__clang__) || defined(__GNUC__))
+#define TF_GENERATE_BACKTRACE
 #endif
 
-#if defined(TF_HAS_STACKTRACE)
+#if defined(TF_GENERATE_BACKTRACE)
 #include <dlfcn.h>
 #include <execinfo.h>
 #include <stdio.h>
@@ -40,7 +38,7 @@ namespace tensorflow {
 
 // Function to create a pretty stacktrace.
 inline std::string CurrentStackTrace() {
-#if defined(TF_HAS_STACKTRACE)
+#if defined(TF_GENERATE_BACKTRACE)
   std::stringstream ss("");
   ss << "*** Begin stack trace ***" << std::endl;
 
@@ -70,7 +68,7 @@ inline std::string CurrentStackTrace() {
   return ss.str();
 #else
   return std::string();
-#endif  // defined(TF_HAS_STACKTRACE)
+#endif  // defined(TF_GENERATE_BACKTRACE)
 }
 
 inline void DebugWriteToString(const char* data, void* arg) {

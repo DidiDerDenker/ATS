@@ -22,7 +22,7 @@ limitations under the License.
 namespace tensorflow {
 namespace port {
 
-std::string MaybeAbiDemangle(const char* name);
+string MaybeAbiDemangle(const char* name);
 
 }  // namespace port
 }  // namespace tensorflow

@@ -346,10 +346,7 @@ class EventListenerBaseServicer(debug_service_pb2_grpc.EventListenerServicer):
       if self._server_started:
         raise ValueError("Server has already started running")
 
-      no_max_message_sizes = [("grpc.max_receive_message_length", -1),
-                              ("grpc.max_send_message_length", -1)]
-      self.server = grpc.server(futures.ThreadPoolExecutor(max_workers=10),
-                                options=no_max_message_sizes)
+      self.server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
       debug_service_pb2_grpc.add_EventListenerServicer_to_server(self,
                                                                  self.server)
       self.server.add_insecure_port("[::]:%d" % self._server_port)

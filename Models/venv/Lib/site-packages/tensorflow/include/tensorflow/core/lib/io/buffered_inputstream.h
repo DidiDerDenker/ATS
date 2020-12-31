@@ -41,9 +41,9 @@ class BufferedInputStream : public InputStreamInterface {
 
   ~BufferedInputStream() override;
 
-  tensorflow::Status ReadNBytes(int64 bytes_to_read, tstring* result) override;
+  Status ReadNBytes(int64 bytes_to_read, string* result) override;
 
-  tensorflow::Status SkipNBytes(int64 bytes_to_skip) override;
+  Status SkipNBytes(int64 bytes_to_skip) override;
 
   int64 Tell() const override;
 
@@ -56,7 +56,7 @@ class BufferedInputStream : public InputStreamInterface {
   // Note: When seeking backwards in a stream, this implementation uses
   // Reset() + SkipNBytes(), so its performance will be dependent
   // largely on the performance of SkipNBytes().
-  tensorflow::Status Seek(int64 position);
+  Status Seek(int64 position);
 
   // Read one text line of data into "*result" until end-of-file or a
   // \n is read.  (The \n is not included in the result.)  Overwrites
@@ -65,8 +65,7 @@ class BufferedInputStream : public InputStreamInterface {
   // If successful, returns OK.  If we are already at the end of the
   // file, we return an OUT_OF_RANGE error.  Otherwise, we return
   // some other non-OK status.
-  tensorflow::Status ReadLine(string* result);
-  tensorflow::Status ReadLine(tstring* result);
+  Status ReadLine(string* result);
 
   // Returns one text line of data until end-of-file or a '\n' is read. The '\n'
   // is included in the result.
@@ -80,37 +79,27 @@ class BufferedInputStream : public InputStreamInterface {
   //
   // Note: the amount of memory used by this function call is unbounded, so only
   // use in ops that expect that behavior.
-  template <typename T>
-  tensorflow::Status ReadAll(T* result);
+  Status ReadAll(string* result);
 
-  tensorflow::Status Reset() override;
+  Status Reset() override;
 
  private:
-  tensorflow::Status FillBuffer();
-  template <typename StringType>
-  tensorflow::Status ReadLineHelper(StringType* result, bool include_eol);
+  Status FillBuffer();
+  Status ReadLineHelper(string* result, bool include_eol);
 
   InputStreamInterface* input_stream_;  // not owned.
   size_t size_;                         // buffer size.
-  tstring buf_;                         // the buffer itself.
+  string buf_;                          // the buffer itself.
   // buf_[pos_, limit_) holds the valid "read ahead" data in the file.
   size_t pos_ = 0;    // current position in buf_.
   size_t limit_ = 0;  // just past the end of valid data in buf_.
   bool owns_input_stream_ = false;
   // When EoF is reached, file_status_ contains the status to skip unnecessary
   // buffer allocations.
-  tensorflow::Status file_status_ = Status::OK();
+  Status file_status_ = Status::OK();
 
   TF_DISALLOW_COPY_AND_ASSIGN(BufferedInputStream);
 };
-
-// Explicit instantiations defined in buffered_inputstream.cc.
-#ifndef SWIG
-extern template tensorflow::Status BufferedInputStream::ReadAll<string>(
-    string* result);
-extern template tensorflow::Status BufferedInputStream::ReadAll<tstring>(
-    tstring* result);
-#endif  // SWIG
 
 }  // namespace io
 }  // namespace tensorflow

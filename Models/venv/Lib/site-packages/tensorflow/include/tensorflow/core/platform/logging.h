@@ -17,14 +17,12 @@ limitations under the License.
 #define TENSORFLOW_CORE_PLATFORM_LOGGING_H_
 
 #include "tensorflow/core/platform/platform.h"  // To pick up PLATFORM_define
-#include "tensorflow/core/platform/types.h"
 
 #if defined(PLATFORM_GOOGLE) || defined(PLATFORM_GOOGLE_ANDROID) || \
-    defined(PLATFORM_GOOGLE_IOS) || defined(GOOGLE_LOGGING) ||      \
-    defined(__EMSCRIPTEN__)
-#include "tensorflow/core/platform/google/logging.h"  // IWYU pragma: export
+    defined(GOOGLE_LOGGING)
+#include "tensorflow/core/platform/google/build_config/logging.h"
 #else
-#include "tensorflow/core/platform/default/logging.h"  // IWYU pragma: export
+#include "tensorflow/core/platform/default/logging.h"
 #endif
 
 namespace tensorflow {
@@ -33,7 +31,7 @@ namespace internal {
 // Emit "message" as a log message to the log for the specified
 // "severity" as if it came from a LOG call at "fname:line"
 void LogString(const char* fname, int line, int severity,
-               const std::string& message);
+               const string& message);
 }  // namespace internal
 
 }  // namespace tensorflow

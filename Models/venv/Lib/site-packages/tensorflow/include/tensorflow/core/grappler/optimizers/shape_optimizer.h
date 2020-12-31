@@ -30,20 +30,22 @@ namespace grappler {
 // information.
 class ShapeOptimizer : public GraphOptimizer {
  public:
-  ShapeOptimizer() {}
-  explicit ShapeOptimizer(RewriterConfig::Toggle opt_level) {}
+  ShapeOptimizer() : opt_level_(RewriterConfig::ON) {}
+  explicit ShapeOptimizer(RewriterConfig::Toggle opt_level)
+      : opt_level_(opt_level) {}
 
   ~ShapeOptimizer() override {}
 
   string name() const override { return "shape_optimizer"; };
-
-  bool UsesFunctionLibrary() const override { return false; }
 
   Status Optimize(Cluster* cluster, const GrapplerItem& item,
                   GraphDef* optimized_graph) override;
 
   void Feedback(Cluster* cluster, const GrapplerItem& item,
                 const GraphDef& optimized_graph, double result) override;
+
+ private:
+  RewriterConfig::Toggle opt_level_;
 };
 
 }  // end namespace grappler

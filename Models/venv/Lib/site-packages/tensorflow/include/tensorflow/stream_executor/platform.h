@@ -21,7 +21,6 @@ limitations under the License.
 
 #include <map>
 
-#include "tensorflow/stream_executor/device_description.h"
 #include "tensorflow/stream_executor/device_options.h"
 #include "tensorflow/stream_executor/lib/status.h"
 #include "tensorflow/stream_executor/lib/status_macros.h"
@@ -33,7 +32,6 @@ limitations under the License.
 namespace stream_executor {
 
 class StreamExecutor;
-class DeviceDescription;
 
 // Describes the platform for a StreamExecutor instantiation to act upon.
 //
@@ -42,7 +40,6 @@ class DeviceDescription;
 enum class PlatformKind {
   kInvalid,
   kCuda,
-  kROCm,
   kOpenCL,
   kHost,
   kMock,
@@ -60,11 +57,11 @@ bool PlatformIsRunnable(PlatformKind kind);
 bool PlatformIsRunnableOnDevice(PlatformKind kind);
 
 // Returns a printable description of a PlatformKind.
-std::string PlatformKindString(PlatformKind kind);
+string PlatformKindString(PlatformKind kind);
 
 // Returns the PlatformKind corresponding to the input string; returns kInvalid
 // in the case of no match.
-PlatformKind PlatformKindFromString(std::string platform_string);
+PlatformKind PlatformKindFromString(string platform_string);
 
 // Checks that kind takes on a valid value.
 void CheckPlatformKindIsValid(PlatformKind kind);
@@ -114,7 +111,7 @@ class Platform {
   virtual Id id() const = 0;
 
   // Name of this platform.
-  virtual const std::string& Name() const = 0;
+  virtual const string& Name() const = 0;
 
   // Returns the number of devices accessible on this platform.
   //
@@ -133,16 +130,7 @@ class Platform {
   // MultiPlatformManager, this method will be called automatically by
   // InitializePlatformWithId/InitializePlatformWithName.
   virtual port::Status Initialize(
-      const std::map<std::string, std::string>& platform_options);
-
-  // Returns a populated DeviceDescription for the device at the given ordinal.
-  // This should not require device initialization. Note that not all platforms
-  // may support acquiring the DeviceDescription indirectly.
-  //
-  // Alternatively callers may call GetDeviceDescription() on the StreamExecutor
-  // which returns a cached instance specific to the initialized StreamExecutor.
-  virtual port::StatusOr<std::unique_ptr<DeviceDescription>>
-  DescriptionForDevice(int ordinal) const = 0;
+      const std::map<string, string>& platform_options);
 
   // Returns a device with the given ordinal on this platform with a default
   // plugin configuration or, if none can be found with the given ordinal or

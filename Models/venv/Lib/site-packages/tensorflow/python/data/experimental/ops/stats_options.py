@@ -45,8 +45,7 @@ class StatsOptions(options.OptionsBase):
 
   aggregator = options.create_option(
       name="aggregator",
-      ty=(stats_aggregator.StatsAggregatorV2,
-          stats_aggregator.StatsAggregatorV1),
+      ty=stats_aggregator.StatsAggregator,
       docstring=
       "Associates the given statistics aggregator with the dataset pipeline.")
 

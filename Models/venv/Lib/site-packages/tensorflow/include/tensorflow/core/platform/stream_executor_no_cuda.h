@@ -18,6 +18,11 @@ limitations under the License.
 
 #include "tensorflow/core/platform/platform.h"
 
+#if defined(PLATFORM_GOOGLE)
+#include "tensorflow/stream_executor/platform/google/dso_loader.h"
+#else
+#include "tensorflow/stream_executor/dso_loader.h"
+#endif
 #include "tensorflow/stream_executor/cuda/cuda_platform_id.h"
 #include "tensorflow/stream_executor/device_memory.h"
 #include "tensorflow/stream_executor/dnn.h"
@@ -26,8 +31,6 @@ limitations under the License.
 #include "tensorflow/stream_executor/lib/status.h"
 #include "tensorflow/stream_executor/multi_platform_manager.h"
 #include "tensorflow/stream_executor/platform.h"
-#include "tensorflow/stream_executor/platform/dso_loader.h"
-#include "tensorflow/stream_executor/rocm/rocm_platform_id.h"
 #include "tensorflow/stream_executor/scratch_allocator.h"
 #include "tensorflow/stream_executor/stream.h"
 #include "tensorflow/stream_executor/stream_executor.h"

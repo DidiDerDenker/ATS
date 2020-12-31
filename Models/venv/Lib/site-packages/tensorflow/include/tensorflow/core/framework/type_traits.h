@@ -26,10 +26,10 @@ namespace tensorflow {
 
 // Functions to define quantization attribute of types.
 struct true_type {
-  static constexpr bool value = true;
+  static const bool value = true;
 };
 struct false_type {
-  static constexpr bool value = false;
+  static const bool value = false;
 };
 
 // Default is_quantized is false.

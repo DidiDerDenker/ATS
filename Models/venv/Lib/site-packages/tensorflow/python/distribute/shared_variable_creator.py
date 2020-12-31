@@ -63,19 +63,19 @@ def make_fn(shared_variable_store, device_id):
   variable_scope_access_index = {}
   assert isinstance(device_id, int)
 
-  def create_new_variable(next_creator, **kwargs):
+  def create_new_variable(next_creator, *args, **kwargs):
     """Create the variable using `next_creator` and store it."""
     canonical_name = _canonicalize_variable_name(kwargs.get("name"))
-    v = next_creator(**kwargs)
+    v = next_creator(*args, **kwargs)
 
     if canonical_name not in shared_variable_store:
       shared_variable_store[canonical_name] = []
     shared_variable_store[canonical_name].append(v)
     return v
 
-  def reuse_variable(next_creator, **kwargs):
+  def reuse_variable(next_creator, *args, **kwargs):
     """Re-use existing variable from store with same name (in order)."""
-    del next_creator
+    del next_creator, args
     name = kwargs.get("name")
     canonical_name = _canonicalize_variable_name(name)
 

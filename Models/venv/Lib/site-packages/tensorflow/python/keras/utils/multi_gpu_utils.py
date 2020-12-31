@@ -20,9 +20,8 @@ from __future__ import print_function
 from tensorflow.python.framework import ops
 from tensorflow.python.keras import backend as K
 from tensorflow.python.keras.engine.training import Model
-from tensorflow.python.keras.layers.core import Lambda
-from tensorflow.python.keras.layers.merge import concatenate
 from tensorflow.python.ops import array_ops
+from tensorflow.python.util.tf_export import tf_export
 
 
 def _get_available_devices():
@@ -34,6 +33,7 @@ def _normalize_device_name(name):
   return name
 
 
+@tf_export('keras.utils.multi_gpu_model')
 def multi_gpu_model(model, gpus, cpu_merge=True, cpu_relocation=False):
   """Replicates a model on different GPUs.
 
@@ -149,6 +149,10 @@ def multi_gpu_model(model, gpus, cpu_merge=True, cpu_relocation=False):
   Raises:
     ValueError: if the `gpus` argument does not match available devices.
   """
+  # pylint: disable=g-import-not-at-top
+  from tensorflow.python.keras.layers.core import Lambda
+  from tensorflow.python.keras.layers.merge import concatenate
+
   if isinstance(gpus, (list, tuple)):
     if len(gpus) <= 1:
       raise ValueError('For multi-gpu usage to be effective, '
@@ -207,17 +211,19 @@ def multi_gpu_model(model, gpus, cpu_merge=True, cpu_relocation=False):
     with ops.device('/cpu:0'):
       model = clone_model(model)
 
-  all_outputs = [[] for _ in range(len(model.outputs))]
+  all_outputs = []
+  for i in range(len(model.outputs)):
+    all_outputs.append([])
 
   # Place a copy of the model on each GPU,
   # each getting a slice of the inputs.
   for i, gpu_id in enumerate(target_gpu_ids):
     with ops.device('/gpu:%d' % gpu_id):
-      with K.name_scope('replica_%d' % gpu_id):
+      with ops.name_scope('replica_%d' % gpu_id):
         inputs = []
         # Retrieve a slice of the input.
         for x in model.inputs:
-          input_shape = tuple(x.shape.as_list())[1:]
+          input_shape = tuple(x.get_shape().as_list())[1:]
           slice_i = Lambda(
               get_slice,
               output_shape=input_shape,
@@ -235,8 +241,8 @@ def multi_gpu_model(model, gpus, cpu_merge=True, cpu_relocation=False):
           outputs = [outputs]
 
         # Save the outputs for merging back together later.
-        for o, output in enumerate(outputs):
-          all_outputs[o].append(output)
+        for o in range(len(outputs)):
+          all_outputs[o].append(outputs[o])
 
   # Deduplicate output names to handle Siamese networks.
   occurrences = {}

@@ -16,11 +16,10 @@ limitations under the License.
 #ifndef TENSORFLOW_CORE_GRAPPLER_COSTS_COST_ESTIMATOR_H_
 #define TENSORFLOW_CORE_GRAPPLER_COSTS_COST_ESTIMATOR_H_
 
+#include <chrono>
 #include <cmath>
 #include <unordered_map>
-
 #include "tensorflow/core/lib/core/status.h"
-#include "tensorflow/core/protobuf/config.pb.h"
 
 namespace tensorflow {
 class GraphDef;
@@ -42,7 +41,7 @@ struct DeviceInfo {
   // Read bandwidth to intermediate memory in GB per second.
   double intermediate_read_gb_per_sec;
 
-  // Write bandwidth to intermediate memory in GB per second.
+  // Read bandwidth to intermediate memory in GB per second.
   double intermediate_write_gb_per_sec;
 
   DeviceInfo()
@@ -74,7 +73,7 @@ struct Costs {
   inline Costs();
 
   // Builds a Costs structure with all zero values, rather than unknowns.
-  static inline Costs ZeroCosts(bool inaccurate = false);
+  static inline Costs ZeroCosts();
 
   struct MilliSeconds : std::chrono::milliseconds {
     MilliSeconds() : std::chrono::milliseconds(0) {}
@@ -134,8 +133,6 @@ struct Costs {
 
   // Intermediate memory access cost of running the graph
   Duration intermediate_memory_time;
-  Duration intermediate_memory_read_time;   // Intermediate memory read cost.
-  Duration intermediate_memory_write_time;  // Intermediate memory write cost.
 
   // This field can be a very pessimistic estimate of the main memory
   // requirements of a graph. For example, it might assume that all activations
@@ -190,7 +187,7 @@ Costs::Costs() {
   max_per_op_streaming = kMemoryUnknown;
 }
 
-Costs Costs::ZeroCosts(bool inaccurate) {
+Costs Costs::ZeroCosts() {
   Costs costs;
   costs.execution_time = Duration::zero();
   costs.compute_time = Duration::zero();
@@ -201,15 +198,8 @@ Costs Costs::ZeroCosts(bool inaccurate) {
   costs.temporary_memory = kZeroMemory;
   costs.max_per_op_buffers = kZeroMemory;
   costs.max_per_op_streaming = kZeroMemory;
-  costs.inaccurate = inaccurate;
   return costs;
 }
-
-Costs CombineCosts(const Costs& left, const Costs& right);
-
-// Multiplies Costs by a scalar.
-// Equivalent to applying CombineCosts "multiplier" times.
-Costs MultiplyCosts(const Costs& costs, int multiplier);
 
 // Given a GrapperItem and an optimized implementation of the corresponding
 // TensorFlow graph, the CostEstimator attempts to predicts the actual cost of
@@ -225,14 +215,14 @@ class CostEstimator {
 
   // Predicts the cost of running the given optimized version of the grappler
   // item.
-  // If a RunMetadata is passed, it will be populated with detailed information
+  // If a CostGraphDef is passed, it will be populated with detailed information
   // about the cost of running each operation of the optimized graph.
   // if a double value is passed, it will be set to a value that reflects the
   // overall cost of running the graph (e.g. the latency of the computation).
   // Returns a status that indicate is the performance could be estimated or
   // not.
   virtual Status PredictCosts(const GraphDef& optimized_graph,
-                              RunMetadata* run_metadata, Costs* cost) const = 0;
+                              CostGraphDef* cost_graph, Costs* cost) const = 0;
 };
 
 }  // end namespace grappler

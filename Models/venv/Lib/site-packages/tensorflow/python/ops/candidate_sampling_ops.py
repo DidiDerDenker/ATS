@@ -24,14 +24,12 @@ from tensorflow.python.ops import array_ops  # pylint: disable=unused-import
 from tensorflow.python.ops import gen_candidate_sampling_ops
 from tensorflow.python.ops import math_ops  # pylint: disable=unused-import
 from tensorflow.python.util import deprecation
-from tensorflow.python.util import dispatch
 from tensorflow.python.util.tf_export import tf_export
 
 
 @tf_export(
     'random.uniform_candidate_sampler',
     v1=['random.uniform_candidate_sampler', 'nn.uniform_candidate_sampler'])
-@dispatch.add_dispatch_support
 @deprecation.deprecated_endpoints('nn.uniform_candidate_sampler')
 def uniform_candidate_sampler(true_classes, num_true, num_sampled, unique,
                               range_max, seed=None, name=None):
@@ -94,7 +92,6 @@ def uniform_candidate_sampler(true_classes, num_true, num_sampled, unique,
         'random.log_uniform_candidate_sampler',
         'nn.log_uniform_candidate_sampler'
     ])
-@dispatch.add_dispatch_support
 @deprecation.deprecated_endpoints('nn.log_uniform_candidate_sampler')
 def log_uniform_candidate_sampler(true_classes, num_true, num_sampled, unique,
                                   range_max, seed=None, name=None):
@@ -157,7 +154,6 @@ def log_uniform_candidate_sampler(true_classes, num_true, num_sampled, unique,
 @tf_export(
     'random.learned_unigram_candidate_sampler',
     'nn.learned_unigram_candidate_sampler')
-@dispatch.add_dispatch_support
 @deprecation.deprecated_endpoints(['nn.learned_unigram_candidate_sampler'])
 def learned_unigram_candidate_sampler(true_classes, num_true, num_sampled,
                                       unique, range_max, seed=None, name=None):
@@ -217,7 +213,6 @@ def learned_unigram_candidate_sampler(true_classes, num_true, num_sampled,
 
 @tf_export('random.fixed_unigram_candidate_sampler',
            'nn.fixed_unigram_candidate_sampler')
-@dispatch.add_dispatch_support
 def fixed_unigram_candidate_sampler(true_classes,
                                     num_true,
                                     num_sampled,
@@ -346,7 +341,6 @@ def all_candidate_sampler(true_classes, num_true, num_sampled, unique,
 
 
 @tf_export('nn.compute_accidental_hits')
-@dispatch.add_dispatch_support
 def compute_accidental_hits(true_classes, sampled_candidates, num_true,
                             seed=None, name=None):
   """Compute the position ids in `sampled_candidates` matching `true_classes`.

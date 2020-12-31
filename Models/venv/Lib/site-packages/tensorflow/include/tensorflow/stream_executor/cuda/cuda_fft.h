@@ -20,7 +20,7 @@ limitations under the License.
 #ifndef TENSORFLOW_STREAM_EXECUTOR_CUDA_CUDA_FFT_H_
 #define TENSORFLOW_STREAM_EXECUTOR_CUDA_CUDA_FFT_H_
 
-#include "third_party/gpus/cuda/include/cufft.h"
+#include "cuda/include/cufft.h"
 #include "tensorflow/stream_executor/fft.h"
 #include "tensorflow/stream_executor/platform/port.h"
 #include "tensorflow/stream_executor/plugin_registry.h"
@@ -30,9 +30,9 @@ namespace stream_executor {
 
 class Stream;
 
-namespace gpu {
+namespace cuda {
 
-class GpuExecutor;
+class CUDAExecutor;
 
 // Opaque and unique indentifier for the cuFFT plugin.
 extern const PluginId kCuFftPlugin;
@@ -50,8 +50,7 @@ class CUDAFftPlan : public fft::Plan {
         fft_type_(fft::Type::kInvalid),
         scratch_(nullptr),
         scratch_size_bytes_(0),
-        is_initialized_(false),
-        scratch_allocator_(nullptr) {}
+        is_initialized_(false) {}
   ~CUDAFftPlan() override;
 
   // Get FFT direction in cuFFT based on FFT type.
@@ -65,34 +64,31 @@ class CUDAFftPlan : public fft::Plan {
   }
 
   // Initialize function for batched plan
-  port::Status Initialize(GpuExecutor* parent, Stream* stream, int rank,
-                          uint64* elem_count, uint64* input_embed,
+  port::Status Initialize(CUDAExecutor *parent, Stream *stream, int rank,
+                          uint64 *elem_count, uint64 *input_embed,
                           uint64 input_stride, uint64 input_distance,
-                          uint64* output_embed, uint64 output_stride,
+                          uint64 *output_embed, uint64 output_stride,
                           uint64 output_distance, fft::Type type,
-                          int batch_count, ScratchAllocator* scratch_allocator);
+                          int batch_count, ScratchAllocator *scratch_allocator);
 
   // Initialize function for 1d,2d, and 3d plan
-  port::Status Initialize(GpuExecutor* parent, Stream* stream, int rank,
-                          uint64* elem_count, fft::Type type,
-                          ScratchAllocator* scratch_allocator);
+  port::Status Initialize(CUDAExecutor *parent, Stream *stream, int rank,
+                          uint64 *elem_count, fft::Type type,
+                          ScratchAllocator *scratch_allocator);
 
   port::Status UpdateScratchAllocator(Stream *stream,
                                       ScratchAllocator *scratch_allocator);
-
-  ScratchAllocator* GetScratchAllocator() const { return scratch_allocator_; }
 
  protected:
   bool IsInitialized() const { return is_initialized_; }
 
  private:
-  GpuExecutor* parent_;
+  CUDAExecutor *parent_;
   cufftHandle plan_;
   fft::Type fft_type_;
   DeviceMemory<uint8> scratch_;
   size_t scratch_size_bytes_;
   bool is_initialized_;
-  ScratchAllocator* scratch_allocator_;
 };
 
 // FFT support for CUDA platform via cuFFT library.
@@ -100,7 +96,7 @@ class CUDAFftPlan : public fft::Plan {
 // This satisfies the platform-agnostic FftSupport interface.
 //
 // Note that the cuFFT handle that this encapsulates is implicitly tied to the
-// context (and, as a result, the device) that the parent GpuExecutor is tied
+// context (and, as a result, the device) that the parent CUDAExecutor is tied
 // to. This simply happens as an artifact of creating the cuFFT handle when a
 // CUDA context is active.
 //
@@ -108,13 +104,13 @@ class CUDAFftPlan : public fft::Plan {
 // context of parent_, so all context is explicit.
 class CUDAFft : public fft::FftSupport {
  public:
-  explicit CUDAFft(GpuExecutor* parent) : parent_(parent) {}
+  explicit CUDAFft(CUDAExecutor *parent) : parent_(parent) {}
   ~CUDAFft() override {}
 
   TENSORFLOW_STREAM_EXECUTOR_GPU_FFT_SUPPORT_OVERRIDES
 
  private:
-  GpuExecutor* parent_;
+  CUDAExecutor *parent_;
 
   // Two helper functions that execute dynload::cufftExec?2?.
 
@@ -135,7 +131,7 @@ class CUDAFft : public fft::FftSupport {
   SE_DISALLOW_COPY_AND_ASSIGN(CUDAFft);
 };
 
-}  // namespace gpu
+}  // namespace cuda
 }  // namespace stream_executor
 
 #endif  // TENSORFLOW_STREAM_EXECUTOR_CUDA_CUDA_FFT_H_

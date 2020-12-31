@@ -1,4 +1,4 @@
-# Copyright 2020 The TensorFlow Authors. All Rights Reserved.
+# Copyright 2017 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # =============================================================================
-"""A Python wrapper that loads _pywrap_tensorflow_internal.so."""
+"""A wrapper for TensorFlow SWIG-generated bindings."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -24,7 +24,9 @@ import traceback
 
 from tensorflow.python.platform import self_check
 
-# Perform pre-load sanity checks in order to produce a more actionable error.
+
+# Perform pre-load sanity checks in order to produce a more actionable error
+# than we get from an error during SWIG import.
 self_check.preload_check()
 
 # pylint: disable=wildcard-import,g-import-not-at-top,unused-import,line-too-long
@@ -37,10 +39,10 @@ try:
 except ImportError:
   _use_dlopen_global_flags = False
 
-# On UNIX-based platforms, pywrap_tensorflow is a python library that
-# dynamically loads _pywrap_tensorflow.so.
-_can_set_rtld_local = (
-    hasattr(sys, 'getdlopenflags') and hasattr(sys, 'setdlopenflags'))
+# On UNIX-based platforms, pywrap_tensorflow is a SWIG-generated
+# python library that dynamically loads _pywrap_tensorflow.so.
+_can_set_rtld_local = (hasattr(sys, 'getdlopenflags')
+                       and hasattr(sys, 'setdlopenflags'))
 if _can_set_rtld_local:
   _default_dlopen_flags = sys.getdlopenflags()
 
@@ -53,23 +55,12 @@ try:
     # override an RTLD_GLOBAL in _default_dlopen_flags).
     sys.setdlopenflags(_default_dlopen_flags | ctypes.RTLD_LOCAL)
 
-  # Python2.7 does not have a ModuleNotFoundError.
-  try:
-    ModuleNotFoundError
-  except NameError:
-    ModuleNotFoundError = ImportError
-
-  # pylint: disable=wildcard-import,g-import-not-at-top,line-too-long,undefined-variable
-  try:
-    from tensorflow.python._pywrap_tensorflow_internal import *
-  # This try catch logic is because there is no bazel equivalent for py_extension.
-  # Externally in opensource we must enable exceptions to load the shared object
-  # by exposing the PyInit symbols with pybind. This error will only be
-  # caught internally or if someone changes the name of the target _pywrap_tensorflow_internal.
-
-  # This logic is used in other internal projects using py_extension.
-  except ModuleNotFoundError:
-    pass
+  from tensorflow.python.pywrap_tensorflow_internal import *
+  from tensorflow.python.pywrap_tensorflow_internal import __version__
+  from tensorflow.python.pywrap_tensorflow_internal import __git_version__
+  from tensorflow.python.pywrap_tensorflow_internal import __compiler_version__
+  from tensorflow.python.pywrap_tensorflow_internal import __cxx11_abi_flag__
+  from tensorflow.python.pywrap_tensorflow_internal import __monolithic_build__
 
   if _use_dlopen_global_flags:
     pywrap_dlopen_global_flags.reset_dlopen_flags()

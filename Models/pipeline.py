@@ -1,8 +1,6 @@
 # Imports
 import random
 import models.seq_to_seq_attention.helpers as help
-# import models.bert_encoder_transformer_decoder.preprocessing as pp
-# import models.rl_seq_to_seq.preprocessing as pp
 
 from data_loader import DataLoader
 from transformers import pipeline
@@ -64,10 +62,7 @@ def process_seq_to_seq_attention(): # corpus, vocab2idx
     '''
 
     help.model_notebook(json_file_path)
-
-    # TODO: Understand every function and every line
-    # TODO: Remove unnecessary print-commands
-    # TODO: Load model and use test-data to generate y_hyps, get y_refs somehow from helpers
+    # TODO: Load model and use test-data to generate y_hyps, get y_refs from helpers
 
     '''
     instance = Rouge()
@@ -78,11 +73,23 @@ def process_seq_to_seq_attention(): # corpus, vocab2idx
     exit()
 
 
+def process_seq_to_seq_library(text_corpus):
+    exit()
+
+
 def process_bert_encoder_transformer_decoder(text_corpus):
     exit()
 
 
 def process_rl_seq_to_seq(text_corpus):
+    exit()
+
+
+def process_seq_to_seq_with_rnn(text_corpus):
+    exit()
+
+
+def process_deep_reinforced_model_with_pytorch(text_corpus):
     exit()
 
 
@@ -102,20 +109,29 @@ def main():
     global TEXT_PATH
     global SUMMARY_PATH
 
-    # corpus_filter = ["wikihow"] # ["cnn_dailymail", "wikihow"]
-    # instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
+    corpus_filter = ["wikihow"] # ["cnn_dailymail", "wikihow"]
+    instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
 
     ''' TRANSFORMERS '''
-    # process_transformers(instance.corpus)
+    process_transformers(instance.corpus)
 
     ''' SEQ-TO-SEQ-ATTENTION '''
-    process_seq_to_seq_attention() # instance.tokenized_corpus, instance.vocab2idx
+    # process_seq_to_seq_attention() # instance.tokenized_corpus, instance.vocab2idx
 
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
     # process_bert_encoder_transformer_decoder()
 
+    ''' SEQ-TO-SEQ-LIBRARY '''
+    # process_seq_to_seq_library()
+
     ''' RL-SEQ-TO-SEQ '''
     # process_rl_seq_to_seq()
+
+    ''' SEQ-TO-SEQ-WITH-RNN '''
+    # process_seq_to_seq_with_rnn()
+
+    ''' DEEP-REINFORCED-MODEL-WITH-PYTORCH '''
+    # process_deep_reinforced_model_with_pytorch()
 
 
 if __name__ == "__main__":

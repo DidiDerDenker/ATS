@@ -20,7 +20,6 @@ limitations under the License.
 
 #include "tensorflow/core/common_runtime/device_set.h"
 #include "tensorflow/core/grappler/clusters/cluster.h"
-#include "tensorflow/core/grappler/costs/analytical_cost_estimator.h"
 #include "tensorflow/core/grappler/costs/op_level_cost_estimator.h"
 #include "tensorflow/core/grappler/costs/virtual_scheduler.h"
 #include "tensorflow/core/protobuf/device_properties.pb.h"
@@ -33,12 +32,11 @@ namespace grappler {
 // actual graphs.
 class VirtualCluster : public Cluster {
  public:
-  explicit VirtualCluster(
-      const std::unordered_map<string, DeviceProperties>& devices);
+  VirtualCluster(const std::unordered_map<string, DeviceProperties>& devices);
   VirtualCluster(const std::unordered_map<string, DeviceProperties>& devices,
                  std::unique_ptr<OpLevelCostEstimator> node_estimator,
                  std::unique_ptr<ReadyNodeManager> node_manager);
-  explicit VirtualCluster(const DeviceSet* device_set);
+  VirtualCluster(const DeviceSet* device_set);
 
   ~VirtualCluster() override;
 
@@ -46,15 +44,15 @@ class VirtualCluster : public Cluster {
 
   Status Provision() override;
   Status Initialize(const GrapplerItem& item) override;
-  Status Run(const GraphDef& graph,
+  Status Run(const GraphDef& item,
              const std::vector<std::pair<string, Tensor>>& feed,
              const std::vector<string>& fetch, RunMetadata* metadata) override;
-  Status Run(const GrapplerItem& item, RunMetadata* metadata) override;
   const DeviceSet* GetDeviceSet() const override { return device_set_; }
 
  private:
-  std::unique_ptr<AnalyticalCostEstimator> estimator_;
-  const DeviceSet* device_set_ = nullptr;
+  std::unique_ptr<OpLevelCostEstimator> node_estimator_;
+  std::unique_ptr<ReadyNodeManager> node_manager_;
+  const DeviceSet* device_set_ = nullptr;  // Not owned
 };
 
 }  // end namespace grappler

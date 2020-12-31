@@ -26,6 +26,13 @@ limitations under the License.
 #ifndef TENSORFLOW_CORE_LIB_CORE_STRINGPIECE_H_
 #define TENSORFLOW_CORE_LIB_CORE_STRINGPIECE_H_
 
-#include "tensorflow/core/platform/stringpiece.h"
+#include "absl/strings/string_view.h"
+
+namespace tensorflow {
+
+// Deprecated: please use absl::string_view directly.
+using StringPiece = absl::string_view;
+
+}  // namespace tensorflow
 
 #endif  // TENSORFLOW_CORE_LIB_CORE_STRINGPIECE_H_

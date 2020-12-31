@@ -20,7 +20,8 @@ from __future__ import print_function
 
 from tensorflow.core.grappler.costs import op_performance_data_pb2
 from tensorflow.core.protobuf import meta_graph_pb2
-from tensorflow.python import _pywrap_tf_item as tf_item
+from tensorflow.python import pywrap_tensorflow as tf_item
+from tensorflow.python.framework import errors
 
 
 class Item(object):
@@ -53,14 +54,11 @@ class Item(object):
     return tf_item.TF_IdentifyImportantOps(self.tf_item, sort_topologically)
 
   def GetOpProperties(self):
-    """Get Op properties."""
-    props = tf_item.TF_GetOpProperties(self.tf_item)
+    ret_from_swig = tf_item.TF_GetOpProperties(self.tf_item)
     properties = {}
-    for key, values in props.items():
+    for key, values in ret_from_swig.items():
       prop = []
       for value in values:
-        # TODO(petebu): Make this conversion to a dictionary be done in the C++
-        # wrapper for performance.
         prop.append(
             op_performance_data_pb2.OpInfo.TensorProperties.FromString(value))
       properties[key] = prop
@@ -89,6 +87,7 @@ class Item(object):
     return self._tf_item
 
   def _BuildTFItem(self):
-    self._tf_item = tf_item.TF_NewItem(self._metagraph.SerializeToString(),
-                                       self._ignore_colocation,
-                                       self._ignore_user_placement)
+    with errors.raise_exception_on_not_ok_status() as status:
+      self._tf_item = tf_item.TF_NewItem(self._metagraph.SerializeToString(),
+                                         self._ignore_colocation,
+                                         self._ignore_user_placement, status)

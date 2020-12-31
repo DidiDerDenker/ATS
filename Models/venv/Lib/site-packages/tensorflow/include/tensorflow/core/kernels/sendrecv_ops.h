@@ -26,8 +26,6 @@ class SendOp : public OpKernel {
   explicit SendOp(OpKernelConstruction* ctx);
   void Compute(OpKernelContext* ctx) override;
 
-  string TraceString(const OpKernelContext& ctx, bool verbose) const override;
-
  private:
   string key_prefix_;
   Rendezvous::ParsedKey parsed_key_;
@@ -40,8 +38,6 @@ class RecvOp : public AsyncOpKernel {
  public:
   explicit RecvOp(OpKernelConstruction* ctx);
   void ComputeAsync(OpKernelContext* ctx, DoneCallback done) override;
-
-  string TraceString(const OpKernelContext& ctx, bool verbose) const override;
 
  private:
   string key_prefix_;

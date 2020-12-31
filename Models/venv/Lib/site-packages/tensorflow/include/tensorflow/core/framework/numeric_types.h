@@ -24,6 +24,7 @@ limitations under the License.
 #include "third_party/eigen3/unsupported/Eigen/CXX11/FixedPoint"
 // clang-format on
 
+#include "tensorflow/core/lib/bfloat16/bfloat16.h"
 #include "tensorflow/core/platform/types.h"
 
 namespace tensorflow {
@@ -42,37 +43,72 @@ typedef Eigen::QUInt16 quint16;
 
 }  // namespace tensorflow
 
+
+
+
 static inline tensorflow::bfloat16 FloatToBFloat16(float float_val) {
 #if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-  return *reinterpret_cast<tensorflow::bfloat16*>(
-      reinterpret_cast<uint16_t*>(&float_val));
+    return *reinterpret_cast<tensorflow::bfloat16*>(
+        reinterpret_cast<uint16_t*>(&float_val));
 #else
-  return *reinterpret_cast<tensorflow::bfloat16*>(
-      &(reinterpret_cast<uint16_t*>(&float_val)[1]));
+    return *reinterpret_cast<tensorflow::bfloat16*>(
+        &(reinterpret_cast<uint16_t*>(&float_val)[1]));
 #endif
 }
-
+    
 namespace Eigen {
+// TODO(xpan): We probably need to overwrite more methods to have correct eigen
+// behavior. E.g. epsilon(), dummy_precision, etc. See NumTraits.h in eigen.
 template <>
-struct NumTraits<tensorflow::tstring> : GenericNumTraits<tensorflow::tstring> {
+struct NumTraits<tensorflow::bfloat16>
+    : GenericNumTraits<tensorflow::bfloat16> {
   enum {
-    RequireInitialization = 1,
-    ReadCost = HugeCost,
-    AddCost = HugeCost,
-    MulCost = HugeCost
+    IsInteger = 0,
+    IsSigned = 1,
+    RequireInitialization = 0
   };
+  static EIGEN_STRONG_INLINE tensorflow::bfloat16 highest() {
+    return FloatToBFloat16(NumTraits<float>::highest());
+  }
 
-  static inline int digits10() { return 0; }
+  static EIGEN_STRONG_INLINE tensorflow::bfloat16 lowest() {
+    return FloatToBFloat16(NumTraits<float>::lowest());
+  }
 
- private:
-  static inline tensorflow::tstring epsilon();
-  static inline tensorflow::tstring dummy_precision();
-  static inline tensorflow::tstring lowest();
-  static inline tensorflow::tstring highest();
-  static inline tensorflow::tstring infinity();
-  static inline tensorflow::tstring quiet_NaN();
+  static EIGEN_STRONG_INLINE tensorflow::bfloat16 infinity() {
+    return FloatToBFloat16(NumTraits<float>::infinity());
+  }
+
+  static EIGEN_STRONG_INLINE tensorflow::bfloat16 quiet_NaN() {
+    return FloatToBFloat16(NumTraits<float>::quiet_NaN());
+  }
 };
 
+
+using ::tensorflow::operator==;
+using ::tensorflow::operator!=;
+
+namespace numext {
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 log(
+    const tensorflow::bfloat16& x) {
+  return static_cast<tensorflow::bfloat16>(::logf(static_cast<float>(x)));
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 exp(
+    const tensorflow::bfloat16& x) {
+  return static_cast<tensorflow::bfloat16>(::expf(static_cast<float>(x)));
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 abs(
+    const tensorflow::bfloat16& x) {
+  return static_cast<tensorflow::bfloat16>(::fabsf(static_cast<float>(x)));
+}
+
+}  // namespace numext
 }  // namespace Eigen
 
 #if defined(_MSC_VER) && !defined(__clang__)
@@ -81,13 +117,6 @@ template <>
 struct hash<Eigen::half> {
   std::size_t operator()(const Eigen::half& a) const {
     return static_cast<std::size_t>(a.x);
-  }
-};
-
-template <>
-struct hash<Eigen::bfloat16> {
-  std::size_t operator()(const Eigen::bfloat16& a) const {
-    return hash<float>()(static_cast<float>(a));
   }
 };
 }  // namespace std

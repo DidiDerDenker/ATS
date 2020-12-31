@@ -22,8 +22,6 @@ namespace compression {
 
 extern const char kNone[];
 extern const char kGzip[];
-extern const char kSnappy[];
-extern const char kZlib[];
 
 }  // namespace compression
 }  // namespace io

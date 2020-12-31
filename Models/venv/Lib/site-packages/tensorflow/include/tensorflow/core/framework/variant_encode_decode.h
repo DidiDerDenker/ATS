@@ -105,7 +105,7 @@ bool DecodeVariantImpl(VariantTensorData data,
                        TypeResolver<T, false /* is_pod */, false /* Tensor */,
                                     true /* protobuf */>,
                        T* value) {
-  std::string metadata;
+  string metadata;
   data.get_metadata(&metadata);
   return value->ParseFromString(std::move(metadata));
 }
@@ -136,35 +136,35 @@ template <typename T, bool = has_type_name<typename std::decay<T>::type>::value,
 struct TypeNameResolver {};
 
 template <typename T>
-std::string TypeNameVariantImpl(const T& value,
-                                TypeNameResolver<T, true /* has_type_name */>) {
+string TypeNameVariantImpl(const T& value,
+                           TypeNameResolver<T, true /* has_type_name */>) {
   return value.TypeName();
 }
 
 template <typename T>
-std::string TypeNameVariantImpl(
+string TypeNameVariantImpl(
     const T& value,
     TypeNameResolver<T, false /* has_type_name */, true /* Tensor */>) {
   return "tensorflow::Tensor";
 }
 
 template <typename T>
-std::string TypeNameVariantImpl(
+string TypeNameVariantImpl(
     const T& value, TypeNameResolver<T, false /* has_type_name */,
                                      false /* Tensor */, true /* protobuf */>) {
   return value.GetTypeName();
 }
 
 template <typename T>
-std::string TypeNameVariantImpl(
+string TypeNameVariantImpl(
     const T& value,
     TypeNameResolver<T, false /* has_type_name */, false /* Tensor */,
                      false /* protobuf */>) {
-  return port::MaybeAbiDemangle(TypeIndex::Make<T>().name());
+  return port::MaybeAbiDemangle(MakeTypeIndex<T>().name());
 }
 
 template <typename T>
-std::string TypeNameVariant(const T& value) {
+string TypeNameVariant(const T& value) {
   return TypeNameVariantImpl(value, TypeNameResolver<T>());
 }
 
@@ -194,27 +194,27 @@ struct DebugStringResolver {};
 // TODO(ebrevdo): Expand DebugStringResolver to return TypeString if
 // there is no StrCat<T>() constructor.
 template <typename T>
-std::string DebugStringVariantImpl(
+string DebugStringVariantImpl(
     const T& value, DebugStringResolver<T, true /* has_debug_string */>) {
   return value.DebugString();
 }
 
 template <typename T>
-std::string DebugStringVariantImpl(
+string DebugStringVariantImpl(
     const T& value, DebugStringResolver<T, false /* has_debug_string */,
                                         true /* can_strcat */>) {
   return strings::StrCat(value);
 }
 
 template <typename T>
-std::string DebugStringVariantImpl(
+string DebugStringVariantImpl(
     const T& value, DebugStringResolver<T, false /* has_debug_string */,
                                         false /* can_strcat */>) {
   return "?";
 }
 
 template <typename T>
-std::string DebugStringVariant(const T& value) {
+string DebugStringVariant(const T& value) {
   return DebugStringVariantImpl(value, DebugStringResolver<T>());
 }
 
@@ -230,7 +230,7 @@ bool DecodeVariant(VariantTensorData* data, T* value) {
 }
 
 template <typename T>
-void EncodeVariant(const T& value, std::string* buf) {
+void EncodeVariant(const T& value, string* buf) {
   VariantTensorData data;
   EncodeVariantImpl(value, TypeResolver<T>(), &data);
   data.set_type_name(TypeNameVariant(value));
@@ -239,7 +239,7 @@ void EncodeVariant(const T& value, std::string* buf) {
 }
 
 template <typename T>
-bool DecodeVariant(std::string* buf, T* value) {
+bool DecodeVariant(string* buf, T* value) {
   VariantTensorData data;
   if (!data.ParseFromString(*buf)) return false;
   if (!DecodeVariantImpl(std::move(data), TypeResolver<T>(), value)) {
@@ -250,7 +250,7 @@ bool DecodeVariant(std::string* buf, T* value) {
 
 // Specializations for VariantTensorDataProto
 template <>
-std::string TypeNameVariant(const VariantTensorDataProto& value);
+string TypeNameVariant(const VariantTensorDataProto& value);
 
 template <>
 void EncodeVariant(const VariantTensorDataProto& value,
@@ -260,10 +260,10 @@ template <>
 bool DecodeVariant(VariantTensorData* data, VariantTensorDataProto* value);
 
 template <>
-void EncodeVariant(const VariantTensorDataProto& value, std::string* buf);
+void EncodeVariant(const VariantTensorDataProto& value, string* buf);
 
 template <>
-bool DecodeVariant(std::string* buf, VariantTensorDataProto* value);
+bool DecodeVariant(string* buf, VariantTensorDataProto* value);
 
 // Encodes an array of Variant objects in to the given StringListEncoder.
 // `variant_array` is assumed to point to an array of `n` Variant objects.

@@ -62,8 +62,7 @@ struct ConstantFoldingOptions {
 // running the graph.
 Status ConstantFold(const ConstantFoldingOptions& opts,
                     FunctionLibraryRuntime* function_library, Env* env,
-                    const Device* partition_device, Graph* graph,
-                    bool* was_mutated);
+                    Device* partition_device, Graph* graph, bool* was_mutated);
 
 }  // namespace tensorflow
 

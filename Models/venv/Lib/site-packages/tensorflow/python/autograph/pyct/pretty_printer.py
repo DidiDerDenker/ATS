@@ -19,18 +19,16 @@ from __future__ import division
 from __future__ import print_function
 
 import gast
-import six
 import termcolor
 
 
 class PrettyPrinter(gast.NodeVisitor):
   """Print AST nodes."""
 
-  def __init__(self, color, noanno):
+  def __init__(self, color):
     self.indent_lvl = 0
     self.result = ''
     self.color = color
-    self.noanno = noanno
 
   def _color(self, string, color, attrs=None):
     if self.color:
@@ -57,15 +55,6 @@ class PrettyPrinter(gast.NodeVisitor):
     self.result += '\n'
 
   def generic_visit(self, node, name=None):
-    # In very rare instances, a list can contain something other than a Node.
-    # e.g. Global contains a list of strings.
-    if isinstance(node, str):
-      if name:
-        self._print('%s%s="%s"' % (self._indent(), name, node))
-      else:
-        self._print('%s"%s"' % (self._indent(), node))
-      return
-
     if node._fields:
       cont = ':'
     else:
@@ -79,8 +68,6 @@ class PrettyPrinter(gast.NodeVisitor):
 
     self.indent_lvl += 1
     for f in node._fields:
-      if self.noanno and f.startswith('__'):
-        continue
       if not hasattr(node, f):
         self._print('%s%s' % (self._indent(), self._warning('%s=<unset>' % f)))
         continue
@@ -90,10 +77,7 @@ class PrettyPrinter(gast.NodeVisitor):
           self._print('%s%s=[' % (self._indent(), self._field(f)))
           self.indent_lvl += 1
           for n in v:
-            if n is not None:
-              self.generic_visit(n)
-            else:
-              self._print('%sNone' % (self._indent()))
+            self.generic_visit(n)
           self.indent_lvl -= 1
           self._print('%s]' % (self._indent()))
         else:
@@ -103,30 +87,24 @@ class PrettyPrinter(gast.NodeVisitor):
           self._print('%s%s=(' % (self._indent(), self._field(f)))
           self.indent_lvl += 1
           for n in v:
-            if n is not None:
-              self.generic_visit(n)
-            else:
-              self._print('%sNone' % (self._indent()))
+            self.generic_visit(n)
           self.indent_lvl -= 1
           self._print('%s)' % (self._indent()))
         else:
           self._print('%s%s=()' % (self._indent(), self._field(f)))
       elif isinstance(v, gast.AST):
         self.generic_visit(v, f)
-      elif isinstance(v, six.binary_type):
+      elif isinstance(v, str):
         self._print('%s%s=%s' % (self._indent(), self._field(f),
-                                 self._value('b"%s"' % v)))
-      elif isinstance(v, six.text_type):
-        self._print('%s%s=%s' % (self._indent(), self._field(f),
-                                 self._value('u"%s"' % v)))
+                                 self._value('"%s"' % v)))
       else:
         self._print('%s%s=%s' % (self._indent(), self._field(f),
                                  self._value(v)))
     self.indent_lvl -= 1
 
 
-def fmt(node, color=True, noanno=False):
-  printer = PrettyPrinter(color, noanno)
+def fmt(node, color=True):
+  printer = PrettyPrinter(color)
   if isinstance(node, (list, tuple)):
     for n in node:
       printer.visit(n)

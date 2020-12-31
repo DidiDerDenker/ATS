@@ -36,3 +36,6 @@ Models/models/seq_to_seq_attention/embeddings/glove.6B.200d.txt
 Models/models/seq_to_seq_attention/embeddings/glove.6B.50d.txt
 Models/models/seq_to_seq_attention/embeddings/glove.6B.300d.txt
 Models/models/seq_to_seq_attention/data/processed_data.json
+Models/models/bert_encoder_transformer_decoder/data/uncased_bert/bert_model.ckpt.data
+Models/models/seq_to_seq_with_attention/data/processed_data.json
+Models/models/seq_to_seq_with_attention/embeddings/glove.6B.100d.txt

@@ -23,7 +23,8 @@ import contextlib
 from tensorflow.core.framework import step_stats_pb2
 from tensorflow.core.grappler.costs import op_performance_data_pb2
 from tensorflow.core.protobuf import device_properties_pb2
-from tensorflow.python import _pywrap_tf_cluster as tf_cluster
+from tensorflow.python import pywrap_tensorflow as tf_cluster
+from tensorflow.python.framework import errors
 
 
 class Cluster(object):
@@ -48,13 +49,14 @@ class Cluster(object):
     """
     self._tf_cluster = None
     self._generate_timeline = not disable_timeline
-
-    if devices is None:
-      self._tf_cluster = tf_cluster.TF_NewCluster(allow_soft_placement,
-                                                  disable_detailed_stats)
-    else:
-      devices_serialized = [device.SerializeToString() for device in devices]
-      self._tf_cluster = tf_cluster.TF_NewVirtualCluster(devices_serialized)
+    with errors.raise_exception_on_not_ok_status() as status:
+      if devices is None:
+        self._tf_cluster = tf_cluster.TF_NewCluster(
+            allow_soft_placement, disable_detailed_stats, status)
+      else:
+        devices_serialized = [device.SerializeToString() for device in devices]
+        self._tf_cluster = tf_cluster.TF_NewVirtualCluster(
+            devices_serialized, status)
 
   def Shutdown(self):
     if self._tf_cluster is not None:
@@ -69,21 +71,26 @@ class Cluster(object):
     return self._tf_cluster
 
   def ListDevices(self):
-    """Returns a list of available hardware devices."""
-    if self._tf_cluster is None:
-      return []
-    return [device_properties_pb2.NamedDevice.FromString(device)
-            for device in tf_cluster.TF_ListDevices(self._tf_cluster)]
+    """Returns the list of available hardware devices."""
+    devices = []
+    if self._tf_cluster is not None:
+      ret_from_swig = tf_cluster.TF_ListDevices(self._tf_cluster)
+      devices = []
+      for raw_dev in ret_from_swig:
+        devices.append(device_properties_pb2.NamedDevice.FromString(raw_dev))
+    return devices
 
   def ListAvailableOps(self):
-    """Returns a list of all available operations (sorted alphabetically)."""
+    """Returns a list of all the available operations (sorted alphatically)."""
     return tf_cluster.TF_ListAvailableOps()
 
   def GetSupportedDevices(self, item):
     return tf_cluster.TF_GetSupportedDevices(self._tf_cluster, item.tf_item)
 
   def EstimatePerformance(self, device):
-    return tf_cluster.TF_EstimatePerformance(device.SerializeToString())
+    """Estimate the performance of the specified device."""
+    serialized = device.SerializeToString()
+    return tf_cluster.TF_EstimatePerformance(serialized)
 
   def MeasureCosts(self, item):
     """Returns the cost of running the specified item.
@@ -92,11 +99,18 @@ class Cluster(object):
       item: The item for which to measure the costs.
     Returns: The triplet op_perfs, runtime, step_stats.
     """
-    op_perf_bytes_list, run_time, step_stats_bytes = tf_cluster.TF_MeasureCosts(
-        item.tf_item, self._tf_cluster, self._generate_timeline)
+    with errors.raise_exception_on_not_ok_status() as status:
+      ret_from_swig = tf_cluster.TF_MeasureCosts(
+          item.tf_item, self._tf_cluster, self._generate_timeline, status)
 
-    op_perfs = [op_performance_data_pb2.OpPerformance.FromString(op_perf_bytes)
-                for op_perf_bytes in op_perf_bytes_list]
+    if ret_from_swig is None:
+      return None
+
+    op_perf_bytes_list, run_time, step_stats_bytes = ret_from_swig
+    op_perfs = []
+    for op_perf_bytes in op_perf_bytes_list:
+      op_perfs.append(
+          op_performance_data_pb2.OpPerformance.FromString(op_perf_bytes))
     return (op_perfs, run_time,
             step_stats_pb2.StepStats.FromString(step_stats_bytes))
 
@@ -107,8 +121,11 @@ class Cluster(object):
       item: The item for which to measure the costs.
     Returns: A hashtable indexed by device name.
     """
-    return tf_cluster.TF_DeterminePeakMemoryUsage(item.tf_item,
-                                                  self._tf_cluster)
+    with errors.raise_exception_on_not_ok_status() as status:
+      ret_from_swig = tf_cluster.TF_DeterminePeakMemoryUsage(
+          item.tf_item, self._tf_cluster, status)
+
+    return ret_from_swig
 
 
 @contextlib.contextmanager

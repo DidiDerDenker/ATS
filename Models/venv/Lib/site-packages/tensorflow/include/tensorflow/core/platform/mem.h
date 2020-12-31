@@ -59,18 +59,8 @@ void MallocExtension_ReleaseToSystem(std::size_t num_bytes);
 // routine, this routine returns 0.
 std::size_t MallocExtension_GetAllocatedSize(const void* p);
 
-struct MemoryInfo {
-  int64 total = 0;
-  int64 free = 0;
-};
-
-// Retrieves the host memory information. If any of the fields in the returned
-// MemoryInfo structure is INT64_MAX, it means such information is not
-// available.
-MemoryInfo GetMemoryInfo();
-
 // Returns the amount of RAM available in bytes, or INT64_MAX if unknown.
-static inline int64 AvailableRam() { return GetMemoryInfo().free; }
+int64 AvailableRam();
 
 }  // namespace port
 }  // namespace tensorflow
