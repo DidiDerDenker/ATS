@@ -39,3 +39,14 @@ Models/models/seq_to_seq_attention/data/processed_data.json
 Models/models/bert_encoder_transformer_decoder/data/uncased_bert/bert_model.ckpt.data
 Models/models/seq_to_seq_with_attention/data/processed_data.json
 Models/models/seq_to_seq_with_attention/embeddings/glove.6B.100d.txt
+Models/models/seq_to_seq_with_attention_library/glove/glove.42B.300d.txt
+Models/models/seq_to_seq_with_attention_library/sumdata/train/train.article.txt
+Models/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-297190.meta
+Models/models/seq_to_seq_with_attention_library/sumdata/train/train.article.txt.gz
+Models/models/seq_to_seq_with_attention_library/sumdata/train/train.title.txt.gz
+Models/models/seq_to_seq_with_attention_library/sumdata/train/train.article.txt.gz
+Models/models/seq_to_seq_with_attention_library/sumdata/train/valid.article.filter.txt
+Models/models/seq_to_seq_with_attention_library/summary.tar.gz
+Models/models/seq_to_seq_with_attention_library/sumdata/train/train.title.txt
+Models/models/seq_to_seq_with_attention_library/sumdata/train/valid.title.filter.txt
+Models/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-297190.data-00000-of-00001

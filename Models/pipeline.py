@@ -1,4 +1,5 @@
 # Imports
+import sys
 import random
 
 from data_loader import DataLoader
@@ -45,10 +46,17 @@ def process_transformers(corpus, shuffle=True, size=0.75):
     pretrained_model = "t5-base" # ["bert-base-cased", "bert-large-cased", "albert-large-v2"]
     model = AutoModelWithLMHead.from_pretrained(pretrained_model)
     tokenizer = AutoTokenizer.from_pretrained(pretrained_model)
-
     summarizer = pipeline("summarization", model=model, tokenizer=tokenizer)
-    y_hyps = [summarizer(text, max_length=int(0.15 * len(text)))[0]["summary_text"] for text in X]
+
+    y_hyps = []
     y_refs = y
+    i = 1
+
+    for text in X:
+        y_hyps.append(summarizer(text, max_length=int(len(text) * 0.15))[0]["summary_text"])
+        sys.stdout.write("\rSummarization %i..." % i)
+        sys.stdout.flush()
+        i += 1
 
     instance = Rouge()
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
@@ -113,7 +121,7 @@ def main():
     global TEXT_PATH
     global SUMMARY_PATH
 
-    corpus_filter = ["wikihow"] # ["cnn_dailymail", "wikihow"]
+    corpus_filter = ["cnn_dailymail", "wikihow"]
     instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
 
     ''' TRANSFORMERS '''

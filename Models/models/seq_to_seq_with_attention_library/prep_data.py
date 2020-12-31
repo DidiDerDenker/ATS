@@ -1,3 +1,4 @@
+# Imports
 import wget
 import os
 import tarfile
@@ -6,21 +7,25 @@ import zipfile
 import argparse
 
 
+# Notebook
 parser = argparse.ArgumentParser()
 parser.add_argument("--glove", action="store_true")
 args = parser.parse_args()
 
-# Extract data file
+
 with tarfile.open("summary.tar.gz", "r:gz") as tar:
     tar.extractall()
+
 
 with gzip.open("sumdata/train/train.article.txt.gz", "rb") as gz:
     with open("sumdata/train/train.article.txt", "wb") as out:
         out.write(gz.read())
 
+
 with gzip.open("sumdata/train/train.title.txt.gz", "rb") as gz:
     with open("sumdata/train/train.title.txt", "wb") as out:
         out.write(gz.read())
+
 
 if args.glove:
     glove_dir = "glove"
@@ -29,9 +34,7 @@ if args.glove:
     if not os.path.exists(glove_dir):
         os.mkdir(glove_dir)
 
-    # Download glove vector
     wget.download(glove_url, out=glove_dir)
 
-    # Extract glove file
     with zipfile.ZipFile(os.path.join("glove", "glove.42B.300d.zip"), "r") as z:
         z.extractall(glove_dir)
