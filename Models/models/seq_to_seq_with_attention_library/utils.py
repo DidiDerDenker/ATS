@@ -12,11 +12,18 @@ from gensim.scripts.glove2word2vec import glove2word2vec
 
 
 # Global Variables
-path = "C:\\Temp\\MiniCorpus\\"
-train_text_path = path + "train\\text_corpus\\"
-train_summary_path = path + "train\\summary_corpus\\"
-test_text_path = path + "test\\text_corpus\\"
-test_summary_path = path + "test\\summary_corpus\\"
+path = "C:\\Temp\\Corpus\\"
+text_path = path + "text_files\\"
+summary_path = path + "summary_files\\"
+
+text_files = os.listdir(text_path)
+summary_files = os.listdir(summary_path)
+size = int(len(text_files) * 0.8)
+
+train_text_files = text_files[0:size]
+test_text_files = text_files[size:len(text_files)]
+train_summary_files = summary_files[0:size]
+test_summary_files = summary_files[size:len(summary_files)]
 
 
 # Methods
@@ -26,29 +33,26 @@ def clean_str(sentence):
     return sentence
 
 
-def get_text_list(data_path, toy):
+def read_files(path, files):
     corpus = []
 
-    for file in os.listdir(data_path):
+    for file in files:
         if file.endswith(".txt"):
-            file_path = os.path.join(data_path, file)
+            file_path = path + file
 
             with open(file_path, "r", encoding="utf8") as f:
                 corpus.append(" ".join(f.readlines()))
 
-    if toy:
-        corpus = corpus[:50000]
+    print(corpus)
 
     return corpus
 
 
 def build_dict(step, toy=False):
     if step == "train":
-        train_article_list = get_text_list(train_text_path, toy)
-        train_title_list = get_text_list(train_summary_path, toy)
         words = list()
 
-        for sentence in train_article_list + train_title_list:
+        for sentence in train_text_files + train_summary_files:
             for word in word_tokenize(sentence):
                 words.append(word)
 
@@ -78,16 +82,16 @@ def build_dict(step, toy=False):
 
 def build_dataset(step, word_dict, article_max_len, summary_max_len, toy=False):
     if step == "train":
-        article_list = get_text_list(train_text_path, toy)
-        title_list = get_text_list(train_summary_path, toy)
+        text_list = read_files(text_path, train_text_files)
+        summary_list = read_files(summary_path, train_summary_files)
 
     elif step == "valid":
-        article_list = get_text_list(test_text_path, toy)
+        text_list = read_files(text_path, train_text_files)
 
     else:
         raise NotImplementedError
 
-    x = [word_tokenize(d) for d in article_list]
+    x = [word_tokenize(d) for d in text_list]
     x = [[word_dict.get(w, word_dict["<unk>"]) for w in d] for d in x]
     x = [d[:article_max_len] for d in x]
     x = [d + (article_max_len - len(d)) * [word_dict["<padding>"]] for d in x]
@@ -96,7 +100,7 @@ def build_dataset(step, word_dict, article_max_len, summary_max_len, toy=False):
         return x
 
     else:        
-        y = [word_tokenize(d) for d in title_list]
+        y = [word_tokenize(d) for d in summary_list]
         y = [[word_dict.get(w, word_dict["<unk>"]) for w in d] for d in y]
         y = [d[:(summary_max_len - 1)] for d in y]
 
