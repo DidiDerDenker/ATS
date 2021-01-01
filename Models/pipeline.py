@@ -63,7 +63,7 @@ def process_transformers(corpus, shuffle=True, size=0.75):
     print_rouge_scores(scores)
 
 
-def process_seq_to_seq_attention(): # corpus, vocab2idx
+def process_seq_to_seq_with_attention(): # corpus, vocab2idx
     import models.seq_to_seq_with_attention.helpers as temp
 
     glove_file_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models\\models\\seq_to_seq_attention\\embeddings\\glove.6B.100d.txt"
@@ -76,7 +76,7 @@ def process_seq_to_seq_attention(): # corpus, vocab2idx
     temp.prepare_batches(vec_texts, vec_summaries, embeddings, vocab2idx, json_file_path)
     '''
 
-    y_hyps, y_refs = temp.model_notebook(json_file_path) # TODO: Load model and check y
+    y_hyps, y_refs = temp.model_notebook(json_file_path)
 
     instance = Rouge()
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
@@ -89,11 +89,16 @@ def process_bert_encoder_transformer_decoder(text_corpus):
     exit()
 
 
-def process_seq_to_seq_library(text_corpus):
+def process_seq_to_seq_with_attention_library(text_corpus):
+    # TODO: Prepare train and test data, comment as script afterwards
+    # INSERT TERMINAL-TRAIN-COMMAND
+    # TODO: Load model, use test data
+    # INSERT TERMINAL-TEST-COMMAND
+    # TODO: Evaluate scores
     exit()
 
 
-def process_rl_seq_to_seq(text_corpus):
+def seq_to_seq_with_rl(text_corpus):
     exit()
 
 
@@ -125,24 +130,24 @@ def main():
     instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
 
     ''' TRANSFORMERS '''
-    process_transformers(instance.corpus)
+    # process_transformers(instance.corpus)
 
-    ''' SEQ-TO-SEQ-ATTENTION '''
-    # process_seq_to_seq_attention(instance.tokenized_corpus, instance.vocab2idx)
+    ''' SEQ-TO-SEQ WITH ATTENTION '''
+    # process_seq_to_seq_with_attention(instance.tokenized_corpus, instance.vocab2idx)
 
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
     # process_bert_encoder_transformer_decoder(instance.corpus)
 
-    ''' SEQ-TO-SEQ-LIBRARY '''
-    # process_seq_to_seq_library(instance.corpus)
+    ''' SEQ-TO-SEQ WITH ATTENTION LIBRARY '''
+    process_seq_to_seq_with_attention_library(instance.corpus)
 
-    ''' RL-SEQ-TO-SEQ '''
-    # process_rl_seq_to_seq(instance.corpus)
+    ''' SEQ-TO-SEQ WITH RL '''
+    # process_seq_to_seq_with_rl(instance.corpus)
 
-    ''' SEQ-TO-SEQ-WITH-RNN '''
+    ''' SEQ-TO-SEQ WITH RNN '''
     # process_seq_to_seq_with_rnn(instance.corpus)
 
-    ''' DEEP-REINFORCED-MODEL-WITH-PYTORCH '''
+    ''' DEEP-REINFORCED-MODEL WITH PYTORCH '''
     # process_deep_reinforced_model_with_pytorch(instance.corpus)
 
 

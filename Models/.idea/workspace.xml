@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dc11ec48-ae96-4817-97f0-1129e8834b7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/prep_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/prep_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/sample_data/sumdata/train/train.article.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/sample_data/sumdata/train/train.title.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/sample_data/sumdata/train/valid.article.filter.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/sample_data/sumdata/train/valid.title.filter.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
