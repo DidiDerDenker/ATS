@@ -41,8 +41,7 @@ with tf.Session() as sess:
                     if word == "</s>":
                         break
 
-                    if word not in summary:
-                        summary.append(word)
+                    summary.append(word)
 
                 print(" ".join(summary), file=f) # TODO: Remove
 

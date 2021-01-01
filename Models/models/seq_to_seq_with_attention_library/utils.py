@@ -1,4 +1,5 @@
 # Imports
+import os
 import re
 import collections
 import pickle
@@ -10,11 +11,12 @@ from gensim.test.utils import get_tmpfile
 from gensim.scripts.glove2word2vec import glove2word2vec
 
 
-# Parameters
-train_article_path = "sumdata/train/train.article.txt"
-train_title_path = "sumdata/train/train.title.txt"
-valid_article_path = "sumdata/train/valid.article.filter.txt"
-valid_title_path = "sumdata/train/valid.title.filter.txt"
+# Global Variables
+path = "C:\\Temp\\MiniCorpus\\"
+train_text_path = path + "train\\text_corpus\\"
+train_summary_path = path + "train\\summary_corpus\\"
+test_text_path = path + "test\\text_corpus\\"
+test_summary_path = path + "test\\summary_corpus\\"
 
 
 # Methods
@@ -25,18 +27,25 @@ def clean_str(sentence):
 
 
 def get_text_list(data_path, toy):
-    with open(data_path, "r", encoding="utf-8") as f:
-        if not toy:
-            return [clean_str(x.strip()) for x in f.readlines()]
+    corpus = []
 
-        else:
-            return [clean_str(x.strip()) for x in f.readlines()][:50000]
+    for file in os.listdir(data_path):
+        if file.endswith(".txt"):
+            file_path = os.path.join(data_path, file)
+
+            with open(file_path, "r", encoding="utf8") as f:
+                corpus.append(" ".join(f.readlines()))
+
+    if toy:
+        corpus = corpus[:50000]
+
+    return corpus
 
 
 def build_dict(step, toy=False):
     if step == "train":
-        train_article_list = get_text_list(train_article_path, toy)
-        train_title_list = get_text_list(train_title_path, toy)
+        train_article_list = get_text_list(train_text_path, toy)
+        train_title_list = get_text_list(train_summary_path, toy)
         words = list()
 
         for sentence in train_article_list + train_title_list:
@@ -69,11 +78,11 @@ def build_dict(step, toy=False):
 
 def build_dataset(step, word_dict, article_max_len, summary_max_len, toy=False):
     if step == "train":
-        article_list = get_text_list(train_article_path, toy)
-        title_list = get_text_list(train_title_path, toy)
+        article_list = get_text_list(train_text_path, toy)
+        title_list = get_text_list(train_summary_path, toy)
 
     elif step == "valid":
-        article_list = get_text_list(valid_article_path, toy)
+        article_list = get_text_list(test_text_path, toy)
 
     else:
         raise NotImplementedError

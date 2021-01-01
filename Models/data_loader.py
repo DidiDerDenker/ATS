@@ -46,7 +46,7 @@ class DataLoader:
         mini_corpus_cnt = 0 # TODO: Remove mini-corpus
 
         for id in self.meta_corpus["ID"]:
-            if mini_corpus_cnt < 200: # TODO: Remove mini-corpus
+            if mini_corpus_cnt < 1000: # TODO: Remove mini-corpus
                 text_file = self.text_path + id + ".txt"
                 summary_file = self.summary_path + id + ".txt"
 

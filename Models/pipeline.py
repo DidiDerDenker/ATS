@@ -16,7 +16,7 @@ SUMMARY_PATH = "C:\\Temp\\Corpus\\summary_files\\"
 
 '''
 Note: Commented snippets are scripts that have to be executed only once
-Note: Methods of models with a concluding exit-statement are not working right now)
+Note: Methods of models can be run to evaluate the model, but not everyone is working right now
 '''
 
 
@@ -90,10 +90,9 @@ def process_bert_encoder_transformer_decoder(text_corpus):
 
 
 def process_seq_to_seq_with_attention_library(text_corpus):
-    # TODO: Prepare train and test data, comment as script afterwards
-    # INSERT TERMINAL-TRAIN-COMMAND
-    # TODO: Load model, use test data
-    # INSERT TERMINAL-TEST-COMMAND
+    # python train.py --glove
+    # python test.py
+
     # TODO: Evaluate scores
     exit()
 

@@ -95,5 +95,6 @@ with tf.Session() as sess:
             hours, rem = divmod(time.perf_counter() - start, 3600)
             minutes, seconds = divmod(rem, 60)
             saver.save(sess, "./saved_model/model.ckpt", global_step=step)
+
             print("Epoch {0}: Model is saved.".format(step // num_batches_per_epoch),
-            "Elapsed: {:0>2}:{:0>2}:{:05.2f}".format(int(hours),int(minutes),seconds) , "\n")
+                  "Elapsed: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
