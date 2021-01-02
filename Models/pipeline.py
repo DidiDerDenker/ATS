@@ -94,12 +94,12 @@ def process_bert_encoder_transformer_decoder(text_corpus):
 def process_seq_to_seq_with_attention_library():
     cwd = os.path.dirname(os.path.realpath(__file__)) + "\\models\\seq_to_seq_with_attention_library"
     # subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
-    subprocess.call("python test.py", shell=True, cwd=cwd)
+    # subprocess.call("python test.py", shell=True, cwd=cwd)
 
     # TODO: Train and test model, alternatively test it with a pre-trained model first
-    # TODO: Allow loading models for continuing training
-    # TODO: Use colab and feed in a json-file, too much commitment only for tests, so do it after tests if necessary
-    # TODO: Evaluate scores within max. 2 days, e.g. load model, get y_refs, justify these and the next steps
+    # TODO: Allow loading models for continuing training, write that down, use pre-trained model just for now
+    # TODO: Evaluate scores within max. 2 days, e.g. load model, get y_hyps (not in result.txt) and y_refs
+    # TODO: Justify these and the next steps
 
     exit()
 

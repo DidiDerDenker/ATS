@@ -3,7 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="dc11ec48-ae96-4817-97f0-1129e8834b7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/args.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/args.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-108.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-108.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-120.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-120.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-72.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-72.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-84.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-84.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-96.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-96.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/word_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/word_dict.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,22 +156,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608037743960" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1609601357477">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1609602930469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609601357477" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1609601357477">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609602930469" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1609602930469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609601357477" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1609601357477">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609602930469" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1609602930469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609601357477" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1609601357477">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609602930469" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1609602930469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609601357477" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609602930469" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1609416060590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
