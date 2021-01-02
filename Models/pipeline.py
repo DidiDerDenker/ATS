@@ -93,8 +93,8 @@ def process_bert_encoder_transformer_decoder(text_corpus):
 
 def process_seq_to_seq_with_attention_library():
     cwd = os.path.dirname(os.path.realpath(__file__)) + "\\models\\seq_to_seq_with_attention_library"
-    subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
-    # subprocess.call("python test.py", shell=True, cwd=cwd)
+    # subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
+    subprocess.call("python test.py", shell=True, cwd=cwd)
 
     # TODO: Train and test model, alternatively test it with a pre-trained model first
     # TODO: Allow loading models for continuing training

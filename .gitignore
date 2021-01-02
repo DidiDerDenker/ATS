@@ -50,3 +50,4 @@ Models/models/seq_to_seq_with_attention_library/summary.tar.gz
 Models/models/seq_to_seq_with_attention_library/sumdata/train/train.title.txt
 Models/models/seq_to_seq_with_attention_library/sumdata/train/valid.title.filter.txt
 Models/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-297190.data-00000-of-00001
+Models/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-120.data-00000-of-00001
