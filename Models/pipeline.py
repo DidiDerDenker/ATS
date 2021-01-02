@@ -1,5 +1,7 @@
 # Imports
 import sys
+import subprocess
+import os
 import random
 
 from data_loader import DataLoader
@@ -89,11 +91,16 @@ def process_bert_encoder_transformer_decoder(text_corpus):
     exit()
 
 
-def process_seq_to_seq_with_attention_library(text_corpus):
-    # python train.py --glove
-    # python test.py
+def process_seq_to_seq_with_attention_library():
+    cwd = os.path.dirname(os.path.realpath(__file__)) + "\\models\\seq_to_seq_with_attention_library"
+    subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
+    # subprocess.call("python test.py", shell=True, cwd=cwd)
 
-    # TODO: Evaluate scores
+    # TODO: Train and test model, alternatively test it with a pre-trained model first
+    # TODO: Allow loading models for continuing training
+    # TODO: Use colab and feed in a json-file, too much commitment only for tests, so do it after tests if necessary
+    # TODO: Evaluate scores within max. 2 days, e.g. load model, get y_refs, justify these and the next steps
+
     exit()
 
 
@@ -138,7 +145,7 @@ def main():
     # process_bert_encoder_transformer_decoder(instance.corpus)
 
     ''' SEQ-TO-SEQ WITH ATTENTION LIBRARY '''
-    process_seq_to_seq_with_attention_library(instance.corpus)
+    process_seq_to_seq_with_attention_library()
 
     ''' SEQ-TO-SEQ WITH RL '''
     # process_seq_to_seq_with_rl(instance.corpus)

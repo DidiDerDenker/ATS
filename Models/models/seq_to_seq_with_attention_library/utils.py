@@ -12,13 +12,13 @@ from gensim.scripts.glove2word2vec import glove2word2vec
 
 
 # Global Variables
-path = "C:\\Temp\\Corpus\\"
+path = "C:\\Temp\\MiniCorpus\\"
 text_path = path + "text_files\\"
 summary_path = path + "summary_files\\"
 
 text_files = os.listdir(text_path)
 summary_files = os.listdir(summary_path)
-size = int(len(text_files) * 0.8)
+size = int(len(text_files) * 0.75)
 
 train_text_files = text_files[0:size]
 test_text_files = text_files[size:len(text_files)]
@@ -43,8 +43,6 @@ def read_files(path, files):
             with open(file_path, "r", encoding="utf8") as f:
                 corpus.append(" ".join(f.readlines()))
 
-    print(corpus)
-
     return corpus
 
 
@@ -52,7 +50,7 @@ def build_dict(step, toy=False):
     if step == "train":
         words = list()
 
-        for sentence in train_text_files + train_summary_files:
+        for sentence in read_files(text_path, train_text_files) + read_files(summary_path, train_summary_files):
             for word in word_tokenize(sentence):
                 words.append(word)
 
@@ -74,8 +72,8 @@ def build_dict(step, toy=False):
             word_dict = pickle.load(f)
 
     reversed_dict = dict(zip(word_dict.values(), word_dict.keys()))
-    article_max_len = 50
-    summary_max_len = 15
+    article_max_len = 1000 # TODO: Set
+    summary_max_len = 200 # TODO: Set
 
     return word_dict, reversed_dict, article_max_len, summary_max_len
 
@@ -86,7 +84,7 @@ def build_dataset(step, word_dict, article_max_len, summary_max_len, toy=False):
         summary_list = read_files(summary_path, train_summary_files)
 
     elif step == "valid":
-        text_list = read_files(text_path, train_text_files)
+        text_list = read_files(text_path, test_text_files)
 
     else:
         raise NotImplementedError
