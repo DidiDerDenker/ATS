@@ -3,20 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dc11ec48-ae96-4817-97f0-1129e8834b7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/args.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/args.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/result.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-108.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-108.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-120.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-120.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-72.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-72.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-84.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-84.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-96.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/saved_model/model.ckpt-96.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/word_dict.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/models/seq_to_seq_with_attention_library/word_dict.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

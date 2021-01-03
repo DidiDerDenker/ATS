@@ -84,6 +84,8 @@ def process_seq_to_seq_with_attention(): # corpus, vocab2idx
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
     print_rouge_scores(scores)
 
+    # TODO: Train the model properly
+
     exit()
 
 
@@ -96,10 +98,9 @@ def process_seq_to_seq_with_attention_library():
     # subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
     # subprocess.call("python test.py", shell=True, cwd=cwd)
 
-    # TODO: Train and test model, alternatively test it with a pre-trained model first
-    # TODO: Allow loading models for continuing training, write that down, use pre-trained model just for now
-    # TODO: Evaluate scores within max. 2 days, e.g. load model, get y_hyps (not in result.txt) and y_refs
-    # TODO: Justify these and the next steps
+    # TODO: Train and test model
+    # TODO: Load checkpoints and continue training
+    # TODO: Evaluate scores, change export to result.txt to a text-wise export
 
     exit()
 
