@@ -89,10 +89,6 @@ def process_seq_to_seq_with_attention(): # corpus, vocab2idx
     exit()
 
 
-def process_bert_encoder_transformer_decoder(text_corpus):
-    exit()
-
-
 def process_seq_to_seq_with_attention_library():
     cwd = os.path.dirname(os.path.realpath(__file__)) + "\\models\\seq_to_seq_with_attention_library"
     # subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
@@ -105,7 +101,7 @@ def process_seq_to_seq_with_attention_library():
     exit()
 
 
-def seq_to_seq_with_rl(text_corpus):
+def process_bert_encoder_transformer_decoder(text_corpus):
     exit()
 
 
@@ -142,17 +138,11 @@ def main():
     ''' SEQ-TO-SEQ WITH ATTENTION '''
     # process_seq_to_seq_with_attention(instance.tokenized_corpus, instance.vocab2idx)
 
+    ''' SEQ-TO-SEQ WITH ATTENTION LIBRARY '''
+    # process_seq_to_seq_with_attention_library()
+
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
     # process_bert_encoder_transformer_decoder(instance.corpus)
-
-    ''' SEQ-TO-SEQ WITH ATTENTION LIBRARY '''
-    process_seq_to_seq_with_attention_library()
-
-    ''' SEQ-TO-SEQ WITH RL '''
-    # process_seq_to_seq_with_rl(instance.corpus)
-
-    ''' SEQ-TO-SEQ WITH RNN '''
-    # process_seq_to_seq_with_rnn(instance.corpus)
 
     ''' DEEP-REINFORCED-MODEL WITH PYTORCH '''
     # process_deep_reinforced_model_with_pytorch(instance.corpus)

@@ -1,6 +1,0 @@
-tensorflow-gpu==1.10
-PyYAML
-spacy
-scikit-learn
-nltk
-pyrouge

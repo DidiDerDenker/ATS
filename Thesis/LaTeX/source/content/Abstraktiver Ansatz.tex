@@ -16,11 +16,11 @@ Notizen:
 Notizen:
 \begin{itemize}
 	\item Netzwerk des abstraktiven Ansatzes als Pipeline skizzieren
-	\item Transformers-Library -> Scores in Excel
+	\item Transformers-Library -> Scores in Excel, funktioniert gut als Benchmark/ "Nullfall"
 	\item Seq2Seq \url{https://github.com/yaserkl/RLSeq2Seq#dataset} -> Fehler
-	\item Seq2Seq-Library: \url{https://github.com/dongjun-Lee/text-summarization-tensorflow} -> Done, aber Training ausstehend und sehr rechenintensiv, Azure ML vs. AWS SageMaker?
-	\item Deep Reinforcement Learning (DeepRL) for Abstractive Text Summarization \url{https://medium.com/analytics-vidhya/deep-reinforcement-learning-deeprl-for-abstractive-text-summarization-made-easy-tutorial-9-c6914999c76c} -> Fehler
-	\item Seq2Seq with RNNs: \url{https://github.com/chen0040/keras-text-summarization}
+	\item Seq2Seq-Library: \url{https://github.com/dongjun-Lee/text-summarization-tensorflow} -> Done, aber Scores auf meinem Datensatz nicht evaluierbar, da Aufbau des Vocabularies und Training auf meinem Korpus ausstehend ist, aber zu rechenintensiv ist, alternativ nur Scores auf anderem Korpus auswertbar, Azure ML vs. AWS SageMaker?
+	\item Deep Reinforcement Learning (DeepRL) for Abstractive Text Summarization \url{https://medium.com/analytics-vidhya/deep-reinforcement-learning-deeprl-for-abstractive-text-summarization-made-easy-tutorial-9-c6914999c76c} -> Rouge-Scores ausschließlich auf dem CNN-Korpus berechnet, Anpassungen an den Daten, an der Code-Architektur und an den Modellen möglich -> Zurückgestellt aber bei Bedarf mit Potenzial
+	\item BERT-Encoder Transformer-Decoder: Paper \url{https://arxiv.org/pdf/2008.09676.pdf}, Code \url{https://github.com/nlpyang/PreSumm}, Results \url{https://paperswithcode.com/paper/abstractive-summarization-of-spoken#code}
 	\item Deep Reinforced Model with PyTorch: \url{https://github.com/rohithreddy024/Text-Summarizer-Pytorch}
 \end{itemize}
 
