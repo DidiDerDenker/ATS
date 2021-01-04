@@ -23,8 +23,6 @@ def str2bool(v):
         raise argparse.ArgumentTypeError('Boolean value expected.')
 
 
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-task", default='ext', type=str, choices=['ext', 'abs'])
@@ -75,8 +73,6 @@ if __name__ == '__main__':
     parser.add_argument("-max_length", default=150, type=int)
     parser.add_argument("-max_tgt_len", default=140, type=int)
 
-
-
     parser.add_argument("-param_init", default=0, type=float)
     parser.add_argument("-param_init_glorot", type=str2bool, nargs='?',const=True,default=True)
     parser.add_argument("-optim", default='adam', type=str)
@@ -94,7 +90,6 @@ if __name__ == '__main__':
     parser.add_argument("-train_steps", default=1000, type=int)
     parser.add_argument("-recall_eval", type=str2bool, nargs='?',const=True,default=False)
 
-
     parser.add_argument('-visible_gpus', default='-1', type=str)
     parser.add_argument('-gpu_ranks', default='0', type=str)
     parser.add_argument('-log_file', default='../logs/cnndm.log')
@@ -109,6 +104,8 @@ if __name__ == '__main__':
     parser.add_argument("-block_trigram", type=str2bool, nargs='?', const=True, default=True)
 
     args = parser.parse_args()
+    print(args)
+    exit()
     args.gpu_ranks = [int(i) for i in range(len(args.visible_gpus.split(',')))]
     args.world_size = len(args.gpu_ranks)
     os.environ["CUDA_VISIBLE_DEVICES"] = args.visible_gpus
