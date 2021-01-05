@@ -108,9 +108,11 @@ def get_generator(vocab_size, dec_hidden_size, device):
         nn.Linear(dec_hidden_size, vocab_size),
         gen_func
     )
-    generator.to(device)
+
+    generator.to(device) # TODO: Understand, research, modify
 
     return generator
+
 
 class Bert(nn.Module):
     def __init__(self, large, temp_dir, finetune=False):

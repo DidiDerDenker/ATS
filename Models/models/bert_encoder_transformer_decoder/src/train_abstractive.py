@@ -296,8 +296,6 @@ def train_abs_single(args, device_id):
         torch.cuda.manual_seed(args.seed)
     '''
 
-    exit()
-
     if args.train_from != '':
         logger.info('Loading checkpoint from %s' % args.train_from)
         checkpoint = torch.load(args.train_from,
@@ -313,8 +311,10 @@ def train_abs_single(args, device_id):
         logger.info('Loading bert from extractive model %s' % args.load_from_extractive)
         bert_from_extractive = torch.load(args.load_from_extractive, map_location=lambda storage, loc: storage)
         bert_from_extractive = bert_from_extractive['model']
+
     else:
         bert_from_extractive = None
+
     torch.manual_seed(args.seed)
     random.seed(args.seed)
     torch.backends.cudnn.deterministic = True
@@ -324,10 +324,13 @@ def train_abs_single(args, device_id):
                                       shuffle=True, is_test=False)
 
     model = AbsSummarizer(args, device, checkpoint, bert_from_extractive)
+    exit()
+
     if (args.sep_optim):
         optim_bert = model_builder.build_optim_bert(args, model, checkpoint)
         optim_dec = model_builder.build_optim_dec(args, model, checkpoint)
         optim = [optim_bert, optim_dec]
+
     else:
         optim = [model_builder.build_optim(args, model, checkpoint)]
 
