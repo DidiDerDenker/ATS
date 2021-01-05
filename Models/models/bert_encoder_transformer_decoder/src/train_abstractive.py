@@ -45,17 +45,18 @@ def train_abs_multi(args):
 
     # Create a thread to listen for errors in the child processes.
     error_queue = mp.SimpleQueue()
-    error_handler = ErrorHandler(error_queue)
+    # error_handler = ErrorHandler(error_queue)
 
     # Train with multiprocessing.
     procs = []
+
     for i in range(nb_gpu):
         device_id = i
-        procs.append(mp.Process(target=run, args=(args,
-                                                  device_id, error_queue,), daemon=True))
+        procs.append(mp.Process(target=run, args=(args, device_id, error_queue,), daemon=True))
         procs[i].start()
         logger.info(" Starting process pid: %d  " % procs[i].pid)
-        error_handler.add_child(procs[i].pid)
+        # error_handler.add_child(procs[i].pid)
+
     for p in procs:
         p.join()
 
@@ -68,13 +69,15 @@ def run(args, device_id, error_queue):
     try:
         gpu_rank = distributed.multi_init(device_id, args.world_size, args.gpu_ranks)
         print('gpu_rank %d' % gpu_rank)
+
         if gpu_rank != args.gpu_ranks[device_id]:
-            raise AssertionError("An error occurred in \
-                  Distributed initialization")
+            raise AssertionError("An error occurred in distributed initialization")
 
         train_abs_single(args, device_id)
+
     except KeyboardInterrupt:
         pass  # killed by parent, do nothing
+
     except Exception:
         # propagate exception to parent process, keeping original traceback
         import traceback
@@ -267,10 +270,14 @@ def baseline(args, cal_lead=False, cal_oracle=False):
 
 
 def train_abs(args, device_id):
+    train_abs_single(args, device_id)
+
+    '''
     if (args.world_size > 1):
         train_abs_multi(args)
     else:
         train_abs_single(args, device_id)
+    '''
 
 
 def train_abs_single(args, device_id):
@@ -283,9 +290,13 @@ def train_abs_single(args, device_id):
     random.seed(args.seed)
     torch.backends.cudnn.deterministic = True
 
+    '''
     if device_id >= 0:
         torch.cuda.set_device(device_id)
         torch.cuda.manual_seed(args.seed)
+    '''
+
+    exit()
 
     if args.train_from != '':
         logger.info('Loading checkpoint from %s' % args.train_from)

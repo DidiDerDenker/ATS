@@ -101,7 +101,45 @@ def process_seq_to_seq_with_attention_library():
     exit()
 
 
-def process_bert_encoder_transformer_decoder(text_corpus):
+def process_bert_encoder_transformer_decoder():
+    base_path = "C:\\Users\\didid\\GitHub-Respository\\AutomaticTextSummarization\\Models"
+    cwd = base_path + "\\models\\bert_encoder_transformer_decoder\\src\\"
+    log_path = base_path + "\\models\\bert_encoder_transformer_decoder\\logs\\"
+    bert_path = base_path + "\\models\\bert_encoder_transformer_decoder\\bert_data\\"
+    model_path = base_path + "\\models\\bert_encoder_transformer_decoder\\models\\"
+
+    subprocess.call(
+        "python train.py "
+        "-mode train "
+        "-accum_count 5 "
+        "-batch_size 300 "
+        "-bert_data_path " + str(bert_path) + " "
+        "-dec_dropout 0.1 "
+        "-log_file " + str(log_path) + "cnn_baseline.log "
+        "-lr 0.05 "
+        "-model_path " + str(model_path) + " "
+        "-save_checkpoint_steps 2000 "
+        "-seed 777 "
+        "-sep_optim false "
+        "-train_steps 200000 "
+        "-use_bert_emb true "
+        "-use_interval true "
+        "-warmup_steps 8000 "
+        "-visible_gpus 0,1,2,3 "
+        "-max_pos 512 "
+        "-report_every 50 "
+        "-enc_hidden_size 512 "
+        "-enc_layers 6 "
+        "-enc_ff_size 2048 "
+        "-enc_dropout 0.1 "
+        "-dec_layers 6 "
+        "-dec_hidden_size 512 "
+        "-dec_ff_size 2048 "
+        "-encoder baseline "
+        "-task abs",
+        shell=True, cwd=cwd
+    )
+
     exit()
 
 
@@ -129,8 +167,8 @@ def main():
     global TEXT_PATH
     global SUMMARY_PATH
 
-    corpus_filter = ["cnn_dailymail", "wikihow"]
-    instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
+    # corpus_filter = ["cnn_dailymail", "wikihow"]
+    # instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
 
     ''' TRANSFORMERS '''
     # process_transformers(instance.corpus)
@@ -142,7 +180,7 @@ def main():
     # process_seq_to_seq_with_attention_library()
 
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
-    # process_bert_encoder_transformer_decoder(instance.corpus)
+    process_bert_encoder_transformer_decoder()
 
     ''' DEEP-REINFORCED-MODEL WITH PYTORCH '''
     # process_deep_reinforced_model_with_pytorch(instance.corpus)
