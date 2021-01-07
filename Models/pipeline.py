@@ -108,6 +108,7 @@ def process_bert_encoder_transformer_decoder():
     bert_path = base_path + "\\models\\bert_encoder_transformer_decoder\\bert_data\\"
     model_path = base_path + "\\models\\bert_encoder_transformer_decoder\\models\\"
 
+    # Training
     subprocess.call(
         "python train.py "
         "-mode train "
@@ -137,6 +138,29 @@ def process_bert_encoder_transformer_decoder():
         "-dec_ff_size 2048 "
         "-encoder baseline "
         "-task abs",
+        shell=True, cwd=cwd
+    )
+
+    exit()
+
+    # Evaluation
+    subprocess.call(
+        " python train.py "
+        "-task abs "
+        "-mode validate "
+        "-batch_size 128 "
+        "-test_batch_size 64 "
+        "-bert_data_path " + str(bert_path) + " "
+        "-log_file " + str(log_path) + "cnndm_baseline.log "
+        "-model_path " + str(model_path) + " "
+        "-sep_optim true "
+        "-use_interval true "
+        "-visible_gpus 1 "
+        "-max_pos 512 "
+        "-max_length 200 "
+        "-alpha 0.95 "
+        "-min_length 50 "
+        "-result_path " + str(log_path) + "abs_bert_cnndm ",
         shell=True, cwd=cwd
     )
 

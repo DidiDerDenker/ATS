@@ -327,11 +327,21 @@ class Translator(object):
             select_indices = batch_index.view(-1)
 
             # Append last prediction.
+            print(alive_seq)
+            print(select_indices)
+            print(type(alive_seq))
+            print(type(select_indices))
+
+            alive_seq = select_indices # TODO: Remove
+
+            '''
             alive_seq = torch.cat(
                 [alive_seq.index_select(0, select_indices),
                  topk_ids.view(-1, 1)], -1)
+            '''
 
             is_finished = topk_ids.eq(self.end_token)
+
             if step + 1 == max_length:
                 is_finished.fill_(1)
             # End condition is top beam is finished.

@@ -103,13 +103,14 @@ def build_optim_dec(args, model, checkpoint):
 
 
 def get_generator(vocab_size, dec_hidden_size, device):
-    gen_func = nn.LogSoftmax(dim=-1)
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
     generator = nn.Sequential(
         nn.Linear(dec_hidden_size, vocab_size),
-        gen_func
+        nn.LogSoftmax(dim=-1)
     )
 
-    generator.to(device) # TODO: Understand, research, modify
+    generator.to(device)
 
     return generator
 
@@ -181,7 +182,7 @@ class AbsSummarizer(nn.Module):
     def __init__(self, args, device, checkpoint=None, bert_from_extractive=None):
         super(AbsSummarizer, self).__init__()
         self.args = args
-        self.device = device
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.bert = Bert(args.large, args.temp_dir, args.finetune_bert)
 
         if bert_from_extractive is not None:
@@ -211,9 +212,8 @@ class AbsSummarizer(nn.Module):
             self.args.dec_hidden_size, heads=self.args.dec_heads,
             d_ff=self.args.dec_ff_size, dropout=self.args.dec_dropout, embeddings=tgt_embeddings)
 
-        self.generator = get_generator(self.vocab_size, self.args.dec_hidden_size, device)
+        self.generator = get_generator(self.vocab_size, self.args.dec_hidden_size, self.device)
         self.generator[0].weight = self.decoder.embeddings.weight
-
 
         if checkpoint is not None:
             self.load_state_dict(checkpoint['model'], strict=True)
@@ -237,7 +237,7 @@ class AbsSummarizer(nn.Module):
                 self.decoder.embeddings = tgt_embeddings
                 self.generator[0].weight = self.decoder.embeddings.weight
 
-        self.to(device)
+        self.to(self.device)
 
     def forward(self, src, tgt, segs, clss, mask_src, mask_tgt, mask_cls):
         top_vec = self.bert(src, segs, mask_src)

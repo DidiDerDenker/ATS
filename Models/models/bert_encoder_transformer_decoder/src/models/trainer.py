@@ -148,10 +148,13 @@ class Trainer(object):
                     accum += 1
                     if accum == self.grad_accum_count:
                         reduce_counter += 1
+
+                        '''
                         if self.n_gpu > 1:
                             normalization = sum(distributed
                                                 .all_gather_list
                                                 (normalization))
+                        '''
 
                         self._gradient_accumulation(
                             true_batchs, normalization, total_stats,
@@ -165,12 +168,14 @@ class Trainer(object):
                         true_batchs = []
                         accum = 0
                         normalization = 0
+
                         if (step % self.save_checkpoint_steps == 0 and self.gpu_rank == 0):
                             self._save(step)
 
                         step += 1
                         if step > train_steps:
                             break
+
             train_iter = train_iter_fct()
 
         return total_stats
@@ -244,15 +249,18 @@ class Trainer(object):
         # in case of multi step gradient accumulation,
         # update only after accum batches
         if self.grad_accum_count > 1:
+            '''
             if self.n_gpu > 1:
                 grads = [p.grad.data for p in self.model.parameters()
                          if p.requires_grad
                          and p.grad is not None]
+                
                 distributed.all_reduce_and_rescale_tensors(
                     grads, float(1))
+            '''
+
             for o in self.optims:
                 o.step()
-
 
     def test(self, test_iter, step, cal_lead=False, cal_oracle=False):
         """ Validate model.

@@ -324,7 +324,6 @@ def train_abs_single(args, device_id):
                                       shuffle=True, is_test=False)
 
     model = AbsSummarizer(args, device, checkpoint, bert_from_extractive)
-    exit()
 
     if (args.sep_optim):
         optim_bert = model_builder.build_optim_bert(args, model, checkpoint)

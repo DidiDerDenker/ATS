@@ -18,6 +18,8 @@ class Batch(object):
 
     def __init__(self, data=None, device=None, is_test=False):
         """Create a Batch from a list of examples."""
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
         if data is not None:
             self.batch_size = len(data)
             pre_src = [x[0] for x in data]
@@ -30,18 +32,17 @@ class Batch(object):
             tgt = torch.tensor(self._pad(pre_tgt, 0))
 
             segs = torch.tensor(self._pad(pre_segs, 0))
-            mask_src = 1 - (src == 0)
-            mask_tgt = 1 - (tgt == 0)
-
+            mask_src = ~(src == 0) # 1 - (src == 0)
+            mask_tgt = ~(tgt == 0) # 1 - (tgt == 0)
 
             clss = torch.tensor(self._pad(pre_clss, -1))
             src_sent_labels = torch.tensor(self._pad(pre_src_sent_labels, 0))
-            mask_cls = 1 - (clss == -1)
+            mask_cls = ~(clss == -1) # 1 - (clss == -1)
             clss[clss == -1] = 0
+
             setattr(self, 'clss', clss.to(device))
             setattr(self, 'mask_cls', mask_cls.to(device))
             setattr(self, 'src_sent_labels', src_sent_labels.to(device))
-
 
             setattr(self, 'src', src.to(device))
             setattr(self, 'tgt', tgt.to(device))
@@ -60,8 +61,6 @@ class Batch(object):
         return self.batch_size
 
 
-
-
 def load_dataset(args, corpus_type, shuffle):
     """
     Dataset generator. Don't do extra stuff here, like printing,
@@ -76,12 +75,14 @@ def load_dataset(args, corpus_type, shuffle):
 
     def _lazy_dataset_loader(pt_file, corpus_type):
         dataset = torch.load(pt_file)
+
         logger.info('Loading %s dataset from %s, number of examples: %d' %
                     (corpus_type, pt_file, len(dataset)))
         return dataset
 
     # Sort the glob output by file name (by increasing indexes).
-    pts = sorted(glob.glob(args.bert_data_path + '.' + corpus_type + '.[0-9]*.pt'))
+    pts = sorted(glob.glob(args.bert_data_path + 'cnndm.' + corpus_type + '.[0-9]*.pt'))
+
     if pts:
         if (shuffle):
             random.shuffle(pts)

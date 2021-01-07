@@ -3,9 +3,82 @@
   <component name="ChangeListManager">
     <list default="true" id="dc11ec48-ae96-4817-97f0-1129e8834b7e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/model_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/model_builder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/train_abstractive.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/train_abstractive.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Thesis/LaTeX/source/content/Abstraktiver Ansatz.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../Thesis/LaTeX/source/content/Abstraktiver Ansatz.tex" afterDir="false" />
+>>>>>>> parent of 41a2f5692... Finished the adaption of the transformer-train-pipeline.
+=======
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/distributed.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/distributed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/data_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/model_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/model_builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/predictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/predictor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/reporter.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/reporter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/models/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/train_abstractive.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/src/train_abstractive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/urls/cnn_mapping_test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/urls/cnn_mapping_train.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/bert_encoder_transformer_decoder/urls/cnn_mapping_valid.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/caffe2/python/caffe2_pybind11_state.cp37-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/caffe2/python/caffe2_pybind11_state.cp37-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/NOTICE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/entry_points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch-1.7.1+cpu.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/_C.cp37-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/_C.cp37-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/bin/asmjit.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/bin/asmjit.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/bin/fbgemm.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/bin/fbgemm.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/bin/protoc.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/bin/protoc.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/include/ATen/cuda/CUDAConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/include/ATen/cuda/CUDAConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/include/caffe2/core/macros.h" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/include/caffe2/core/macros.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/asmjit.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/asmjit.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/c10.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/c10.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/c10d.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/c10d.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/caffe2_detectron_ops.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/caffe2_detectron_ops.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/caffe2_module_test_dynamic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/caffe2_module_test_dynamic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/caffe2_observers.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/caffe2_observers.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/clog.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/clog.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/cpuinfo.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/cpuinfo.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/fbgemm.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/fbgemm.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/gloo.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/gloo.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/libprotobuf-lite.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/libprotobuf-lite.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/libprotobuf.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/libprotobuf.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/libprotoc.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/libprotoc.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/shm.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/shm.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch_global_deps.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch_global_deps.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch_python.dll" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch_python.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch_python.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/lib/torch_python.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Caffe2/Caffe2Config.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Caffe2/Caffe2Config.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Caffe2/Caffe2Targets-release.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Caffe2/Caffe2Targets-release.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Caffe2/Caffe2Targets.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Caffe2/Caffe2Targets.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Torch/TorchConfig.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/share/cmake/Torch/TorchConfig.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torch/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torch/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision-0.8.2+cpu.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision-0.8.2+cpu.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision-0.8.2+cpu.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision-0.8.2+cpu.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision-0.8.2+cpu.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision-0.8.2+cpu.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision-0.8.2+cpu.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision/_C.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision/_C.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision/image.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision/image.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/torchvision/version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/convert-caffe2-to-onnx.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/convert-caffe2-to-onnx.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Scripts/convert-onnx-to-caffe2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/convert-onnx-to-caffe2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Thesis/LaTeX/source/content/Abstraktiver Ansatz.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../Thesis/LaTeX/source/content/Abstraktiver Ansatz.tex" afterDir="false" />
+>>>>>>> parent of 519847b98... Finished the adaption of the transformer-train-pipeline.
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +217,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608037743960" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1609963327987">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609963288373" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609963327987" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1609963327987">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609963288373" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609963327987" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1609963327987">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609963288372" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609963327987" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1609963327987">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609963288373" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1609963327987" />
+=======
     <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1609844784996">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -160,6 +256,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609844784995" />
+>>>>>>> parent of 41a2f5692... Finished the adaption of the transformer-train-pipeline.
+=======
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1609951897498">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609951897498" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1609951897498">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609951897498" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1609951897488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609951897488" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1609951897498">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609951897498" />
+>>>>>>> parent of 519847b98... Finished the adaption of the transformer-train-pipeline.
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1609416060590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
