@@ -1,11 +1,14 @@
-# -*- coding: utf-8 -*-
+# Imports
 from __future__ import absolute_import
 
 import logging
 
+
+# Global Variables
 logger = logging.getLogger()
 
 
+# Methods
 def init_logger(log_file=None, log_file_level=logging.NOTSET):
     log_format = logging.Formatter("[%(asctime)s %(levelname)s] %(message)s")
     logger = logging.getLogger()
@@ -15,7 +18,7 @@ def init_logger(log_file=None, log_file_level=logging.NOTSET):
     console_handler.setFormatter(log_format)
     logger.handlers = [console_handler]
 
-    if log_file and log_file != '':
+    if log_file and log_file != "":
         file_handler = logging.FileHandler(log_file)
         file_handler.setLevel(log_file_level)
         file_handler.setFormatter(log_format)

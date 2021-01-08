@@ -109,6 +109,7 @@ def process_bert_encoder_transformer_decoder():
     model_path = base_path + "\\models\\bert_encoder_transformer_decoder\\models\\"
 
     # Training
+    '''
     subprocess.call(
         "python train.py "
         "-mode train "
@@ -140,8 +141,7 @@ def process_bert_encoder_transformer_decoder():
         "-task abs",
         shell=True, cwd=cwd
     )
-
-    exit()
+    '''
 
     # Evaluation
     subprocess.call(
