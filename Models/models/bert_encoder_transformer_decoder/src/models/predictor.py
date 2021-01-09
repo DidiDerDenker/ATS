@@ -4,6 +4,7 @@ from __future__ import print_function
 import codecs
 import math
 import torch
+import tensorflow as tf
 
 from tensorboardX import SummaryWriter
 from others.utils import rouge_results_to_str, test_rouge, tile
@@ -243,7 +244,7 @@ class Translator(object):
             if step < min_length:
                 log_probs[:, self.end_token] = -1e20
 
-            # Multiply probs by the beam probabilit.
+            # Multiply probs by the beam probabilities
             log_probs += topk_log_probs.view(-1).unsqueeze(1)
             alpha = self.global_scorer.alpha
             length_penalty = ((5.0 + (step + 1)) / 6.0) ** alpha
@@ -288,7 +289,11 @@ class Translator(object):
             select_indices = batch_index.view(-1)
 
             # Append last prediction
-            alive_seq = torch.cat([torch.index_select(alive_seq, 0, select_indices), topk_ids.view(-1, 1)], -1) # alive_seq = select_indices
+            alive_seq = torch.cat(
+                [torch.index_select(alive_seq, 0, select_indices.type(torch.LongTensor)),
+                 topk_ids.view(-1, 1)], -1
+            )
+
             is_finished = topk_ids.eq(self.end_token)
 
             if step + 1 == max_length:
@@ -307,6 +312,7 @@ class Translator(object):
                     if end_condition[i]:
                         is_finished[i].fill_(1)
 
+                    print(is_finished) # TODO: What is is_finished? What does nonzero() and how to replace it?
                     finished_hyp = is_finished[i].nonzero().view(-1)
 
                     # Store finished hypotheses for this batch
@@ -327,18 +333,15 @@ class Translator(object):
                     break
 
                 # Remove finished batches for the next step
-                topk_log_probs = topk_log_probs.index_select(0, non_finished)
-                batch_index = batch_index.index_select(0, non_finished)
-                batch_offset = batch_offset.index_select(0, non_finished)
-                alive_seq = predictions.index_select(0, non_finished).view(-1, alive_seq.size(-1))
+                topk_log_probs = torch.index_select(topk_log_probs, 0, non_finished.type(torch.LongTensor))
+                batch_index = torch.index_select(batch_index, 0, non_finished.type(torch.LongTensor))
+                batch_offset = torch.index_select(batch_offset, 0, non_finished.type(torch.LongTensor))
+                alive_seq = torch.index_select(predictions, 0, non_finished.type(torch.LongTensor)).view(-1, alive_seq.size(-1))
 
             # Reorder states
             select_indices = batch_index.view(-1)
-            src_features = torch.index_select(src_features, 0, select_indices)
-            dec_states.map_batch_fn(lambda state, dim: torch.index_select(state, dim, select_indices))
-
-            print(dec_states)
-            print("PASSED") # TODO: Remove print-commands, adapt index_select to other modules as well
+            src_features = torch.index_select(src_features, 0, select_indices.type(torch.LongTensor))
+            dec_states.map_batch_fn(lambda state, dim: torch.index_select(state, dim, select_indices.type(torch.LongTensor)))
 
         return results
 

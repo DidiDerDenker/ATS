@@ -5,15 +5,12 @@ import os
 import re
 import codecs
 import platform
-import argparse
 
 from subprocess import check_output
 from tempfile import mkdtemp
 from functools import partial
 from pyrouge.utils import log
 from pyrouge.utils.file_utils import verify_dir
-from pyrouge.utils.sentence_splitter import PunktSentenceSplitter
-from utils.argparsers import rouge_path_parser
 
 try:
     from configparser import ConfigParser
@@ -172,6 +169,8 @@ class Rouge155(object):
         ROUGE requires texts split into sentences. In case the texts
         are not already split, this method can be used.
         """
+
+        from pyrouge.utils.sentence_splitter import PunktSentenceSplitter
 
         self.log.info("Splitting sentences...")
         ss = PunktSentenceSplitter()
@@ -587,6 +586,9 @@ def clean(x):
 
 # Main
 def main():
+    import argparse
+    from utils.argparsers import rouge_path_parser
+
     parser = argparse.ArgumentParser(parents=[rouge_path_parser])
     args = parser.parse_args()
 

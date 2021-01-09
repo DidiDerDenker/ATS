@@ -19,7 +19,7 @@ class Batch(object):
         return rtn_data
 
     def __init__(self, data=None, device=None, is_test=False):
-        """ Create a Batch from a list of examples. """
+        """ Create a batch from a list of examples. """
 
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") # TODO: Use GPU
 

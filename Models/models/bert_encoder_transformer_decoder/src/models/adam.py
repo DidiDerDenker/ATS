@@ -7,7 +7,7 @@ from torch.optim.optimizer import Optimizer
 # Classes
 class Adam(Optimizer):
     """
-    Implements the adam-algorithm as proposed in "Adam: A Method for Stochastic Optimization".
+    Implements the adam-algorithm as proposed in the paper "Adam: A Method for Stochastic Optimization".
 
     Arguments:
         params (iterable): iterable of parameters to optimize or dicts defining parameter groups
