@@ -307,24 +307,27 @@ class Translator(object):
                 predictions = alive_seq.view(-1, beam_size, alive_seq.size(-1))
 
                 for i in range(is_finished.size(0)):
-                    b = batch_offset[i]
+                    try:
+                        b = batch_offset[i]
 
-                    if end_condition[i]:
-                        is_finished[i].fill_(1)
+                        if end_condition[i]:
+                            is_finished[i].fill_(1)
 
-                    print(is_finished) # TODO: What is is_finished? What does nonzero() and how to replace it?
-                    finished_hyp = is_finished[i].nonzero().view(-1)
+                        finished_hyp = is_finished[i].nonzero().view(-1)
 
-                    # Store finished hypotheses for this batch
-                    for j in finished_hyp:
-                        hypotheses[b].append((topk_scores[i, j], predictions[i, j, 1:]))
+                        # Store finished hypotheses for this batch
+                        for j in finished_hyp:
+                            hypotheses[b].append((topk_scores[i, j], predictions[i, j, 1:]))
 
-                    # If the batch reached the end, save the n_best hypotheses
-                    if end_condition[i]:
-                        best_hyp = sorted(hypotheses[b], key=lambda x: x[0], reverse=True)
-                        score, pred = best_hyp[0]
-                        results["scores"][b].append(score)
-                        results["predictions"][b].append(pred)
+                        # If the batch reached the end, save the n_best hypotheses
+                        if end_condition[i]:
+                            best_hyp = sorted(hypotheses[b], key=lambda x: x[0], reverse=True)
+                            score, pred = best_hyp[0]
+                            results["scores"][b].append(score)
+                            results["predictions"][b].append(pred)
+
+                    except Exception as e:
+                        print(e)
 
                 non_finished = end_condition.eq(0).nonzero().view(-1)
 
