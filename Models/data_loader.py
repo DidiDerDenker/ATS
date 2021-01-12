@@ -43,39 +43,35 @@ class DataLoader:
         tokenized_summary_corpus = []
 
         vocab2idx = {}
-        mini_corpus_cnt = 0 # TODO: Remove mini-corpus
 
         for id in self.meta_corpus["ID"]:
-            if mini_corpus_cnt < 1000: # TODO: Remove mini-corpus
-                text_file = self.text_path + id + ".txt"
-                summary_file = self.summary_path + id + ".txt"
+            text_file = self.text_path + id + ".txt"
+            summary_file = self.summary_path + id + ".txt"
 
-                try:
-                    text = self.read_text(text_file)
-                    summary = self.read_text(summary_file)
+            try:
+                text = self.read_text(text_file)
+                summary = self.read_text(summary_file)
 
-                    tokenized_text = word_tokenize(text)
-                    tokenized_summary = word_tokenize(summary)
+                tokenized_text = word_tokenize(text)
+                tokenized_summary = word_tokenize(summary)
 
-                    if len(text) >= 1000:
-                        for word in tokenized_text:
-                            if word not in vocab2idx:
-                                vocab2idx[word] = len(vocab2idx)
+                if len(text) >= 1000:
+                    for word in tokenized_text:
+                        if word not in vocab2idx:
+                            vocab2idx[word] = len(vocab2idx)
 
-                        for word in tokenized_summary:
-                            if word not in vocab2idx:
-                                vocab2idx[word] = len(vocab2idx)
+                    for word in tokenized_summary:
+                        if word not in vocab2idx:
+                            vocab2idx[word] = len(vocab2idx)
 
-                        text_corpus.append(text)
-                        summary_corpus.append(summary)
+                    text_corpus.append(text)
+                    summary_corpus.append(summary)
 
-                        tokenized_text_corpus.append(tokenized_text)
-                        tokenized_summary_corpus.append(tokenized_summary)
+                    tokenized_text_corpus.append(tokenized_text)
+                    tokenized_summary_corpus.append(tokenized_summary)
 
-                        mini_corpus_cnt += 1 # TODO: Remove mini-corpus
-
-                except Exception as e:
-                    print(e)
+            except Exception as e:
+                print(e)
 
         self.vocab2idx = vocab2idx
         self.corpus = list(zip(text_corpus, summary_corpus))

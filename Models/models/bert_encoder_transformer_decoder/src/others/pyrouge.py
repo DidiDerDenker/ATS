@@ -70,7 +70,7 @@ class Rouge155(object):
     print(output_dict)
     """
 
-    def __init__(self, rouge_dir=None, rouge_args=None, temp_dir = None):
+    def __init__(self, rouge_dir=None, rouge_args=None, temp_dir=None):
         """
         Create a Rouge155 object.
 
@@ -81,11 +81,11 @@ class Rouge155(object):
 
         self.temp_dir = temp_dir
         self.log = log.get_global_console_logger()
-        self.__set_dir_properties()
+        # self.__set_dir_properties()
         self._config_file = None
-        self._settings_file = self.__get_config_path()
-        self.__set_rouge_dir(rouge_dir)
-        self.args = self.__clean_rouge_args(rouge_args)
+        # self._settings_file = self.__get_config_path()
+        # self.__set_rouge_dir(rouge_dir)
+        # self.args = self.__clean_rouge_args(rouge_args)
         self._system_filename_pattern = None
         self._model_filename_pattern = None
 

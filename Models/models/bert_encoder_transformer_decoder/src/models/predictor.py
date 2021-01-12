@@ -173,6 +173,7 @@ class Translator(object):
 
         if step != -1:
             rouges = self._report_rouge(gold_path, can_path)
+
             self.logger.info("Rouges at step %d \n%s" % (step, rouge_results_to_str(rouges)))
 
             if self.tensorboard_writer is not None:
