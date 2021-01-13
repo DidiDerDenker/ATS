@@ -3,41 +3,36 @@
 \label{chap:Einleitung}
 \pagenumbering{arabic}
 
-Notizen \cite{BAC15}:
-\begin{itemize}
-	\item Zweck der Automatic Text Summarization beschreiben
-	\item Anwendungsgebiete: Report-Generierung, Nachrichten-Zusammenfassung, Überschriften-Generierung (vgl. Paper: „Automatic Text Summarization with Machine Learning“), dadurch Reduktion der Lesezeit oder auch Entscheidungsunterstützung
-	\item Kontext und Notwendigkeit der Arbeit im Gesundheitswesen offenlegen
-	\item Praktischen Workflow bzw. Integration dieser Arbeit in die Praxis beschreiben
-	\item Szenarien: Spracherkennung und Sprechererkennung auf Aufzeichnungen einer Videosprechstunde anwenden, Modelle dieser Arbeit dann für die Verdichtung der entstehenden Protokolle integrieren, Multi-Dokument-Zusammenfassung, dialogorientierte Zusammenfassungen
-	\item Text Summarization bspw. auch als Mix aus Entity Recognition und Text Generation
-	\item Siehe Abstract im Exposé
-\end{itemize}
+Die \ac{ATS} ist dem Bereich des \ac{NLP} zuzuordnen und gewinnt zunehmend an wissenschaftlicher Relevanz. Obgleich entsprechende Modelle mittlerweile nicht mehr völlig neuartig sind, weisen die Entwicklungen der vergangenen Jahre qualitativ noch viele Potenziale auf. Einsatzmöglichkeiten entsprechender Modelle sind beispielsweise die Zusammenfassung von Nachrichten, die Zusammenfassung von Gesprächsprotokollen oder auch die Generierung von Überschriften, um nur wenige zu nennen \cite{GON20, GAM16}. Ziel ist in jedem Fall die Verdichtung von Informationen und die Reduktion der Lesezeit.\\
+
+Mit besonderem Fokus auf das Gesundheitswesen lassen sich weiterhin zwei konkrete Einsatzgebiete konstruieren, in denen ein Modell zur \ac{ATS} in einem ganzheitlichen System implementiert werden könnte. Einerseits ist die Zusammenfassung von Patientengesprächen denkbar, wenn eine entsprechende Spracherkennung mit integrierter Sprechererkennung vorgeschaltet ist. Die verdichteten Informationen ließen sich anschließend zum Beispiel in Patientenakten exportieren oder anderweitig klassifizieren. Andererseits können Pflegeroboter, welche mitunter demente Patienten betreuen, durch ein Modell der \ac{ATS} mit notwendigem Kontextwissen für die anstehenden Gespräche ausgestattet werden.\\
+
+Die Anforderungen an ein Modell zur \ac{ATS} lassen sich aus dem individuell avisierten Einsatzgebiet ableiten und können anhand verschiedener Faktoren klassifiziert werden, wie \autoref{pic:Systemtypen} veranschaulicht.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{./source/images/systemtypen.jpg}
+  \caption{Typen von Zusammenfassungen \cite{GAM16}}
+  \label{pic:Systemtypen}
+\end{figure}
 
 
-\section{MediaInterface GmbH \& SpeaKING\textsuperscript{\textregistered}}
-Notizen:
-\begin{itemize}
-	\item Unternehmen beschreiben
-	\item Produkt beschreiben
-\end{itemize}
+% \section{MediaInterface GmbH \& SpeaKING\textsuperscript{\textregistered}}
+\newpage
 
 
 \section{Zielsetzung}
-Notizen:
+Das Ziel dieser Arbeit ist dementsprechend die abstraktive Zusammenfassung einzelner Dokumente, wobei multilingual vortrainierte Modelle mittels \ac{TL} auf die deutsche Sprache adaptiert werden. Die Arbeit ist somit außerdem eine potenzielle Grundlage für die beiden konstruierten Einsatzgebiete aus dem Gesundheitswesen. Die Adaption auf die Domäne oder auch die Dialogorientierung sind nicht Teil dieser Arbeit. Die Forschungsfragen lauten wie folgt:
+
 \begin{itemize}
-	\item Ziele definieren („Automatic Single Document Summarization“, extraktiven und abstraktiven Ansatz definieren, in dieser Arbeit noch keine Zusammenfassung von Texten mit Dialogcharakter)
-	\item Forschungsfragen formulieren
-	\item Notiz: Joshi-Artikel verstehen und nachbauen (Dr. Summarize), vom Status Quo entweder Single/ Abstractive in Masterarbeit verbessern oder Multi-Document/ Dialogorientierung, Verbesserung des Single-Abstractive-Ansatzes oder, Adaption des Single-Abstractive-Ansatzes, perspektivisch Multi-Document-Ansatz mit Joshi-Paper
+	\item Wie lassen sich Texte automatisiert zusammenfassen?
+	\item Wie können bereits existierende Modelle auf eine andere Sprache adaptiert werden?
+	\item Wie qualitativ und skalierbar ist die Lösung?
 \end{itemize}
 
 
 \section{Aufbau der Arbeit}
-Notizen:
-\begin{itemize}
-	\item Kapitel beschreiben
-	\item Grafik als roten Faden dieser Arbeit skizzieren
-\end{itemize}
+Nach der Einleitung werden zunächst die Grundlagen des \ac{DL} und des \ac{NLP} offengelegt. Im Kapitel des \ac{DL} werden neuronale Netze als solches definiert und verschiedene Architekturen beschrieben. Die Eigenschaften und die Relevanz von Hyperparametern und von \ac{TL} schließen sich an. Im Kapitel des \ac{NLP} werden neben der prinzipiellen Vorverarbeitung insbesondere sogenannte Word Embeddings und Deep Language Representations thematisiert. Bevor die bis dahin behandelten Komponenten in ein tatsächliches Modell einwirken können, ist die Beschreibung der Datengrundlage erforderlich. Zum abstraktiven Ansatz gehört die Erläuterung der Architektur, die Beschreibung des Trainingsprozesses und die Evaluation der Ergebnisse. Bei der Adaption des Modells auf die deutsche Sprache werden zuerst entsprechende Anpassungen an der ursprünglichen Architektur konzipiert, bevor erneut der Trainingsprozess beschrieben wird und die dazugehörigen Ergebnisse evaluiert werden.
 
 
 \section{Forschungsstand \& Referenzen}

@@ -172,6 +172,10 @@ class Translator(object):
         self.src_out_file.close()
 
         if step != -1:
+            self.logger.info("Calculating Rouge...")
+            test_rouge(self.args.temp_dir, can_path, gold_path)
+
+            '''
             rouges = self._report_rouge(gold_path, can_path)
 
             self.logger.info("Rouges at step %d \n%s" % (step, rouge_results_to_str(rouges)))
@@ -180,6 +184,7 @@ class Translator(object):
                 self.tensorboard_writer.add_scalar("test/rouge1-F", rouges["rouge_1_f_score"], step)
                 self.tensorboard_writer.add_scalar("test/rouge2-F", rouges["rouge_2_f_score"], step)
                 self.tensorboard_writer.add_scalar("test/rougeL-F", rouges["rouge_l_f_score"], step)
+            '''
 
     def _report_rouge(self, gold_path, can_path):
         self.logger.info("Calculating Rouge...")

@@ -80,14 +80,15 @@ class Rouge155(object):
         """
 
         self.temp_dir = temp_dir
-        self.log = log.get_global_console_logger()
+        self._system_filename_pattern = None
+        self._model_filename_pattern = None
+
+        # self.log = log.get_global_console_logger()
         # self.__set_dir_properties()
-        self._config_file = None
+        # self._config_file = None
         # self._settings_file = self.__get_config_path()
         # self.__set_rouge_dir(rouge_dir)
         # self.args = self.__clean_rouge_args(rouge_args)
-        self._system_filename_pattern = None
-        self._model_filename_pattern = None
 
     def save_home_dir(self):
         config = ConfigParser()
@@ -190,7 +191,11 @@ class Rouge155(object):
             output_dir: path of directory in which the converted files will be saved
         """
 
-        DirectoryProcessor.process(input_dir, output_dir, Rouge155.convert_text_to_rouge_format)
+        print(input_dir)
+        print(output_dir)
+        exit()
+
+        # DirectoryProcessor.process(input_dir, output_dir, Rouge155.convert_text_to_rouge_format)
 
     @staticmethod
     def convert_text_to_rouge_format(text, title="dummy title"):
@@ -339,7 +344,9 @@ class Rouge155(object):
             self.split_sentences()
 
         self.__write_summaries()
-        rouge_output = self.evaluate(system_id, rouge_args)
+
+        rouge_output = None # TODO: Develop own ROUGE-comparison as done in pipeline, use files from temp-directories
+        # rouge_output = self.evaluate(system_id, rouge_args)
 
         return rouge_output
 

@@ -20,29 +20,6 @@ Notizen:
 \end{itemize}
 
 
-\section{Reinforcement Learning}
-Notizen:
-\begin{itemize}
-	\item Reinforcement Learning definieren. auch Deep Reinforcement Learning als Kombination aus neuronalen Netzen und Reinforcement Learning, beides Unterkapitel des Deep Learning selbst, gute Zusammenfassung zu Beginn des einen Abschnittes hier: \url{https://medium.com/analytics-vidhya/deep-reinforcement-learning-deeprl-for-abstractive-text-summarization-made-easy-tutorial-9-c6914999c76c}
-	\item Bisherige Errungenschaften und Eigenschaften erwähnen
-	\item Funktionsweise und ausgewählte Komponenten ggf. in Unterkapiteln beschreiben
-	\item Unsupervised Learning, ggf. in Verbindung mit der Datengrundlage und der später beschriebenen Architektur nochmal hervorheben
-	\item \url{https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/#}
-\end{itemize}
-
-
-\section{Transfer Learning}
-Notizen:
-\begin{itemize}
-	\item Transfer Learning mit BERT hier sinnvoll, sodass das Modell die Sprache nicht in einer bestimmten Domain oder mit zu wenigen Texten neu erlernen muss
-	\item BERT zunächst in Englisch nutzen, weil SOTA, ggf. Grafik aus Oli's VL integrieren, irgendwie in Abstractive Summarization Pipelines integrieren
-	\item BERT ist auch multilingual, d.h. englisches Modell mit deutschem Fine-Tuning vermutlich sogar brauchbar
-	\item Modell beschreiben, d.h. Datensätze und Parametrisierung, SOTA für verschiedene NLP-Tasks, von Kapazitäten profitieren, hat viel Kontextwissen, Fine-Tuning für eigenes Problem, d.h. domainspezifisch o.ä.
-	\item Am besten direkt ein vortrainiertes Transformer-Modell nutzen (extra für Summarization-Tasks), BERT und RL bspw. in der Pipeline integrieren, Ziel wäre dann: Verbesserung im Score erzielen
-	\item BERT vielleicht durch andere (teils bessere und neuere) Transformer ersetzen? Transformer in NLP recherchieren, LSTM als veraltet bezeichnen
-\end{itemize}
-
-
 \section{Architekturen}
 Notizen:
 \begin{itemize}
@@ -62,15 +39,15 @@ Notizen:
 Notizen:
 
 
-\subsection{RNN}
+\subsection{RNN, LSTM}
 Notizen:
 
 
-\subsection{LSTM}
+\subsection{Seq2Seq, Encoder-Decoder}
 Notizen:
 
 
-\subsection{DQN}
+\subsection{Attention, Multi-Head-Attention, Self-Attention}
 Notizen:
 
 
@@ -80,4 +57,16 @@ Notizen:
 	\item Hyperparameter vorstellen
 	\item Notwendigkeit und Einfluss von Hyperparametern beschreiben
 	\item Batch-Size, e.g. Mini-Batch vs. Stochastic Batch: \url{https://stats.stackexchange.com/questions/153531/what-is-batch-size-in-neural-network}
+\end{itemize}
+
+
+\section{Transfer Learning}
+Notizen:
+\begin{itemize}
+	\item Transfer Learning mit BERT hier sinnvoll, sodass das Modell die Sprache nicht in einer bestimmten Domain oder mit zu wenigen Texten neu erlernen muss
+	\item BERT zunächst in Englisch nutzen, weil SOTA, ggf. Grafik aus Oli's VL integrieren, irgendwie in Abstractive Summarization Pipelines integrieren
+	\item BERT ist auch multilingual, d.h. englisches Modell mit deutschem Fine-Tuning vermutlich sogar brauchbar
+	\item Modell beschreiben, d.h. Datensätze und Parametrisierung, SOTA für verschiedene NLP-Tasks, von Kapazitäten profitieren, hat viel Kontextwissen, Fine-Tuning für eigenes Problem, d.h. domainspezifisch o.ä.
+	\item Am besten direkt ein vortrainiertes Transformer-Modell nutzen (extra für Summarization-Tasks), BERT und RL bspw. in der Pipeline integrieren, Ziel wäre dann: Verbesserung im Score erzielen
+	\item BERT vielleicht durch andere (teils bessere und neuere) Transformer ersetzen? Transformer in NLP recherchieren, LSTM als veraltet bezeichnen
 \end{itemize}

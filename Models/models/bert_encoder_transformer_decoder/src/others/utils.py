@@ -83,18 +83,15 @@ def test_rouge(temp_dir, cand, ref):
             with open(tmp_dir + "/reference/ref.{}.txt".format(i), "w", encoding="utf-8") as f:
                 f.write(references[i])
 
-        print(temp_dir) # TODO: Check content of this folder, evaluate rouge-score with written summaries
-        exit()
-
-        r = pyrouge.Rouge155(temp_dir=temp_dir)
+        r = pyrouge.Rouge155(temp_dir=tmp_dir)
         r.model_dir = tmp_dir + "/reference/"
         r.system_dir = tmp_dir + "/candidate/"
         r.model_filename_pattern = "ref.#ID#.txt"
         r.system_filename_pattern = r"cand.(\d+).txt"
+        r.convert_and_evaluate()
 
-        rouge_results = r.convert_and_evaluate()
-        results_dict = r.output_to_dict(rouge_results)
-        print(rouge_results)
+        # results_dict = r.output_to_dict(rouge_results)
+        # print(rouge_results)
 
     finally:
         pass

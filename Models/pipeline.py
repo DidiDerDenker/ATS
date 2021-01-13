@@ -167,10 +167,6 @@ def process_bert_encoder_transformer_decoder():
     exit()
 
 
-def process_seq_to_seq_with_rnn(text_corpus):
-    exit()
-
-
 def process_deep_reinforced_model_with_pytorch(text_corpus):
     exit()
 
