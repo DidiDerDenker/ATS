@@ -83,7 +83,7 @@ class Rouge155(object):
         self._system_filename_pattern = None
         self._model_filename_pattern = None
 
-        # self.log = log.get_global_console_logger()
+        self.log = log.get_global_console_logger()
         # self.__set_dir_properties()
         # self._config_file = None
         # self._settings_file = self.__get_config_path()
@@ -193,7 +193,7 @@ class Rouge155(object):
 
         print(input_dir)
         print(output_dir)
-        exit()
+        exit() # TODO: Convert files to the needed format
 
         # DirectoryProcessor.process(input_dir, output_dir, Rouge155.convert_text_to_rouge_format)
 
