@@ -84,11 +84,12 @@ class Rouge155(object):
         self._model_filename_pattern = None
 
         self.log = log.get_global_console_logger()
-        # self.__set_dir_properties()
-        # self._config_file = None
+        self._config_file = None
+        self.args = self.__clean_rouge_args(rouge_args)
+        self.__set_dir_properties()
+
         # self._settings_file = self.__get_config_path()
         # self.__set_rouge_dir(rouge_dir)
-        # self.args = self.__clean_rouge_args(rouge_args)
 
     def save_home_dir(self):
         config = ConfigParser()
@@ -345,6 +346,7 @@ class Rouge155(object):
 
         self.__write_summaries()
 
+        print("TRUE") # TODO: Remove, check TODO above
         rouge_output = None # TODO: Develop own ROUGE-comparison as done in pipeline, use files from temp-directories
         # rouge_output = self.evaluate(system_id, rouge_args)
 
