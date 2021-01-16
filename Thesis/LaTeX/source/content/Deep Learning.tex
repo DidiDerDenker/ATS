@@ -35,20 +35,20 @@ Notizen:
 \end{itemize}
 
 
-\subsection{MLP}
-Notizen:
+\subsection{Feed-Forward Networks}
+Text...
 
 
-\subsection{RNN, LSTM}
-Notizen:
+\subsection{Recurrent Neural Networks}
+Notizen: RNN, LSTM
 
 
-\subsection{Seq2Seq, Encoder-Decoder}
-Notizen:
+\subsection{Encoder-Decoder Networks}
+Text...
 
 
-\subsection{Attention, Multi-Head-Attention, Self-Attention}
-Notizen:
+\subsection{Attention in Neural Networks}
+Notizen: Self-Attention, Multi-Head-Attention
 
 
 \section{Hyperparameter}
@@ -61,12 +61,12 @@ Notizen:
 
 
 \section{Transfer Learning}
-Notizen:
-\begin{itemize}
-	\item Transfer Learning mit BERT hier sinnvoll, sodass das Modell die Sprache nicht in einer bestimmten Domain oder mit zu wenigen Texten neu erlernen muss
-	\item BERT zunächst in Englisch nutzen, weil SOTA, ggf. Grafik aus Oli's VL integrieren, irgendwie in Abstractive Summarization Pipelines integrieren
-	\item BERT ist auch multilingual, d.h. englisches Modell mit deutschem Fine-Tuning vermutlich sogar brauchbar
-	\item Modell beschreiben, d.h. Datensätze und Parametrisierung, SOTA für verschiedene NLP-Tasks, von Kapazitäten profitieren, hat viel Kontextwissen, Fine-Tuning für eigenes Problem, d.h. domainspezifisch o.ä.
-	\item Am besten direkt ein vortrainiertes Transformer-Modell nutzen (extra für Summarization-Tasks), BERT und RL bspw. in der Pipeline integrieren, Ziel wäre dann: Verbesserung im Score erzielen
-	\item BERT vielleicht durch andere (teils bessere und neuere) Transformer ersetzen? Transformer in NLP recherchieren, LSTM als veraltet bezeichnen
-\end{itemize}
+Unter \ac{TL} versteht man das Wiederverwenden bereits vortrainierter neuronaler Netze für die Lösung neuartiger Probleme. Dabei werden die erprobten Modelle als Startpunkt genutzt und nur noch auf die neuen Probleme adaptiert, anstatt eigene Modelle von Grund auf neu zu trainieren. Anwender profitieren hier zeitlich, qualitativ und technisch. Zumeist sind architektonische Anpassungen in den hinteren Schichten der vortrainierten Modelle erforderlich, sodass sie sich für die Lösung der neuen Probleme eignen. Zudem ist ein gezieltes weitergehendes Training mit entsprechenden Daten notwendig. Inwieweit die neuen Daten auf die vortrainierten Modelle einwirken sollen, ist individuell zu erproben und zu entscheiden. \ac{TL} ist in den letzten Jahren wissenschaftlich immer bedeutsamer geworden, da \ac{DL}-Modelle heutzutage sehr komplex und Trainingsprozesse sehr zeit- und rechenintensiv sind.\\
+
+TODO:
+- Grafik einfügen, Quellen für alle Aussagen einfügen
+- Zeitlich: Notwendigkeit des initialen Trainings entfällt
+- Qualitativ: Modelle wurden auf massenhaften Daten vortrainiert und es ist bekannt, ob und wie gut sie funktionieren, sie generalisieren dadurch meist sehr gut
+- Technisch: Hardwaretechnische Anforderungen werden reduziert, der Stromverbrauch sinkt (ökonomisch und ökologisch vorteilhaft)
+
+\ac{TL} wird auch in dieser Arbeit genutzt. Einige Komponenten der bereits vorgestellten Architekturen, wie bspw. der Encoder oder auch der Decoder, können durch vortrainierte Modelle repräsentiert werden. Hier wird inhaltlich sowie kontextuell im folgenden Kapitel angeküpft, da zunächst die Einführung weiterer Grundlagen bezüglich \ac{NLP} erforderlich ist.
