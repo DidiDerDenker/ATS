@@ -167,10 +167,6 @@ def process_bert_encoder_transformer_decoder():
     exit()
 
 
-def process_deep_reinforced_model_with_pytorch(text_corpus):
-    exit()
-
-
 def print_rouge_scores(scores):
     rouge_1 = scores["rouge-1"]
     rouge_2 = scores["rouge-2"]
@@ -201,9 +197,6 @@ def main():
 
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
     process_bert_encoder_transformer_decoder()
-
-    ''' DEEP-REINFORCED-MODEL WITH PYTORCH '''
-    # process_deep_reinforced_model_with_pytorch(instance.corpus)
 
 
 if __name__ == "__main__":

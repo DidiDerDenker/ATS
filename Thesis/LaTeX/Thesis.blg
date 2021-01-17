@@ -1,35 +1,35 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Thesis.aux
-White space in argument---line 83 of file Thesis.aux
+White space in argument---line 122 of file Thesis.aux
  : \@input{source/content/Deep
  :                             Learning.aux}
 I'm skipping whatever remains of this command
-White space in argument---line 93 of file Thesis.aux
+White space in argument---line 133 of file Thesis.aux
  : \@input{source/content/Natural
  :                                Language Processing.aux}
 I'm skipping whatever remains of this command
 Reallocating 'name_of_file' (item size: 1) to 34 items.
 A level-1 auxiliary file: source/content/Datengrundlage.aux
-White space in argument---line 108 of file Thesis.aux
+White space in argument---line 148 of file Thesis.aux
  : \@input{source/content/Abstraktiver
  :                                     Ansatz.aux}
 I'm skipping whatever remains of this command
-White space in argument---line 113 of file Thesis.aux
+White space in argument---line 153 of file Thesis.aux
  : \@input{source/content/Sprachtechnische
  :                                         Adaption.aux}
 I'm skipping whatever remains of this command
 Reallocating 'name_of_file' (item size: 1) to 35 items.
 A level-1 auxiliary file: source/content/Zusammenfassung.aux
-White space in argument---line 116 of file Thesis.aux
+White space in argument---line 156 of file Thesis.aux
  : \@input{source/content/Diskussion
  :                                   und Ausblick.aux}
 I'm skipping whatever remains of this command
 I found no \bibdata command---while reading file Thesis.aux
 I found no \bibstyle command---while reading file Thesis.aux
-You've used 2 entries,
+You've used 11 entries,
             0 wiz_defined-function locations,
-            89 strings with 573 characters,
+            107 strings with 663 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0

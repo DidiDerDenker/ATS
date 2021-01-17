@@ -65,11 +65,12 @@ def test_rouge(temp_dir, cand, ref):
 
     cnt = len(candidates)
     current_time = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
-    tmp_dir = os.path.join(temp_dir, "rouge-tmp-{}".format(current_time))
+    base_dir = "C:\\Temp\\ATS" # TODO: Move to config
+    tmp_dir = os.path.join(base_dir, "rouge-tmp-{}".format(current_time))
 
     if not os.path.isdir(tmp_dir):
         os.mkdir(tmp_dir)
-        os.mkdir(tmp_dir + "/candidate")
+        os.mkdir(tmp_dir + "/hypothesis")
         os.mkdir(tmp_dir + "/reference")
 
     try:
@@ -77,7 +78,7 @@ def test_rouge(temp_dir, cand, ref):
             if len(references[i]) < 1:
                 continue
 
-            with open(tmp_dir + "/candidate/cand.{}.txt".format(i), "w", encoding="utf-8") as f:
+            with open(tmp_dir + "/hypothesis/hyp.{}.txt".format(i), "w", encoding="utf-8") as f:
                 f.write(candidates[i])
 
             with open(tmp_dir + "/reference/ref.{}.txt".format(i), "w", encoding="utf-8") as f:
@@ -85,9 +86,9 @@ def test_rouge(temp_dir, cand, ref):
 
         r = pyrouge.Rouge155(temp_dir=tmp_dir)
         r.model_dir = tmp_dir + "/reference/"
-        r.system_dir = tmp_dir + "/candidate/"
+        r.system_dir = tmp_dir + "/hypothesis/"
         r.model_filename_pattern = "ref.#ID#.txt"
-        r.system_filename_pattern = r"cand.(\d+).txt"
+        r.system_filename_pattern = r"hyp.(\d+).txt"
         r.convert_and_evaluate()
 
         # results_dict = r.output_to_dict(rouge_results)

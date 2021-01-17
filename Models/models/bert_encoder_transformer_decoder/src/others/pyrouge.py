@@ -192,6 +192,8 @@ class Rouge155(object):
             output_dir: path of directory in which the converted files will be saved
         """
 
+        files = os.listdir(input_dir)
+        print(len(files))
         print(input_dir)
         print(output_dir)
         exit() # TODO: Convert files to the needed format
