@@ -1,45 +1,44 @@
 \babel@toc {ngerman}{}
 \contentsline {chapter}{Inhaltsverzeichnis}{II}{chapter*.3}%
 \contentsline {chapter}{Abbildungsverzeichnis}{III}{chapter*.4}%
-\contentsline {chapter}{Tabellenverzeichnis}{V}{chapter*.5}%
-\contentsline {chapter}{Abkürzungsverzeichnis}{VII}{chapter*.6}%
-\contentsline {chapter}{Quellcodeverzeichnis}{IX}{chapter*.7}%
+\contentsline {chapter}{Tabellenverzeichnis}{IV}{chapter*.5}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{V}{chapter*.6}%
+\contentsline {chapter}{Quellcodeverzeichnis}{VI}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.8}%
-\contentsline {section}{\numberline {1.1}Zielsetzung}{2}{section.11}%
-\contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{2}{section.13}%
-\contentsline {section}{\numberline {1.3}Forschungsstand \& Referenzen}{3}{section.15}%
-\contentsline {chapter}{\numberline {2}Deep Learning}{5}{chapter.22}%
-\contentsline {section}{\numberline {2.1}Neuronale Netze}{5}{section.23}%
-\contentsline {section}{\numberline {2.2}Architekturen}{5}{section.24}%
-\contentsline {subsection}{\numberline {2.2.1}Feed-Forward Networks}{6}{subsection.25}%
-\contentsline {subsection}{\numberline {2.2.2}Recurrent Neural Networks}{6}{subsection.26}%
-\contentsline {subsection}{\numberline {2.2.3}Encoder-Decoder Networks}{6}{subsection.27}%
-\contentsline {subsection}{\numberline {2.2.4}Attention in Neural Networks}{6}{subsection.28}%
-\contentsline {subsection}{\numberline {2.2.5}Transformer Networks}{6}{subsection.29}%
-\contentsline {section}{\numberline {2.3}Hyperparameter}{7}{section.30}%
-\contentsline {section}{\numberline {2.4}Transfer Learning}{7}{section.31}%
-\contentsline {chapter}{\numberline {3}Natural Language Processing}{9}{chapter.34}%
-\contentsline {section}{\numberline {3.1}Vorverarbeitung}{10}{section.35}%
-\contentsline {subsection}{\numberline {3.1.1}Textbereinigung}{10}{subsection.36}%
-\contentsline {subsection}{\numberline {3.1.2}Tokenisierung}{10}{subsection.37}%
-\contentsline {subsection}{\numberline {3.1.3}POS-Tagging}{10}{subsection.38}%
-\contentsline {subsection}{\numberline {3.1.4}Lemmatisierung}{10}{subsection.39}%
-\contentsline {subsection}{\numberline {3.1.5}Entfernen von Stoppwörtern}{11}{subsection.40}%
-\contentsline {section}{\numberline {3.2}Word Embeddings}{11}{section.41}%
-\contentsline {section}{\numberline {3.3}Deep Language Representations}{11}{section.42}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{13}{chapter.43}%
-\contentsline {section}{\numberline {4.1}Akquise}{13}{section.44}%
-\contentsline {section}{\numberline {4.2}Vorverarbeitung}{14}{section.45}%
-\contentsline {section}{\numberline {4.3}Datensatz}{15}{section.46}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{17}{chapter.47}%
-\contentsline {section}{\numberline {5.1}Architektur}{17}{section.48}%
-\contentsline {section}{\numberline {5.2}Training}{18}{section.49}%
-\contentsline {section}{\numberline {5.3}Evaluation}{18}{section.50}%
-\contentsline {chapter}{\numberline {6}Zusammenfassung}{21}{chapter.51}%
-\contentsline {chapter}{\numberline {7}Diskussion und Ausblick}{23}{chapter.52}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.52}%
-\contentsline {chapter}{Thesen}{53}{chapter*.54}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.55}%
-\contentsline {chapter}{\numberline {A}Erster Anhang}{57}{appendix.56}%
-\contentsline {chapter}{\numberline {B}Zweiter Anhang}{59}{appendix.57}%
+\contentsline {section}{\numberline {1.1}Zielsetzung}{2}{section.12}%
+\contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{3}{section.14}%
+\contentsline {section}{\numberline {1.3}Forschungsstand \& Referenzen}{3}{section.16}%
+\contentsline {chapter}{\numberline {2}Deep Learning}{5}{chapter.23}%
+\contentsline {section}{\numberline {2.1}Neuronale Netze}{5}{section.25}%
+\contentsline {section}{\numberline {2.2}Architekturen}{7}{section.30}%
+\contentsline {subsection}{\numberline {2.2.1}Recurrent Neural Networks}{8}{subsection.31}%
+\contentsline {subsection}{\numberline {2.2.2}Encoder-Decoder Networks}{8}{subsection.32}%
+\contentsline {subsection}{\numberline {2.2.3}Attention in Neural Networks}{8}{subsection.33}%
+\contentsline {subsection}{\numberline {2.2.4}Transformer Networks}{8}{subsection.34}%
+\contentsline {section}{\numberline {2.3}Hyperparameter}{8}{section.35}%
+\contentsline {section}{\numberline {2.4}Transfer Learning}{9}{section.36}%
+\contentsline {chapter}{\numberline {3}Natural Language Processing}{11}{chapter.38}%
+\contentsline {section}{\numberline {3.1}Vorverarbeitung}{12}{section.39}%
+\contentsline {subsection}{\numberline {3.1.1}Textbereinigung}{12}{subsection.40}%
+\contentsline {subsection}{\numberline {3.1.2}Tokenisierung}{12}{subsection.41}%
+\contentsline {subsection}{\numberline {3.1.3}POS-Tagging}{12}{subsection.42}%
+\contentsline {subsection}{\numberline {3.1.4}Lemmatisierung}{13}{subsection.43}%
+\contentsline {subsection}{\numberline {3.1.5}Entfernen von Stoppwörtern}{13}{subsection.44}%
+\contentsline {section}{\numberline {3.2}Word Embeddings}{13}{section.45}%
+\contentsline {section}{\numberline {3.3}Deep Language Representations}{14}{section.46}%
+\contentsline {chapter}{\numberline {4}Datengrundlage}{15}{chapter.47}%
+\contentsline {section}{\numberline {4.1}Akquise}{15}{section.48}%
+\contentsline {section}{\numberline {4.2}Vorverarbeitung}{16}{section.49}%
+\contentsline {section}{\numberline {4.3}Datensatz}{17}{section.50}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{18}{chapter.51}%
+\contentsline {section}{\numberline {5.1}Architektur}{18}{section.52}%
+\contentsline {section}{\numberline {5.2}Training}{19}{section.53}%
+\contentsline {section}{\numberline {5.3}Evaluation}{19}{section.54}%
+\contentsline {chapter}{\numberline {6}Zusammenfassung}{21}{chapter.55}%
+\contentsline {chapter}{\numberline {7}Diskussion und Ausblick}{22}{chapter.56}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.56}%
+\contentsline {chapter}{Thesen}{52}{chapter*.58}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{53}{chapter*.59}%
+\contentsline {chapter}{\numberline {A}Erster Anhang}{54}{appendix.60}%
+\contentsline {chapter}{\numberline {B}Zweiter Anhang}{55}{appendix.61}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

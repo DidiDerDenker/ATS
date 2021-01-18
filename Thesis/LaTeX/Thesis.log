@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  17 JAN 2021 14:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  18 JAN 2021 12:47
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -125,6 +125,12 @@ Package scrreprt Info: You've used standard option `12pt'.
 (scrreprt)             If you'd like to set the option with \KOMAoptions,
 (scrreprt)             you'd have to use `fontsize=12pt' there
 (scrreprt)             instead of `12pt', too.
+Class scrreprt Info: You've used standard option `oneside'.
+(scrreprt)           This is correct!
+(scrreprt)           Internally I'm using `twoside=false'.
+(scrreprt)           If you'd like to set the option with \KOMAoptions,
+(scrreprt)           you'd have to use `twoside=false' there
+(scrreprt)           instead of `oneside', too.
 Class scrreprt Info: File `scrsize12pt.clo' used to setup font sizes on input l
 ine 2434.
 
@@ -144,6 +150,12 @@ Package typearea Info: You've used standard option `a4paper'.
 (typearea)             If you'd like to set the option with \KOMAoptions,
 (typearea)             you'd have to use `paper=a4' there
 (typearea)             instead of `a4paper', too.
+Package typearea Info: You've used standard option `oneside'.
+(typearea)             This is correct!
+(typearea)             Internally I'm using `twoside=false'.
+(typearea)             If you'd like to set the option with \KOMAoptions,
+(typearea)             you'd have to use `twoside=false' there
+(typearea)             instead of `oneside', too.
 \ta@hblk=\skip49
 \ta@vblk=\skip50
 \ta@temp=\skip51
@@ -154,8 +166,8 @@ Package typearea Info: These are the values describing the layout:
 (typearea)             \paperwidth      = 597.50793pt
 (typearea)              \textwidth      = 448.13095pt
 (typearea)              DIV departure   = -6%
-(typearea)              \evensidemargin = 27.31467pt
-(typearea)              \oddsidemargin  = -22.47766pt
+(typearea)              \evensidemargin = 2.4185pt
+(typearea)              \oddsidemargin  = 2.4185pt
 (typearea)             \paperheight     = 845.04694pt
 (typearea)              \textheight     = 635.5pt
 (typearea)              \topmargin      = -41.72441pt
@@ -222,7 +234,7 @@ Class scrreprt Info: Redefining `\numberline' on input line 7111.
 )
 Package scrkbase Info: You've told me to redefine the font selection of the
 (scrkbase)             element `sectioning' that is an alias of element
-(scrkbase)             `disposition' on input line 2.
+(scrkbase)             `disposition' on input line 10.
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
@@ -341,7 +353,7 @@ Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of KOMA-Script class, that doesn't
-(scrhack)             need that hack, on input line 16.
+(scrhack)             need that hack, on input line 33.
  (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
@@ -479,15 +491,37 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip64
 )
-(C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+(C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2020/09/12 v3.5b Customizing captions (AR)
+
+(C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2020/09/17 v2.1b caption3 kernel (AR)
+\captionmargin=\dimen148
+\captionmargin@=\dimen149
+\captionwidth=\dimen150
+\caption@tempdima=\dimen151
+\caption@indent=\dimen152
+\caption@parindent=\dimen153
+\caption@hangindent=\dimen154
+Package caption Info: KOMA-Script document class detected.
+
+(C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption-koma.st
+o
+File: caption-koma.sto 2020/09/12 v2.0a Adaption of the caption package to the 
+KOMA-Script document classes (AR)
+))
+\c@caption@flags=\count267
+\c@continuedfloat=\count268
+Package caption Info: hyperref package is loaded.
+) (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count267
+\c@float@type=\count269
 \float@exts=\toks20
 \float@box=\box50
 \@float@everytoks=\toks21
 \@floatcapt=\box51
 )
-Package scrhack Info: loading float hack on input line 18.
+Package scrhack Info: loading float hack on input line 36.
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\float.hak
 File: float.hak 2020/09/21 v3.32 KOMA-Script scrhack part (hacking package floa
@@ -497,29 +531,29 @@ Package scrhack Info: redefining \listof on input line 163.
 Package scrhack Info: undefining \float@addtolists on input line 163.
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count268
+\lst@mode=\count270
 \lst@gtempboxa=\box52
 \lst@token=\toks22
-\lst@length=\count269
-\lst@currlwidth=\dimen148
-\lst@column=\count270
-\lst@pos=\count271
-\lst@lostspace=\dimen149
-\lst@width=\dimen150
-\lst@newlines=\count272
-\lst@lineno=\count273
-\lst@maxwidth=\dimen151
+\lst@length=\count271
+\lst@currlwidth=\dimen155
+\lst@column=\count272
+\lst@pos=\count273
+\lst@lostspace=\dimen156
+\lst@width=\dimen157
+\lst@newlines=\count274
+\lst@lineno=\count275
+\lst@maxwidth=\dimen158
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count274
-\lst@skipnumbers=\count275
+\c@lstnumber=\count276
+\lst@skipnumbers=\count277
 \lst@framebox=\box53
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-Package scrhack Info: loading listings hack on input line 19.
+Package scrhack Info: loading listings hack on input line 37.
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\listings.ha
 k
@@ -542,7 +576,7 @@ Class scrreprt Warning: Usage of package `fancyhdr' together
 (scrreprt)              `\addtokomafont' for the page style elements need
 (scrreprt)              explicite user intervention to work.
 (scrreprt)              Nevertheless, using requested
-(scrreprt)              package `fancyhdr' on input line 20.
+(scrreprt)              package `fancyhdr' on input line 38.
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
@@ -565,21 +599,21 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count276
-\calc@Bcount=\count277
-\calc@Adimen=\dimen152
-\calc@Bdimen=\dimen153
+\calc@Acount=\count278
+\calc@Bcount=\count279
+\calc@Adimen=\dimen159
+\calc@Bdimen=\dimen160
 \calc@Askip=\skip74
 \calc@Bskip=\skip75
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count278
+\calc@Ccount=\count280
 \calc@Cskip=\skip76
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
 Package: eso-pic 2020/09/27 v2.0i eso-pic (RN)
-\ESO@tempdima=\dimen154
-\ESO@tempdimb=\dimen155
+\ESO@tempdima=\dimen161
+\ESO@tempdimb=\dimen162
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -598,17 +632,17 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ))
-\AM@pagewidth=\dimen156
-\AM@pageheight=\dimen157
+\AM@pagewidth=\dimen163
+\AM@pageheight=\dimen164
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
 File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box54
 \AM@global@opts=\toks23
-\AM@pagecnt=\count279
+\AM@pagecnt=\count281
 \AM@toc@title=\toks24
-\c@AM@survey=\count280
+\c@AM@survey=\count282
 \AM@templatesizebox=\box55
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/todonotes\todonotes.sty
@@ -622,7 +656,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks25
 \XKV@tempa@toks=\toks26
 )
-\XKV@depth=\count281
+\XKV@depth=\count283
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
@@ -633,8 +667,8 @@ y
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common.tex
 \pgfutil@everybye=\toks27
-\pgfutil@tempdima=\dimen158
-\pgfutil@tempdimb=\dimen159
+\pgfutil@tempdima=\dimen165
+\pgfutil@tempdimb=\dimen166
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common-lists.tex))
@@ -666,26 +700,26 @@ Package: pgfsys 2020/10/01 v3.1.6a (3.1.6a)
 filtered.code.tex
 \pgfkeys@tmptoks=\toks30
 ))
-\pgf@x=\dimen160
-\pgf@y=\dimen161
-\pgf@xa=\dimen162
-\pgf@ya=\dimen163
-\pgf@xb=\dimen164
-\pgf@yb=\dimen165
-\pgf@xc=\dimen166
-\pgf@yc=\dimen167
-\pgf@xd=\dimen168
-\pgf@yd=\dimen169
+\pgf@x=\dimen167
+\pgf@y=\dimen168
+\pgf@xa=\dimen169
+\pgf@ya=\dimen170
+\pgf@xb=\dimen171
+\pgf@yb=\dimen172
+\pgf@xc=\dimen173
+\pgf@yc=\dimen174
+\pgf@xd=\dimen175
+\pgf@yd=\dimen176
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count282
-\c@pgf@countb=\count283
-\c@pgf@countc=\count284
-\c@pgf@countd=\count285
+\c@pgf@counta=\count284
+\c@pgf@countb=\count285
+\c@pgf@countc=\count286
+\c@pgf@countd=\count287
 \t@pgf@toka=\toks31
 \t@pgf@tokb=\toks32
 \t@pgf@tokc=\toks33
-\pgf@sys@id@count=\count286
+\pgf@sys@id@count=\count288
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
 fg
@@ -704,8 +738,8 @@ File: pgfsys-common-pdf.def 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 ssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfsyssoftpath@smallbuffer@items=\count287
-\pgfsyssoftpath@bigbuffer@items=\count288
+\pgfsyssoftpath@smallbuffer@items=\count289
+\pgfsyssoftpath@bigbuffer@items=\count290
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
 sprotocol.code.tex
@@ -723,8 +757,8 @@ code.tex
 code.tex)
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
 r.code.tex
-\pgfmath@dimen=\dimen170
-\pgfmath@count=\count289
+\pgfmath@dimen=\dimen177
+\pgfmath@count=\count291
 \pgfmath@box=\box57
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
@@ -750,39 +784,39 @@ ions.misc.code.tex)
 ions.integerarithmetics.code.tex)))
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
 .code.tex
-\c@pgfmathroundto@lastzeros=\count290
+\c@pgfmathroundto@lastzeros=\count292
 ))
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
 tex)
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epoints.code.tex
 File: pgfcorepoints.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@picminx=\dimen171
-\pgf@picmaxx=\dimen172
-\pgf@picminy=\dimen173
-\pgf@picmaxy=\dimen174
-\pgf@pathminx=\dimen175
-\pgf@pathmaxx=\dimen176
-\pgf@pathminy=\dimen177
-\pgf@pathmaxy=\dimen178
-\pgf@xx=\dimen179
-\pgf@xy=\dimen180
-\pgf@yx=\dimen181
-\pgf@yy=\dimen182
-\pgf@zx=\dimen183
-\pgf@zy=\dimen184
+\pgf@picminx=\dimen178
+\pgf@picmaxx=\dimen179
+\pgf@picminy=\dimen180
+\pgf@picmaxy=\dimen181
+\pgf@pathminx=\dimen182
+\pgf@pathmaxx=\dimen183
+\pgf@pathminy=\dimen184
+\pgf@pathmaxy=\dimen185
+\pgf@xx=\dimen186
+\pgf@xy=\dimen187
+\pgf@yx=\dimen188
+\pgf@yy=\dimen189
+\pgf@zx=\dimen190
+\pgf@zy=\dimen191
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@path@lastx=\dimen185
-\pgf@path@lasty=\dimen186
+\pgf@path@lastx=\dimen192
+\pgf@path@lasty=\dimen193
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 epathusage.code.tex
 File: pgfcorepathusage.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@shorten@end@additional=\dimen187
-\pgf@shorten@start@additional=\dimen188
+\pgf@shorten@end@additional=\dimen194
+\pgf@shorten@start@additional=\dimen195
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 escopes.code.tex
@@ -790,19 +824,19 @@ File: pgfcorescopes.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 \pgfpic=\box58
 \pgf@hbox=\box59
 \pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count291
+\pgf@picture@serial@count=\count293
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 egraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgflinewidth=\dimen189
+\pgflinewidth=\dimen196
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 etransformations.code.tex
 File: pgfcoretransformations.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@pt@x=\dimen190
-\pgf@pt@y=\dimen191
-\pgf@pt@temp=\dimen192
+\pgf@pt@x=\dimen197
+\pgf@pt@y=\dimen198
+\pgf@pt@temp=\dimen199
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 equick.code.tex
@@ -819,14 +853,14 @@ File: pgfcorepathprocessing.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 earrows.code.tex
 File: pgfcorearrows.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfarrowsep=\dimen193
+\pgfarrowsep=\dimen256
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eshade.code.tex
 File: pgfcoreshade.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@max=\dimen194
-\pgf@sys@shading@range@num=\count292
-\pgf@shadingcount=\count293
+\pgf@max=\dimen257
+\pgf@sys@shading@range@num=\count294
+\pgf@shadingcount=\count295
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
 eimage.code.tex
@@ -865,8 +899,8 @@ File: pgfmoduleplot.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@nodesepstart=\dimen195
-\pgf@nodesepend=\dimen196
+\pgf@nodesepstart=\dimen258
+\pgf@nodesepend=\dimen259
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-1-18.sty
@@ -887,8 +921,8 @@ Package: pgffor 2020/10/01 v3.1.6a (3.1.6a)
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
 .tex)
-\pgffor@iter=\dimen197
-\pgffor@skip=\dimen198
+\pgffor@iter=\dimen260
+\pgffor@skip=\dimen261
 \pgffor@stack=\toks37
 \pgffor@toks=\toks38
 ))
@@ -899,34 +933,34 @@ Package: tikz 2020/10/01 v3.1.6a (3.1.6a)
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgf@plot@mark@count=\count294
-\pgfplotmarksize=\dimen199
+\pgf@plot@mark@count=\count296
+\pgfplotmarksize=\dimen262
 )
-\tikz@lastx=\dimen256
-\tikz@lasty=\dimen257
-\tikz@lastxsaved=\dimen258
-\tikz@lastysaved=\dimen259
-\tikz@lastmovetox=\dimen260
-\tikz@lastmovetoy=\dimen261
-\tikzleveldistance=\dimen262
-\tikzsiblingdistance=\dimen263
+\tikz@lastx=\dimen263
+\tikz@lasty=\dimen264
+\tikz@lastxsaved=\dimen265
+\tikz@lastysaved=\dimen266
+\tikz@lastmovetox=\dimen267
+\tikz@lastmovetoy=\dimen268
+\tikzleveldistance=\dimen269
+\tikzsiblingdistance=\dimen270
 \tikz@figbox=\box63
 \tikz@figbox@bg=\box64
 \tikz@tempbox=\box65
 \tikz@tempbox@bg=\box66
-\tikztreelevel=\count295
-\tikznumberofchildren=\count296
-\tikznumberofcurrentchild=\count297
-\tikz@fig@count=\count298
+\tikztreelevel=\count297
+\tikznumberofchildren=\count298
+\tikznumberofcurrentchild=\count299
+\tikz@fig@count=\count300
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 matrix.code.tex
 File: pgfmodulematrix.code.tex 2020/10/01 v3.1.6a (3.1.6a)
-\pgfmatrixcurrentrow=\count299
-\pgfmatrixcurrentcolumn=\count300
-\pgf@matrix@numberofcolumns=\count301
+\pgfmatrixcurrentrow=\count301
+\pgfmatrixcurrentcolumn=\count302
+\pgf@matrix@numberofcolumns=\count303
 )
-\tikz@expandcount=\count302
+\tikz@expandcount=\count304
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarytopaths.code.tex
@@ -948,16 +982,16 @@ File: tikzlibraryfadings.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 aryfadings.code.tex
 File: pgflibraryfadings.code.tex 2020/10/01 v3.1.6a (3.1.6a)
 )))
-\c@@todonotes@numberoftodonotes=\count303
+\c@@todonotes@numberoftodonotes=\count305
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip77
-\enit@outerparindent=\dimen264
+\enit@outerparindent=\dimen271
 \enit@toks=\toks39
 \enit@inbox=\box67
-\enit@count@id=\count304
-\enitdp@description=\count305
+\enit@count@id=\count306
+\enitdp@description=\count307
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
@@ -965,51 +999,51 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip79
 \LTpre=\skip80
 \LTpost=\skip81
-\LTchunksize=\count306
-\LTcapwidth=\dimen265
+\LTchunksize=\count308
+\LTcapwidth=\dimen272
 \LT@head=\box68
 \LT@firsthead=\box69
 \LT@foot=\box70
 \LT@lastfoot=\box71
-\LT@cols=\count307
-\LT@rows=\count308
-\c@LT@tables=\count309
-\c@LT@chunks=\count310
+\LT@cols=\count309
+\LT@rows=\count310
+\c@LT@tables=\count311
+\c@LT@chunks=\count312
 \LT@p@ftn=\toks40
 )
-Class scrreprt Info: longtable captions redefined on input line 24.
+Class scrreprt Info: longtable captions redefined on input line 42.
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen266
-\lightrulewidth=\dimen267
-\cmidrulewidth=\dimen268
-\belowrulesep=\dimen269
-\belowbottomsep=\dimen270
-\aboverulesep=\dimen271
-\abovetopsep=\dimen272
-\cmidrulesep=\dimen273
-\cmidrulekern=\dimen274
-\defaultaddspace=\dimen275
-\@cmidla=\count311
-\@cmidlb=\count312
-\@aboverulesep=\dimen276
-\@belowrulesep=\dimen277
-\@thisruleclass=\count313
-\@lastruleclass=\count314
-\@thisrulewidth=\dimen278
+\heavyrulewidth=\dimen273
+\lightrulewidth=\dimen274
+\cmidrulewidth=\dimen275
+\belowrulesep=\dimen276
+\belowbottomsep=\dimen277
+\aboverulesep=\dimen278
+\abovetopsep=\dimen279
+\cmidrulesep=\dimen280
+\cmidrulekern=\dimen281
+\defaultaddspace=\dimen282
+\@cmidla=\count313
+\@cmidlb=\count314
+\@aboverulesep=\dimen283
+\@belowrulesep=\dimen284
+\@thisruleclass=\count315
+\@lastruleclass=\count316
+\@thisrulewidth=\dimen285
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip82
-\multirow@cntb=\count315
+\multirow@cntb=\count317
 \multirow@dima=\skip83
-\bigstrutjot=\dimen279
+\bigstrutjot=\dimen286
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
-Package scrhack Info: loading lscape hack on input line 27.
+Package scrhack Info: loading lscape hack on input line 45.
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\lscape.hak
 File: lscape.hak 2020/09/21 v3.32 KOMA-Script scrhack part (hacking package lsc
@@ -1022,6 +1056,19 @@ Package scrhack Info: \landscape patched to make \textheight change optional on
 LaTeX Warning: inputting `thesis.cls' instead of obsolete `thesis.sty'.
 
 )
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 50.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 52.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 54.
+
+
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/bytefield\bytefield.sty
 Package: bytefield 2020/10/22 v2.5 Network protocol diagrams
 \bytefield@height=\skip85
@@ -1033,8 +1080,8 @@ Package: bytefield 2020/10/22 v2.5 Network protocol diagrams
 \units@tall=\skip90
 \units@high=\skip91
 \header@xpos=\skip92
-\c@header@val=\count316
-\c@max@header@val=\count317
+\c@header@val=\count318
+\c@max@header@val=\count319
 \curly@box=\box73
 \wordlabelr@start=\skip93
 \wordlabelr@end=\skip94
@@ -1055,46 +1102,46 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks41
-\ex@=\dimen280
+\ex@=\dimen287
 ))
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen281
+\pmbraise@=\dimen288
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count318
+\inf@bad=\count320
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count319
-\leftroot@=\count320
+\uproot@=\count321
+\leftroot@=\count322
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count321
-\DOTSCASE@=\count322
+\classnum@=\count323
+\DOTSCASE@=\count324
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box75
 \strutbox@=\box76
-\big@size=\dimen282
+\big@size=\dimen289
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count323
-\c@MaxMatrixCols=\count324
+\macc@depth=\count325
+\c@MaxMatrixCols=\count326
 \dotsspace@=\muskip17
-\c@parentequation=\count325
-\dspbrk@lvl=\count326
+\c@parentequation=\count327
+\dspbrk@lvl=\count328
 \tag@help=\toks42
-\row@=\count327
-\column@=\count328
-\maxfields@=\count329
+\row@=\count329
+\column@=\count330
+\maxfields@=\count331
 \andhelp@=\toks43
-\eqnshift@=\dimen283
-\alignsep@=\dimen284
-\tagshift@=\dimen285
-\tagwidth@=\dimen286
-\totwidth@=\dimen287
-\lineht@=\dimen288
+\eqnshift@=\dimen290
+\alignsep@=\dimen291
+\tagshift@=\dimen292
+\tagwidth@=\dimen293
+\totwidth@=\dimen294
+\lineht@=\dimen295
 \@envbody=\toks44
 \multlinegap=\skip101
 \multlinetaggap=\skip102
@@ -1130,16 +1177,16 @@ LaTeX Font Info:    ... okay on input line 3.
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count330
-\scratchdimen=\dimen289
+\scratchcounter=\count332
+\scratchdimen=\dimen296
 \scratchbox=\box77
-\nofMPsegments=\count331
-\nofMParguments=\count332
+\nofMPsegments=\count333
+\nofMParguments=\count334
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count333
-\MPscratchDim=\dimen290
-\MPnumerator=\count334
-\makeMPintoPDFobject=\count335
+\MPscratchCnt=\count335
+\MPscratchDim=\dimen297
+\MPnumerator=\count336
+\makeMPintoPDFobject=\count337
 \everyMPtoPDFconversion=\toks47
 )
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1168,7 +1215,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count336
+\c@section@level=\count338
 )
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
@@ -1194,15 +1241,31 @@ File: bkm-pdftex.def 2019/12/03 v1.28 bookmark driver for pdfTeX (HO)
 Package auxhook Info: \AddLineBeginMainAux comes a little late,
 (auxhook)             because the main .aux file is already opened on input lin
 e 168.
-\BKM@id=\count337
+\BKM@id=\count339
 ))
-\c@lstlisting=\count338
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count340
 Package scrhack Info: undefining \float@addtolists on input line 3.
 
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-) (source/formal/Cover.tex
+)
+
+Package todonotes Warning: The length marginparwidth is less than 2cm and will 
+most likely cause issues with the appearance of inserted todonotes. The issue c
+an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
+loading the todonotes package. on input line 3.
+
+(source/formal/Cover.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
 
 
@@ -1219,21 +1282,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-{C:/Users/didid/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]) [2
-
-
-]
+{C:/Users/didid/AppData/Local/MiKTeX/pdftex/config/pdftex.map}])
 (source/formal/Preamble.tex) (source/formal/Abstract.tex [0
+
+
 
 
 ]) [0
 
 
 ] (Thesis.toc
-Overfull \hbox (2.41267pt too wide) detected at line 5
- []\OT1/cmr/bx/n/12 VII
- []
-
 [1
 
 
@@ -1250,231 +1308,225 @@ Overfull \hbox (2.41267pt too wide) detected at line 5
 
 
 
-] [4
-
-
 ] (Thesis.lot)
 \tf@lot=\write7
 \openout7 = `Thesis.lot'.
 
  (source/formal/Abbreviations.tex
-[5] [6
+[4
 
 
-]) [7] [8
+]) [5
 
 
 ] (Thesis.lol)
 \tf@lol=\write8
 \openout8 = `Thesis.lol'.
 
- (source/formal/Empty.tex [9]) [10]
+ (source/formal/Empty.tex [6
+
+
+]) [7]
 (source/content/Einleitung.tex
 chapter 1.
 Package acronym Info: Label `acro:ATS' newly defined as it shall be overridden
-although it is yet undefined on input line 6.
+although it is yet undefined on input line 7.
 Package acronym Info: Label `acro:NLP' newly defined as it shall be overridden
-although it is yet undefined on input line 6.
-
-Overfull \hbox (3.87541pt too wide) in paragraph at lines 6--7
-\OT1/cmr/m/n/12 oder auch die Ge-ne-rie-rung von []Uberschriften, um nur we-ni-
-ge zu nen-nen [[]].
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--11
-
- []
-
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 1
-2.
-(C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
-File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 12.
-
-Overfull \hbox (8.58806pt too wide) in paragraph at lines 12--13
-[]\OT1/cmr/m/n/12 Aus tech-ni-scher Sicht kom-men zur [][] grunds[]atzlich so-g
-e-nann-te Sequence-to-Sequence-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
+although it is yet undefined on input line 7.
+<./source/images/summarizationprocess.png, id=233, 370.38374pt x 179.92218pt>
+File: ./source/images/summarizationprocess.png Graphic file (type png)
+<use ./source/images/summarizationprocess.png>
+Package pdftex.def Info: ./source/images/summarizationprocess.png  used on inpu
+t line 11.
+(pdftex.def)             Requested size: 268.8813pt x 130.61731pt.
 [1
 
 
 
 
-]
-Package acronym Info: Label `acro:TL' newly defined as it shall be overridden
-although it is yet undefined on input line 18.
-Package acronym Info: Label `acro:DL' newly defined as it shall be overridden
-although it is yet undefined on input line 28.
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
+ <./source/images/summarizationprocess.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
+
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
+4.
+(C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
+File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 24.
+Package acronym Info: Label `acro:TL' newly defined as it shall be overridden
+although it is yet undefined on input line 31.
 
 [2]
+Package acronym Info: Label `acro:DL' newly defined as it shall be overridden
+although it is yet undefined on input line 43.
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
+
+ []
+
 Package acronym Info: Label `acro:RNN' newly defined as it shall be overridden
-although it is yet undefined on input line 34.
+although it is yet undefined on input line 51.
 Package acronym Info: Label `acro:LSTM' newly defined as it shall be overridden
 
-although it is yet undefined on input line 34.
+although it is yet undefined on input line 51.
 Package acronym Info: Label `acro:RL' newly defined as it shall be overridden
-although it is yet undefined on input line 34.
+although it is yet undefined on input line 51.
 Package acronym Info: Label `acro:SOTA' newly defined as it shall be overridden
 
-although it is yet undefined on input line 34.
+although it is yet undefined on input line 51.
 
-Overfull \hbox (5.36845pt too wide) in paragraph at lines 34--35
-\OT1/cmr/m/n/12 [[]], bis 2018 ver-schie-dens-te Ans[]atze mit Encoder-Decoder-
-Architekturen
+Overfull \hbox (7.52907pt too wide) in paragraph at lines 50--52
+\OT1/cmr/m/n/12 sehr po-pul[]ar [[]]. In den Jah-ren 2016 und 2017 eta-blier-te
+n sich Ans[]atze,
  []
 
 
-Overfull \hbox (46.96393pt too wide) in paragraph at lines 34--35
-\OT1/cmr/m/n/12 die Grund-la-ge des heu-ti-gen [][][]State-of-the-Art ([])[] le
-g-ten [[], []].
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+
  []
 
-
-Overfull \hbox (17.74054pt too wide) in paragraph at lines 34--35
-\OT1/cmr/m/n/12 sie-ren auf den Encoder-Decoder-Architekturen, im-ple-men-tie-r
-en ver-schie-den-ar-ti-ge Attention-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
 Package acronym Info: Label `acro:BERT' newly defined as it shall be overridden
 
-although it is yet undefined on input line 36.
+although it is yet undefined on input line 58.
 Package acronym Info: Label `acro:ELMO' newly defined as it shall be overridden
 
-although it is yet undefined on input line 36.
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-
- []
-
-
-Overfull \hbox (20.6656pt too wide) in paragraph at lines 43--44
-[]\OT1/cmr/m/n/12 Leveraging Pre-trained Check-points for Se-quence Ge-ne-ra-ti
--on Tasks [[]] 
- []
-
-) [3] [4
-
-
-]
+although it is yet undefined on input line 58.
+) [4]
 \openout2 = `"source/content/Deep Learning.aux"'.
 
  ("source/content/Deep Learning.tex"
 chapter 2.
+Package acronym Info: Label `acro:ML' newly defined as it shall be overridden
+although it is yet undefined on input line 5.
 
-Overfull \hbox (19.48038pt too wide) in paragraph at lines 11--12
-[]\OT1/cmr/m/n/12 ATS on GitHub: [][]$\OT1/cmtt/m/n/12 https : / / github . com
- / mathsyouth / awesome-[]text-[]summarization #
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
  []
 
+<./source/images/artificialneuron.png, id=319, 539.76656pt x 225.84375pt>
+File: ./source/images/artificialneuron.png Graphic file (type png)
+<use ./source/images/artificialneuron.png>
+Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
+ne 14.
+(pdftex.def)             Requested size: 268.8813pt x 112.50461pt.
 
-Overfull \hbox (5.90262pt too wide) in paragraph at lines 27--28
-[]\OT1/cmr/m/n/12 Existenz und Not-wen-dig-keit ver-schie-de-ner Ar-chi-tek-tu-
-ren ank[]undigen, ggf. in sp[]atere
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package acronym Info: Label `acro:MLP' newly defined as it shall be overridden
+although it is yet undefined on input line 20.
+<./source/images/multilayerperceptron.png, id=326, 545.78906pt x 291.33844pt>
+File: ./source/images/multilayerperceptron.png Graphic file (type png)
+<use ./source/images/multilayerperceptron.png>
+Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
+t line 24.
+(pdftex.def)             Requested size: 268.8813pt x 143.52614pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (7.23378pt too wide) in paragraph at lines 29--30
-[]\OT1/cmr/m/n/12 Diversit[]at der exis-tie-ren-den Ar-chi-tek-tu-ren (wie im F
-or-schungs-stand be-reits erw[]ahnt)
- []
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
-
-Overfull \hbox (7.16039pt too wide) in paragraph at lines 30--31
-\OT1/cmtt/m/n/12 com / deep-[]learning-[]models-[]for-[]automatic-[]summarizati
-on-[]4c2b89f2a9ea$[][] \OT1/cmr/m/n/12 ein-
  []
 
 [5
 
 
 
-]
-Overfull \hbox (122.71529pt too wide) in paragraph at lines 32--33
+
+
+] [6 <./source/images/artificialneuron.png> <./source/images/multilayerperceptr
+on.png>]
+<./source/images/fittingtypes.png, id=344, 855.195pt x 284.56313pt>
+File: ./source/images/fittingtypes.png Graphic file (type png)
+<use ./source/images/fittingtypes.png>
+Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 3
+7.
+(pdftex.def)             Requested size: 268.8813pt x 89.4685pt.
+
+Overfull \hbox (5.90262pt too wide) in paragraph at lines 49--50
+[]\OT1/cmr/m/n/12 Existenz und Not-wen-dig-keit ver-schie-de-ner Ar-chi-tek-tu-
+ren ank[]undigen, ggf. in sp[]atere
+ []
+
+
+Overfull \hbox (7.23378pt too wide) in paragraph at lines 51--52
+[]\OT1/cmr/m/n/12 Diversit[]at der exis-tie-ren-den Ar-chi-tek-tu-ren (wie im F
+or-schungs-stand be-reits erw[]ahnt)
+ []
+
+
+Overfull \hbox (7.16039pt too wide) in paragraph at lines 52--53
+\OT1/cmtt/m/n/12 com / deep-[]learning-[]models-[]for-[]automatic-[]summarizati
+on-[]4c2b89f2a9ea$[][] \OT1/cmr/m/n/12 ein-
+ []
+
+
+Overfull \hbox (122.71529pt too wide) in paragraph at lines 54--55
 \OT1/cmr/m/n/12 gut er-kl[]art: [][]$\OT1/cmtt/m/n/12 https : / / medium . com 
 / inside-[]machine-[]learning / what-[]is-[]a-[]transformer-[]d07dd1fbec04$[][]
 \OT1/cmr/m/n/12 ,
  []
 
 
-Overfull \hbox (20.5086pt too wide) in paragraph at lines 32--33
+Overfull \hbox (20.5086pt too wide) in paragraph at lines 54--55
 \OT1/cmtt/m/n/12 wiki . pathmind . com/$[][]\OT1/cmr/m/n/12 , [][]$\OT1/cmtt/m/
 n/12 https : / / nlp . stanford . edu / pubs / emnlp15 _ attn . pdf$[][]\OT1/cm
 r/m/n/12 , Struk-
  []
 
-
-Overfull \hbox (19.0294pt too wide) in paragraph at lines 33--34
+[7 <./source/images/fittingtypes.png>]
+Overfull \hbox (19.0294pt too wide) in paragraph at lines 55--56
 []\OT1/cmr/m/n/12 PyCharm-Rebuild: Seq-to-Seq with Lo-cal Attention-: [][]$\OT1
 /cmtt/m/n/12 https : / / github . com / JRC1995 /
  []
 
 
-Overfull \hbox (31.92146pt too wide) in paragraph at lines 33--34
+Overfull \hbox (31.92146pt too wide) in paragraph at lines 55--56
 \OT1/cmtt/m/n/12 Abstractive-[]Summarization$[][]\OT1/cmr/m/n/12 , [][]$\OT1/cm
 tt/m/n/12 https : / / nlp . stanford . edu / projects / glove/$[][]\OT1/cmr/m/n
 /12 , [][]$\OT1/cmtt/m/n/12 https :
  []
 
 
-Overfull \hbox (0.8452pt too wide) in paragraph at lines 33--34
+Overfull \hbox (0.8452pt too wide) in paragraph at lines 55--56
 \OT1/cmtt/m/n/12 / / nlp . stanford . edu / pubs / emnlp15 _ attn . pdf$[][]\OT
 1/cmr/m/n/12 , [][]$\OT1/cmtt/m/n/12 https : / / arxiv . org / abs / 1409 .
  []
 
 
-Overfull \hbox (9.18732pt too wide) in paragraph at lines 34--35
+Overfull \hbox (9.18732pt too wide) in paragraph at lines 56--57
 []\OT1/cmr/m/n/12 PyCharm-Rebuild: Bert-Encoder with Transformer-Decoder: [][]$
 \OT1/cmtt/m/n/12 https : / / github . com /
  []
 
 
-Overfull \hbox (25.65527pt too wide) in paragraph at lines 35--36
+Overfull \hbox (25.65527pt too wide) in paragraph at lines 57--58
 []\OT1/cmr/m/n/12 PyCharm-Rebuild: RL-Seq-to-Seq: [][]$\OT1/cmtt/m/n/12 https :
  / / github . com / yaserkl / RLSeq2Seq$[][]\OT1/cmr/m/n/12 , [][]$\OT1/cmtt/m/
 n/12 https :
  []
 
-[6]
-Overfull \hbox (2.82736pt too wide) in paragraph at lines 65--66
+[8]
+Overfull \hbox (2.82736pt too wide) in paragraph at lines 86--87
 []\OT1/cmr/m/n/12 Batch-Size, e.g. Mini-Batch vs. Sto-cha-stic Batch: [][]$\OT1
 /cmtt/m/n/12 https : / / stats . stackexchange .
  []
 
-<./source/images/finetuning.png, id=342, 905.63344pt x 530.73282pt>
+<./source/images/finetuning.png, id=390, 905.63344pt x 530.73282pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
-Package pdftex.def Info: ./source/images/finetuning.png  used on input line 74.
+Package pdftex.def Info: ./source/images/finetuning.png  used on input line 96.
 
-(pdftex.def)             Requested size: 362.24695pt x 212.28937pt.
-) [7] [8 <./source/images/finetuning.png>]
+(pdftex.def)             Requested size: 268.8813pt x 157.56902pt.
+[9 <./source/images/finetuning.png>]) [10]
 \openout2 = `"source/content/Natural Language Processing.aux"'.
 
 
@@ -1518,7 +1570,7 @@ Overfull \hbox (7.31895pt too wide) in paragraph at lines 14--15
  tree / master / jupyter _ english$[][] 
  []
 
-[9
+[11
 
 
 
@@ -1526,7 +1578,7 @@ Overfull \hbox (7.31895pt too wide) in paragraph at lines 14--15
 
 
 
-] [10]
+] [12]
 Overfull \hbox (3.41139pt too wide) in paragraph at lines 63--64
 []\OT1/cmr/m/n/12 Siehe: [][]$\OT1/cmtt/m/n/12 https : / / scikit-[]learn . org
  / stable / modules / feature _ extraction . html$[][] 
@@ -1538,13 +1590,13 @@ Overfull \hbox (57.0496pt too wide) in paragraph at lines 64--65
 lichkeit, Satzl[]ange, dom[]anenspezifische
  []
 
-[11]
+[13]
 Overfull \hbox (33.80154pt too wide) in paragraph at lines 89--90
 []\OT1/cmr/m/n/12 Am bes-ten di-rekt ein vor-trai-nier-tes Transformer-Modell n
 ut-zen (ex-tra f[]ur Summarization-
  []
 
-) [12]
+) [14]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
@@ -1580,7 +1632,7 @@ Overfull \hbox (30.23569pt too wide) in paragraph at lines 18--19
 T1/cmtt/m/n/12 https : / / zenodo . org / record / 1168855 # .X75WfmhKiUk$[][]
  []
 
-[13
+[15
 
 
 
@@ -1600,12 +1652,7 @@ Overfull \hbox (4.0585pt too wide) in paragraph at lines 34--35
 gen Da-ta Clea-ning, NLP-Pipeline
  []
 
-[14]) [15] [16
-
-
-
-
-]
+[16]) [17]
 \openout2 = `"source/content/Abstraktiver Ansatz.aux"'.
 
  ("source/content/Abstraktiver Ansatz.tex"
@@ -1630,7 +1677,15 @@ Overfull \hbox (43.16496pt too wide) in paragraph at lines 24--25
 om / dongjun-[]Lee / text-[]summarization-[]tensorflow$[][]
  []
 
+[18
 
+
+
+
+
+
+
+]
 Overfull \hbox (9.67734pt too wide) in paragraph at lines 25--26
 []\OT1/cmr/m/n/12 Deep Re-in-for-ce-ment Lear-ning (De-e-pRL) for Ab-strac-ti-v
 e Text Sum-ma-ri-za-ti-on [][]$\OT1/cmtt/m/n/12 https :
@@ -1649,11 +1704,7 @@ Overfull \hbox (0.21571pt too wide) in paragraph at lines 25--26
 lich -> Zur[]uckgestellt
  []
 
-[17
 
-
-
-]
 Overfull \hbox (13.54543pt too wide) in paragraph at lines 26--27
 []\OT1/cmr/m/n/12 BERT-Encoder Transformer-Decoder: Pa-per [][]$\OT1/cmtt/m/n/1
 2 https : / / arxiv . org / pdf / 2008 . 09676 .
@@ -1672,18 +1723,13 @@ Overfull \hbox (5.23314pt too wide) in paragraph at lines 45--46
 tt/m/n/12 https : / / en . wikipedia . org / wiki /
  []
 
-[18]
+[19]
 Overfull \hbox (102.944pt too wide) in paragraph at lines 50--51
 \OT1/cmtt/m/n/12 towardsdatascience . com / deep-[]learning-[]models-[]for-[]au
 tomatic-[]summarization-[]4c2b89f2a9ea$[][] 
  []
 
-) [19] [20
-
-
-
-
-]
+) [20]
 \openout2 = `"source/content/Sprachtechnische Adaption.aux"'.
 
 
@@ -1701,7 +1747,6 @@ chapter 6.
 
 
 
-] [22
 
 
 
@@ -1711,32 +1756,69 @@ chapter 6.
 
  ("source/content/Diskussion und Ausblick.tex"
 chapter 7.
-) [23
-
-
-
-] [24
+) [22
 
 
 
 
-] (source/formal/Literature.tex [50
 
 
-]
-Underfull \hbox (badness 2057) in paragraph at lines 19--20
-\OT1/cmr/m/n/10.95 ning, in: https://medium.com/luisfredgs/automatic-text-summa
-rization-with-machine-
+
+] (source/formal/Literature.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+[]\OT1/cmr/m/n/10.95 Goncalves, Luis: Au-to-ma-tic Text Sum-ma-ri-za-ti-
  []
 
-) [51] [52
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+\OT1/cmr/m/n/10.95 on with Ma-chi-ne Lear-ning, in: [][]$\OT1/cmtt/m/n/10.95 ht
+tps : / / medium . com / luisfredgs /
+ []
 
 
-] (source/formal/Theses.tex) (source/formal/Statement.tex [53
+Overfull \hbox (12.9706pt too wide) in paragraph at lines 22--23
+\OT1/cmtt/m/n/10.95 automatic-[]text-[]summarization-[]with-[]machine-[]learnin
+g-[]an-[]overview-[]68ded5717a25$[][]\OT1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+[]\OT1/cmr/m/n/10.95 McCullum, Nick: De-ep Lear-ning Neural Net-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+\OT1/cmr/m/n/10.95 works Ex-plai-ned, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
+www . freecodecamp . org / news /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+\OT1/cmtt/m/n/10.95 deep-[]learning-[]neural-[]networks-[]explained-[]in-[]plai
+n-[]english/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
+ []
+
+[50
+
+
+
+
 
 
 ]
-[54
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+[]\OT1/cmr/m/n/10.95 Thaker, Ma-dhav: Com-pa-ring Text Sum-ma-ri-za-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+\OT1/cmr/m/n/10.95 ti-on Tech-ni-ques, in: [][]$\OT1/cmtt/m/n/10.95 https : / /
+ towardsdatascience . com /
+ []
+
+) [51] (source/formal/Theses.tex) (source/formal/Statement.tex [52
+
+
 
 
 ]
@@ -1749,20 +1831,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [55] [56
+) [53
 
 
 ] (source/formal/Appendix.tex
 chapter A.
-[57
+[54
 
 
-] [58
 
 
 ]
 chapter B.
-) [59] (Thesis.aux ("source/content/Deep Learning.aux")
+) [55
+
+
+] (Thesis.aux ("source/content/Deep Learning.aux")
 ("source/content/Natural Language Processing.aux")
 (source/content/Datengrundlage.aux) ("source/content/Abstraktiver Ansatz.aux")
 ("source/content/Sprachtechnische Adaption.aux")
@@ -1772,13 +1856,13 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25743 strings out of 480257
- 493942 string characters out of 2881437
- 947308 words of memory out of 3000000
- 41528 multiletter control sequences out of 15000+200000
+ 27015 strings out of 480257
+ 519637 string characters out of 2881437
+ 971108 words of memory out of 3000000
+ 42782 multiletter control sequences out of 15000+200000
  544694 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,12n,101p,10692b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 98i,12n,101p,10634b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\didid\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1792,9 +1876,9 @@ d/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/U
 sers/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmtt12.pfb>
-Output written on Thesis.pdf (48 pages, 332362 bytes).
+Output written on Thesis.pdf (38 pages, 568170 bytes).
 PDF statistics:
- 717 PDF objects out of 1000 (max. 8388607)
- 129 named destinations out of 1000 (max. 500000)
- 458 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 737 PDF objects out of 1000 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
+ 470 words of extra memory for PDF output out of 10000 (max. 10000000)
 

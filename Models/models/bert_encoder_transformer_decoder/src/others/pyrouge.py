@@ -192,13 +192,7 @@ class Rouge155(object):
             output_dir: path of directory in which the converted files will be saved
         """
 
-        files = os.listdir(input_dir)
-        print(len(files))
-        print(input_dir)
-        print(output_dir)
-        exit() # TODO: Convert files to the needed format
-
-        # DirectoryProcessor.process(input_dir, output_dir, Rouge155.convert_text_to_rouge_format)
+        DirectoryProcessor.process(input_dir, output_dir, Rouge155.convert_text_to_rouge_format) # TODO: Update function
 
     @staticmethod
     def convert_text_to_rouge_format(text, title="dummy title"):
@@ -463,6 +457,10 @@ class Rouge155(object):
         system and model folders.
         """
 
+        print(self.temp_dir)
+        print(process_func)
+        exit() # TODO: Update temp_dir and move it to config, search for TODO's
+
         temp_dir = mkdtemp(dir=self.temp_dir)
         new_system_dir = os.path.join(temp_dir, "system")
         os.mkdir(new_system_dir)
@@ -480,7 +478,7 @@ class Rouge155(object):
 
     def __write_summaries(self):
         self.log.info("Writing summaries...")
-        self.__process_summaries(self.convert_summaries_to_rouge_format)
+        self.__process_summaries(self.convert_summaries_to_rouge_format) # TODO: Remove conversion
 
     @staticmethod
     def __get_model_filenames_for_id(id, model_dir, model_filenames_pattern):
