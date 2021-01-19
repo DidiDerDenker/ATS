@@ -68,10 +68,10 @@ def test_rouge(temp_dir, cand, ref):
     base_dir = "C:\\Temp\\ATS" # TODO: Move to config
     tmp_dir = os.path.join(base_dir, "rouge-tmp-{}".format(current_time))
 
-    if not os.path.isdir(tmp_dir):
-        os.mkdir(tmp_dir)
-        os.mkdir(tmp_dir + "/hypothesis")
-        os.mkdir(tmp_dir + "/reference")
+    # if not os.path.isdir(tmp_dir):
+    os.mkdir(tmp_dir)
+    os.mkdir(tmp_dir + "/hypothesis")
+    os.mkdir(tmp_dir + "/reference")
 
     try:
         for i in range(cnt):
@@ -91,14 +91,16 @@ def test_rouge(temp_dir, cand, ref):
         r.system_filename_pattern = r"hyp.(\d+).txt"
         r.convert_and_evaluate()
 
+        exit() # TODO: Continue afterwards
+
         # results_dict = r.output_to_dict(rouge_results)
         # print(rouge_results)
 
     finally:
         pass
 
-        if os.path.isdir(tmp_dir):
-            shutil.rmtree(tmp_dir)
+        # if os.path.isdir(tmp_dir):
+        #     shutil.rmtree(tmp_dir)
 
     return results_dict
 

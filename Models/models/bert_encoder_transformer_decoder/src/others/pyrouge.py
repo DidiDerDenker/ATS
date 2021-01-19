@@ -192,7 +192,7 @@ class Rouge155(object):
             output_dir: path of directory in which the converted files will be saved
         """
 
-        DirectoryProcessor.process(input_dir, output_dir, Rouge155.convert_text_to_rouge_format) # TODO: Update function
+        DirectoryProcessor.process(input_dir, output_dir, Rouge155.convert_text_to_rouge_format)
 
     @staticmethod
     def convert_text_to_rouge_format(text, title="dummy title"):
@@ -343,7 +343,7 @@ class Rouge155(object):
         self.__write_summaries()
 
         print("TRUE") # TODO: Remove, check TODO above
-        rouge_output = None # TODO: Develop own ROUGE-comparison as done in pipeline, use files from temp-directories
+        rouge_output = None # TODO: Develop own ROUGE-comparison as done in pipeline, use files from directories, handle rouge_output
         # rouge_output = self.evaluate(system_id, rouge_args)
 
         return rouge_output
@@ -450,16 +450,12 @@ class Rouge155(object):
 
         return eval_string
 
-    def __process_summaries(self, process_func):
+    def __process_summaries(self):
         """
         Helper method that applies process_func to the files in the
         system and model folders and saves the resulting files to new
         system and model folders.
         """
-
-        print(self.temp_dir)
-        print(process_func)
-        exit() # TODO: Update temp_dir and move it to config, search for TODO's
 
         temp_dir = mkdtemp(dir=self.temp_dir)
         new_system_dir = os.path.join(temp_dir, "system")
@@ -467,18 +463,35 @@ class Rouge155(object):
         new_model_dir = os.path.join(temp_dir, "model")
         os.mkdir(new_model_dir)
 
+        print(self._system_dir)
+        print(self._model_dir)
+
+        files = os.listdir(self._system_dir)
+        print(len(files))
+
+        with open(files[0], encoding="utf8") as f:
+            print(f.readlines())
+
+        files = os.listdir(self._model_dir)
+        print(len(files))
+
+        with open(files[0], encoding="utf8") as f:
+            print(f.readlines())
+
+        exit() # TODO: Check files, e.g. convert or copy them to the new paths, search for TODO's
+
         self.log.info("Processing summaries. Saving system files to {} and model files to {}."
                       .format(new_system_dir, new_model_dir))
 
-        process_func(self._system_dir, new_system_dir)
-        process_func(self._model_dir, new_model_dir)
+        # process_func(self._system_dir, new_system_dir)
+        # process_func(self._model_dir, new_model_dir)
 
         self._system_dir = new_system_dir
         self._model_dir = new_model_dir
 
     def __write_summaries(self):
         self.log.info("Writing summaries...")
-        self.__process_summaries(self.convert_summaries_to_rouge_format) # TODO: Remove conversion
+        self.__process_summaries() # self.convert_summaries_to_rouge_format
 
     @staticmethod
     def __get_model_filenames_for_id(id, model_dir, model_filenames_pattern):

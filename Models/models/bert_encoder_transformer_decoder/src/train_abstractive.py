@@ -181,7 +181,7 @@ def validate_abs(args, device_id):
 
 
 def validate(args, device_id, pt, step):
-    device = "cpu" if args.visible_gpus == '-1' else "cuda"
+    device = "cpu" if args.visible_gpus == "-1" else "cuda"
 
     if pt != "":
         test_from = pt
@@ -196,8 +196,6 @@ def validate(args, device_id, pt, step):
     for k in opt.keys():
         if k in model_flags:
             setattr(args, k, opt[k])
-
-    print(args)
 
     model = AbsSummarizer(args, device, checkpoint)
     model.eval()
