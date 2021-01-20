@@ -18,30 +18,30 @@ def clean(x):
 
 def process(params):
     temp_dir, data = params
-    candidates, references, pool_id = data
-    cnt = len(candidates)
+    hypotheses, references, pool_id = data
+    cnt = len(hypotheses)
     current_time = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     tmp_dir = os.path.join(temp_dir, "rouge-tmp-{}-{}".format(current_time, pool_id))
 
     if not os.path.isdir(tmp_dir):
         os.mkdir(tmp_dir)
-        os.mkdir(tmp_dir + "/candidate")
-        os.mkdir(tmp_dir + "/reference")
+        os.mkdir(tmp_dir + "/hypotheses")
+        os.mkdir(tmp_dir + "/references")
 
     try:
         for i in range(cnt):
             if len(references[i]) < 1:
                 continue
 
-            with open(tmp_dir + "/candidate/cand.{}.txt".format(i), "w", encoding="utf-8") as f:
-                f.write(candidates[i])
+            with open(tmp_dir + "/hypotheses/cand.{}.txt".format(i), "w", encoding="utf-8") as f:
+                f.write(hypotheses[i])
 
-            with open(tmp_dir + "/reference/ref.{}.txt".format(i), "w", encoding="utf-8") as f:
+            with open(tmp_dir + "/references/ref.{}.txt".format(i), "w", encoding="utf-8") as f:
                 f.write(references[i])
 
         r = pyrouge.Rouge155(temp_dir=temp_dir)
-        r.model_dir = tmp_dir + "/reference/"
-        r.system_dir = tmp_dir + "/candidate/"
+        r.model_dir = tmp_dir + "/references/"
+        r.system_dir = tmp_dir + "/hypotheses/"
         r.model_filename_pattern = "ref.#ID#.txt"
         r.system_filename_pattern = r"cand.(\d+).txt"
 
@@ -58,40 +58,43 @@ def process(params):
     return results_dict
 
 
-def test_rouge(temp_dir, cand, ref):
-    candidates = [line.strip() for line in open(cand, encoding="utf-8")]
+def test_rouge(temp_dir, hyp, ref):
+    hypotheses = [line.strip() for line in open(hyp, encoding="utf-8")]
     references = [line.strip() for line in open(ref, encoding="utf-8")]
-    assert len(candidates) == len(references)
+    assert len(hypotheses) == len(references)
 
-    cnt = len(candidates)
+    cnt = len(hypotheses)
     current_time = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
-    base_dir = "C:\\Temp\\ATS" # TODO: Move to config
-    tmp_dir = os.path.join(base_dir, "rouge-tmp-{}".format(current_time))
+    tmp_dir = os.path.join(temp_dir, "rouge-tmp-{}".format(current_time))
 
-    # if not os.path.isdir(tmp_dir):
-    os.mkdir(tmp_dir)
-    os.mkdir(tmp_dir + "/hypothesis")
-    os.mkdir(tmp_dir + "/reference")
+    if not os.path.isdir(tmp_dir):
+        os.mkdir(tmp_dir)
+        os.mkdir(tmp_dir + "/hypotheses")
+        os.mkdir(tmp_dir + "/references")
 
     try:
         for i in range(cnt):
             if len(references[i]) < 1:
                 continue
 
-            with open(tmp_dir + "/hypothesis/hyp.{}.txt".format(i), "w", encoding="utf-8") as f:
-                f.write(candidates[i])
+            with open(tmp_dir + "/hypotheses/hyp.{}.txt".format(i), "w", encoding="utf-8") as f:
+                print(hypotheses[i])
+                sentences = hypotheses[i].split("<q>")
+                print(sentences)
+                text = "\n".join(sentences)
+                print(text)
+                f.write(text)
+                # TODO: Check texts and update pipeline, train a new model afterwards, save it to another disk, test it
 
-            with open(tmp_dir + "/reference/ref.{}.txt".format(i), "w", encoding="utf-8") as f:
+            with open(tmp_dir + "/references/ref.{}.txt".format(i), "w", encoding="utf-8") as f:
                 f.write(references[i])
 
         r = pyrouge.Rouge155(temp_dir=tmp_dir)
-        r.model_dir = tmp_dir + "/reference/"
+        r.model_dir = tmp_dir + "/references/"
         r.system_dir = tmp_dir + "/hypothesis/"
         r.model_filename_pattern = "ref.#ID#.txt"
         r.system_filename_pattern = r"hyp.(\d+).txt"
-        r.convert_and_evaluate()
-
-        exit() # TODO: Continue afterwards
+        scores = r.evaluate_rouge()
 
         # results_dict = r.output_to_dict(rouge_results)
         # print(rouge_results)
@@ -99,10 +102,10 @@ def test_rouge(temp_dir, cand, ref):
     finally:
         pass
 
-        # if os.path.isdir(tmp_dir):
-        #     shutil.rmtree(tmp_dir)
+        if os.path.isdir(tmp_dir):
+            shutil.rmtree(tmp_dir)
 
-    return results_dict
+    return scores
 
 
 def tile(x, count, dim=0):

@@ -107,11 +107,11 @@ class Translator(object):
     def translate(self, data_iter, step, attn_debug=False):
         self.model.eval()
 
-        gold_path = self.args.result_path + ".%d.gold" % step
         can_path = self.args.result_path + ".%d.candidate" % step
+        gold_path = self.args.result_path + ".%d.gold" % step
 
-        self.gold_out_file = codecs.open(gold_path, "w", "utf-8")
         self.can_out_file = codecs.open(can_path, "w", "utf-8")
+        self.gold_out_file = codecs.open(gold_path, "w", "utf-8")
 
         raw_src_path = self.args.result_path + ".%d.raw_src" % step
         self.src_out_file = codecs.open(raw_src_path, "w", "utf-8")
@@ -173,10 +173,10 @@ class Translator(object):
 
         if step != -1:
             self.logger.info("Calculating Rouge...")
-            test_rouge(self.args.temp_dir, can_path, gold_path)
+            self._report_rouge(can_path, gold_path, step)
 
             '''
-            rouges = self._report_rouge(gold_path, can_path)
+            rouges = self._report_rouge(can_path, gold_path)
 
             self.logger.info("Rouges at step %d \n%s" % (step, rouge_results_to_str(rouges)))
 
@@ -186,11 +186,19 @@ class Translator(object):
                 self.tensorboard_writer.add_scalar("test/rougeL-F", rouges["rouge_l_f_score"], step)
             '''
 
-    def _report_rouge(self, gold_path, can_path):
+    def _report_rouge(self, can_path, gold_path, step):
         self.logger.info("Calculating Rouge...")
-        results_dict = test_rouge(self.args.temp_dir, can_path, gold_path)
+        scores = test_rouge("C:\\Temp\\ATS", can_path, gold_path) # TODO: Set path (e.g. self.args.temp_dir)
 
-        return results_dict
+        rouge_1 = scores["rouge-1"]
+        rouge_2 = scores["rouge-2"]
+        rouge_l = scores["rouge-l"]
+
+        print(f"Step: {step}")
+        print(f"Rouge-1:\tf: {rouge_1['f']:.4f} | p: {rouge_1['p']:.4f} | r: {rouge_1['r']:.4f}")
+        print(f"Rouge-2:\tf: {rouge_2['f']:.4f} | p: {rouge_2['p']:.4f} | r: {rouge_2['r']:.4f}")
+        print(f"Rouge-l:\tf: {rouge_l['f']:.4f} | p: {rouge_l['p']:.4f} | r: {rouge_l['r']:.4f}")
+        print("\n")
 
     def translate_batch(self, batch, fast=False):
         """

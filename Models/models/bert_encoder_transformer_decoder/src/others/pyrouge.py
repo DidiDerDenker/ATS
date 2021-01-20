@@ -11,6 +11,7 @@ from tempfile import mkdtemp
 from functools import partial
 from pyrouge.utils import log
 from pyrouge.utils.file_utils import verify_dir
+from rouge import Rouge
 
 try:
     from configparser import ConfigParser
@@ -304,6 +305,39 @@ class Rouge155(object):
 
         self.log.info("Written ROUGE configuration to {}".format(self._config_file))
 
+    def evaluate_rouge(self):
+        path_hyp = self._model_dir
+        path_ref = self._system_dir
+
+        y_hyps = []
+        y_refs = []
+
+        for file in os.listdir(path_hyp):
+            file = os.path.join(path_hyp, file)
+
+            with open(file, encoding="utf8") as f:
+                lines = f.readlines()
+
+            text = "\n".join(lines)
+            y_hyps.append(text)
+
+        for file in os.listdir(path_ref):
+            file = os.path.join(path_ref, file)
+
+            with open(file, encoding="utf8") as f:
+                lines = f.readlines()
+
+            text = "\n".join(lines)
+            y_refs.append(text)
+
+        print(y_hyps[0]) # TODO: Check and remove
+        print(y_refs[0]) # TODO: Check and remove
+
+        r = Rouge()
+        scores = r.get_scores(y_hyps, y_refs, avg=True)
+
+        return scores
+
     def evaluate(self, system_id=1, rouge_args=None):
         """
         Run ROUGE to evaluate the system summaries in system_dir against
@@ -342,9 +376,7 @@ class Rouge155(object):
 
         self.__write_summaries()
 
-        print("TRUE") # TODO: Remove, check TODO above
-        rouge_output = None # TODO: Develop own ROUGE-comparison as done in pipeline, use files from directories, handle rouge_output
-        # rouge_output = self.evaluate(system_id, rouge_args)
+        rouge_output = self.evaluate(system_id, rouge_args)
 
         return rouge_output
 
@@ -450,7 +482,7 @@ class Rouge155(object):
 
         return eval_string
 
-    def __process_summaries(self):
+    def __process_summaries(self, process_func):
         """
         Helper method that applies process_func to the files in the
         system and model folders and saves the resulting files to new
@@ -463,35 +495,18 @@ class Rouge155(object):
         new_model_dir = os.path.join(temp_dir, "model")
         os.mkdir(new_model_dir)
 
-        print(self._system_dir)
-        print(self._model_dir)
-
-        files = os.listdir(self._system_dir)
-        print(len(files))
-
-        with open(files[0], encoding="utf8") as f:
-            print(f.readlines())
-
-        files = os.listdir(self._model_dir)
-        print(len(files))
-
-        with open(files[0], encoding="utf8") as f:
-            print(f.readlines())
-
-        exit() # TODO: Check files, e.g. convert or copy them to the new paths, search for TODO's
-
         self.log.info("Processing summaries. Saving system files to {} and model files to {}."
                       .format(new_system_dir, new_model_dir))
 
-        # process_func(self._system_dir, new_system_dir)
-        # process_func(self._model_dir, new_model_dir)
+        process_func(self._system_dir, new_system_dir)
+        process_func(self._model_dir, new_model_dir)
 
         self._system_dir = new_system_dir
         self._model_dir = new_model_dir
 
     def __write_summaries(self):
         self.log.info("Writing summaries...")
-        self.__process_summaries() # self.convert_summaries_to_rouge_format
+        self.__process_summaries(self.convert_summaries_to_rouge_format)
 
     @staticmethod
     def __get_model_filenames_for_id(id, model_dir, model_filenames_pattern):

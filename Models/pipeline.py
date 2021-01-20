@@ -84,19 +84,13 @@ def process_seq_to_seq_with_attention(): # corpus, vocab2idx
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
     print_rouge_scores(scores)
 
-    # TODO: Train the model properly
-
     exit()
 
 
 def process_seq_to_seq_with_attention_library():
     cwd = os.path.dirname(os.path.realpath(__file__)) + "\\models\\seq_to_seq_with_attention_library"
-    # subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
-    # subprocess.call("python test.py", shell=True, cwd=cwd)
-
-    # TODO: Train and test model
-    # TODO: Load checkpoints and continue training
-    # TODO: Evaluate scores, change export to result.txt to a text-wise export
+    subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
+    subprocess.call("python test.py", shell=True, cwd=cwd)
 
     exit()
 
