@@ -330,9 +330,6 @@ class Rouge155(object):
             text = "\n".join(lines)
             y_refs.append(text)
 
-        print(y_hyps[0]) # TODO: Check and remove
-        print(y_refs[0]) # TODO: Check and remove
-
         r = Rouge()
         scores = r.get_scores(y_hyps, y_refs, avg=True)
 

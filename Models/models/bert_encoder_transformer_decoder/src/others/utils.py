@@ -47,7 +47,6 @@ def process(params):
 
         rouge_results = r.convert_and_evaluate()
         results_dict = r.output_to_dict(rouge_results)
-        print(rouge_results)
 
     finally:
         pass
@@ -78,20 +77,19 @@ def test_rouge(temp_dir, hyp, ref):
                 continue
 
             with open(tmp_dir + "/hypotheses/hyp.{}.txt".format(i), "w", encoding="utf-8") as f:
-                print(hypotheses[i])
                 sentences = hypotheses[i].split("<q>")
-                print(sentences)
                 text = "\n".join(sentences)
-                print(text)
                 f.write(text)
-                # TODO: Check texts and update pipeline, train a new model afterwards, save it to another disk, test it
+                print(text) # TODO: Remove
 
             with open(tmp_dir + "/references/ref.{}.txt".format(i), "w", encoding="utf-8") as f:
-                f.write(references[i])
+                text = references[i]
+                f.write(text)
+                print(text) # TODO: Remove
 
         r = pyrouge.Rouge155(temp_dir=tmp_dir)
         r.model_dir = tmp_dir + "/references/"
-        r.system_dir = tmp_dir + "/hypothesis/"
+        r.system_dir = tmp_dir + "/hypotheses/"
         r.model_filename_pattern = "ref.#ID#.txt"
         r.system_filename_pattern = r"hyp.(\d+).txt"
         scores = r.evaluate_rouge()
