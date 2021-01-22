@@ -46,19 +46,19 @@ Um mithilfe neuronaler Netze die \ac{ATS} zu modellieren, werden nun ausgewählt
 
 
 \subsection{Recurrent Neural Networks}
-\cite{ZHA20} ab Seite 361, 354
+\cite{ZHA20} ab Seite 361, 354, sequenzielle Daten fokussieren
 
 
 \subsection{Encoder-Decoder Networks}
-\cite{ZHA20} ab Seite 377, 375, YAN19 S. 3 links unten, S. 3 rechts unten
+\cite{ZHA20} ab Seite 377, 375, YAN19 S. 3 links unten und rechts unten, siehe außerdem \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=Gw3IZYrfKl4Z} für Encoder-Decoder-Rechtfertigung im entsprechenden Theorie-Teil, Skizzen von dort nutzen
 
 
 \subsection{Attention in Neural Networks}
-\cite{ZHA20} ab Seite 389, 394 mit Self-Attention, Multi-Head-Attention
+\cite{ZHA20} ab Seite 389, 394 mit Self-Attention, Multi-Head-Attention, \cite{VAS17} nutzen, um Attention wissenschaftlich zu beschreiben, notfalls NLP für DL abhandeln, falls Inhalte hier erforderlich sind, dann entsprechend die Einleitungstexte anpassen
 
 
 \subsection{Transformer Networks}
-\cite{ZHA20} ab Seite 398 mit MH-Attention, Encoder, Decoder, Training etc.
+\cite{ZHA20} ab Seite 398 mit MH-Attention, Encoder, Decoder, Training etc. + Transformer-based Encoder-Decoder-Models erwähnen, schon mal \cite{ROT20} bzgl. der Möglichkeit von Ersetzen des Encoder und und des Decoder durch vortrainierte multilinguale Modelle erwähnen, ebenfalls geeignet für sequenzielle Daten, Grenzen im nachfolgenden Kapitel bzgl. Transfer Learning genauer offenlegen, an \cite{RAF20} orientieren, ggf. \url{https://arxiv.org/pdf/1912.08777.pdf} referenzieren, oder auch \url{https://arxiv.org/pdf/2007.14062.pdf}
 
 
 \section{Hyperparameter}
@@ -76,7 +76,7 @@ Notizen:
 
 \section{Transfer Learning}
 \noindent
-\ac{TL} ist in den letzten Jahren wissenschaftlich immer bedeutsamer geworden, da \ac{DL}-Modelle heutzutage sehr komplex und Trainingsprozesse sehr zeit- und rechenintensiv sind. Unter \ac{TL} versteht man das Wiederverwenden bereits vortrainierter neuronaler Netze für die Lösung neuartiger Probleme. Dabei werden die erprobten Modelle als Startpunkt genutzt und nur noch auf die neuen Probleme adaptiert, anstatt eigene Modelle von Grund auf neu zu trainieren. Anwender profitieren hier zeitlich, qualitativ und technisch. Zumeist sind architektonische Anpassungen in den hinteren Schichten der vortrainierten Modelle erforderlich, sodass sie sich für die Lösung der neuen Probleme eignen, wie \autoref{pic:FineTuning} veranschaulicht. Zudem ist ein gezieltes weitergehendes Training mit entsprechenden Daten notwendig. Inwieweit die neuen Daten auf die vortrainierten Modelle einwirken sollen, ist individuell zu erproben \cite[S.~554]{ZHA20}.
+\ac{TL} ist in den letzten Jahren wissenschaftlich immer bedeutsamer geworden, da \ac{DL}-Modelle heutzutage sehr komplex und Trainingsprozesse sehr zeit- und rechenintensiv sind. Unter \ac{TL} versteht man das Wiederverwenden bereits vortrainierter neuronaler Netze für die Lösung neuartiger Probleme. Das initiale Training obliegt hierbei meist großen Unternehmen oder Institutionen. Dabei werden die erprobten Modelle sodann als Startpunkt genutzt und nur noch auf die neuen Probleme adaptiert, anstatt eigene Modelle von Grund auf neu zu trainieren. Anwender profitieren hier zeitlich, qualitativ und technisch. Zumeist sind architektonische Anpassungen in den hinteren Schichten der vortrainierten Modelle erforderlich, sodass sie sich für die Lösung der neuen Probleme eignen, wie \autoref{pic:FineTuning} veranschaulicht. Zudem ist ein gezieltes weitergehendes Training mit entsprechenden Daten notwendig. Inwieweit die neuen Daten auf die vortrainierten Modelle einwirken sollen, ist individuell zu erproben \cite[S.~554]{ZHA20}.
 
 \begin{figure}[h]
   \centering
@@ -86,10 +86,10 @@ Notizen:
 \end{figure}
 
 \noindent
-\ac{TL} wird auch in dieser Arbeit genutzt. Einige Komponenten der bereits vorgestellten Architekturen, wie beispielsweise der Encoder oder auch der Decoder, können durch vortrainierte Modelle repräsentiert werden. Hier wird inhaltlich sowie kontextuell in den folgenden Kapiteln angeknüpft, da zunächst die Einführung weiterer \ac{NLP}-Grundlagen erforderlich ist. Die angeführten Vorteile von \ac{TL} können nichtsdestotrotz wie folgt zusammengefasst werden:
+\ac{TL} wird auch in dieser Arbeit genutzt. Einige Komponenten der bereits vorgestellten Architekturen, wie beispielsweise der Encoder oder auch der Decoder, können durch vortrainierte Modelle repräsentiert werden. Hier wird inhaltlich sowie kontextuell in den folgenden Kapiteln angeknüpft, da zunächst die Einführung weiterer \ac{NLP}-Grundlagen erforderlich ist. Die angeführten Vorteile von \ac{TL} können nichtsdestotrotz folgendermaßen zusammengefasst werden:
 
 \begin{itemize}
 	\item Zeitersparnis durch Überspringen des initialen Trainings
 	\item Qualitätsanstieg und Generalisierung durch Berücksichtigung massenhafter Daten
-	\item Reduktion der hardwaretechnischen Anforderungen und des Stromverbrauches
+	\item Reduktion von hardwaretechnischen Anforderungen, entsprechenden Kosten und dem Stromverbrauch
 \end{itemize}
