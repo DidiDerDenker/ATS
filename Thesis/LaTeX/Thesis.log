@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  25 JAN 2021 11:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  26 JAN 2021 11:26
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1333,7 +1333,12 @@ Package acronym Info: Label `acro:ATS' newly defined as it shall be overridden
 although it is yet undefined on input line 7.
 Package acronym Info: Label `acro:NLP' newly defined as it shall be overridden
 although it is yet undefined on input line 7.
-<./source/images/summarizationprocess.png, id=265, 370.38374pt x 179.92218pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
+
+ []
+
+<./source/images/summarizationprocess.png, id=256, 370.38374pt x 179.92218pt>
 File: ./source/images/summarizationprocess.png Graphic file (type png)
 <use ./source/images/summarizationprocess.png>
 Package pdftex.def Info: ./source/images/summarizationprocess.png  used on inpu
@@ -1411,7 +1416,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--11
 
  []
 
-<./source/images/artificialneuron.png, id=352, 539.76656pt x 225.84375pt>
+<./source/images/artificialneuron.png, id=343, 539.76656pt x 225.84375pt>
 File: ./source/images/artificialneuron.png Graphic file (type png)
 <use ./source/images/artificialneuron.png>
 Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
@@ -1422,29 +1427,36 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package acronym Info: Label `acro:MLP' newly defined as it shall be overridden
 although it is yet undefined on input line 20.
-<./source/images/multilayerperceptron.png, id=359, 545.78906pt x 291.33844pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+
+ []
+
+<./source/images/multilayerperceptron.png, id=350, 545.78906pt x 291.33844pt>
 File: ./source/images/multilayerperceptron.png Graphic file (type png)
 <use ./source/images/multilayerperceptron.png>
 Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
 t line 24.
 (pdftex.def)             Requested size: 268.8813pt x 143.52614pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
-
- []
-
 [5
 
 
 
 
 
-] [6 <./source/images/artificialneuron.png> <./source/images/multilayerperceptr
-on.png>]
-<./source/images/fittingtypes.png, id=377, 855.195pt x 284.56313pt>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
+
+ []
+
+[6 <./source/images/artificialneuron.png> <./source/images/multilayerperceptron
+.png>]
+<./source/images/fittingtypes.png, id=368, 855.195pt x 284.56313pt>
 File: ./source/images/fittingtypes.png Graphic file (type png)
 <use ./source/images/fittingtypes.png>
 Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 3
@@ -1462,59 +1474,91 @@ Overfull \hbox (64.99544pt too wide) in paragraph at lines 59--61
 n, [[]]
  []
 
-
+[7 <./source/images/fittingtypes.png>]
 Overfull \hbox (17.83162pt too wide) in paragraph at lines 64--66
 \OT1/cmr/m/n/12 ori-en-tie-ren, ggf. [][]$\OT1/cmtt/m/n/12 https : / / arxiv . 
 org / pdf / 1912 . 08777 . pdf$[][] \OT1/cmr/m/n/12 re-fe-ren-zie-ren, oder auc
 h [][]$\OT1/cmtt/m/n/12 https :
  []
 
-[7 <./source/images/fittingtypes.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
+
+ []
+
 Package acronym Info: Label `acro:LR' newly defined as it shall be overridden
-although it is yet undefined on input line 75.
+although it is yet undefined on input line 76.
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--76
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--79
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-<./source/images/gradientdescent.png, id=407, 993.7125pt x 285.065pt>
+[8]
+<./source/images/gradientdescent.png, id=406, 993.7125pt x 285.065pt>
 File: ./source/images/gradientdescent.png Graphic file (type png)
 <use ./source/images/gradientdescent.png>
 Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
-e 85.
+e 80.
 (pdftex.def)             Requested size: 313.69029pt x 89.98734pt.
-[8]
-<./source/images/momentumupdate.png, id=427, 213.04594pt x 190.46156pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
+
+ []
+
+
+Overfull \hbox (1.84435pt too wide) in paragraph at lines 88--90
+\OT1/cmr/m/n/12 Ef-fekt ver-spricht [[], S. 437]. Die Gr[]oe der Stich-pro-be 
+wird []ublicherweise
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
+
+ []
+
+<./source/images/momentumupdate.png, id=420, 213.04594pt x 190.46156pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
- 100.
+ 96.
 (pdftex.def)             Requested size: 156.84856pt x 140.23021pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
 
-although it is yet undefined on input line 106.
- [9 <./source/images/gradientdescent.png> <./source/images/momentumupdate.png>]
- [10]
-<./source/images/finetuning.png, id=455, 905.63344pt x 530.73282pt>
+although it is yet undefined on input line 102.
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
+
+ []
+
+[9 <./source/images/gradientdescent.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
+
+ []
+
+[10 <./source/images/momentumupdate.png>]
+<./source/images/finetuning.png, id=447, 905.63344pt x 530.73282pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
-Package pdftex.def Info: ./source/images/finetuning.png  used on input line 125
+Package pdftex.def Info: ./source/images/finetuning.png  used on input line 114
 .
 (pdftex.def)             Requested size: 268.8813pt x 157.56902pt.
 ) [11 <./source/images/finetuning.png>]
 \openout2 = `"source/content/Natural Language Processing.aux"'.
 
-
-("source/content/Natural Language Processing.tex"
+ ("source/content/Natural Language Processing.tex"
 chapter 3.
 
 Overfull \hbox (349.03012pt too wide) in paragraph at lines 12--13
@@ -1878,10 +1922,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27081 strings out of 480257
- 520742 string characters out of 2881437
+ 27073 strings out of 480257
+ 520666 string characters out of 2881437
  972108 words of memory out of 3000000
- 42820 multiletter control sequences out of 15000+200000
+ 42816 multiletter control sequences out of 15000+200000
  544694 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1898,9 +1942,9 @@ d/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/U
 sers/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmtt12.pfb>
-Output written on Thesis.pdf (43 pages, 687170 bytes).
+Output written on Thesis.pdf (43 pages, 684893 bytes).
 PDF statistics:
- 853 PDF objects out of 1000 (max. 8388607)
- 154 named destinations out of 1000 (max. 500000)
- 544 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 832 PDF objects out of 1000 (max. 8388607)
+ 150 named destinations out of 1000 (max. 500000)
+ 512 words of extra memory for PDF output out of 10000 (max. 10000000)
 
