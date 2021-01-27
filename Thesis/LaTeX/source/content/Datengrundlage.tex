@@ -2,15 +2,17 @@
 \thispagestyle{fancy}
 \label{chap:Datengrundlage}
 
-Notizen:
-\begin{itemize}
-	\item Modelle erfordern keine gelabelten Daten, wohl aber gesichtete Daten	
-	\item Siehe Abstract im Exposé
-\end{itemize}
+\noindent
+Anforderungen (Text + Zusammenfassung, Englisch, dann Deutsch, Bezug auf Textlänge und Domäne nehmen, sonst siehe unten)\\
+
+\noindent
+Herkunft \& Beschaffenheit (Initiale Trainingsdaten in Englisch, Trainingsdaten fürs Fine-Tuning in Deutsch, Quellen, Analysen, sonst siehe unten und Colab-Notebook)\\
+
+\noindent
+Vorverarbeitung (Vorverarbeitungsschritte aus vorherigem Kapitel beschreiben, auch Nicht-Nutzung begründen, sonst siehe unten)\\
 
 
-\section{Akquise}
-Notizen:
+Akquise
 \begin{itemize}
 	\item ROT20 auf S. 6 unten und rechts
 	\item Wikihow- und CNN-Dailymail-Korpora beschreiben, bspw. sind etwa 230.000 Wikihow-Paare zu erwarten, aber per Skript auswerten, Texte mit unter 1.000 Wörtern ausschließen, d.h. 444.365 Paare aus beiden Korpora schrumpfen um 33.177 Paare auf 411.188 in die Trainingsdaten eingehende Paare
@@ -26,8 +28,7 @@ Notizen:
 	\item V3 nutzen, bei Erfolg auf V1 ummünzen, oder: Eigenen deutschen Korpus aus den lokalen Agenturen aufbereiten und nutzen, Herkunft und Struktur beschreiben, Vorgang der Akquise ebenfalls, dann Fine-Tuning mit diesen Daten
 \end{itemize}
 
-\section{Vorverarbeitung}
-Notizen:
+Vorverarbeitung:
 \begin{itemize}
 	\item Vorgehen wie im Notebook beschreiben, d.h. warum cased/ uncased? Data Preprocessing beschreiben, bereits Anforderungen an Encoder/ Decoder stellen, d.h. Token-Länge, durchschnittliche Länge der Texte und der Zusammenfassungen gleichzeitig hierfür analysieren
 	\item Daten iterieren, jeweils die Klassen zum Data Cleaning, Tokenisierung, Lemmatisieren etc. für einen einzelnen Text aufrufen, ggf. per weiteren Exporten zwischenspeichern, zuvor alle möglichen Dateien sichten und möglichst viele Fehler im Laufe des erneuten Exportes eliminieren, Ablageorte und Textdateiversionen beschreiben, dann Train-Test-Split, Übergabe der vorverarbeiteten Daten an die Modelle, welche den Korpus von einer Klasse namens NLP-Pipeline bekommt
@@ -36,8 +37,7 @@ Notizen:
 	\item Interne Pipeline: Skripte zum Herunterladen erledigen Data Cleaning, NLP-Pipeline erledigt Tokenisierung und Lemmatisierung, Lemmatisierung ausschließen, mit der Vermutung, dass neuartige Verfahren ohne viele Vorverarbeitungsschritte auskommen, außerdem Notiz zu Capitalization, Punctuation, Zeilenumbrüchen: Stark modellabhängig, tiefe Modelle wie bspw. Transformer-Architekturen (BERT) kommen damit ganz gut klar, d.h. an denen orientieren, vermutlich Plain-Text reingeben, "die machen nicht mal lower-case", Annahme: "Alles was ich reinstecke, kann ein potenzielles Feature sein", andere Vorverarbeitungsschritte verfälschen das Ergebnis insofern, als dass das Training anders erfolgt, als das Modell selbst trainiert wurde
 \end{itemize}
 
-\section{Datensatz}
-Notizen:
+Datensatz:
 \begin{itemize}
 	\item Datengrundlage besteht aus frei verfügbaren allgemeinsprachlichen, ausreichend langen und deutschsprachigen Daten, verschiedene Herkünfte
 	\item Auf Grundlage dieser Allgemeinsprache und den eben genannten Vorhaben, sollte ein grundlegendes Modell trainiert werden und später für den Use Case eine Art Adaptive Learning betrieben werden, d.h. wenn bekannt ist, dass das Modell für medizinische Texte angewandt werden soll, sollte man vorher die Parameter des Modells finetunen
