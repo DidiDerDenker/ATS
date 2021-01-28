@@ -22,16 +22,16 @@
 \contentsline {section}{\numberline {3.2}Word Embeddings}{14}{section.46}%
 \contentsline {section}{\numberline {3.3}Deep Language Representations}{14}{section.47}%
 \contentsline {chapter}{\numberline {4}Datengrundlage}{16}{chapter.48}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{19}{chapter.49}%
-\contentsline {section}{\numberline {5.1}Architektur}{19}{section.50}%
-\contentsline {section}{\numberline {5.2}Training}{21}{section.51}%
-\contentsline {section}{\numberline {5.3}Evaluation}{21}{section.52}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{23}{chapter.53}%
-\contentsline {subsection}{\numberline {6.0.1}Konzeption}{23}{subsection.54}%
-\contentsline {subsection}{\numberline {6.0.2}Training}{23}{subsection.55}%
-\contentsline {subsection}{\numberline {6.0.3}Evaluation}{23}{subsection.56}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{24}{chapter.57}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{25}{chapter.58}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{20}{chapter.49}%
+\contentsline {section}{\numberline {5.1}Architektur}{20}{section.50}%
+\contentsline {section}{\numberline {5.2}Training}{22}{section.51}%
+\contentsline {section}{\numberline {5.3}Evaluation}{22}{section.52}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{24}{chapter.53}%
+\contentsline {subsection}{\numberline {6.0.1}Konzeption}{24}{subsection.54}%
+\contentsline {subsection}{\numberline {6.0.2}Training}{24}{subsection.55}%
+\contentsline {subsection}{\numberline {6.0.3}Evaluation}{24}{subsection.56}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{25}{chapter.57}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{26}{chapter.58}%
 \contentsline {chapter}{Literaturverzeichnis}{50}{chapter.58}%
 \contentsline {chapter}{Thesen}{52}{chapter*.60}%
 \contentsline {chapter}{Selbstständigkeitserklärung}{53}{chapter*.61}%
