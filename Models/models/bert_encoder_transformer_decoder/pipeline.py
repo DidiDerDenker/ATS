@@ -84,15 +84,11 @@ def process_seq_to_seq_with_attention(): # corpus, vocab2idx
     scores = instance.get_scores(y_hyps, y_refs, avg=True)
     print_rouge_scores(scores)
 
-    exit()
-
 
 def process_seq_to_seq_with_attention_library():
     cwd = os.path.dirname(os.path.realpath(__file__)) + "\\models\\seq_to_seq_with_attention_library"
     subprocess.call("python train.py --glove --num_epochs 30", shell=True, cwd=cwd)
     subprocess.call("python test.py", shell=True, cwd=cwd)
-
-    exit()
 
 
 def process_bert_encoder_transformer_decoder():
@@ -156,8 +152,6 @@ def process_bert_encoder_transformer_decoder():
         shell=True, cwd=cwd
     )
 
-    exit()
-
 
 def print_rouge_scores(scores):
     rouge_1 = scores["rouge-1"]
@@ -179,13 +173,13 @@ def main():
     # instance = DataLoader(META_PATH, TEXT_PATH, SUMMARY_PATH, corpus_filter)
 
     ''' TRANSFORMERS '''
-    # process_transformers(instance.corpus)
+    process_transformers(instance.corpus)
 
     ''' SEQ-TO-SEQ WITH ATTENTION '''
-    # process_seq_to_seq_with_attention(instance.tokenized_corpus, instance.vocab2idx)
+    process_seq_to_seq_with_attention(instance.tokenized_corpus, instance.vocab2idx)
 
     ''' SEQ-TO-SEQ WITH ATTENTION LIBRARY '''
-    # process_seq_to_seq_with_attention_library()
+    process_seq_to_seq_with_attention_library()
 
     ''' BERT-ENCODER-TRANSFORMER-DECODER '''
     process_bert_encoder_transformer_decoder()
