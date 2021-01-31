@@ -65,3 +65,5 @@ Models/seq_to_seq_with_attention_library/sumdata/train/train.title.txt
 Models/seq_to_seq_with_attention_library/sumdata/train/valid.article.filter.txt
 Models/seq_to_seq_with_attention_library/sumdata/train/valid.title.filter.txt
 Models/transformer_to_transformer_architecture/p2_xlarge.pem
+Models/transformer_to_transformer_architecture/p2_xlarge_eu.pem
+Models/transformer_to_transformer_architecture/p2_xlarge_us.pem
