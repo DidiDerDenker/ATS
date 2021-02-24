@@ -73,3 +73,5 @@ Models/transformer_to_transformer_architecture/amazon_ami/p2_xlarge_eu.pem
 Models/transformer_to_transformer_architecture/amazon_ami/p2_xlarge_us.pem
 Models/transformer_to_transformer_architecture/~$analysis.xlsx
 Thesis/~$Präsentation Anmeldung Vogel.pptx
+Database/swiss_challenge/data_train.csv
+Database/swiss_challenge/data_test.csv
