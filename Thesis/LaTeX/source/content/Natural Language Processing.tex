@@ -3,19 +3,18 @@
 \label{chap:Natural Language Processing}
 
 \noindent
-\ac{NLP} meint die maschinelle Verarbeitung natürlicher Sprache. Dabei wird die Linguistik unter anderem mit Methoden des Deep Learning verknüpft. Nicht selten ist eine Spracherkennung vorgeschaltet. \ac{NLP} ist weiterhin in \ac{NLU} und \ac{NLG} zu untergliedern.
+Natürliche Sprache wird auch als menschliche Sprache bezeichnet und ist historisch gewachsen. Sie verfolgt orthographische und grammatikalische Regeln auf Grundlage eines sprachabhängigen Wortschatzes. Die Sprachwissenschaft, auch Linguistik genannt, untersucht natürliche Sprache mithilfe verschiedener Methoden. \ac{NLP} meint die maschinelle Verarbeitung natürlicher Sprache. Dabei werden Methoden der Linguistik unter anderem mit Methoden des Deep Learning verknüpft \cite[S.~1]{BIR09}. Nicht selten ist eine Spracherkennung vorgeschaltet. \ac{NLP} ist weiterhin in \ac{NLU} und \ac{NLG} zu untergliedern. Diese Teilgebiete sind zugleich wesentliche Herausforderungen der \ac{ATS}.\\
 
-...
+\ac{NLP}-Aufgaben sind oftmals als Optimierungsprobleme zu verstehen. Lösungen sind demnach nicht eindeutig, also im mathematischen Sinne analytisch nicht lösbar. Dies wird in Hinblick auf die \ac{ATS} deutlich, wenn man verschiedene Personen den gleichen Text zusammenfassen lässt. Zwar gleichen sich die als relevant identifizierten Informationen größtenteils, doch die Formulierungen sind mitunter sehr unterschiedlich. Folglich können auch mehrere Versionen korrekt sein.\\
 
-Ziel ist es, ...
+% TODO: Text überarbeiten, Einleitung auch für die Metriken nutzen
+
+Natürliche Sprache muss hinsichtlich maschineller Verarbeitung in eine angemessene mathematische Form gebracht werden. Hierfür werden nachfolgend verschiedene Vorverarbeitungsschritte sowie Word Embeddings und Deep Language Representations thematisiert. Der Anspruch auf Vollständigkeit entfällt aufgrund der Mächtigkeit des \ac{NLP}, obgleich anknüpfende Inhalte bei Bedarf an den entsprechenden Stellen erläutert werden.
+
 
 Notizen:
 \begin{itemize}
 	\item Quelle: \cite{NIT19}
-	\item Natural Language Processing definieren, e.g. Natural Language Understanding?
-	\item NLP ist Optimierungslösung, d.h. es gibt keine eindeutige und damit im mathematischen Sinne analytische Lösung, Beispiel bei der Textzusammenfassung: Selbst Menschen können Texte auf verschiedene Arten und Weisen zusammenfassen, und verschiedene Varianten können korrekt sein
-	\item NLU ist Teilgebiet des NLP	
-	\item Umfang der Anwendungsgebiete andeuten
 	\item Natural Language Generation bspw. zum Generieren von Texten anhand von Stichworten benutzen, sollte bereits in gutem Zustand implementierfähig sein, möglicherweise Strukturen hiervon für die Generierung der Zusammenfassung verwenden, NLP-Links: \url{https://www.analyticsvidhya.com/blog/2020/08/build-a-natural-language-generation-nlg-system-using-pytorch/}, \url{https://www.analyticsvidhya.com/blog/2019/09/introduction-to-pytorch-from-scratch/?utm_source=blog&utm_medium=Natural_Language_Generation_System_using_PyTorch}, \url{https://courses.analyticsvidhya.com/courses/natural-language-processing-nlp?utm_source=blog&utm_medium=Natural_Language_Generation_System_using_PyTorch}
 	\item \url{https://github.com/adbar/German-NLP#Data-acquisition}
 	\item \url{https://github.com/JayeetaP/mlcourse_open/tree/master/jupyter_english}
