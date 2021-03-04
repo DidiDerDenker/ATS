@@ -9,25 +9,25 @@ Natürliche Sprache wird auch als menschliche Sprache bezeichnet und ist histori
 
 % TODO: Text überarbeiten, Einleitung auch für die Metriken nutzen
 
-Natürliche Sprache muss hinsichtlich maschineller Verarbeitung in eine angemessene mathematische Form gebracht werden. Hierfür werden nachfolgend verschiedene Vorverarbeitungsschritte sowie Word Embeddings und Deep Language Representations thematisiert. Der Anspruch auf Vollständigkeit entfällt aufgrund der Mächtigkeit des \ac{NLP}, obgleich anknüpfende Inhalte bei Bedarf an den entsprechenden Stellen erläutert werden.
-
-
-Notizen:
-\begin{itemize}
-	\item Quelle: \cite{NIT19}
-	\item Natural Language Generation bspw. zum Generieren von Texten anhand von Stichworten benutzen, sollte bereits in gutem Zustand implementierfähig sein, möglicherweise Strukturen hiervon für die Generierung der Zusammenfassung verwenden, NLP-Links: \url{https://www.analyticsvidhya.com/blog/2020/08/build-a-natural-language-generation-nlg-system-using-pytorch/}, \url{https://www.analyticsvidhya.com/blog/2019/09/introduction-to-pytorch-from-scratch/?utm_source=blog&utm_medium=Natural_Language_Generation_System_using_PyTorch}, \url{https://courses.analyticsvidhya.com/courses/natural-language-processing-nlp?utm_source=blog&utm_medium=Natural_Language_Generation_System_using_PyTorch}
-	\item \url{https://github.com/adbar/German-NLP#Data-acquisition}
-	\item \url{https://github.com/JayeetaP/mlcourse_open/tree/master/jupyter_english}
-	\item Spacy: \url{https://spacy.io/usage/processing-pipelines#pipelines}
-	\item Lemmatizer: \url{https://github.com/Liebeck/spacy-iwnlp}
-	\item Transfer Learning with German BERT? \url{https://deepset.ai/german-bert} -> Modell muss die deutsche Sprache nicht alleine und von neu  mit den Trainingsdaten lernen, sondern erhält einen großen Vorsprung, BERT ist Modell, welches der Transformer-Architektur nachkommt, d.h. Transformer sind bestimmte Architekturen, eventuell hiermit die Struktur dieses Kapitels überarbeiten, hier für vor allem aus meinem privaten Verzeichnis das Paper "Pre-Training of Deep Bidirectional Transformers for Language Understanding using BERT" nutzen
-	\item GLoVe-Embeddings nutzen, weil TF-IDF etc. nicht den Kontext eines Satzes betrachten
-	\item Supervised Learning nutzen, aber es ist eventuell nicht genug, hier kommt bspw. Transfer Learning mit BERT zur Abhilfe, zudem bspw. semi-supervised Learning mit Auto-Encoders? Self-supervised Training
-	\item Siehe Abstract im Exposé
-\end{itemize}
+Natürliche Sprache bedarf hinsichtlich maschineller Verarbeitung einer geeigneten mathematischen Form. Hierfür werden nachfolgend verschiedene Vorverarbeitungsschritte sowie Word Embeddings und Deep Language Representations vorgestellt. Der Anspruch auf Vollständigkeit entfällt aufgrund der Mächtigkeit des \ac{NLP}, obgleich anknüpfende Inhalte bei Bedarf an den entsprechenden Stellen erläutert werden.\\
 
 
 \section{Vorverarbeitung}
+In nahezu allen Teilbereichen der Data Science stehen gewöhnlicherweise etliche Vorverarbeitungsschritte an, um die zu analysierenden Daten zu bereinigen, zu normalisieren und insgesamt in eine konsistente sowie geeignete Form zu bringen. Im \ac{NLP}-Kontext sind indes komplexere Vorverarbeitungsschritte erforderlich, um die Daten für die eingeforderte mathematische Form vorzubereiten. Eine Auswahl der in dieser Arbeit relevanten Vorverarbeitungsschritte wird nachfolgend vorgestellt. In der Implementierung dieser chronologisch aufeinander folgenden Schritte spricht man auch von der \ac{NLP}-Pipeline.\\
+
+An erster Stelle der \ac{NLP}-Pipeline steht die Textbereinigung, welche sich bezüglich eingehender Rohdaten insbesondere auf Sonderzeichen, Interpunktion sowie Klein- und Großschreibung konzentriert. Dabei ist es mitunter bereits herausfordernd, entsprechende Textstellen zu identifizieren. Anschließend sind normalisierende Maßnahmen anzuwenden. Üblich ist beispielsweise das Entfernen von Sonderzeichen oder auch das Erzwingen von Kleinschreibung in allen eingehenden Texten. Weit verbreitet ist auch das Entfernen von Stoppwörtern. Dies sind Wörter, welche mutmaßlich der Allgemeinsprache zugehören, weshalb angenommen wird, dass sie keine entscheidende inhaltliche Bedeutung besitzen. Hier lässt sich jedoch keine allgemeingültige Aussage treffen, da die tatsächlich erforderlichen Maßnahmen sowohl von den Eigenschaften der Eingangsdaten als auch von den verwendeten Modellen und den verfolgten Zielen abhängen.
+
+% TODO: Unten stehenden Abschnitt nochmal überarbeiten und dann oben anfügen
+
+Dabei ist die Datenexploration wiederkehrend und alternierend mit der Anpassung der Vorverarbeitung auszuführen. Der Anwender sollte hierbei ein Gefühl für die Daten und deren Besonderheiten entwickeln. Zudem bedarf es einem tiefgründigen Verständnis der geplanten Aufgaben, um beurteilen zu können, welche Vorverarbeitungsschritte tatsächlich relevant sind.
+
+% TODO: Text nochmal grob überarbeiten
+
+2. Tokenisierung (SpaCy, NLTK etc. vergleichen, ggf. auch Kritik)
+3. POS-Tagging
+4. Lemmatisierung (SpaCy, NLTK etc. vergleichen, ggf. auch Kritik)
+
+
 Notizen:
 \begin{itemize}
 	\item Pipeline der Vorverarbeitung als Voraussetzung hervorstellen
@@ -77,4 +77,13 @@ Notizen:
 	\item Modell beschreiben, d.h. Datensätze und Parametrisierung, SOTA für verschiedene NLP-Tasks, von Kapazitäten profitieren, hat viel Kontextwissen, Fine-Tuning für eigenes Problem, d.h. domainspezifisch o.ä.
 	\item Am besten direkt ein vortrainiertes Transformer-Modell nutzen (extra für Summarization-Tasks), BERT und RL bspw. in der Pipeline integrieren, Ziel wäre dann: Verbesserung im Score erzielen
 	\item BERT vielleicht durch andere (teils bessere und neuere) Transformer ersetzen? Transformer in NLP recherchieren, LSTM als veraltet bezeichnen
+\end{itemize}
+
+Notizen:
+\begin{itemize}
+	\item Quelle: \cite{NIT19}
+	\item Transfer Learning with German BERT? \url{https://deepset.ai/german-bert} -> Modell muss die deutsche Sprache nicht alleine und von neu  mit den Trainingsdaten lernen, sondern erhält einen großen Vorsprung, BERT ist Modell, welches der Transformer-Architektur nachkommt, d.h. Transformer sind bestimmte Architekturen, eventuell hiermit die Struktur dieses Kapitels überarbeiten, hier für vor allem aus meinem privaten Verzeichnis das Paper "Pre-Training of Deep Bidirectional Transformers for Language Understanding using BERT" nutzen
+	\item GLoVe-Embeddings nutzen, weil TF-IDF etc. nicht den Kontext eines Satzes betrachten
+	\item Supervised Learning nutzen, aber es ist eventuell nicht genug, hier kommt bspw. Transfer Learning mit BERT zur Abhilfe, zudem bspw. semi-supervised Learning mit Auto-Encoders? Self-supervised Training
+	\item Siehe Abstract im Exposé
 \end{itemize}
