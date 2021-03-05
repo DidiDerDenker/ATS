@@ -18,23 +18,26 @@
 \contentsline {section}{\numberline {2.3}Hyperparameter}{8}{section.35}%
 \contentsline {section}{\numberline {2.4}Transfer Learning}{10}{section.40}%
 \contentsline {chapter}{\numberline {3}Natural Language Processing}{12}{chapter.42}%
-\contentsline {section}{\numberline {3.1}Vorverarbeitung}{13}{section.45}%
-\contentsline {section}{\numberline {3.2}Word Embeddings}{14}{section.46}%
-\contentsline {section}{\numberline {3.3}Deep Language Representations}{14}{section.47}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{16}{chapter.48}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{20}{chapter.49}%
-\contentsline {section}{\numberline {5.1}Architektur}{20}{section.50}%
-\contentsline {section}{\numberline {5.2}Training}{22}{section.51}%
-\contentsline {section}{\numberline {5.3}Evaluation}{22}{section.52}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{24}{chapter.53}%
-\contentsline {subsection}{\numberline {6.0.1}Konzeption}{24}{subsection.54}%
-\contentsline {subsection}{\numberline {6.0.2}Training}{24}{subsection.55}%
-\contentsline {subsection}{\numberline {6.0.3}Evaluation}{24}{subsection.56}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{25}{chapter.57}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{26}{chapter.58}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.58}%
-\contentsline {chapter}{Thesen}{52}{chapter*.60}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{53}{chapter*.61}%
-\contentsline {chapter}{\numberline {A}Erster Anhang}{54}{appendix.62}%
-\contentsline {chapter}{\numberline {B}Zweiter Anhang}{55}{appendix.63}%
+\contentsline {section}{\numberline {3.1}Vorverarbeitung}{12}{section.45}%
+\contentsline {subsection}{\numberline {3.1.1}Textbereinigung}{13}{subsection.46}%
+\contentsline {subsection}{\numberline {3.1.2}Textnormalisierung}{13}{subsection.47}%
+\contentsline {subsection}{\numberline {3.1.3}Tokenisierung}{14}{subsection.49}%
+\contentsline {section}{\numberline {3.2}Word Embeddings}{15}{section.50}%
+\contentsline {section}{\numberline {3.3}Deep Language Representations}{15}{section.51}%
+\contentsline {chapter}{\numberline {4}Datengrundlage}{17}{chapter.52}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{19}{chapter.53}%
+\contentsline {section}{\numberline {5.1}Architektur}{20}{section.54}%
+\contentsline {section}{\numberline {5.2}Training}{22}{section.55}%
+\contentsline {section}{\numberline {5.3}Evaluation}{22}{section.56}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{24}{chapter.57}%
+\contentsline {subsection}{\numberline {6.0.1}Konzeption}{24}{subsection.58}%
+\contentsline {subsection}{\numberline {6.0.2}Training}{24}{subsection.59}%
+\contentsline {subsection}{\numberline {6.0.3}Evaluation}{24}{subsection.60}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{25}{chapter.61}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{26}{chapter.62}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.62}%
+\contentsline {chapter}{Thesen}{52}{chapter*.64}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{53}{chapter*.65}%
+\contentsline {chapter}{\numberline {A}Erster Anhang}{54}{appendix.66}%
+\contentsline {chapter}{\numberline {B}Zweiter Anhang}{55}{appendix.67}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
