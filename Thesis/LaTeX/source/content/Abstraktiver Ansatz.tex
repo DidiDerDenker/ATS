@@ -2,6 +2,12 @@
 \thispagestyle{fancy}
 \label{chap:Abstraktiver Ansatz}
 
+Unter Kenntnis der zu implementierenden Architekturen, entsprechender \ac{NLP}-Grundlagen und der Datengrundlage kann nun eine gesamtheitliche Architektur für die \ac{ATS} konzipiert und trainiert werden. Dafür sind zunächst einige Vorbemerkungen zu spezifizieren.\\
+
+Die Textinhalte aller Korpora bedürfen keiner weitergehenden Vorverarbeitung im herkömmlichen Sinne. Diese ist bekanntermaßen sehr individuell und stark modellabhängig. Unter Verwendung der als sehr robust geltenden Transformer-Architekturen entfällt daher die sonst übliche Textbereinigung sowie die Textnormalisierung. Dies unterliegt der Annahme, dass Transformer-Architekturen potenziell aus jeder Eigenart ein relevantes Feature schaffen können, welches das spätere Ergebnis begünstigt. Von der zugeführten Interpunktion und den vielfältigen Wortformen wird sich indes erhofft, potenzielle Mehr- oder Uneindeutigkeiten zu minimieren. Das Fine-Tuning sollte darüber hinaus unter gleichen Bedingungen wie das initiale Training stattfinden. Gleichzeitig sinkt hierdurch der vorverarbeitende Aufwand und damit auch etwaige Wartezeiten bei der praktischen Anwendung bereits trainierter Modelle in Echtzeit. Dennoch ist es möglich, bestimmte Vorverarbeitungsschritte a posteriori zu implementieren. Die Auswirkungen auf das Modell und die entsprechenden Ergebnisse sind somit messbar.\\
+
+... Architektur beschreiben, auf bereits beschriebene Inhalte eingehen, Notizen beachten, Tokenlänge o.ä. bemerken, Quellen!
+
 Notizen:
 \begin{itemize}
 	\item Quelle: \cite{NIT19}
@@ -51,6 +57,7 @@ Notizen:
 \section{Evaluation}
 Notizen:
 \begin{itemize}
+	\item Zwecks Einleitung für ROUGE auf die Einleitung im NLP-Kapitel eingehen, d.h. Mehrdeutigkeit der Lösungen bzw. mehrere korrekte Lösungen, Metriken zur Evaluation dieser Korrektheit erforderlich, verschiedene Ansätze nachfolgend
 	\item ROUGE vorstellen, evtl. BLEU, auch die Implementierung beschreiben, ROUGE-Score umstritten, daher evtl. alternativen Score nutzen, Kritik inkl. Grenzen nennen, dennoch weitreichend genutzt und daher vergleichbar, wichtig für die Interpretation, ROUGE evaluiert uncased, \url{https://huggingface.co/metrics/rouge}
 	\item Kompressionsrate messen
 	\item Qualität der Zusammenfassung messen (BLEU \url{https://en.wikipedia.org/wiki/BLEU}, ROUGE \url{https://en.wikipedia.org/wiki/ROUGE_(metric)}, evtl. Funktionen fusionieren)

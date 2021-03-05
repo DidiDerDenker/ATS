@@ -7,49 +7,35 @@ Natürliche Sprache wird auch als menschliche Sprache bezeichnet und ist histori
 
 \ac{NLP}-Aufgaben sind oftmals als Optimierungsprobleme zu verstehen. Lösungen sind demnach nicht eindeutig, also im mathematischen Sinne analytisch nicht lösbar. Dies wird in Hinblick auf die \ac{ATS} deutlich, wenn man verschiedene Personen den gleichen Text zusammenfassen lässt. Zwar gleichen sich die als relevant identifizierten Informationen größtenteils, doch die Formulierungen sind mitunter sehr unterschiedlich. Folglich können auch mehrere Versionen korrekt sein.\\
 
-% TODO: Text überarbeiten, Einleitung auch für die Metriken nutzen
-
-Natürliche Sprache bedarf hinsichtlich maschineller Verarbeitung einer geeigneten mathematischen Form. Hierfür werden nachfolgend verschiedene Vorverarbeitungsschritte sowie Word Embeddings und Deep Language Representations vorgestellt. Der Anspruch auf Vollständigkeit entfällt aufgrund der Mächtigkeit des \ac{NLP}, obgleich anknüpfende Inhalte bei Bedarf an den entsprechenden Stellen erläutert werden.\\
+Natürliche Sprache bedarf hinsichtlich maschineller Verarbeitung einer geeigneten mathematischen Form. Hierfür werden nachfolgend verschiedene Vorverarbeitungsschritte sowie Word Embeddings und Deep Language Representations vorgestellt. Der Anspruch auf Vollständigkeit entfällt aufgrund der Mächtigkeit des \ac{NLP}, obgleich anknüpfende Inhalte bei Bedarf an den entsprechenden Stellen erläutert werden.
 
 
 \section{Vorverarbeitung}
-In nahezu allen Teilbereichen der Data Science stehen gewöhnlicherweise etliche Vorverarbeitungsschritte an, um die zu analysierenden Daten zu bereinigen, zu normalisieren und insgesamt in eine konsistente sowie geeignete Form zu bringen. Im \ac{NLP}-Kontext sind indes komplexere Vorverarbeitungsschritte erforderlich, um die Daten für die eingeforderte mathematische Form vorzubereiten. Eine Auswahl der in dieser Arbeit relevanten Vorverarbeitungsschritte wird nachfolgend vorgestellt. In der Implementierung dieser chronologisch aufeinander folgenden Schritte spricht man auch von der \ac{NLP}-Pipeline.\\
-
-An erster Stelle der \ac{NLP}-Pipeline steht die Textbereinigung, welche sich bezüglich eingehender Rohdaten insbesondere auf Sonderzeichen, Interpunktion sowie Klein- und Großschreibung konzentriert. Dabei ist es mitunter bereits herausfordernd, entsprechende Textstellen zu identifizieren. Anschließend sind normalisierende Maßnahmen anzuwenden. Üblich ist beispielsweise das Entfernen von Sonderzeichen oder auch das Erzwingen von Kleinschreibung in allen eingehenden Texten. Weit verbreitet ist auch das Entfernen von Stoppwörtern. Dies sind Wörter, welche mutmaßlich der Allgemeinsprache zugehören, weshalb angenommen wird, dass sie keine entscheidende inhaltliche Bedeutung besitzen. Hier lässt sich jedoch keine allgemeingültige Aussage treffen, da die tatsächlich erforderlichen Maßnahmen sowohl von den Eigenschaften der Eingangsdaten als auch von den verwendeten Modellen und den verfolgten Zielen abhängen.
-
-% TODO: Unten stehenden Abschnitt nochmal überarbeiten und dann oben anfügen
-
-Dabei ist die Datenexploration wiederkehrend und alternierend mit der Anpassung der Vorverarbeitung auszuführen. Der Anwender sollte hierbei ein Gefühl für die Daten und deren Besonderheiten entwickeln. Zudem bedarf es einem tiefgründigen Verständnis der geplanten Aufgaben, um beurteilen zu können, welche Vorverarbeitungsschritte tatsächlich relevant sind.
-
-% TODO: Text nochmal grob überarbeiten
-
-2. Tokenisierung (SpaCy, NLTK etc. vergleichen, ggf. auch Kritik)
-3. POS-Tagging
-4. Lemmatisierung (SpaCy, NLTK etc. vergleichen, ggf. auch Kritik)
+In nahezu allen Teilbereichen der Data Science stehen gewöhnlicherweise etliche Vorverarbeitungsschritte an, um die zu analysierenden Daten zu bereinigen, zu normalisieren und insgesamt in eine konsistente sowie geeignete Form zu bringen. Im \ac{NLP}-Kontext sind indes komplexere Vorverarbeitungsschritte erforderlich, um die Daten für die eingeforderte mathematische Form zu präparieren \cite[S.~86]{BIR09}. Eine Auswahl der in dieser Arbeit relevanten Schritte wird nachfolgend vorgestellt. In der Implementierung dieser chronologisch aufeinander folgenden Schritte spricht man auch von der \ac{NLP}-Pipeline.
 
 
-Notizen:
+\subsection{Textbereinigung}
+An erster Stelle der \ac{NLP}-Pipeline steht die Textbereinigung, welche sich bezüglich eingehender Rohdaten insbesondere auf Sonderzeichen, Interpunktion sowie Klein- und Großschreibung konzentriert. Dabei ist es mitunter bereits herausfordernd, entsprechende Textstellen als solche zu identifizieren. Anschließend sind oftmals normalisierende Maßnahmen anzuwenden. Üblich ist beispielsweise das Entfernen von Sonderzeichen oder auch das Erzwingen von Kleinschreibung in allen eingehenden Texten \cite[S.~107]{BIR09}. Weit verbreitet ist auch das Entfernen von Stoppwörtern. Dies sind Wörter, welche mutmaßlich der Allgemeinsprache zugehören, weshalb angenommen wird, dass sie keine entscheidende inhaltliche Bedeutung besitzen \cite[S.~5]{GAM16}. Hier lässt sich jedoch keine allgemeingültige Aussage treffen, da die tatsächlich erforderlichen Maßnahmen sowohl von den Eigenschaften der Eingangsdaten als auch von den Besonderheiten der verwendeten Modelle und den verfolgten Zielen abhängen. Dabei ist die Datenexploration wiederkehrend und alternierend mit der Anpassung der Vorverarbeitung auszuführen. Der Anwender sollte hierbei ein Gefühl für die Daten und deren Besonderheiten entwickeln. Zudem bedarf es einem tiefgründigen Verständnis der geplanten Aufgaben, um beurteilen zu können, welche Vorverarbeitungsschritte tatsächlich relevant sind.
+
+
+\subsection{Textnormalisierung}
+In der weitergehenden Textnormalisierung wird sich vorrangig auf das Stemming und die Lemmatisierung konzentriert. Das Stemming führt eingehende Wörter auf ihre Grundformen zurück, indem bekannte Präfixe, Infixe und Suffixe eliminiert werden. Diese Grundformen sind nicht zwingend valide Wörter. Die Lemmatisierung hingegen berücksichtigt die wortspezifischen Bedeutungen, um etwaige Flexionen in Deckung zu bringen und somit die linguistisch korrekten Grundformen zu bilden. Flexionen sind durch Konjugationen, Deklinationen oder auch Komparationen entstanden und natürlicher Bestandteil einer Sprache. Hierfür sind Wortbildungsregeln und ein Wortschatz erforderlich. Letzterer indiziert die eingehenden Wörter anhand ihrer Lemmata und ordnet sie entsprechend zu \cite[S.~107]{BIR09}. Zwar ist die Lemmatisierung aufgrund des erforderlichen Kontextwissens durchaus komplexer als das Stemming, dafür sind ihre Ergebnisse erwartungsgemäß gehaltvoller. Ob und welche Methode zur Textnormalisierung herangezogen wird, hängt erneut von der anvisierten Aufgabe ab. Seien nun beispielhaft die Wörter ${spielen, spielst, spielte, gespielt}$ gegeben, dann reduziert der Stemmer diese Wörter auf die Grundform $spiel$. Der Lemmatizer identifiziert hingegen die linguistisch korrekte Grundform $spielen$.\\
+
+\ac{NLTK} ist eine forschungsorientierte Python-Bibliothek, die unter anderem verschiedenartige Stemmer zur Verfügung stellt. Stemmer, welche die englische Sprache unterstützen, scheinen bereits sehr ausgereift zu sein. Stemmer, welche die deutsche Sprache unterstützen, sind nicht nur knapp, sondern bedürfen zudem weitergehenden Testschritten, um deren tatsächliche Eignung zu prüfen. Die Stemmer $nltk.stem.cistem$ und $nltk.stem.snowball$ eignen sich potenziell für einen Einsatz mit deutscher Sprache \cite{NLT20}.\\
+
+SpaCy ist eine eher praktisch orientierte Python-Bibliothek für verschiedenste \ac{NLP}-Aufgaben. Hinsichtlich der deutschen Sprache eignen sich hier insbesondere die verfügbaren Lemmatizer. Dabei kann der Anwender zwischen verschiedenen vortrainierten Modellen wählen. Eigenschaften wie Sprache, Größe und zugrundeliegende Trainingsdaten sind transparent dokumentiert \cite{SPA21}.\\
+
+Die Wahl geeigneter Stemmer und Lemmatizer obliegt dennoch den subjektiven Präferenzen des jeweiligen Entwicklers. In jedem Fall sind hinreichende Tests durchzuführen, um die einzelnen Module zu erproben sowie individuelle Vor- und Nachteile zu identifizieren. Mit fortschreitender Entwicklung beweisen sich möglicherweise auch andere aufstrebende Bibliotheken \cite[S.~108]{BIR09}.
+
+
+\subsection{Tokenisierung}
+Tokenisierung (SpaCy, NLTK etc. vergleichen, ggf. auch Kritik)
+
+
 \begin{itemize}
-	\item Pipeline der Vorverarbeitung als Voraussetzung hervorstellen
-	\item Relevanz von Capitalization, Punctuation, Zeilenumbrüchen klären, auch im Negativfall begründen und belegen, Satzzeichen für die Minimierung von Zwei- oder Uneindeutigkeiten berücksichtigen
-\end{itemize}
-
-
-Textbereinigung, Tokenisierung (cased für ATS bspw. relevant, da Grammatik und Orthographie davon abhängen könnten, anders als evtl. Sentiment Analysis, außerdem soll die Ausgabe orthografisch korrekt, also mit korrekter Groß- und Kleinschreibung, erfolgen), POS-Tagging, Lemmatisierung, Stoppwörter
-
-Lemmatisierung:
-\begin{itemize}
-	\item Lemmatisierung eventuell irrelevant, weil Wort-Tokenisierung bei modernen Architekturen und Modellen oftmals ausreicht
-	\item Nach erfolgreichem Aufsetzen der Pipeline kann man die Eingangsdaten testweise immer noch der Lemmatisierung oder weiteren Vorverarbeitungsschritten unterziehen, um deren Auswirkungen zu messen
-\end{itemize}
-
-Weitere Notizen, die eingearbeitet werden sollten:
-\begin{itemize}
-	\item Relevanz für extraktiven Ansatz beschreiben (vgl. Paper: „Automatic Text Summarization“)
-	\item Relevanz für abstraktiven Ansatz, falls vorhanden, beschreiben
-	\item Metriken selbst weiterentwickeln und ausreifen
-	\item Siehe: \url{https://scikit-learn.org/stable/modules/feature_extraction.html}
-	\item Übereinstimmung mit dem Titel, Satzposition, Satzähnlichkeit, Satzlänge, domänenspezifische Wörter, Eigennamen, numerische Daten
+	\item POS-Tagging erwähnen, ggf. oben mit erwähnen
+	\item Feature Extraction bzgl. NLP und ATS beschreiben \url{https://scikit-learn.org/stable/modules/feature_extraction.html}
+	\item Extraktive Zusammenfassung: Potenzielle Features bzw. Kennzahlen: Übereinstimmung mit dem Titel, Satzposition, Satzähnlichkeit, Satzlänge, domänenspezifische Wörter, Eigennamen, numerische Daten
 \end{itemize}
 
 
