@@ -3,7 +3,7 @@
 \label{chap:Natural Language Processing}
 
 \noindent
-Natürliche Sprache wird auch als menschliche Sprache bezeichnet und ist historisch gewachsen. Sie verfolgt orthographische und grammatikalische Regeln auf Grundlage eines sprachabhängigen Wortschatzes. Die Sprachwissenschaft, auch Linguistik genannt, untersucht natürliche Sprache mithilfe verschiedener Methoden. \ac{NLP} meint die maschinelle Verarbeitung natürlicher Sprache. Dabei werden Methoden der Linguistik unter anderem mit Methoden des Deep Learning verknüpft \cite[S.~1]{BIR09}. Nicht selten ist eine Spracherkennung vorgeschaltet. \ac{NLP} ist weiterhin in \ac{NLU} und \ac{NLG} zu untergliedern. Diese Teilgebiete sind zugleich wesentliche Herausforderungen der \ac{ATS}.\\
+Natürliche Sprache wird auch als menschliche Sprache bezeichnet und ist historisch gewachsen. Sie verfolgt orthographische und grammatikalische Regeln auf Grundlage eines sprachabhängigen Wortschatzes. Die Sprachwissenschaft, auch Linguistik genannt, untersucht natürliche Sprache mithilfe verschiedener Methoden. \ac{NLP} meint die maschinelle Verarbeitung natürlicher Sprache. Dabei werden Methoden der Linguistik unter anderem mit Methoden des Deep Learning verknüpft \cite[S.~1]{BIR09}. Nicht selten ist eine Spracherkennung vorgeschaltet. \ac{NLP} ist weiterhin in \ac{NLU} und \ac{NLG} zu untergliedern \cite[S.~27-28]{BIR09}. Diese Teilgebiete sind zugleich wesentliche Herausforderungen der \ac{ATS}.\\
 
 \noindent
 \ac{NLP}-Aufgaben sind oftmals als Optimierungsprobleme zu verstehen. Lösungen sind demnach nicht eindeutig, also im mathematischen Sinne analytisch nicht lösbar. Dies wird in Hinblick auf die \ac{ATS} deutlich, wenn man verschiedene Personen den gleichen Text zusammenfassen lässt. Zwar gleichen sich die als relevant identifizierten Informationen größtenteils, doch die Formulierungen sind mitunter sehr unterschiedlich. Folglich können auch mehrere Versionen korrekt sein.\\
@@ -24,10 +24,10 @@ An erster Stelle der \ac{NLP}-Pipeline steht die Textbereinigung, welche sich be
 
 \subsection{Textnormalisierung}
 \noindent
-In der weitergehenden Textnormalisierung wird sich vorrangig auf das Stemming und die Lemmatisierung konzentriert. Das Stemming führt eingehende Wörter auf ihre Grundformen zurück, indem bekannte Präfixe, Infixe und Suffixe eliminiert werden. Diese Grundformen sind nicht zwingend valide Wörter. Die Lemmatisierung hingegen berücksichtigt die wortspezifischen Bedeutungen, um etwaige Flexionen in Deckung zu bringen und somit die linguistisch korrekten Grundformen zu bilden. Flexionen sind durch Konjugationen, Deklinationen oder auch Komparationen entstanden und natürlicher Bestandteil einer Sprache. Hierfür sind Wortbildungsregeln und ein Wortschatz erforderlich. Letzterer indiziert die eingehenden Wörter anhand ihrer Lemmata und ordnet sie entsprechend zu \cite[S.~107]{BIR09}. Zwar ist die Lemmatisierung aufgrund des erforderlichen Kontextwissens durchaus komplexer als das Stemming, dafür sind ihre Ergebnisse erwartungsgemäß gehaltvoller. Ob und welche Methode zur Textnormalisierung herangezogen wird, hängt erneut von der anvisierten Aufgabe ab. Seien nun beispielhaft die Wörter $\{spielen, spielst, spielte, gespielt\}$ gegeben, dann reduziert der Stemmer diese Wörter auf die Grundform $spiel$. Der Lemmatizer identifiziert hingegen die linguistisch korrekte Grundform $spielen$.\\
+In der weitergehenden Textnormalisierung wird sich vorrangig auf das Stemming und die Lemmatisierung konzentriert. Das Stemming führt eingehende Wörter auf ihre Grundformen zurück, indem bekannte Präfixe, Infixe und Suffixe eliminiert werden. Diese Grundformen sind nicht zwingend valide Wörter. Die Lemmatisierung hingegen berücksichtigt die wortspezifischen Bedeutungen, um etwaige Flexionen in Deckung zu bringen und somit die linguistisch korrekten Grundformen zu bilden. Flexionen sind durch Konjugationen, Deklinationen oder auch Komparationen entstanden und natürlicher Bestandteil einer Sprache. Hierfür sind Wortbildungsregeln und ein Wortschatz erforderlich. Letzterer indiziert die eingehenden Wörter anhand ihrer Lemmata und ordnet sie entsprechend zu \cite[S.~107-108]{BIR09}. Zwar ist die Lemmatisierung aufgrund des erforderlichen Kontextwissens durchaus komplexer als das Stemming, dafür sind ihre Ergebnisse erwartungsgemäß gehaltvoller. Ob und welche Methode zur Textnormalisierung herangezogen wird, hängt erneut von der anvisierten Aufgabe ab. Seien nun beispielhaft die Wörter $\{spielen, spielst, spielte, gespielt\}$ gegeben, dann reduziert der Stemmer diese Wörter auf die Grundform $spiel$. Der Lemmatizer identifiziert hingegen die linguistisch korrekte Grundform $spielen$.\\
 
 \noindent
-\ac{NLTK} ist eine forschungsorientierte Python-Bibliothek, die unter anderem verschiedenartige Stemmer zur Verfügung stellt. Stemmer, welche die englische Sprache unterstützen, scheinen bereits sehr ausgereift zu sein. Stemmer, welche die deutsche Sprache unterstützen, sind nicht nur knapp, sondern bedürfen zudem weitergehenden Testschritten, um deren tatsächliche Eignung zu prüfen. Die Stemmer $nltk.stem.cistem$ und $nltk.stem.snowball$ eignen sich potenziell für einen Einsatz mit deutscher Sprache \cite{NLT20}.\\
+\ac{NLTK} ist eine forschungsorientierte Python-Bibliothek, die etliche \ac{NLP}-Module zur Verfügung stellt, darunter unter anderem verschiedenartige Stemmer \cite[S.~13-14]{BIR09}. Stemmer, welche die englische Sprache unterstützen, scheinen bereits sehr ausgereift zu sein. Stemmer, welche die deutsche Sprache unterstützen, sind nicht nur knapp, sondern bedürfen zudem weitergehenden Testschritten, um deren tatsächliche Eignung zu prüfen. Die Stemmer $nltk.stem.cistem$ und $nltk.stem.snowball$ eignen sich potenziell für einen Einsatz mit deutscher Sprache \cite{NLT20}.\\
 
 \noindent
 SpaCy ist eine eher praktisch orientierte Python-Bibliothek für verschiedenste \ac{NLP}-Aufgaben. Hinsichtlich der deutschen Sprache eignen sich hier insbesondere die verfügbaren Lemmatizer. Dabei kann der Anwender zwischen verschiedenen vortrainierten Modellen wählen. Eigenschaften wie Sprache, Größe und zugrundeliegende Trainingsdaten sind transparent dokumentiert \cite{SPA21}.\\
@@ -42,7 +42,7 @@ Tokenisierung (SpaCy, NLTK etc. vergleichen, ggf. auch Kritik)
 
 
 \begin{itemize}
-	\item POS-Tagging erwähnen, ggf. oben mit erwähnen
+	\item Lexika erwähnen, darin Lemma und POS-Tagging (S. 179 + 229 in BIR09) enthalten, ggf. oben mit erwähnen oder sogar ausweiten, siehe S. 60 in BIR09 -> Was passiert mit "unseen words" beim Input?
 	\item Feature Extraction bzgl. NLP und ATS beschreiben \url{https://scikit-learn.org/stable/modules/feature_extraction.html}
 	\item Extraktive Zusammenfassung: Potenzielle Features bzw. Kennzahlen: Übereinstimmung mit dem Titel, Satzposition, Satzähnlichkeit, Satzlänge, domänenspezifische Wörter, Eigennamen, numerische Daten
 \end{itemize}
@@ -56,6 +56,7 @@ Notizen:
 	\item BOW
 	\item BPE
 	\item GloVe
+	\item Keyword Network generieren, bestenfalls mit eigenen Korpora
 \end{itemize}
 
 
