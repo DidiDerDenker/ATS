@@ -11,7 +11,7 @@ source activate /home/davo557d/user-kernel/transformer-kernel
 conda install ipykernel
 python -m ipykernel install --user --name transformer-kernel --display-name="transformer kernel"
 conda config --prepend channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/linux-ppc64le/
-conda install pytorch 
+conda install pytorch/ conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
 pip install tokenizers regex
 git clone https://github.com/huggingface/transformers
 cd transformers
