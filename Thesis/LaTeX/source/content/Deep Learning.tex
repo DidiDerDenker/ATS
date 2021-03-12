@@ -18,7 +18,7 @@ Um den Aufbau und die Funktionsweise neuronaler Netze verstehen zu können, beda
 \end{figure}
 
 \noindent
-Die elementarste Form neuronaler Netze wird \ac{MLP} genannt. \ac{MLP} bestehen aus mehreren Schichten, deren Neuronen jeweils vollständig mit den Neuronen der umliegenden Schichten verbunden sind \cite[S.~131]{ZHA20}. Der Verständlichkeit halber veranschaulicht \autoref{pic:MultiLayerPerceptron} einen solchen Aufbau mit nur einer verborgenen Schicht, welche aus fünf Neuronen besteht.\\
+Die elementarste Form neuronaler Netze wird \ac{MLP} genannt. \ac{MLP} bestehen aus mehreren Schichten, deren Neuronen jeweils vollständig mit den Neuronen der umliegenden Schichten verbunden sind \cite[S.~131]{ZHA20}. Der Verständlichkeit halber veranschaulicht \autoref{pic:MultiLayerPerceptron} einen solchen Aufbau mit nur einer verborgenen Schicht (engl. Hidden Layer), welche aus fünf Neuronen besteht.\\
 
 \begin{figure}[h!]
   \centering
@@ -45,12 +45,48 @@ Der Trainingsprozess erfolgt optimalerweise über mehrere sogenannte Epochen. Hi
 \noindent
 Um mithilfe neuronaler Netze die \ac{ATS} zu modellieren, werden nun ausgewählte Architekturen vorgestellt. Diese gehen weit über die als Grundlage beschriebenen \ac{MLP} hinaus und verdeutlichen die Varietät neuronaler Netze.
 
-TODO: Eignung von Python für ML/ DL
-
 
 \subsection{Recurrent Neural Networks}
 \noindent
-\cite{ZHA20} ab Seite 361, 354, sequenzielle Daten fokussieren
+Eingangsdaten der \ac{ATS} haben in jedem Fall einen Textcharakter. Hierbei ist die Reihenfolge der Wörter hinsichtlich eines ausreichenden Textverständnisses von großer Bedeutung. Dies gilt sowohl für die Texte selbst als auch für die darin enthaltenen Sätze. Daher werden nun \ac{RNN} vorgestellt, welche diese sequenziellen Daten mithilfe von zahlreichen verborgenen Zuständen in verborgenen Schichten verarbeiten können \cite[S.~301]{ZHA20}.\\
+
+\noindent
+Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Wort der Eingabesequenz an einem Index $t > 0$. \ac{RNN} können hierfür die Wahrscheinlichkeit $$P(x_t \mid x_{t-1}, ... , x_1) \approx P(x_t \mid h_{t-1})$$ modellieren. Gemäß der daraus herleitbaren Funktion $$h_t = f(x_t, h_{t-1})$$ kann der verborgene Zustand $h_t$ unter Kenntnis des Wortes $x_t$ und des verborgenen Zustandes $h_{t-1}$ berechnet werden. Letzterer verfügt über die sequenziellen Informationen bis zum Index $t-1$. Weiterhin ist erkennbar, dass die gegebene Funktion der Markoveigenschaft gerecht wird \cite[S.~323-324]{ZHA20}.\\
+
+\noindent
+\autoref{pic:HiddenStates} demonstriert den rechentechnischen Vorgang anhand von drei prototypischen verborgenen Zuständen unter gegebenen Eingangsdaten. Wie bereits bei der oben genannten Funktion ersichtlich wurde, gehen in einen verborgenen Zustand jeweils das momentane Wort und der vorhergegangene verborgene Zustand ein. Innerhalb eines verborgenen Zustandes werden diese beiden Eingangsgrößen mithilfe einer Aktivierungsfunktion in eine vollvermaschte Schicht überführt. Zudem wird die Ausgabeschicht mit dem momentanen Output versorgt \cite[S.~325]{ZHA20}. Allgemein haben \ac{RNN} also die Form einer Kette, in der Module neuronaler Netze immer wiederkehren \cite{AIU19}.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/hiddenstates.png}}
+  \caption{RNN mit verborgenen Zuständen \cite[S.~325]{ZHA20}.}
+  \label{pic:HiddenStates}
+\end{figure}
+
+\noindent
+Die bereits bekannte beidseitige Propagation ist auch bei \ac{RNN} erforderlich, damit der Trainingsprozess zu einem entsprechenden Lernfortschritt führt. Während die vorwärtige Propagation den oben beschriebenen Prinzipien nachkommt, wird die Backpropagation nun über die Indizes hinweg durchgeführt. Bei einer langen Eingabesequenz gehen entsprechend hochdimensionale Matrizen in die Berechnung ein. Dies ist sowohl aus rechentechnischer als auch aus numerischer Sicht nachteilig, wobei die Anzahl modellinterner Parameter bei steigender Indexanzahl hingegen nicht steigt \cite[S.~328,~340]{ZHA20}.\\
+
+\noindent
+\ac{RNN} treffen früher oder später auf das Problem verschwindender Gradienten (engl. Vanishing Gradients). Dies tritt insbesondere bei langen Eingabesequenzen auf. Die modellinternen Parameter werden im Trainingsprozess bekanntermaßen mithilfe der Backpropagation aktualisiert. Aufgrund fortschreitender Multiplikationen mit Wahrscheinlichkeiten zwischen 0 und 1 werden die Gradienten immer kleiner, bis letztlich kein Lernfortschritt mehr zu verzeichnen ist \cite{ARB18}. Dieses Verhalten kann auch als numerischer Unterlauf bezeichnet werden. \ac{RNN} stoßen demnach beim Lernen langfristiger Abhängigkeiten auf ihre Grenzen.\\
+
+\noindent
+\ac{LSTM} sind eine Art von \ac{RNN}, welche dazu fähig sind, langfristige Abhängigkeit zu erlernen. Sie vermeiden also das Problem verschwindender Gradienten \cite{AIU19}. Außerdem verfolgen sie das Prinzip sogenannter \ac{GRU}. Der entscheidende Mechanismus lässt aus der Funktionsweise solcher Gates ableiten. Demnach entscheiden diese Gates mit einer Wahrscheinlichkeit zwischen 0 und 1, ob der erhaltene Wert weitergeleitet oder verworfen werden soll \cite[S.~347-348]{ZHA20}. Eine \ac{LSTM}-Zelle verfügt über drei wesentliche Gates: Input Gate, Forget Gate, Output Gate.\\
+
+\noindent
+Das Input Gate definiert, welche Werte in der Zelle berücksichtigt werden sollen. Hierzu gehören gemäß \ac{RNN} das momentane Wort sowie der vorhergegangene verborgene Zustand. Das Forget Gate trifft eine Entscheidung darüber, ob und welche Werte gespeichert oder vergessen werden sollen. Hierfür eignen sich beispielsweise Aktivierungsfunktionen \cite[S.~355]{ZHA20}. Über die intern festgelegte Logik kann somit der Zellzustand berechnet werden, unter anderem mithilfe punktweiser Matrixoperationen. Der Zellzustand wird sodann als neuer verborgener Zustand im Output Gate emittiert \cite{LUB18}. Der Aufbau einer \ac{LSTM}-Zelle ist in \autoref{pic:LstmCell} zu sehen.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/lstmcell.png}}
+  \caption{Aufbau einer LSTM-Zelle \cite[S.~357]{ZHA20}.}
+  \label{pic:LstmCell}
+\end{figure}
+
+\noindent
+Ersetzt man die verborgenen Zustände in \autoref{pic:HiddenStates} durch \ac{LSTM}-Zellen, so wird man der beabsichtigten Funktionsweise eines \ac{LSTM} gerecht. Mit fortschreitendem Trainingsprozess werden auch hier sequenzielle Abhängigkeiten gelernt, wobei als irrelevant angenommene Informationen stets verworfen werden. Der Vorteil gegenüber schlichter \ac{RNN} besteht bei den \ac{LSTM} hierdurch insbesondere darin, dass langfristige Abhängigkeiten gelernt und bestimmte Informationen schneller gefunden werden können. Dies gilt vor allem für vielschichtige komplexe neuronale Netze, welche anderenfalls unübersichtlich und rechenaufwändig würden \cite{LUB18}.\\
+
+\noindent
+Zwar sind \ac{LSTM} den \ac{RNN} qualitativ in vielen \ac{NLP}-Aufgaben überlegen, dennoch sind beide Architekturen eher statistisch getrieben und somit als veraltet zu interpretieren. Obgleich sie als Grundlage prinzipiell verstanden werden sollten, dominieren maschinelle Lernverfahren qualitativ sowie ressourcentechnisch den \ac{SOTA} mit verschiedenen anderweitigen Architekturen \cite{CUR18}. Diese werden nachfolgend hinreichend erläutert.
 
 
 \subsection{Encoder-Decoder Networks}

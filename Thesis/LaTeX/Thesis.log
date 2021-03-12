@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  5 MAR 2021 15:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  12 MAR 2021 12:43
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1338,7 +1338,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-<./source/images/summarizationprocess.png, id=258, 370.38374pt x 179.92218pt>
+<./source/images/summarizationprocess.png, id=268, 370.38374pt x 179.92218pt>
 File: ./source/images/summarizationprocess.png Graphic file (type png)
 <use ./source/images/summarizationprocess.png>
 Package pdftex.def Info: ./source/images/summarizationprocess.png  used on inpu
@@ -1416,7 +1416,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
 
-<./source/images/artificialneuron.png, id=345, 539.76656pt x 225.84375pt>
+<./source/images/artificialneuron.png, id=355, 539.76656pt x 225.84375pt>
 File: ./source/images/artificialneuron.png Graphic file (type png)
 <use ./source/images/artificialneuron.png>
 Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
@@ -1432,7 +1432,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
-<./source/images/multilayerperceptron.png, id=352, 545.78906pt x 291.33844pt>
+<./source/images/multilayerperceptron.png, id=362, 545.78906pt x 291.33844pt>
 File: ./source/images/multilayerperceptron.png Graphic file (type png)
 <use ./source/images/multilayerperceptron.png>
 Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
@@ -1456,109 +1456,161 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
 [6 <./source/images/artificialneuron.png> <./source/images/multilayerperceptron
 .png>]
-<./source/images/fittingtypes.png, id=370, 855.195pt x 284.56313pt>
+<./source/images/fittingtypes.png, id=380, 855.195pt x 284.56313pt>
 File: ./source/images/fittingtypes.png Graphic file (type png)
 <use ./source/images/fittingtypes.png>
 Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 3
 8.
 (pdftex.def)             Requested size: 291.28238pt x 96.91951pt.
 
-Overfull \hbox (11.58829pt too wide) in paragraph at lines 57--59
+Overfull \hbox (0.71439pt too wide) in paragraph at lines 50--52
+\OT1/cmr/m/n/12 ver-bor-ge-nen Zust[]anden in ver-bor-ge-nen Schich-ten ver-ar-
+bei-ten k[]onnen [[],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+
+ []
+
+[7 <./source/images/fittingtypes.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+<./source/images/hiddenstates.png, id=400, 636.12656pt x 269.50688pt>
+File: ./source/images/hiddenstates.png Graphic file (type png)
+<use ./source/images/hiddenstates.png>
+Package pdftex.def Info: ./source/images/hiddenstates.png  used on input line 6
+1.
+(pdftex.def)             Requested size: 313.69029pt x 132.89844pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+
+ []
+
+[8 <./source/images/hiddenstates.png>]
+Package acronym Info: Label `acro:GRU' newly defined as it shall be overridden
+although it is yet undefined on input line 73.
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
+
+ []
+
+<./source/images/lstmcell.png, id=425, 353.82187pt x 172.39406pt>
+File: ./source/images/lstmcell.png Graphic file (type png)
+<use ./source/images/lstmcell.png>
+Package pdftex.def Info: ./source/images/lstmcell.png  used on input line 80.
+(pdftex.def)             Requested size: 313.69029pt x 152.84361pt.
+
+Overfull \hbox (10.16006pt too wide) in paragraph at lines 85--87
+[][] \OT1/cmr/m/n/12 be-steht bei den [][] hier-durch ins-be-son-de-re dar-in, 
+dass lang-fris-ti-ge Abh[]angigkeiten
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
+
+ []
+
+[9 <./source/images/lstmcell.png>]
+Overfull \hbox (11.58829pt too wide) in paragraph at lines 93--95
 \OT1/cmr/m/n/12 er-dem [][]$\OT1/cmtt/m/n/12 https : / / colab . research . go
 ogle . com / drive / 1WIk2bxglElfZewOHboPFNj8H44 _
  []
 
 
-Overfull \hbox (64.99544pt too wide) in paragraph at lines 62--64
+Overfull \hbox (64.99544pt too wide) in paragraph at lines 98--100
 \OT1/cmr/m/n/12 [[]] ab Sei-te 389, 394 mit Self-Attention, Multi-Head-Attentio
 n, [[]]
  []
 
-[7 <./source/images/fittingtypes.png>]
-Overfull \hbox (17.83162pt too wide) in paragraph at lines 67--69
+
+Overfull \hbox (17.83162pt too wide) in paragraph at lines 103--105
 \OT1/cmr/m/n/12 ori-en-tie-ren, ggf. [][]$\OT1/cmtt/m/n/12 https : / / arxiv . 
 org / pdf / 1912 . 08777 . pdf$[][] \OT1/cmr/m/n/12 re-fe-ren-zie-ren, oder auc
 h [][]$\OT1/cmtt/m/n/12 https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
 
 Package acronym Info: Label `acro:LR' newly defined as it shall be overridden
-although it is yet undefined on input line 79.
+although it is yet undefined on input line 115.
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
-[8]
-<./source/images/gradientdescent.png, id=408, 993.7125pt x 285.065pt>
+<./source/images/gradientdescent.png, id=474, 993.7125pt x 285.065pt>
 File: ./source/images/gradientdescent.png Graphic file (type png)
 <use ./source/images/gradientdescent.png>
 Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
-e 83.
+e 119.
 (pdftex.def)             Requested size: 313.69029pt x 89.98734pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
-
-Overfull \hbox (1.84435pt too wide) in paragraph at lines 91--93
+[11 <./source/images/gradientdescent.png>]
+Overfull \hbox (1.84435pt too wide) in paragraph at lines 127--129
 \OT1/cmr/m/n/12 Ef-fekt ver-spricht [[], S. 437]. Die Gr[]oe der Stich-pro-be 
 wird []ublicherweise
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--96
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
-<./source/images/momentumupdate.png, id=422, 213.04594pt x 190.46156pt>
+<./source/images/momentumupdate.png, id=494, 213.04594pt x 190.46156pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
- 99.
+ 135.
 (pdftex.def)             Requested size: 156.84856pt x 140.23021pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
 
-although it is yet undefined on input line 105.
+although it is yet undefined on input line 141.
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--106
-
- []
-
-[9 <./source/images/gradientdescent.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
 
  []
 
-[10 <./source/images/momentumupdate.png>]
-<./source/images/finetuning.png, id=449, 905.63344pt x 530.73282pt>
+[12 <./source/images/momentumupdate.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 148--150
+
+ []
+
+<./source/images/finetuning.png, id=515, 905.63344pt x 530.73282pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
-Package pdftex.def Info: ./source/images/finetuning.png  used on input line 117
+Package pdftex.def Info: ./source/images/finetuning.png  used on input line 153
 .
 (pdftex.def)             Requested size: 268.8813pt x 157.56902pt.
-) [11 <./source/images/finetuning.png>]
+[13 <./source/images/finetuning.png>]) [14]
 \openout2 = `"source/content/Natural Language Processing.aux"'.
 
- ("source/content/Natural Language Processing.tex"
+
+("source/content/Natural Language Processing.tex"
 chapter 3.
 Package acronym Info: Label `acro:NLU' newly defined as it shall be overridden
 although it is yet undefined on input line 6.
@@ -1574,7 +1626,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[12
+[15
 
 
 
@@ -1587,10 +1639,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
-[13]
+[16]
 Package acronym Info: Label `acro:NLTK' newly defined as it shall be overridden
 
 although it is yet undefined on input line 30.
+
+Overfull \hbox (33.92795pt too wide) in paragraph at lines 29--31
+\OT1/cmr/m/n/12 nltk.stem.snowball eig-nen sich po-ten-zi-ell f[]ur einen Ein-s
+atz mit deut-scher Spra-che [[]]. 
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
@@ -1625,32 +1683,32 @@ Overfull \hbox (6.06819pt too wide) in paragraph at lines 47--48
 e, dom[]anenspezifische W[]orter,
  []
 
-[14]
-Overfull \hbox (14.55208pt too wide) in paragraph at lines 65--66
+[17]
+Overfull \hbox (14.55208pt too wide) in paragraph at lines 68--69
 \OT1/cmtt/m/n/12 1WIk2bxglElfZewOHboPFNj8H44 _ VAyKE ? usp = sharing # scrollTo
  = 4M2uzGLV9a _ O$[][] \OT1/cmr/m/n/12 un-
  []
 
-
-Overfull \hbox (262.9643pt too wide) in paragraph at lines 66--67
+[18]
+Overfull \hbox (262.9643pt too wide) in paragraph at lines 69--70
 []\OT1/cmr/m/n/12 BERT vs. Al-ter-na-ti-ven: [][]$\OT1/cmtt/m/n/12 https : / / 
 towardsdatascience . com / bert-[]roberta-[]distilbert-[]xlnet-[]which-[]one-[]
 to-[]use-[]3d5ab82ba5f8$[][] 
  []
 
-[15]
-Overfull \hbox (33.80154pt too wide) in paragraph at lines 73--74
+
+Overfull \hbox (33.80154pt too wide) in paragraph at lines 76--77
 []\OT1/cmr/m/n/12 Am bes-ten di-rekt ein vor-trai-nier-tes Transformer-Modell n
 ut-zen (ex-tra f[]ur Summarization-
  []
 
-) [16]
+[19]) [20]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--7
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
@@ -1659,12 +1717,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--13
-
- []
-
-[17
+[21
 
 
 
@@ -1673,50 +1726,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
 
 ])
-Overfull \hbox (0.28384pt too wide) in paragraph at lines 14--60
+Overfull \hbox (0.28384pt too wide) in paragraph at lines 11--60
 \OT1/cmr/m/n/12 Die an-de-ren bei-den Kor-po-ra die-nen dem wei-ter-ge-hen-den 
 Trai-ning hin-sicht-lich der sprach-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--60
+Underfull \hbox (badness 10000) in paragraph at lines 11--60
 
  []
 
-[18]
+[22]
 \openout2 = `"source/content/Abstraktiver Ansatz.aux"'.
 
  ("source/content/Abstraktiver Ansatz.tex"
 chapter 5.
 
-Overfull \hbox (9.97952pt too wide) in paragraph at lines 5--6
+Overfull \hbox (9.97952pt too wide) in paragraph at lines 5--7
 \OT1/cmr/m/n/12 Unter Kennt-nis der zu im-ple-men-tie-ren-den Ar-chi-tek-tu-ren
 , ent-spre-chen-der [][]-Grundlagen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
+Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
 
-Overfull \hbox (12.17624pt too wide) in paragraph at lines 7--8
-\OT1/cmr/m/n/12 herk[]ommlichen Sin-ne. Die-se ist be-kann-ter-ma-en sehr in-d
-i-vi-du-ell und stark mo-dellabh[]angig.
+Overfull \hbox (44.86394pt too wide) in paragraph at lines 8--10
+\OT1/cmr/m/n/12 Die Tex-tin-hal-te al-ler Kor-po-ra bed[]urfen kei-ner wei-ter-
+ge-hen-den Vor-ver-ar-bei-tung im herk[]ommlichen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
 
-Overfull \hbox (14.56842pt too wide) in paragraph at lines 16--17
+Overfull \hbox (14.56842pt too wide) in paragraph at lines 18--19
 []\OT1/cmr/m/n/12 Generierung neu-er S[]atze so-wohl mit vor-kom-men-den als au
 ch mit nicht-vorkommenden
  []
 
-[19
+[23
 
 
 
@@ -1725,140 +1778,140 @@ ch mit nicht-vorkommenden
 
 
 ]
-Overfull \hbox (1.57689pt too wide) in paragraph at lines 24--25
+Overfull \hbox (1.57689pt too wide) in paragraph at lines 27--28
 []\OT1/cmr/m/n/12 Anmerkungen zum CNN-Korpus aus der Da-ten-grund-la-ge auf-gre
 i-fen und mit Colab-
  []
 
 
-Overfull \hbox (1.61229pt too wide) in paragraph at lines 25--26
+Overfull \hbox (1.61229pt too wide) in paragraph at lines 28--29
 []\OT1/cmr/m/n/12 Multilingual BERT: [][]$\OT1/cmtt/m/n/12 https : / / huggingf
 ace . co / bert-[]base-[]multilingual-[]cased$[][] 
  []
 
 
-Overfull \hbox (1.14395pt too wide) in paragraph at lines 26--27
+Overfull \hbox (1.14395pt too wide) in paragraph at lines 29--30
 [][][]$\OT1/cmtt/m/n/12 https : / / colab . research . google . com / drive / 1
 WIk2bxglElfZewOHboPFNj8H44 _
  []
 
 
-Overfull \hbox (50.24522pt too wide) in paragraph at lines 26--27
+Overfull \hbox (50.24522pt too wide) in paragraph at lines 29--30
 \OT1/cmtt/m/n/12 VAyKE ? usp = sharing # scrollTo = ZwQIEhKOrJpl$[][]\OT1/cmr/m
 /n/12 , [][]$\OT1/cmtt/m/n/12 https : / / huggingface . co / transformers /
  []
 
 
-Overfull \hbox (287.48419pt too wide) in paragraph at lines 26--27
+Overfull \hbox (287.48419pt too wide) in paragraph at lines 29--30
 \OT1/cmtt/m/n/12 training . html # trainer$[][]\OT1/cmr/m/n/12 , [][]$\OT1/cmtt
 /m/n/12 https : / / www . quora . com / What-[]is-[]the-[]difference-[]between-
 []FP16-[]and-[]FP32-[]when-[]doing-[]deep-[]learning$[][]\OT1/cmr/m/n/12 ,
  []
 
 
-Overfull \hbox (185.21904pt too wide) in paragraph at lines 26--27
+Overfull \hbox (185.21904pt too wide) in paragraph at lines 29--30
 [][]$\OT1/cmtt/m/n/12 https : / / margaretmz . medium . com / setting-[]up-[]aw
 s-[]ec2-[]for-[]running-[]jupyter-[]notebook-[]on-[]gpu-[]c281231fad3f$[][]
  []
 
 
-Overfull \hbox (12.53658pt too wide) in paragraph at lines 26--27
+Overfull \hbox (12.53658pt too wide) in paragraph at lines 29--30
 \OT1/cmr/m/n/12 + Ju-py-ter No-te-book auf Tes-la 80K [][]$\OT1/cmtt/m/n/12 htt
 ps : / / www . nvidia . com / de-[]de / data-[]center /
  []
 
 
-Overfull \hbox (15.13364pt too wide) in paragraph at lines 27--28
+Overfull \hbox (15.13364pt too wide) in paragraph at lines 30--31
 []\OT1/cmr/m/n/12 [[]] um En-co-der und De-co-der zu er-set-zen, laut be-schrie
 -be-ner Encoder-
  []
 
 
-Overfull \hbox (66.81662pt too wide) in paragraph at lines 27--28
+Overfull \hbox (66.81662pt too wide) in paragraph at lines 30--31
 \OT1/cmr/m/n/12 be-schrie-ben: [][]$\OT1/cmtt/m/n/12 https : / / colab . resear
 ch . google . com / drive / 1WIk2bxglElfZewOHboPFNj8H44 _
  []
 
 
-Overfull \hbox (0.1127pt too wide) in paragraph at lines 27--28
+Overfull \hbox (0.1127pt too wide) in paragraph at lines 30--31
 \OT1/cmtt/m/n/12 VAyKE ? usp = sharing # scrollTo = Gw3IZYrfKl4Z$[][]\OT1/cmr/m
 /n/12 , Skiz-zen von dort nut-zen, Encoder-
  []
 
-[20]
-Overfull \hbox (26.84396pt too wide) in paragraph at lines 31--32
+[24]
+Overfull \hbox (26.84396pt too wide) in paragraph at lines 34--35
 \OT1/cmtt/m/n/12 patrickvonplaten / longformer2roberta-[]cnn _ dailymail-[]fp16
  / blob / main / README .
  []
 
 
-Overfull \hbox (14.15314pt too wide) in paragraph at lines 35--36
+Overfull \hbox (14.15314pt too wide) in paragraph at lines 38--39
 \OT1/cmr/m/n/12 ei-ne Aus-wahl aus den vor-ge-stell-ten theo-re-ti-schen In-hal
 -ten tref-fen und stets ausf[]uhrlich
  []
 
 
-Overfull \hbox (43.16496pt too wide) in paragraph at lines 38--39
+Overfull \hbox (43.16496pt too wide) in paragraph at lines 41--42
 []\OT1/cmr/m/n/12 Seq2Seq-Library: [][]$\OT1/cmtt/m/n/12 https : / / github . c
 om / dongjun-[]Lee / text-[]summarization-[]tensorflow$[][]
  []
 
 
-Overfull \hbox (9.67734pt too wide) in paragraph at lines 39--40
+Overfull \hbox (9.67734pt too wide) in paragraph at lines 42--43
 []\OT1/cmr/m/n/12 Deep Re-in-for-ce-ment Lear-ning (De-e-pRL) for Ab-strac-ti-v
 e Text Sum-ma-ri-za-ti-on [][]$\OT1/cmtt/m/n/12 https :
  []
 
 
-Overfull \hbox (409.01915pt too wide) in paragraph at lines 39--40
+Overfull \hbox (409.01915pt too wide) in paragraph at lines 42--43
 \OT1/cmtt/m/n/12 / / medium . com / analytics-[]vidhya / deep-[]reinforcement-[
 ]learning-[]deeprl-[]for-[]abstractive-[]text-[]summarization-[]made-[]easy-[]t
 utorial-[]9-[]c6914999c76c$[][]
  []
 
 
-Overfull \hbox (0.21571pt too wide) in paragraph at lines 39--40
+Overfull \hbox (0.21571pt too wide) in paragraph at lines 42--43
 \OT1/cmr/m/n/12 den Da-ten, an der Code-Architektur und an den Mo-del-len m[]og
 lich -> Zur[]uckgestellt
  []
 
 
-Overfull \hbox (13.54543pt too wide) in paragraph at lines 40--41
+Overfull \hbox (13.54543pt too wide) in paragraph at lines 43--44
 []\OT1/cmr/m/n/12 BERT-Encoder Transformer-Decoder: Pa-per [][]$\OT1/cmtt/m/n/1
 2 https : / / arxiv . org / pdf / 2008 . 09676 .
  []
 
 
-Overfull \hbox (32.65544pt too wide) in paragraph at lines 40--41
+Overfull \hbox (32.65544pt too wide) in paragraph at lines 43--44
 \OT1/cmtt/m/n/12 pdf$[][]\OT1/cmr/m/n/12 , Co-de [][]$\OT1/cmtt/m/n/12 https : 
 / / github . com / nlpyang / PreSumm$[][]\OT1/cmr/m/n/12 , Re-sults [][]$\OT1/c
 mtt/m/n/12 https : / / paperswithcode .
  []
 
-[21]
-Overfull \hbox (46.13461pt too wide) in paragraph at lines 49--50
+[25]
+Overfull \hbox (46.13461pt too wide) in paragraph at lines 52--53
 []\OT1/cmr/m/n/12 Setup be-schrei-ben [][]$\OT1/cmtt/m/n/12 https : / / docs . 
 aws . amazon . com / dlami / latest / devguide / tutorials .
  []
 
-
-Overfull \hbox (5.23314pt too wide) in paragraph at lines 63--64
+[26]
+Overfull \hbox (5.23314pt too wide) in paragraph at lines 67--68
 []\OT1/cmr/m/n/12 Qualit[]at der Zu-sam-men-fas-sung mes-sen (BLEU [][]$\OT1/cm
 tt/m/n/12 https : / / en . wikipedia . org / wiki /
  []
 
-[22]
-Overfull \hbox (102.944pt too wide) in paragraph at lines 68--69
+
+Overfull \hbox (102.944pt too wide) in paragraph at lines 72--73
 \OT1/cmtt/m/n/12 towardsdatascience . com / deep-[]learning-[]models-[]for-[]au
 tomatic-[]summarization-[]4c2b89f2a9ea$[][] 
  []
 
-) [23]
+[27]) [28]
 \openout2 = `"source/content/Sprachtechnische Adaption.aux"'.
 
  ("source/content/Sprachtechnische Adaption.tex"
 chapter 6.
-) [24
+) [29
 
 
 
@@ -1871,7 +1924,7 @@ chapter 6.
 
  (source/content/Zusammenfassung.tex
 chapter 7.
-) [25
+) [30
 
 
 
@@ -1884,7 +1937,7 @@ chapter 7.
 
  ("source/content/Diskussion und Ausblick.tex"
 chapter 8.
-[26
+[31
 
 
 
@@ -1892,38 +1945,67 @@ chapter 8.
 
 
 
-]) [27] (source/formal/Literature.tex
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
+]) [32] (source/formal/Literature.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\OT1/cmr/m/n/10.95 AI-United: LSTM als neu-ro-na-les Netz-werk mit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OT1/cmr/m/n/10.95 lan-gem Kurz-zeit-ged[]achtnis, in: [][]$\OT1/cmtt/m/n/10.95
+ http : / / www . ai-[]united . de /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OT1/cmtt/m/n/10.95 lstm-[]als-[]neuronales-[]netzwerk-[]mit-[]langem-[]kurzzei
+tgedaechtnis/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+[]\OT1/cmr/m/n/10.95 Arbel, Nir: How LSTM Net-works Sol-ve the Pro-blem of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+\OT1/cmr/m/n/10.95 Va-nis-hing Gra-di-ents, in: [][]$\OT1/cmtt/m/n/10.95 https 
+: / / medium . datadriveninvestor . com /
+ []
+
+
+Overfull \hbox (8.22191pt too wide) in paragraph at lines 11--12
+\OT1/cmtt/m/n/10.95 how-[]do-[]lstm-[]networks-[]solve-[]the-[]problem-[]of-[]v
+anishing-[]gradients-[]a6784971a577$[][]\OT1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+[]\OT1/cmr/m/n/10.95 Culurciello, Eu-ge-nio: The Fall of RNN/ LSTM, in: [][]$\O
+T1/cmtt/m/n/10.95 https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+\OT1/cmtt/m/n/10.95 / / towardsdatascience . com / the-[]fall-[]of-[]rnn-[]lstm
+-[]2d1594c74ce0$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 []\OT1/cmr/m/n/10.95 Goncalves, Luis: Au-to-ma-tic Text Sum-ma-ri-za-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 \OT1/cmr/m/n/10.95 on with Ma-chi-ne Lear-ning, in: [][]$\OT1/cmtt/m/n/10.95 ht
 tps : / / medium . com / luisfredgs /
  []
 
 
-Overfull \hbox (12.9706pt too wide) in paragraph at lines 27--28
+Overfull \hbox (12.9706pt too wide) in paragraph at lines 36--37
 \OT1/cmtt/m/n/10.95 automatic-[]text-[]summarization-[]with-[]machine-[]learnin
 g-[]an-[]overview-[]68ded5717a25$[][]\OT1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-[]\OT1/cmr/m/n/10.95 McCullum, Nick: De-ep Lear-ning Neural Net-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-\OT1/cmr/m/n/10.95 works Ex-plai-ned, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
-www . freecodecamp . org / news /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-\OT1/cmtt/m/n/10.95 deep-[]learning-[]neural-[]networks-[]explained-[]in-[]plai
-n-[]english/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 [50
@@ -1934,23 +2016,40 @@ n-[]english/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
 
 
 ]
-Underfull \hbox (badness 3148) in paragraph at lines 69--70
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+[]\OT1/cmr/m/n/10.95 McCullum, Nick: De-ep Lear-ning Neural Net-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+\OT1/cmr/m/n/10.95 works Ex-plai-ned, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
+www . freecodecamp . org / news /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+\OT1/cmtt/m/n/10.95 deep-[]learning-[]neural-[]networks-[]explained-[]in-[]plai
+n-[]english/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
+ []
+
+
+Underfull \hbox (badness 3148) in paragraph at lines 81--82
 []\OT1/cmr/m/n/10.95 SpaCy: Ger-man Mo-dels, in: [][]$\OT1/cmtt/m/n/10.95 https
  : / / spacy . io / models / de$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 []\OT1/cmr/m/n/10.95 Thaker, Ma-dhav: Com-pa-ring Text Sum-ma-ri-za-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 \OT1/cmr/m/n/10.95 ti-on Tech-ni-ques, in: [][]$\OT1/cmtt/m/n/10.95 https : / /
  towardsdatascience . com /
  []
 
-) [51] (source/formal/Theses.tex) (source/formal/Statement.tex [52
+[51]) [52] (source/formal/Theses.tex) (source/formal/Statement.tex [53
 
 
 
@@ -1965,19 +2064,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-) [53
+) [54
 
 
 ] (source/formal/Appendix.tex
 chapter A.
-[54
+[55
 
 
 
 
 ]
 chapter B.
-) [55
+) [56
 
 
 ] (Thesis.aux ("source/content/Deep Learning.aux")
@@ -1990,10 +2089,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27092 strings out of 480257
- 520868 string characters out of 2881437
- 972108 words of memory out of 3000000
- 42830 multiletter control sequences out of 15000+200000
+ 27131 strings out of 480257
+ 521511 string characters out of 2881437
+ 974108 words of memory out of 3000000
+ 42853 multiletter control sequences out of 15000+200000
  544694 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2009,11 +2108,12 @@ ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/di
 did/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/U
 sers/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmtt12.pfb>
-Output written on Thesis.pdf (43 pages, 709103 bytes).
+m/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmtt12.pfb>
+Output written on Thesis.pdf (49 pages, 787462 bytes).
 PDF statistics:
- 853 PDF objects out of 1000 (max. 8388607)
- 155 named destinations out of 1000 (max. 500000)
- 472 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 956 PDF objects out of 1000 (max. 8388607)
+ 169 named destinations out of 1000 (max. 500000)
+ 482 words of extra memory for PDF output out of 10000 (max. 10000000)
 
