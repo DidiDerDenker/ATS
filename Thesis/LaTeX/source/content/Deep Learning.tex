@@ -48,7 +48,7 @@ Um mithilfe neuronaler Netze die \ac{ATS} zu modellieren, werden nun ausgewählt
 
 \subsection{Recurrent Neural Networks}
 \noindent
-Eingangsdaten der \ac{ATS} haben in jedem Fall einen Textcharakter. Hierbei ist die Reihenfolge der Wörter hinsichtlich eines ausreichenden Textverständnisses von großer Bedeutung. Dies gilt sowohl für die Texte selbst als auch für die darin enthaltenen Sätze. Daher werden nun \ac{RNN} vorgestellt, welche diese sequenziellen Daten mithilfe von zahlreichen verborgenen Zuständen in verborgenen Schichten verarbeiten können \cite[S.~301]{ZHA20}.\\
+Eingangsdaten der \ac{ATS} haben in jedem Fall einen Textcharakter. Hierbei ist die Reihenfolge der Wörter hinsichtlich eines ausreichenden Textverständnisses von großer Bedeutung. Dies gilt sowohl für die Texte selbst als auch für die darin enthaltenen Sätze. Daher werden nun \ac{RNN} vorgestellt, welche derart sequenzielle Daten mithilfe von zahlreichen verborgenen Zuständen in verborgenen Schichten verarbeiten können \cite[S.~301]{ZHA20}.\\
 
 \noindent
 Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Wort der Eingabesequenz an einem Index $t > 0$. \ac{RNN} können hierfür die Wahrscheinlichkeit $$P(x_t \mid x_{t-1}, ... , x_1) \approx P(x_t \mid h_{t-1})$$ modellieren. Gemäß der daraus herleitbaren Funktion $$h_t = f(x_t, h_{t-1})$$ kann der verborgene Zustand $h_t$ unter Kenntnis des Wortes $x_t$ und des verborgenen Zustandes $h_{t-1}$ berechnet werden. Letzterer verfügt über die sequenziellen Informationen bis zum Index $t-1$. Weiterhin ist erkennbar, dass die gegebene Funktion der Markoveigenschaft gerecht wird \cite[S.~323-324]{ZHA20}.\\
@@ -64,13 +64,16 @@ Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Wort der Eingabesequenz 
 \end{figure}
 
 \noindent
-Die bereits bekannte beidseitige Propagation ist auch bei \ac{RNN} erforderlich, damit der Trainingsprozess zu einem entsprechenden Lernfortschritt führt. Während die vorwärtige Propagation den oben beschriebenen Prinzipien nachkommt, wird die Backpropagation nun über die Indizes hinweg durchgeführt. Bei einer langen Eingabesequenz gehen entsprechend hochdimensionale Matrizen in die Berechnung ein. Dies ist sowohl aus rechentechnischer als auch aus numerischer Sicht nachteilig, wobei die Anzahl modellinterner Parameter bei steigender Indexanzahl hingegen nicht steigt \cite[S.~328,~340]{ZHA20}.\\
+Die bereits bekannte beidseitige Propagation ist auch bei \ac{RNN} erforderlich, damit der Trainingsprozess zu einem entsprechenden Lernfortschritt führt. Während die vorwärtige Propagation den oben beschriebenen Prinzipien nachkommt, wird die Backpropagation nun über die Indizes hinweg durchgeführt (engl. Backpropagation Through Time). Bei einer langen Eingabesequenz gehen entsprechend hochdimensionale Matrizen in die Berechnung ein. Dies ist sowohl aus rechentechnischer als auch aus numerischer Sicht nachteilig. Die Anzahl modellinterner Parameter steigt bei steigender Indexanzahl hingegen nicht \cite[S.~328,~340]{ZHA20}.\\
 
 \noindent
-\ac{RNN} treffen früher oder später auf das Problem verschwindender Gradienten (engl. Vanishing Gradients). Dies tritt insbesondere bei langen Eingabesequenzen auf. Die modellinternen Parameter werden im Trainingsprozess bekanntermaßen mithilfe der Backpropagation aktualisiert. Aufgrund fortschreitender Multiplikationen mit Wahrscheinlichkeiten zwischen 0 und 1 werden die Gradienten immer kleiner, bis letztlich kein Lernfortschritt mehr zu verzeichnen ist \cite{ARB18}. Dieses Verhalten kann auch als numerischer Unterlauf bezeichnet werden. \ac{RNN} stoßen demnach beim Lernen langfristiger Abhängigkeiten auf ihre Grenzen.\\
+Außerdem können \ac{RNN} bidirektional modelliert werden. Die verborgenen Zustände werden demnach stets mit den Werten vor und nach dem momentanen Index berechnet. Diese beidseitige Propagation ist allerdings sehr rechenaufwendig und wird in dieser Arbeit nicht weiter vertieft.\\
 
 \noindent
-\ac{LSTM} sind eine Art von \ac{RNN}, welche dazu fähig sind, langfristige Abhängigkeit zu erlernen. Sie vermeiden also das Problem verschwindender Gradienten \cite{AIU19}. Außerdem verfolgen sie das Prinzip sogenannter \ac{GRU}. Der entscheidende Mechanismus lässt aus der Funktionsweise solcher Gates ableiten. Demnach entscheiden diese Gates mit einer Wahrscheinlichkeit zwischen 0 und 1, ob der erhaltene Wert weitergeleitet oder verworfen werden soll \cite[S.~347-348]{ZHA20}. Eine \ac{LSTM}-Zelle verfügt über drei wesentliche Gates: Input Gate, Forget Gate, Output Gate.\\
+\ac{RNN} treffen früher oder später auf das Problem verschwindender Gradienten (engl. Vanishing Gradients). Dies tritt insbesondere bei langen Eingabesequenzen auf und führt dazu, dass langfristige Abhängigkeiten nicht mehr gelernt werden können. Die modellinternen Parameter werden im Trainingsprozess bekanntermaßen mithilfe der Backpropagation aktualisiert. Aufgrund fortschreitender Multiplikationen mit Wahrscheinlichkeiten zwischen 0 und 1 werden die Gradienten immer kleiner, bis letztlich kein Lernfortschritt mehr zu verzeichnen ist \cite{ARB18}. Dieses Verhalten kann auch als numerischer Unterlauf bezeichnet werden.\\
+
+\noindent
+\ac{LSTM} sind eine Art von \ac{RNN}, welche dazu fähig sind, langfristige Abhängigkeit zu erlernen. Sie vermeiden das Problem verschwindender Gradienten \cite{AIU19}. Außerdem verfolgen sie das Prinzip sogenannter \ac{GRU}. Der entscheidende Mechanismus lässt aus der Funktionsweise von Gates ableiten. Demnach entscheiden diese Gates mit einer Wahrscheinlichkeit zwischen 0 und 1, ob der erhaltene Wert weitergeleitet oder verworfen werden soll. Eine \ac{LSTM}-Zelle verfügt über drei wesentliche Gates: Input Gate, Forget Gate, Output Gate \cite[S.~347-348]{ZHA20}.\\
 
 \noindent
 Das Input Gate definiert, welche Werte in der Zelle berücksichtigt werden sollen. Hierzu gehören gemäß \ac{RNN} das momentane Wort sowie der vorhergegangene verborgene Zustand. Das Forget Gate trifft eine Entscheidung darüber, ob und welche Werte gespeichert oder vergessen werden sollen. Hierfür eignen sich beispielsweise Aktivierungsfunktionen \cite[S.~355]{ZHA20}. Über die intern festgelegte Logik kann somit der Zellzustand berechnet werden, unter anderem mithilfe punktweiser Matrixoperationen. Der Zellzustand wird sodann als neuer verborgener Zustand im Output Gate emittiert \cite{LUB18}. Der Aufbau einer \ac{LSTM}-Zelle ist in \autoref{pic:LstmCell} zu sehen.
@@ -83,15 +86,37 @@ Das Input Gate definiert, welche Werte in der Zelle berücksichtigt werden solle
 \end{figure}
 
 \noindent
-Ersetzt man die verborgenen Zustände in \autoref{pic:HiddenStates} durch \ac{LSTM}-Zellen, so wird man der beabsichtigten Funktionsweise eines \ac{LSTM} gerecht. Mit fortschreitendem Trainingsprozess werden auch hier sequenzielle Abhängigkeiten gelernt, wobei als irrelevant angenommene Informationen stets verworfen werden. Der Vorteil gegenüber schlichter \ac{RNN} besteht bei den \ac{LSTM} hierdurch insbesondere darin, dass langfristige Abhängigkeiten gelernt und bestimmte Informationen schneller gefunden werden können. Dies gilt vor allem für vielschichtige komplexe neuronale Netze, welche anderenfalls unübersichtlich und rechenaufwändig würden \cite{LUB18}.\\
+Ersetzt man die verborgenen Zustände in \autoref{pic:HiddenStates} durch \ac{LSTM}-Zellen, so wird man der beabsichtigten Funktionsweise eines \ac{LSTM} gerecht. Mit fortschreitendem Trainingsprozess werden auch hier sequenzielle Abhängigkeiten gelernt, wobei als irrelevant angenommene Informationen stets verworfen werden. Der Vorteil gegenüber schlichter \ac{RNN} besteht bei den \ac{LSTM} hierdurch insbesondere darin, dass langfristige Abhängigkeiten besonders gut gelernt und bestimmte Informationen schneller gefunden werden können. Dies gilt vor allem für vielschichtige komplexe neuronale Netze, welche anderenfalls unübersichtlich und rechenaufwändig würden \cite{LUB18}.\\
 
 \noindent
-Zwar sind \ac{LSTM} den \ac{RNN} qualitativ in vielen \ac{NLP}-Aufgaben überlegen, dennoch sind beide Architekturen eher statistisch getrieben und somit als veraltet zu interpretieren. Obgleich sie als Grundlage prinzipiell verstanden werden sollten, dominieren maschinelle Lernverfahren qualitativ sowie ressourcentechnisch den \ac{SOTA} mit verschiedenen anderweitigen Architekturen \cite{CUR18}. Diese werden nachfolgend hinreichend erläutert.
+Zwar sind \ac{LSTM} den \ac{RNN} qualitativ in vielen \ac{NLP}-Aufgaben überlegen, dennoch sind beide Architekturen eher statistisch getrieben und somit autark als veraltet zu bewerten. Obgleich sie als Grundlage prinzipiell verstanden werden sollten, dominieren maschinelle Lernverfahren qualitativ sowie ressourcentechnisch den \ac{SOTA} mit verschiedenen anderweitigen Architekturen \cite{CUR18}. Diese werden nachfolgend hinreichend erläutert.
 
 
-\subsection{Encoder-Decoder Networks}
+\subsection{Encoder-Decoder-Architekturen}
 \noindent
-\cite{ZHA20} ab Seite 377, 375, YAN19 S. 3 links unten und rechts unten, siehe außerdem \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=Gw3IZYrfKl4Z} für Encoder-Decoder-Rechtfertigung im entsprechenden Theorie-Teil, Skizzen von dort nutzen
+Encoder-Decoder-Architekturen sind zunächst einmal als Template zu verstehen, welches einer stets individuellen Entwicklung und Reife bedarf. Dabei bestehen entsprechende Modelle aus einem Encoder und einem Decoder \cite[S.~375-376]{ZHA20}. Beide Module bestehen de facto aus neuronalen Netzen, welche beispielsweise durch \ac{RNN} oder auch \ac{LSTM} repräsentiert werden können. Hierdurch wird zugleich die Verarbeitung sequenzieller Daten ermöglicht. Hinsichtlich der anvisierten \ac{ATS} spricht man daher auch von Sequence-to-Sequence-Modellen \cite[S.~377]{ZHA20}.\\
+
+\noindent
+Im Encoder wird die Eingabesequenz zuerst eingebettet. Hierdurch entsteht ein Merkmalsvektor, welcher entlang eines zugrundeliegenden Wortschatzes aus den Indizes der eingegangenen Wörter besteht. Er ist die mathematisch verarbeitbare Version der Eingabesequenz. Dieser Vorgang wird im weiteren Verlauf dieser Arbeit noch hinreichend beschrieben und untersucht. Der Merkmalsvektor geht sodann in das neuronale Netz des Encoders ein und wird in eine entsprechende Zustandsrepräsentation überführt \cite{YAN19}.\\
+
+\noindent
+Der Decoder wird mit den Ausgangsdaten des Encoders initialisiert. Die entsprechende Zustandsrepräsentation wird ebenfalls mithilfe eines neuronalen Netzes verarbeitet \cite[S.379]{ZHA20}. Nun wird jedoch zusätzlich eine Ausgabesequenz generiert, welche der \ac{ATS} gerecht werden soll. Wie bereits bekannt ist, gilt es letztlich die bedingte Wahrscheinlichkeit $P(y \mid x)$ zu modellieren \cite{YAN19}.\\
+
+\noindent
+Es folgt nun eine mathematische Betrachtung der Encoder-Decoder-Architektur. Hierfür wird die genannte Zustandsrepräsentation als Kontextvektor $c$ bezeichnet. Die Wahrscheinlichkeit für eine Ausgabe am Index $t > 0$ kann demnach mit $$P(y_t \mid y_1, ..., y_{t-1}, c)$$ modelliert werden. Die Berechnung der verborgenen Zustände im Decoder erfordert nun den Merkmalsvektor, den Kontextvektor und den letzten verborgenen Zustand des Encoders. Hiermit kann $$h_t = f(y_{t-1}, c, s_{t-1})$$ berechnet werden. Informationen, welche an vorherigen Indizes gespeichert sind, können rekursiv ermittelt werden. Architektonisch ist weiterhin zu beachten, dass die Konfiguration des Encoders der Konfiguration des Decoders gleicht. Dies gilt insbesondere für die Anzahl der verborgenen Schichten \cite[S.~379]{ZHA20}.\\
+
+\noindent
+Um die theoretisch und abstrakt beschriebene Architektur zu veranschaulichen, werden die wesentlichen Module nun abschließend in \autoref{pic:EncoderDecoder} visuell in Zusammenhang gebracht.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/encoderdecoder.png}}
+  \caption{Encoder-Decoder-Architektur \cite[S.~375]{ZHA20}.}
+  \label{pic:EncoderDecoder}
+\end{figure}
+
+\noindent
+Zuletzt sei noch erwähnt, dass es Suchalgorithmen wie die Beam Search mithilfe geeigneter mathematischer Ansätze ermöglichen, Ausgabesequenzen mit variablen Längen zu erzeugen \cite[S.~387]{ZHA20}.
 
 
 \subsection{Attention in Neural Networks}
