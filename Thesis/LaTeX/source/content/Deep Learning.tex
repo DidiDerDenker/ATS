@@ -48,13 +48,13 @@ Um mithilfe neuronaler Netze die \ac{ATS} zu modellieren, werden nun ausgewählt
 
 \subsection{Recurrent Neural Networks}
 \noindent
-Eingangsdaten der \ac{ATS} haben in jedem Fall einen Textcharakter. Hierbei ist die Reihenfolge der Wörter hinsichtlich eines ausreichenden Textverständnisses von großer Bedeutung. Dies gilt sowohl für die Texte selbst als auch für die darin enthaltenen Sätze. Daher werden nun \ac{RNN} vorgestellt, welche derart sequenzielle Daten mithilfe von zahlreichen verborgenen Zuständen in verborgenen Schichten verarbeiten können \cite[S.~301]{ZHA20}.\\
+Eingangsdaten der \ac{ATS} haben in jedem Fall einen Textcharakter. Hierbei ist die Reihenfolge der Symbole hinsichtlich eines ausreichenden Textverständnisses von großer Bedeutung. Dies gilt sowohl für die Texte selbst als auch für die darin enthaltenen Sätze. Daher werden nun \ac{RNN} vorgestellt, welche derart sequenzielle Daten mithilfe von zahlreichen verborgenen Zuständen in verborgenen Schichten verarbeiten können \cite[S.~301]{ZHA20}.\\
 
 \noindent
-Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Wort der Eingabesequenz an einem Index $t > 0$. Der Index ist hierbei als Position eines Wortes innerhalb eines Textes zu verstehen \cite{VAS17}. \ac{RNN} können hierfür die Wahrscheinlichkeit $$P(x_t \mid x_{t-1}, ... , x_1) \approx P(x_t \mid h_{t-1})$$ modellieren. Gemäß der daraus herleitbaren Funktion $$h_t = f(x_t, h_{t-1})$$ kann der verborgene Zustand $h_t$ unter Kenntnis des Wortes $x_t$ und des verborgenen Zustandes $h_{t-1}$ berechnet werden. Letzterer verfügt über die sequenziellen Informationen bis zum Index $t-1$. Weiterhin ist erkennbar, dass die gegebene Funktion der Markoveigenschaft gerecht wird \cite[S.~323-324]{ZHA20}.\\
+Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Symbol der Eingabesequenz an einem Index $t > 0$. Der Index ist hierbei als Position eines Symbols innerhalb eines Textes zu verstehen \cite{VAS17}. \ac{RNN} können hierfür die Wahrscheinlichkeit $$P(x_t \mid x_{t-1}, ... , x_1) \approx P(x_t \mid h_{t-1})$$ modellieren. Gemäß der daraus herleitbaren Funktion $$h_t = f(x_t, h_{t-1})$$ kann der verborgene Zustand $h_t$ unter Kenntnis des Symbols $x_t$ und des verborgenen Zustandes $h_{t-1}$ berechnet werden. Letzterer verfügt über die sequenziellen Informationen bis zum Index $t-1$. Weiterhin ist erkennbar, dass die gegebene Funktion der Markoveigenschaft gerecht wird \cite[S.~323-324]{ZHA20}.\\
 
 \noindent
-\autoref{pic:HiddenStates} demonstriert den rechentechnischen Vorgang anhand von drei prototypischen verborgenen Zuständen unter gegebenen Eingangsdaten. Wie bereits bei der oben genannten Funktion ersichtlich wurde, gehen in einen verborgenen Zustand jeweils das momentane Wort und der vorhergegangene verborgene Zustand ein. Innerhalb eines verborgenen Zustandes werden diese beiden Eingangsgrößen mithilfe einer Aktivierungsfunktion in eine vollvermaschte Schicht überführt. Zudem wird die Ausgabeschicht mit dem momentanen Output versorgt \cite[S.~325]{ZHA20}. Allgemein haben \ac{RNN} also die Form einer Kette, in der Module neuronaler Netze immer wiederkehren \cite{AIU19}.
+\autoref{pic:HiddenStates} demonstriert den rechentechnischen Vorgang anhand von drei prototypischen verborgenen Zuständen unter gegebenen Eingangsdaten. Wie bereits bei der oben genannten Funktion ersichtlich wurde, gehen in einen verborgenen Zustand jeweils das momentane Symbol und der vorhergegangene verborgene Zustand ein. Innerhalb eines verborgenen Zustandes werden diese beiden Eingangsgrößen mithilfe einer Aktivierungsfunktion in eine vollvermaschte Schicht überführt. Zudem wird die Ausgabeschicht mit dem momentanen Output versorgt \cite[S.~325]{ZHA20}. Allgemein haben \ac{RNN} also die Form einer Kette, in der Module neuronaler Netze immer wiederkehren \cite{AIU19}.
 
 \begin{figure}[h!]
   \centering
@@ -76,7 +76,7 @@ Außerdem können \ac{RNN} bidirektional modelliert werden. Die verborgenen Zust
 \ac{LSTM} sind eine Art von \ac{RNN}, welche dazu fähig sind, langfristige Abhängigkeit zu erlernen. Sie vermeiden das Problem verschwindender Gradienten \cite{AIU19}. Außerdem verfolgen sie das Prinzip sogenannter \ac{GRU}. Der entscheidende Mechanismus lässt aus der Funktionsweise von Gates ableiten. Demnach entscheiden diese Gates mit einer Wahrscheinlichkeit zwischen 0 und 1, ob der erhaltene Wert weitergeleitet oder verworfen werden soll. Eine \ac{LSTM}-Zelle verfügt über drei wesentliche Gates: Input Gate, Forget Gate, Output Gate \cite[S.~347-348]{ZHA20}.\\
 
 \noindent
-Das Input Gate definiert, welche Werte in der Zelle berücksichtigt werden sollen. Hierzu gehören gemäß \ac{RNN} das momentane Wort sowie der vorhergegangene verborgene Zustand. Das Forget Gate trifft eine Entscheidung darüber, ob und welche Werte gespeichert oder vergessen werden sollen. Hierfür eignen sich beispielsweise Aktivierungsfunktionen \cite[S.~355]{ZHA20}. Über die intern festgelegte Logik kann somit der Zellzustand berechnet werden, unter anderem mithilfe punktweiser Matrixoperationen. Der Zellzustand wird sodann als neuer verborgener Zustand im Output Gate emittiert \cite{LUB18}. Der Aufbau einer \ac{LSTM}-Zelle ist in \autoref{pic:LstmCell} zu sehen.
+Das Input Gate definiert, welche Werte in der Zelle berücksichtigt werden sollen. Hierzu gehören gemäß \ac{RNN} das momentane Symbol sowie der vorhergegangene verborgene Zustand. Das Forget Gate trifft eine Entscheidung darüber, ob und welche Werte gespeichert oder vergessen werden sollen. Hierfür eignen sich beispielsweise Aktivierungsfunktionen \cite[S.~355]{ZHA20}. Über die intern festgelegte Logik kann somit der Zellzustand berechnet werden, unter anderem mithilfe punktweiser Matrixoperationen. Der Zellzustand wird sodann als neuer verborgener Zustand im Output Gate emittiert \cite{LUB18}. Der Aufbau einer \ac{LSTM}-Zelle ist in \autoref{pic:LstmCell} zu sehen.
 
 \begin{figure}[h!]
   \centering
@@ -97,7 +97,7 @@ Zwar sind \ac{LSTM} den \ac{RNN} qualitativ in vielen \ac{NLP}-Aufgaben überleg
 Encoder-Decoder-Architekturen sind zunächst einmal als Template zu verstehen, welches einer stets individuellen Entwicklung und Reife bedarf. Dabei bestehen entsprechende Modelle aus einem Encoder und einem Decoder \cite[S.~375-376]{ZHA20}. Beide Module bestehen de facto aus neuronalen Netzen, welche beispielsweise durch \ac{RNN} oder auch \ac{LSTM} repräsentiert werden können. Hierdurch wird zugleich die Verarbeitung sequenzieller Daten ermöglicht. Hinsichtlich der anvisierten \ac{ATS} spricht man daher auch von Sequence-to-Sequence-Modellen \cite[S.~377]{ZHA20}.\\
 
 \noindent
-Im Encoder wird die Eingabesequenz zuerst eingebettet. Hierdurch entsteht ein Merkmalsvektor, welcher entlang eines zugrundeliegenden Wortschatzes aus den Indizes der eingegangenen Wörter besteht. Er ist die mathematisch verarbeitbare Version der Eingabesequenz. Dieser Vorgang wird im weiteren Verlauf dieser Arbeit noch hinreichend beschrieben und untersucht. Der Merkmalsvektor geht sodann in das neuronale Netz des Encoders ein und wird in eine entsprechende Zustandsrepräsentation überführt \cite{YAN19}.\\
+Im Encoder wird die Eingabesequenz zuerst eingebettet. Hierdurch entsteht ein Merkmalsvektor, welcher entlang eines zugrundeliegenden Wortschatzes aus den Indizes der eingegangenen Symbole besteht. Er ist die mathematisch verarbeitbare Version der Eingabesequenz. Dieser Vorgang wird im weiteren Verlauf dieser Arbeit noch hinreichend beschrieben und untersucht. Der Merkmalsvektor geht sodann in das neuronale Netz des Encoders ein und wird in eine entsprechende Zustandsrepräsentation überführt \cite{YAN19}.\\
 
 \noindent
 Der Decoder wird mit den Ausgangsdaten des Encoders initialisiert. Die entsprechende Zustandsrepräsentation wird ebenfalls mithilfe eines neuronalen Netzes verarbeitet \cite[S.379]{ZHA20}. Nun wird jedoch zusätzlich eine Ausgabesequenz generiert, welche der \ac{ATS} gerecht werden soll. Wie bereits bekannt ist, gilt es letztlich die bedingte Wahrscheinlichkeit $P(y \mid x)$ zu modellieren \cite{YAN19}.\\
@@ -106,7 +106,7 @@ Der Decoder wird mit den Ausgangsdaten des Encoders initialisiert. Die entsprech
 Es folgt nun eine mathematische Betrachtung der Encoder-Decoder-Architektur. Hierfür wird die genannte Zustandsrepräsentation als Kontextvektor $c$ bezeichnet. Die Wahrscheinlichkeit für eine Ausgabe am Index $t > 0$ kann demnach mit $$P(y_t \mid y_1, ..., y_{t-1}, c)$$ modelliert werden. Die Berechnung der verborgenen Zustände im Decoder erfordert nun den Merkmalsvektor, den Kontextvektor und den letzten verborgenen Zustand des Encoders. Hiermit kann $$h_t = f(y_{t-1}, c, s_{t-1})$$ berechnet werden. Informationen, welche an vorherigen Indizes gespeichert sind, können rekursiv ermittelt werden. Architektonisch ist weiterhin zu beachten, dass die Konfiguration des Encoders der Konfiguration des Decoders gleicht. Dies gilt insbesondere für die Anzahl der verborgenen Schichten \cite[S.~379]{ZHA20}.\\
 
 \noindent
-Um die theoretisch und abstrakt beschriebene Architektur zu veranschaulichen, werden die wesentlichen Module nun abschließend in \autoref{pic:EncoderDecoder} visuell in Zusammenhang gebracht.
+Um die theoretisch und abstrakt beschriebene Architektur zu veranschaulichen, werden die wesentlichen Module nun abschließend in \autoref{pic:EncoderDecoder} visuell in Zusammenhang gebracht. Allgemein gilt: Eine Eingabesequenz $x = [x_{1}, ..., x_{n}]$ wird mithilfe des Encoders zunächst in einen kontinuierlichen Zustandsvektor $z = [z_{1}, ..., z_{n}]$ überführt, bevor der Decoder daraus die Ausgabesequenz $y = [y_{1}, ..., y_{m}]$ generieren kann \cite{VAS17}.
 
 \begin{figure}[h!]
   \centering
@@ -121,15 +121,39 @@ Zuletzt sei noch erwähnt, dass es Suchalgorithmen wie die Beam Search mithilfe 
 
 \subsection{Attention in Neural Networks}
 \noindent
-Die Encoder-Decoder-Architektur kann im Kontext der \ac{ATS} um einen sogenannten Attention-Mechanismus erweitert werden, welcher den Encoder mit dem Decoder verbindet \cite{VAS17}. Dabei geht es, wie die Übersetzung schon vermuten lässt, um Aufmerksamkeit. In der kognitiven Neurowissenschaft wird Aufmerksamkeit als ein Zustand gesteigerter Anspannung definiert, welcher selektive Wahrnehmung sowie entsprechendes Denken und Handeln ermöglicht. Diese Fähigkeit wird von einem \ac{ATS}-Modell verlangt und mithilfe des Attention-Mechanismus realisiert. Um letztlich eine qualitative Zusammenfassung generieren zu können, selektiert der Attention-Mechanismus die wichtigsten Informationen aus dem Encoder, indem er die dort verarbeitete Eingabesequenz stets beobachtet und globale Zusammenhänge zwischen der Eingabesequenz und der Ausgabesequenz herstellt. Der Decoder wird darüber informiert. Hierfür sind geeignete mathematische Modelle zu entwerfen. Das entsprechende \ac{ATS}-Modell soll also menschenähnlichem Verhalten nachempfinden, weshalb es per Definition als KI-basierter Ansatz bezeichnet wird \cite[S.~389]{ZHA20}.\\
+Die Encoder-Decoder-Architektur kann im Kontext der \ac{ATS} um einen sogenannten Attention-Mechanismus erweitert werden, welcher den Encoder mit dem Decoder verbindet \cite{VAS17}. Dabei geht es, wie die Übersetzung schon verrät, um Aufmerksamkeit. In der kognitiven Neurowissenschaft wird Aufmerksamkeit als ein Zustand gesteigerter Anspannung definiert, welcher selektive Wahrnehmung sowie entsprechendes Denken und Handeln umfasst. Diese Fähigkeit wird von einem \ac{ATS}-Modell verlangt und mithilfe des Attention-Mechanismus realisiert. Um letztlich eine qualitative Zusammenfassung generieren zu können, selektiert der Attention-Mechanismus die wichtigsten Informationen aus dem Encoder, indem er die dort verarbeitete Eingabesequenz stets beobachtet und globale Zusammenhänge zwischen der Eingabesequenz und der Ausgabesequenz herstellt. Der Decoder wird dementsprechend darüber informiert. Hierfür sind geeignete mathematische Modelle zu entwerfen. Das \ac{ATS}-Modell soll also menschenähnlichem Verhalten nachempfinden, weshalb es per Definition als KI-basierter Ansatz bezeichnet wird \cite[S.~389]{ZHA20}.\\
 
-- ABB für Einordnung von Attention in Encoder-Decoder-Architekturen
-- Ab S. 394 fortsetzen, besser beschreiben, Self-Attention, Multi-Head-Attention \cite{ZHA20}
-- Andere PDF's umfänglich einarbeiten \cite{VAS17}
+\noindent
+Der Attention-Mechanismus basiert indes auf einer Attention-Funktion, welche eine Query und ein Menge von Key-Value-Paaren einem Output zuordnet. Der Output wird dabei vektorweise als gewichtete Summe der Werte berechnet, während die Query determiniert, welchen Werten mehr Attention zugeordnet wird \cite{VAS17}. \autoref{pic:AttentionLayer} zeigt eine solche Attention-Schicht.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.4\linewidth]{./source/images/attentionlayer.png}}
+  \caption{Attention-Schicht \cite[S.~390]{ZHA20}.}
+  \label{pic:AttentionLayer}
+\end{figure}
+
+\noindent
+Die Funktionsweise des Attention-Mechanismus innerhalb einer Encoder-Decoder-Architektur kann nun mithilfe \autoref{pic:AttentionMechanism} weiter vertieft werden, wobei hier Index $t$ betrachtet wird. Dabei bettet der Encoder die Eingabesequenz in bekannter Weise ein und verarbeitet sie, indem die verborgenen Zustände über alle verborgenen Schichten hinweg berechnet werden. Die Attention-Schicht erhält in der Folge alle Informationen, die der Encoder verarbeitet hat. Der Decoder wird nicht nur über den vorangegangenen verborgenen Zustand des Encoders informiert, sondern auch über den aus der Attention-Schicht resultierenden Kontext. Dieser wird als Antwort auf eine Query generiert, wobei eben diese Query wiederum durch den vorangegangenen verborgenen Zustand des Decoders repräsentiert wird \cite[S.~394]{ZHA20}. Die Ausgabesequenz wird hierbei indexweise und autoregressiv generiert, da dem Decoder in jedem Index zusätzlich die bereits generierten Symbole zugeführt werden \cite{VAS17}.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.55\linewidth]{./source/images/attentionmechanism.png}}
+  \caption{Attention-Mechanismus \cite[S.~394]{ZHA20}.}
+  \label{pic:AttentionMechanism}
+\end{figure}
+
+\noindent
+Weiterhin wird zwischen zwei Eigenarten unterschieden: Self-Attention und Multi-Head-Attention. Self-Attention transformiert innerhalb einer Query $n$ Inputs in $n$ Outputs. Dabei interagieren alle Inputs miteinander, um die Verteilung der globalen Attention zu bestimmen. Die Outputs entstehen folglich, indem die entsprechenden Scores aggregiert werden. Betrachtet man also einen Satz, dann ist die Attention jedes darin enthaltenen Symbols zu berechnen \cite{KAR19}.
+\newpage
+
+\noindent
+Multi-Head-Attention hingegen betrachtet direkt mehrere Queries. Die Matrizen der Queries Q, Keys K und Values V werden mithilfe entsprechender Gewichtsmatrizen dimensional reduziert, um $$Head = Attention(QW^Q, KW^K, VW^V)$$ zu berechnen. Diese Berechnung geschieht h-mal, sodass entsprechend viele Heads in Form von Gewichtsmatrizen entstehen. Diese werden konkateniert und wiederum mit entsprechenden Gewichtsmatrizen transformiert, sodass $$MultiHead(Q,K,V) = Concat(Head_1, ..., Head_h) \cdot W^O$$ gilt. Hierdurch wird es dem Modell ermöglicht, Informationen aus verschiedenen Repräsentationen zu identifizieren. Betrachtet man also erneut einen Satz, dann werden die Informationen positionsunabhängig und satzübergreifend identifiziert \cite{VAS17}.
 
 
 \subsection{Transformer Networks}
 \noindent
+\cite{VAS17}
 \cite{ZHA20} ab Seite 398 mit MH-Attention, Encoder, Decoder, Training etc. + Transformer-based Encoder-Decoder-Models erwähnen, schon mal \cite{ROT20} bzgl. der Möglichkeit von Ersetzen des Encoder und und des Decoder durch vortrainierte multilinguale Modelle erwähnen, ebenfalls geeignet für sequenzielle Daten, Grenzen im nachfolgenden Kapitel bzgl. Transfer Learning genauer offenlegen, an \cite{RAF20} orientieren, ggf. \url{https://arxiv.org/pdf/1912.08777.pdf} referenzieren, oder auch \url{https://arxiv.org/pdf/2007.14062.pdf}
 
 
