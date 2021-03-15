@@ -92,7 +92,7 @@ Ersetzt man die verborgenen Zustände in \autoref{pic:HiddenStates} durch \ac{LS
 Zwar sind \ac{LSTM} den \ac{RNN} qualitativ in vielen \ac{NLP}-Aufgaben überlegen, dennoch sind beide Architekturen eher statistisch getrieben und somit autark als veraltet zu bewerten. Obgleich sie als Grundlage prinzipiell verstanden werden sollten, dominieren maschinelle Lernverfahren qualitativ sowie ressourcentechnisch den \ac{SOTA} mit verschiedenen anderweitigen Architekturen \cite{CUR18}. Diese werden nachfolgend hinreichend erläutert.
 
 
-\subsection{Encoder-Decoder-Architekturen}
+\subsection{Encoder-Decoder-Networks}
 \noindent
 Encoder-Decoder-Architekturen sind zunächst einmal als Template zu verstehen, welches einer stets individuellen Entwicklung und Reife bedarf. Dabei bestehen entsprechende Modelle aus einem Encoder und einem Decoder \cite[S.~375-376]{ZHA20}. Beide Module bestehen de facto aus neuronalen Netzen, welche beispielsweise durch \ac{RNN} oder auch \ac{LSTM} repräsentiert werden können. Hierdurch wird zugleich die Verarbeitung sequenzieller Daten ermöglicht. Hinsichtlich der anvisierten \ac{ATS} spricht man daher auch von Sequence-to-Sequence-Modellen \cite[S.~377]{ZHA20}.\\
 
@@ -144,17 +144,54 @@ Die Funktionsweise des Attention-Mechanismus innerhalb einer Encoder-Decoder-Arc
 \end{figure}
 
 \noindent
-Weiterhin wird zwischen zwei Eigenarten unterschieden: Self-Attention und Multi-Head-Attention. Self-Attention transformiert innerhalb einer Query $n$ Inputs in $n$ Outputs. Dabei interagieren alle Inputs miteinander, um die Verteilung der globalen Attention zu bestimmen. Die Outputs entstehen folglich, indem die entsprechenden Scores aggregiert werden. Betrachtet man also einen Satz, dann ist die Attention jedes darin enthaltenen Symbols zu berechnen \cite{KAR19}.
-\newpage
+Weiterhin wird zwischen zwei Eigenarten unterschieden: Self-Attention und Multi-Head-Attention. Self-Attention transformiert innerhalb einer Query $n$ Inputs in $n$ Outputs. Dabei interagieren alle Inputs miteinander, um die Verteilung der globalen Attention zu bestimmen. Die Outputs entstehen folglich, indem die entsprechenden Scores aggregiert werden. Betrachtet man also einen Satz, dann ist die Attention jedes darin enthaltenen Symbols zu berechnen \cite{KAR19}. \autoref{pic:SelfAttention} visualisiert die Self-Attention architektonisch.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.5\linewidth]{./source/images/selfattention.png}}
+  \caption{Self-Attention \cite[S.~400]{ZHA20}.}
+  \label{pic:SelfAttention}
+\end{figure}
 
 \noindent
-Multi-Head-Attention hingegen betrachtet direkt mehrere Queries. Die Matrizen der Queries Q, Keys K und Values V werden mithilfe entsprechender Gewichtsmatrizen dimensional reduziert, um $$Head = Attention(QW^Q, KW^K, VW^V)$$ zu berechnen. Diese Berechnung geschieht h-mal, sodass entsprechend viele Heads in Form von Gewichtsmatrizen entstehen. Diese werden konkateniert und wiederum mit entsprechenden Gewichtsmatrizen transformiert, sodass $$MultiHead(Q,K,V) = Concat(Head_1, ..., Head_h) \cdot W^O$$ gilt. Hierdurch wird es dem Modell ermöglicht, Informationen aus verschiedenen Repräsentationen zu identifizieren. Betrachtet man also erneut einen Satz, dann werden die Informationen positionsunabhängig und satzübergreifend identifiziert \cite{VAS17}.
+Multi-Head-Attention hingegen betrachtet direkt mehrere Queries. Die Matrizen der Queries Q, Keys K und Values V werden mithilfe entsprechender Gewichtsmatrizen dimensional reduziert, um $$Head = Attention(QW^Q, KW^K, VW^V)$$ zu berechnen. Diese Berechnung geschieht h-mal, sodass entsprechend viele Heads in Form von Gewichtsmatrizen entstehen. Diese werden konkateniert und wiederum mit entsprechenden Gewichtsmatrizen transformiert, sodass $$MultiHead(Q,K,V) = Concat(Head_1, ..., Head_h) \cdot W^O$$ gilt. Hierdurch wird es dem Modell ermöglicht, Informationen aus verschiedenen Repräsentationen zu identifizieren. Betrachtet man also erneut einen Satz, dann werden die Informationen positionsunabhängig und satzübergreifend identifiziert \cite{VAS17}. \autoref{pic:MultiHeadAttention} visualisiert die Multi-Head-Attention architektonisch.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.5\linewidth]{./source/images/multiheadattention.png}}
+  \caption{Multi-Head-Attention \cite[S.~400]{ZHA20}.}
+  \label{pic:MultiHeadAttention}
+\end{figure}
 
 
 \subsection{Transformer Networks}
 \noindent
+Transformer basieren ebenfalls auf der Encoder-Decoder-Architektur, wobei darüber hinaus verschiedene Attention-Mechanismen implementiert werden. Besonders ist hierbei, dass die Eingabesequenz parallel zur Anwendung der Attention-Mechanismen positionsabhängig eingebettet wird, um sequenzielle Informationen zu extrahieren. Dies führt insgesamt zu einem recht kompatiblen Modell, welches nur noch einer stark verringerten Trainingszeit bedarf \cite[S.~398]{ZHA20}.\\
+
+\noindent
+Architektonisch werden die rekurrenten Schichten bisheriger Sequence-to-Sequence-Modelle durch Transformer-Module ersetzt. Diese bestehen aus einer Multi-Head-Attention-Schicht, einem positionsabhängigen Feed-Forward-Netzwerk und einer sogenannten Layer-Normalization-Schicht. Letztere werden nun in Bezug auf Transformer intensiver erläutert \cite[S.~399]{ZHA20}. \autoref{pic:TransformerArchitecture} visualisiert die Architektur im Vergleich zu \autoref{pic:AttentionMechanism}.\\
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.5\linewidth]{./source/images/transformerarchitecture.png}}
+  \caption{Transformer-Architektur \cite[S.~399]{ZHA20}.}
+  \label{pic:TransformerArchitecture}
+\end{figure}
+
+\noindent
+Feed-Forward-Netzwerk (positionsabhängig), Absatz ab S. 402 in ZHA20 verschriften.\\
+
+\noindent
+Layer-Normalization-Schicht: Diese wird benötigt, um für das entsprechende Modell einen generalisierenden Effekt zu erzielen. Dabei werden keine neuen Abhängigkeiten erlernt, wohl aber die Trainingszeit weiter reduziert. -> Weiteres siehe ab S. 403 in ZHA20, auch S. 404 bzgl. Positional Encoding irgendwo unterbringen.\\
+
+\noindent
+Unterschiede im Encoder und Decoder mit S. 406 ff. in ZHA20 verschriften.\\
+
+Notizen:
 \cite{VAS17}
 \cite{ZHA20} ab Seite 398 mit MH-Attention, Encoder, Decoder, Training etc. + Transformer-based Encoder-Decoder-Models erwähnen, schon mal \cite{ROT20} bzgl. der Möglichkeit von Ersetzen des Encoder und und des Decoder durch vortrainierte multilinguale Modelle erwähnen, ebenfalls geeignet für sequenzielle Daten, Grenzen im nachfolgenden Kapitel bzgl. Transfer Learning genauer offenlegen, an \cite{RAF20} orientieren, ggf. \url{https://arxiv.org/pdf/1912.08777.pdf} referenzieren, oder auch \url{https://arxiv.org/pdf/2007.14062.pdf}
+
+-> PDF generieren und Kapitel optisch aufhübschen
 
 
 \section{Hyperparameter}
