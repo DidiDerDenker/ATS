@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  15 MAR 2021 10:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  16 MAR 2021 16:21
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1338,7 +1338,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-<./source/images/summarizationprocess.png, id=277, 370.38374pt x 179.92218pt>
+<./source/images/summarizationprocess.png, id=286, 370.38374pt x 179.92218pt>
 File: ./source/images/summarizationprocess.png Graphic file (type png)
 <use ./source/images/summarizationprocess.png>
 Package pdftex.def Info: ./source/images/summarizationprocess.png  used on inpu
@@ -1416,12 +1416,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
 
-<./source/images/artificialneuron.png, id=364, 539.76656pt x 225.84375pt>
+<./source/images/artificialneuron.png, id=373, 551.81157pt x 307.90031pt>
 File: ./source/images/artificialneuron.png Graphic file (type png)
 <use ./source/images/artificialneuron.png>
 Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
 ne 15.
-(pdftex.def)             Requested size: 268.8813pt x 112.50461pt.
+(pdftex.def)             Requested size: 268.8813pt x 150.0362pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1432,12 +1432,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
-<./source/images/multilayerperceptron.png, id=371, 545.78906pt x 291.33844pt>
+<./source/images/multilayerperceptron.png, id=380, 854.44218pt x 462.22687pt>
 File: ./source/images/multilayerperceptron.png Graphic file (type png)
 <use ./source/images/multilayerperceptron.png>
 Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
 t line 25.
-(pdftex.def)             Requested size: 268.8813pt x 143.52614pt.
+(pdftex.def)             Requested size: 313.69029pt x 169.6953pt.
 [5
 
 
@@ -1456,12 +1456,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
 [6 <./source/images/artificialneuron.png> <./source/images/multilayerperceptron
 .png>]
-<./source/images/fittingtypes.png, id=389, 855.195pt x 284.56313pt>
+<./source/images/fittingtypes.png, id=398, 748.29562pt x 247.67531pt>
 File: ./source/images/fittingtypes.png Graphic file (type png)
 <use ./source/images/fittingtypes.png>
 Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 3
 8.
-(pdftex.def)             Requested size: 291.28238pt x 96.91951pt.
+(pdftex.def)             Requested size: 291.28238pt x 96.41158pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 50--52
 
@@ -1472,23 +1472,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-<./source/images/hiddenstates.png, id=411, 636.12656pt x 269.50688pt>
+<./source/images/hiddenstates.png, id=418, 744.53156pt x 216.05719pt>
 File: ./source/images/hiddenstates.png Graphic file (type png)
 <use ./source/images/hiddenstates.png>
 Package pdftex.def Info: ./source/images/hiddenstates.png  used on input line 6
 1.
-(pdftex.def)             Requested size: 313.69029pt x 132.89844pt.
+(pdftex.def)             Requested size: 358.50612pt x 104.03923pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 66--68
 
  []
 
-
+[8 <./source/images/hiddenstates.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
-[8 <./source/images/hiddenstates.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
@@ -1500,172 +1500,231 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-<./source/images/lstmcell.png, id=436, 353.82187pt x 172.39406pt>
+[9]
+<./source/images/lstmcell.png, id=452, 747.54282pt x 333.49594pt>
 File: ./source/images/lstmcell.png Graphic file (type png)
 <use ./source/images/lstmcell.png>
-Package pdftex.def Info: ./source/images/lstmcell.png  used on input line 83.
-(pdftex.def)             Requested size: 313.69029pt x 152.84361pt.
+Package pdftex.def Info: ./source/images/lstmcell.png  used on input line 84.
+(pdftex.def)             Requested size: 313.69029pt x 139.9452pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (10.16006pt too wide) in paragraph at lines 88--90
+Overfull \hbox (10.16006pt too wide) in paragraph at lines 89--91
 [][] \OT1/cmr/m/n/12 be-steht bei den [][] hier-durch ins-be-son-de-re dar-in, 
 dass lang-fris-ti-ge Abh[]angigkeiten
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--101
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--102
 
  []
 
 [10 <./source/images/lstmcell.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 102--104
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
 
-Overfull \hbox (6.8664pt too wide) in paragraph at lines 108--110
+Overfull \hbox (6.8664pt too wide) in paragraph at lines 109--111
 \OT1/cmr/m/n/12 De-co-der dar-aus die Aus-ga-be-se-quenz $\OML/cmm/m/it/12 y \O
 T1/cmr/m/n/12 = [\OML/cmm/m/it/12 y[]; :::; y[]\OT1/cmr/m/n/12 ]$ ge-ne-rie-ren
  kann [[]]. 
  []
 
-<./source/images/encoderdecoder.png, id=475, 794.97pt x 197.23688pt>
+<./source/images/encoderdecoder.png, id=484, 499.11469pt x 108.405pt>
 File: ./source/images/encoderdecoder.png Graphic file (type png)
 <use ./source/images/encoderdecoder.png>
 Package pdftex.def Info: ./source/images/encoderdecoder.png  used on input line
- 113.
-(pdftex.def)             Requested size: 313.69029pt x 77.83095pt.
-[11 <./source/images/encoderdecoder.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 123--125
+ 114.
+(pdftex.def)             Requested size: 313.69029pt x 68.13339pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
-<./source/images/attentionlayer.png, id=491, 178.41656pt x 129.48375pt>
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
+
+ []
+
+<./source/images/attentionlayer.png, id=499, 597.73312pt x 426.84468pt>
 File: ./source/images/attentionlayer.png Graphic file (type png)
 <use ./source/images/attentionlayer.png>
 Package pdftex.def Info: ./source/images/attentionlayer.png  used on input line
- 131.
-(pdftex.def)             Requested size: 179.24963pt x 130.09392pt.
+ 132.
+(pdftex.def)             Requested size: 179.24963pt x 128.00229pt.
 
-Overfull \hbox (25.10722pt too wide) in paragraph at lines 136--138
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (25.10722pt too wide) in paragraph at lines 137--139
 \OT1/cmr/m/n/12 Die Funk-ti-ons-wei-se des Attention-Mechanismus in-ner-halb ei
 -ner Encoder-Decoder-Architektur
  []
 
-[12 <./source/images/attentionlayer.png>]
-<./source/images/attentionmechanism.png, id=502, 283.81032pt x 228.855pt>
+[12 <./source/images/encoderdecoder.png>]
+<./source/images/attentionmechanism.png, id=510, 577.40718pt x 453.94594pt>
 File: ./source/images/attentionmechanism.png Graphic file (type png)
 <use ./source/images/attentionmechanism.png>
 Package pdftex.def Info: ./source/images/attentionmechanism.png  used on input 
-line 141.
-(pdftex.def)             Requested size: 246.47339pt x 198.75652pt.
+line 142.
+(pdftex.def)             Requested size: 246.47339pt x 193.77298pt.
+<./source/images/selfattention.png, id=515, 550.30594pt x 352.31625pt>
+File: ./source/images/selfattention.png Graphic file (type png)
+<use ./source/images/selfattention.png>
+Package pdftex.def Info: ./source/images/selfattention.png  used on input line 
+152.
+(pdftex.def)             Requested size: 224.06548pt x 143.45067pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--148
 
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13 <./source/images/attentionmechanism.png>]
-Overfull \hbox (17.22116pt too wide) in paragraph at lines 150--151
+[13 <./source/images/attentionlayer.png> <./source/images/attentionmechanism.pn
+g>]
+Overfull \hbox (17.22116pt too wide) in paragraph at lines 158--159
 \OT1/cmr/m/n/12 In-for-ma-tio-nen po-si-ti-ons-u-n-abh[]angig und satz[]ubergre
-ifend iden-ti-fi-ziert [[]]. 
+ifend iden-ti-fi-ziert [[]].
+ []
+
+<./source/images/multiheadattention.png, id=527, 715.17188pt x 395.97937pt>
+File: ./source/images/multiheadattention.png Graphic file (type png)
+<use ./source/images/multiheadattention.png>
+Package pdftex.def Info: ./source/images/multiheadattention.png  used on input 
+line 162.
+(pdftex.def)             Requested size: 313.69029pt x 173.68767pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14 <./source/images/selfattention.png>]
+Overfull \hbox (12.8476pt too wide) in paragraph at lines 173--175
+\OT1/cmr/m/n/12 Architektonisch wer-den die re-kur-ren-ten Schich-ten bis-he-ri
+-ger Sequence-to-Sequence-Modelle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--162
-
+Overfull \hbox (11.57208pt too wide) in paragraph at lines 173--175
+\OT1/cmr/m/n/12 durch Transformer-Module er-setzt. Die-se be-ste-hen aus ei-ner
+ Multi-Head-Attention-Schicht,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--165
-
- []
-
-[14]
-Package acronym Info: Label `acro:LR' newly defined as it shall be overridden
-although it is yet undefined on input line 167.
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--168
-
- []
-
-<./source/images/gradientdescent.png, id=534, 993.7125pt x 285.065pt>
-File: ./source/images/gradientdescent.png Graphic file (type png)
-<use ./source/images/gradientdescent.png>
-Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
-e 171.
-(pdftex.def)             Requested size: 313.69029pt x 89.98734pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
-
+Overfull \hbox (39.50706pt too wide) in paragraph at lines 173--175
+\OT1/cmr/m/n/12 ei-nem po-si-ti-ons-abh[]angigen Feed-Forward-Netzwerk und ei-n
+er so-ge-nann-ten Layer-Normalization-
  []
 
 
-Overfull \hbox (1.84435pt too wide) in paragraph at lines 179--181
-\OT1/cmr/m/n/12 Ef-fekt ver-spricht [[], S. 437]. Die Gr[]oe der Stich-pro-be 
-wird []ublicherweise
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 179--181
+Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
+<./source/images/transformerarchitecture.png, id=539, 350.81062pt x 394.47375pt
+>
+File: ./source/images/transformerarchitecture.png Graphic file (type png)
+<use ./source/images/transformerarchitecture.png>
+Package pdftex.def Info: ./source/images/transformerarchitecture.png  used on i
+nput line 178.
+(pdftex.def)             Requested size: 224.06548pt x 251.95673pt.
 
-Overfull \hbox (55.02077pt too wide) in paragraph at lines 182--184
-[]\OT1/cmr/m/n/12 uberspringen und die Su-che erst im tats[]achlichen glo-ba-le
-n Mi-ni-mum zu be-en-den [[],
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15 <./source/images/multiheadattention.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
+
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--184
-
- []
-
-[15 <./source/images/gradientdescent.png>]
-<./source/images/momentumupdate.png, id=556, 213.04594pt x 190.46156pt>
-File: ./source/images/momentumupdate.png Graphic file (type png)
-<use ./source/images/momentumupdate.png>
-Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
- 187.
-(pdftex.def)             Requested size: 156.84856pt x 140.23021pt.
-Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
-
-although it is yet undefined on input line 193.
 
 Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
+Package acronym Info: Label `acro:LR' newly defined as it shall be overridden
+although it is yet undefined on input line 196.
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--202
+Underfull \hbox (badness 10000) in paragraph at lines 195--197
 
  []
 
-[16 <./source/images/momentumupdate.png>]
-<./source/images/finetuning.png, id=581, 905.63344pt x 530.73282pt>
+[16 <./source/images/transformerarchitecture.png>]
+<./source/images/gradientdescent.png, id=563, 993.7125pt x 285.065pt>
+File: ./source/images/gradientdescent.png Graphic file (type png)
+<use ./source/images/gradientdescent.png>
+Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
+e 200.
+(pdftex.def)             Requested size: 313.69029pt x 89.98734pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--207
+
+ []
+
+
+Overfull \hbox (1.84435pt too wide) in paragraph at lines 208--210
+\OT1/cmr/m/n/12 Ef-fekt ver-spricht [[], S. 437]. Die Gr[]oe der Stich-pro-be 
+wird []ublicherweise
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--210
+
+ []
+
+
+Overfull \hbox (55.02077pt too wide) in paragraph at lines 211--213
+[]\OT1/cmr/m/n/12 uberspringen und die Su-che erst im tats[]achlichen glo-ba-le
+n Mi-ni-mum zu be-en-den [[],
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
+
+ []
+
+<./source/images/momentumupdate.png, id=577, 213.04594pt x 190.46156pt>
+File: ./source/images/momentumupdate.png Graphic file (type png)
+<use ./source/images/momentumupdate.png>
+Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
+ 216.
+(pdftex.def)             Requested size: 156.84856pt x 140.23021pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
+
+although it is yet undefined on input line 222.
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
+
+ []
+
+[17 <./source/images/gradientdescent.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 229--231
+
+ []
+
+[18 <./source/images/momentumupdate.png>]
+<./source/images/finetuning.png, id=604, 905.63344pt x 530.73282pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
-Package pdftex.def Info: ./source/images/finetuning.png  used on input line 205
+Package pdftex.def Info: ./source/images/finetuning.png  used on input line 234
 .
 (pdftex.def)             Requested size: 268.8813pt x 157.56902pt.
-) [17 <./source/images/finetuning.png>]
+) [19 <./source/images/finetuning.png>]
 \openout2 = `"source/content/Natural Language Processing.aux"'.
 
  ("source/content/Natural Language Processing.tex"
@@ -1684,7 +1743,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[18
+[20
 
 
 
@@ -1697,7 +1756,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
-[19]
+[21]
 Package acronym Info: Label `acro:NLTK' newly defined as it shall be overridden
 
 although it is yet undefined on input line 30.
@@ -1735,7 +1794,7 @@ Overfull \hbox (0.19011pt too wide) in paragraph at lines 40--43
 o.[]a. To-ke-ni-sie-rung (Spa-Cy, NLTK
  []
 
-[20]
+[22]
 Overfull \hbox (24.31311pt too wide) in paragraph at lines 48--49
 []\OT1/cmr/m/n/12 Extraktive Zu-sam-men-fas-sung: Po-ten-zi-el-le Fea-tu-res bz
 w. Kenn-zah-len: []Ubereinstimmung
@@ -1753,7 +1812,7 @@ Overfull \hbox (14.55208pt too wide) in paragraph at lines 72--73
  = 4M2uzGLV9a _ O$[][] \OT1/cmr/m/n/12 un-
  []
 
-[21]
+[23]
 Overfull \hbox (262.9643pt too wide) in paragraph at lines 73--74
 []\OT1/cmr/m/n/12 BERT vs. Al-ter-na-ti-ven: [][]$\OT1/cmtt/m/n/12 https : / / 
 towardsdatascience . com / bert-[]roberta-[]distilbert-[]xlnet-[]which-[]one-[]
@@ -1766,7 +1825,7 @@ Overfull \hbox (33.80154pt too wide) in paragraph at lines 80--81
 ut-zen (ex-tra f[]ur Summarization-
  []
 
-[22]) [23]
+[24]) [25]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
@@ -1781,7 +1840,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[24
+[26
 
 
 
@@ -1800,7 +1859,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--60
 
  []
 
-[25]
+[27]
 \openout2 = `"source/content/Abstraktiver Ansatz.aux"'.
 
  ("source/content/Abstraktiver Ansatz.tex"
@@ -1833,7 +1892,7 @@ Overfull \hbox (14.56842pt too wide) in paragraph at lines 20--21
 ch mit nicht-vorkommenden
  []
 
-[26
+[28
 
 
 
@@ -1902,7 +1961,7 @@ Overfull \hbox (0.1127pt too wide) in paragraph at lines 32--33
 /n/12 , Skiz-zen von dort nut-zen, Encoder-
  []
 
-[27]
+[29]
 Overfull \hbox (26.84396pt too wide) in paragraph at lines 36--37
 \OT1/cmtt/m/n/12 patrickvonplaten / longformer2roberta-[]cnn _ dailymail-[]fp16
  / blob / main / README .
@@ -1939,7 +1998,7 @@ Overfull \hbox (0.21571pt too wide) in paragraph at lines 44--45
 lich -> Zur[]uckgestellt
  []
 
-[28]
+[30]
 Overfull \hbox (13.54543pt too wide) in paragraph at lines 45--46
 []\OT1/cmr/m/n/12 BERT-Encoder Transformer-Decoder: Pa-per [][]$\OT1/cmtt/m/n/1
 2 https : / / arxiv . org / pdf / 2008 . 09676 .
@@ -1958,7 +2017,7 @@ Overfull \hbox (46.13461pt too wide) in paragraph at lines 54--55
 aws . amazon . com / dlami / latest / devguide / tutorials .
  []
 
-[29]
+[31]
 Overfull \hbox (5.23314pt too wide) in paragraph at lines 69--70
 []\OT1/cmr/m/n/12 Qualit[]at der Zu-sam-men-fas-sung mes-sen (BLEU [][]$\OT1/cm
 tt/m/n/12 https : / / en . wikipedia . org / wiki /
@@ -1970,12 +2029,12 @@ Overfull \hbox (102.944pt too wide) in paragraph at lines 74--75
 tomatic-[]summarization-[]4c2b89f2a9ea$[][] 
  []
 
-[30]) [31]
+[32]) [33]
 \openout2 = `"source/content/Sprachtechnische Adaption.aux"'.
 
  ("source/content/Sprachtechnische Adaption.tex"
 chapter 6.
-) [32
+) [34
 
 
 
@@ -1988,7 +2047,7 @@ chapter 6.
 
  (source/content/Zusammenfassung.tex
 chapter 7.
-) [33
+) [35
 
 
 
@@ -2001,7 +2060,7 @@ chapter 7.
 
  ("source/content/Diskussion und Ausblick.tex"
 chapter 8.
-[34
+[36
 
 
 
@@ -2009,7 +2068,7 @@ chapter 8.
 
 
 
-]) [35] (source/formal/Literature.tex
+]) [37] (source/formal/Literature.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 []\OT1/cmr/m/n/10.95 AI-United: LSTM als neu-ro-na-les Netz-werk mit
  []
@@ -2159,10 +2218,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27160 strings out of 480257
- 522300 string characters out of 2881437
+ 27186 strings out of 480257
+ 523130 string characters out of 2881437
  974108 words of memory out of 3000000
- 42872 multiletter control sequences out of 15000+200000
+ 42890 multiletter control sequences out of 15000+200000
  544694 words of font info for 65 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2181,9 +2240,9 @@ pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmtt12.pfb>
-Output written on Thesis.pdf (52 pages, 875107 bytes).
+Output written on Thesis.pdf (54 pages, 965404 bytes).
 PDF statistics:
- 1020 PDF objects out of 1200 (max. 8388607)
- 176 named destinations out of 1000 (max. 500000)
- 497 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1048 PDF objects out of 1200 (max. 8388607)
+ 181 named destinations out of 1000 (max. 500000)
+ 512 words of extra memory for PDF output out of 10000 (max. 10000000)
 

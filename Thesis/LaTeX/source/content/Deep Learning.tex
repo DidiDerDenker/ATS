@@ -22,7 +22,7 @@ Die elementarste Form neuronaler Netze wird \ac{MLP} genannt. \ac{MLP} bestehen 
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/multilayerperceptron.png}}
+  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/multilayerperceptron.png}}
   \caption{Aufbau eines MLP \cite[S.~133]{ZHA20}.}
   \label{pic:MultiLayerPerceptron}
 \end{figure}
@@ -58,7 +58,7 @@ Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Symbol der Eingabesequen
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/hiddenstates.png}}
+  \fbox{\includegraphics[width=0.8\linewidth]{./source/images/hiddenstates.png}}
   \caption{RNN mit verborgenen Zuständen \cite[S.~325]{ZHA20}.}
   \label{pic:HiddenStates}
 \end{figure}
@@ -77,6 +77,7 @@ Außerdem können \ac{RNN} bidirektional modelliert werden. Die verborgenen Zust
 
 \noindent
 Das Input Gate definiert, welche Werte in der Zelle berücksichtigt werden sollen. Hierzu gehören gemäß \ac{RNN} das momentane Symbol sowie der vorhergegangene verborgene Zustand. Das Forget Gate trifft eine Entscheidung darüber, ob und welche Werte gespeichert oder vergessen werden sollen. Hierfür eignen sich beispielsweise Aktivierungsfunktionen \cite[S.~355]{ZHA20}. Über die intern festgelegte Logik kann somit der Zellzustand berechnet werden, unter anderem mithilfe punktweiser Matrixoperationen. Der Zellzustand wird sodann als neuer verborgener Zustand im Output Gate emittiert \cite{LUB18}. Der Aufbau einer \ac{LSTM}-Zelle ist in \autoref{pic:LstmCell} zu sehen.
+\newpage
 
 \begin{figure}[h!]
   \centering
@@ -124,7 +125,7 @@ Zuletzt sei noch erwähnt, dass es Suchalgorithmen wie die Beam Search mithilfe 
 Die Encoder-Decoder-Architektur kann im Kontext der \ac{ATS} um einen sogenannten Attention-Mechanismus erweitert werden, welcher den Encoder mit dem Decoder verbindet \cite{VAS17}. Dabei geht es, wie die Übersetzung schon verrät, um Aufmerksamkeit. In der kognitiven Neurowissenschaft wird Aufmerksamkeit als ein Zustand gesteigerter Anspannung definiert, welcher selektive Wahrnehmung sowie entsprechendes Denken und Handeln umfasst. Diese Fähigkeit wird von einem \ac{ATS}-Modell verlangt und mithilfe des Attention-Mechanismus realisiert. Um letztlich eine qualitative Zusammenfassung generieren zu können, selektiert der Attention-Mechanismus die wichtigsten Informationen aus dem Encoder, indem er die dort verarbeitete Eingabesequenz stets beobachtet und globale Zusammenhänge zwischen der Eingabesequenz und der Ausgabesequenz herstellt. Der Decoder wird dementsprechend darüber informiert. Hierfür sind geeignete mathematische Modelle zu entwerfen. Das \ac{ATS}-Modell soll also menschenähnlichem Verhalten nachempfinden, weshalb es per Definition als KI-basierter Ansatz bezeichnet wird \cite[S.~389]{ZHA20}.\\
 
 \noindent
-Der Attention-Mechanismus basiert indes auf einer Attention-Funktion, welche eine Query und ein Menge von Key-Value-Paaren einem Output zuordnet. Der Output wird dabei vektorweise als gewichtete Summe der Werte berechnet, während die Query determiniert, welchen Werten mehr Attention zugeordnet wird \cite{VAS17}. \autoref{pic:AttentionLayer} zeigt eine solche Attention-Schicht.
+Der Attention-Mechanismus basiert indes auf einer Attention-Funktion, welche eine Query und ein Menge von Key-Value-Paaren einem Output zuordnet. Der Output wird dabei vektorweise als gewichtete Summe der Werte berechnet, während die Query determiniert, welchen Werten mehr Attention zugeordnet wird \cite{VAS17}. \autoref{pic:AttentionLayer} zeigt eine solche Attention-Schicht.\\
 
 \begin{figure}[h!]
   \centering
@@ -158,7 +159,7 @@ Multi-Head-Attention hingegen betrachtet direkt mehrere Queries. Die Matrizen de
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.5\linewidth]{./source/images/multiheadattention.png}}
+  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/multiheadattention.png}}
   \caption{Multi-Head-Attention \cite[S.~400]{ZHA20}.}
   \label{pic:MultiHeadAttention}
 \end{figure}
@@ -166,10 +167,11 @@ Multi-Head-Attention hingegen betrachtet direkt mehrere Queries. Die Matrizen de
 
 \subsection{Transformer Networks}
 \noindent
-Transformer basieren ebenfalls auf der Encoder-Decoder-Architektur, wobei darüber hinaus verschiedene Attention-Mechanismen implementiert werden. Besonders ist hierbei, dass die Eingabesequenz parallel zur Anwendung der Attention-Mechanismen positionsabhängig eingebettet wird, um sequenzielle Informationen zu extrahieren. Dies führt insgesamt zu einem recht kompatiblen Modell, welches nur noch einer stark verringerten Trainingszeit bedarf \cite[S.~398]{ZHA20}.\\
+Transformer basieren ebenfalls auf der Encoder-Decoder-Architektur, wobei darüber hinaus verschiedene Attention-Mechanismen implementiert werden. Besonders ist hierbei, dass die Eingabesequenz parallel zur Anwendung der Attention-Mechanismen positionsabhängig eingebettet wird, um sequenzielle Informationen zu extrahieren. Dies führt insgesamt zu einem recht kompatiblen Modell, welches nur noch einer stark verringerten Trainingszeit bedarf \cite[S.~398]{ZHA20}.
+\newpage
 
 \noindent
-Architektonisch werden die rekurrenten Schichten bisheriger Sequence-to-Sequence-Modelle durch Transformer-Module ersetzt. Diese bestehen aus einer Multi-Head-Attention-Schicht, einem positionsabhängigen Feed-Forward-Netzwerk und einer sogenannten Layer-Normalization-Schicht. Letztere werden nun in Bezug auf Transformer intensiver erläutert \cite[S.~399]{ZHA20}. \autoref{pic:TransformerArchitecture} visualisiert die Architektur im Vergleich zu \autoref{pic:AttentionMechanism}.\\
+Architektonisch werden die rekurrenten Schichten bisheriger Sequence-to-Sequence-Modelle durch Transformer-Module ersetzt. Diese bestehen aus einer Multi-Head-Attention-Schicht, einem positionsabhängigen Feed-Forward-Netzwerk und einer sogenannten Layer-Normalization-Schicht. Eben diese wird benötigt, um für das entsprechende Modell einen generalisierenden Effekt zu erzielen. Transformer-Module analysieren die eingehenden Symbole unabhängig voneinander. Daher ist es wichtig, die Eingabesequenz positionsabhängig einzubetten, wie oben bereits angedeutet wurde. Hierdurch können sequenzielle Informationen extrahiert werden. Dabei werden überdies keine neuen Abhängigkeiten erlernt, wohl aber die Trainingszeit weiter reduziert \cite[S.~399-404]{ZHA20}. \autoref{pic:TransformerArchitecture} visualisiert die Architektur im Vergleich zu \autoref{pic:AttentionMechanism}.\\
 
 \begin{figure}[h!]
   \centering
@@ -179,19 +181,8 @@ Architektonisch werden die rekurrenten Schichten bisheriger Sequence-to-Sequence
 \end{figure}
 
 \noindent
-Feed-Forward-Netzwerk (positionsabhängig), Absatz ab S. 402 in ZHA20 verschriften.\\
-
-\noindent
-Layer-Normalization-Schicht: Diese wird benötigt, um für das entsprechende Modell einen generalisierenden Effekt zu erzielen. Dabei werden keine neuen Abhängigkeiten erlernt, wohl aber die Trainingszeit weiter reduziert. -> Weiteres siehe ab S. 403 in ZHA20, auch S. 404 bzgl. Positional Encoding irgendwo unterbringen.\\
-
-\noindent
-Unterschiede im Encoder und Decoder mit S. 406 ff. in ZHA20 verschriften.\\
-
-Notizen:
-\cite{VAS17}
-\cite{ZHA20} ab Seite 398 mit MH-Attention, Encoder, Decoder, Training etc. + Transformer-based Encoder-Decoder-Models erwähnen, schon mal \cite{ROT20} bzgl. der Möglichkeit von Ersetzen des Encoder und und des Decoder durch vortrainierte multilinguale Modelle erwähnen, ebenfalls geeignet für sequenzielle Daten, Grenzen im nachfolgenden Kapitel bzgl. Transfer Learning genauer offenlegen, an \cite{RAF20} orientieren, ggf. \url{https://arxiv.org/pdf/1912.08777.pdf} referenzieren, oder auch \url{https://arxiv.org/pdf/2007.14062.pdf}
-
--> PDF generieren und Kapitel optisch aufhübschen
+Zuletzt ist wichtig, dass Transformer und ihre Komponenten verschiedenartig konzipiert werden können. Dies wird stets durch das anvisierte Ziel bedingt. Eine hinsichtlich der \ac{ATS} geeignete Architektur wird in einem entsprechenden Kapitel noch umfangreicher offengelegt. Zudem können bestimmte Komponenten der Transformer durch vortrainierte Modelle repräsentiert werden. Dies wird ebenfalls im weiteren Verlauf dieser Arbeit thematisiert, nachdem entsprechende Grundlagen dargelegt wurden.
+\newpage
 
 
 \section{Hyperparameter}
