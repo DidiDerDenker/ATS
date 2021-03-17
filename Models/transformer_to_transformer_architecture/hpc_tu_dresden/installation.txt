@@ -1,0 +1,12 @@
+install transformer-kernel (see taurus.txt)
+
+conda env list
+conda activate /home/davo557d/user-kernel/transformer-kernel
+bash
+
+conda update -n base -c defaults conda
+
+conda create -n tf-gpu tensorflow-gpu
+conda activate tf-gpu
+
+conda install -c huggingface -c conda-forge datasets

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  16 MAR 2021 16:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  17 MAR 2021 09:11
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1416,28 +1416,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
 
-<./source/images/artificialneuron.png, id=373, 551.81157pt x 307.90031pt>
-File: ./source/images/artificialneuron.png Graphic file (type png)
-<use ./source/images/artificialneuron.png>
-Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
-ne 15.
-(pdftex.def)             Requested size: 268.8813pt x 150.0362pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 Package acronym Info: Label `acro:MLP' newly defined as it shall be overridden
-although it is yet undefined on input line 21.
+although it is yet undefined on input line 14.
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--22
+Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
  []
 
-<./source/images/multilayerperceptron.png, id=380, 854.44218pt x 462.22687pt>
-File: ./source/images/multilayerperceptron.png Graphic file (type png)
-<use ./source/images/multilayerperceptron.png>
-Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
-t line 25.
-(pdftex.def)             Requested size: 313.69029pt x 169.6953pt.
 [5
 
 
@@ -1445,12 +1430,20 @@ t line 25.
 
 
 ]
+<./source/images/artificialneuron.png, id=383, 551.81157pt x 307.90031pt>
+File: ./source/images/artificialneuron.png Graphic file (type png)
+<use ./source/images/artificialneuron.png>
+Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
+ne 18.
+(pdftex.def)             Requested size: 246.47339pt x 137.52965pt.
+<./source/images/multilayerperceptron.png, id=386, 854.44218pt x 462.22687pt>
+File: ./source/images/multilayerperceptron.png Graphic file (type png)
+<use ./source/images/multilayerperceptron.png>
+Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
+t line 25.
+(pdftex.def)             Requested size: 291.28238pt x 157.57118pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 30--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
@@ -1563,28 +1556,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
 
-<./source/images/attentionlayer.png, id=499, 597.73312pt x 426.84468pt>
-File: ./source/images/attentionlayer.png Graphic file (type png)
-<use ./source/images/attentionlayer.png>
-Package pdftex.def Info: ./source/images/attentionlayer.png  used on input line
- 132.
-(pdftex.def)             Requested size: 179.24963pt x 128.00229pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (25.10722pt too wide) in paragraph at lines 137--139
+Overfull \hbox (25.10722pt too wide) in paragraph at lines 130--132
 \OT1/cmr/m/n/12 Die Funk-ti-ons-wei-se des Attention-Mechanismus in-ner-halb ei
 -ner Encoder-Decoder-Architektur
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
+
+ []
+
 [12 <./source/images/encoderdecoder.png>]
+<./source/images/attentionlayer.png, id=507, 597.73312pt x 426.84468pt>
+File: ./source/images/attentionlayer.png Graphic file (type png)
+<use ./source/images/attentionlayer.png>
+Package pdftex.def Info: ./source/images/attentionlayer.png  used on input line
+ 135.
+(pdftex.def)             Requested size: 179.24963pt x 128.00229pt.
 <./source/images/attentionmechanism.png, id=510, 577.40718pt x 453.94594pt>
 File: ./source/images/attentionmechanism.png Graphic file (type png)
 <use ./source/images/attentionmechanism.png>
 Package pdftex.def Info: ./source/images/attentionmechanism.png  used on input 
 line 142.
-(pdftex.def)             Requested size: 246.47339pt x 193.77298pt.
+(pdftex.def)             Requested size: 224.06548pt x 176.15851pt.
 <./source/images/selfattention.png, id=515, 550.30594pt x 352.31625pt>
 File: ./source/images/selfattention.png Graphic file (type png)
 <use ./source/images/selfattention.png>
@@ -1634,13 +1629,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
-<./source/images/transformerarchitecture.png, id=539, 350.81062pt x 394.47375pt
->
+<./source/images/transformerarchitecture.png, id=539, 560.8453pt x 679.78969pt>
+
 File: ./source/images/transformerarchitecture.png Graphic file (type png)
 <use ./source/images/transformerarchitecture.png>
 Package pdftex.def Info: ./source/images/transformerarchitecture.png  used on i
 nput line 178.
-(pdftex.def)             Requested size: 224.06548pt x 251.95673pt.
+(pdftex.def)             Requested size: 268.8813pt x 325.90117pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1654,6 +1649,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
+[16 <./source/images/transformerarchitecture.png>]
 Package acronym Info: Label `acro:LR' newly defined as it shall be overridden
 although it is yet undefined on input line 196.
 
@@ -1661,13 +1657,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--197
 
  []
 
-[16 <./source/images/transformerarchitecture.png>]
-<./source/images/gradientdescent.png, id=563, 993.7125pt x 285.065pt>
+<./source/images/gradientdescent.png, id=563, 895.09406pt x 245.41687pt>
 File: ./source/images/gradientdescent.png Graphic file (type png)
 <use ./source/images/gradientdescent.png>
 Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
 e 200.
-(pdftex.def)             Requested size: 313.69029pt x 89.98734pt.
+(pdftex.def)             Requested size: 291.28238pt x 79.86438pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 205--207
 
@@ -1685,25 +1680,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--210
  []
 
 
-Overfull \hbox (55.02077pt too wide) in paragraph at lines 211--213
-[]\OT1/cmr/m/n/12 uberspringen und die Su-che erst im tats[]achlichen glo-ba-le
-n Mi-ni-mum zu be-en-den [[],
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 211--213
 
  []
 
-<./source/images/momentumupdate.png, id=577, 213.04594pt x 190.46156pt>
+<./source/images/momentumupdate.png, id=577, 319.1925pt x 322.95656pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
  216.
-(pdftex.def)             Requested size: 156.84856pt x 140.23021pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+(pdftex.def)             Requested size: 134.44064pt x 136.02519pt.
+[17 <./source/images/gradientdescent.png>]
 Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 222.
@@ -1712,18 +1699,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
  []
 
-[17 <./source/images/gradientdescent.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 229--231
 
  []
 
 [18 <./source/images/momentumupdate.png>]
-<./source/images/finetuning.png, id=604, 905.63344pt x 530.73282pt>
+<./source/images/finetuning.png, id=603, 682.04813pt x 344.03531pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
 Package pdftex.def Info: ./source/images/finetuning.png  used on input line 234
 .
-(pdftex.def)             Requested size: 268.8813pt x 157.56902pt.
+(pdftex.def)             Requested size: 313.69029pt x 158.2319pt.
 ) [19 <./source/images/finetuning.png>]
 \openout2 = `"source/content/Natural Language Processing.aux"'.
 
@@ -2240,9 +2227,9 @@ pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmtt12.pfb>
-Output written on Thesis.pdf (54 pages, 965404 bytes).
+Output written on Thesis.pdf (54 pages, 949710 bytes).
 PDF statistics:
- 1048 PDF objects out of 1200 (max. 8388607)
+ 1047 PDF objects out of 1200 (max. 8388607)
  181 named destinations out of 1000 (max. 500000)
  512 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -10,19 +10,19 @@ Deep Learning ist ein Teilbereich des \ac{ML}. \ac{ML}-Algorithmen analysieren D
 \noindent
 Um den Aufbau und die Funktionsweise neuronaler Netze verstehen zu können, bedarf es zunächst der Beschreibung von Neuronen. Diese können im biologischen Sinne als Schalter verstanden werden, welche verschiedene Signale empfangen können und aktiviert werden, sobald genug Signale registriert wurden. Diese Aktivierung sendet folglich weitere Signale an andere Neuronen, wie \autoref{pic:ArtificialNeuron} im technischen Sinne exemplarisch skizziert \cite[S.~42]{KRI05}. Hierfür werden Aktivierungsfunktionen benötigt, welche die gewichteten Eingangssignale in ein Ausgangssignal konvertieren. Sie ermöglichen es, nicht-lineare Zusammenhänge zwischen den Eingangs- und den Ausgangsdaten herzustellen \cite[S.~134]{ZHA20}.\\
 
+\noindent
+Die elementarste Form neuronaler Netze wird \ac{MLP} genannt. \ac{MLP} bestehen aus mehreren Schichten, deren Neuronen jeweils vollständig mit den Neuronen der umliegenden Schichten verbunden sind \cite[S.~131]{ZHA20}. Der Verständlichkeit halber veranschaulicht \autoref{pic:MultiLayerPerceptron} einen solchen Aufbau mit nur einer verborgenen Schicht (engl. Hidden Layer), welche aus fünf Neuronen besteht. Dabei zeichnen sich vollvermaschte Schichten (engl. Fully Connected Layer oder Dense Layer) dadurch aus, dass alle Neuronen mit allen Inputs und Outputs verbunden.\\
+
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/artificialneuron.png}}
+  \fbox{\includegraphics[width=0.55\linewidth]{./source/images/artificialneuron.png}}
   \caption{Aufbau eines künstlichen Neurons \cite{MCC20}.}
   \label{pic:ArtificialNeuron}
 \end{figure}
 
-\noindent
-Die elementarste Form neuronaler Netze wird \ac{MLP} genannt. \ac{MLP} bestehen aus mehreren Schichten, deren Neuronen jeweils vollständig mit den Neuronen der umliegenden Schichten verbunden sind \cite[S.~131]{ZHA20}. Der Verständlichkeit halber veranschaulicht \autoref{pic:MultiLayerPerceptron} einen solchen Aufbau mit nur einer verborgenen Schicht (engl. Hidden Layer), welche aus fünf Neuronen besteht.\\
-
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/multilayerperceptron.png}}
+  \fbox{\includegraphics[width=0.65\linewidth]{./source/images/multilayerperceptron.png}}
   \caption{Aufbau eines MLP \cite[S.~133]{ZHA20}.}
   \label{pic:MultiLayerPerceptron}
 \end{figure}
@@ -31,7 +31,7 @@ Die elementarste Form neuronaler Netze wird \ac{MLP} genannt. \ac{MLP} bestehen 
 Ziel der hoch parametrisierten neuronalen Netze ist es, komplexe Funktionen hohen Grades bestmöglich zu approximieren und so verschiedenste Probleme zu lösen. Der anvisierte Lerneffekt wird mithilfe des sogenannten Backpropagation-Algorithmus erreicht. Hierbei werden Eingangsdaten zunächst vorwärts durch ein neuronales Netz hindurch propagiert. Mithilfe einer Fehlerfunktion wird sodann die erwartete mit der tatsächlichen Ausgabe verglichen und bewertet. Über das Gradientenverfahren werden die Fehler nun rückwärts durch das neuronale Netz propagiert und somit die Gewichte in den Neuronen angepasst, insbesondere in den verborgenen Schichten. Ziel ist die Minimierung der Fehlerfunktion und letztlich die Optimierung der durch das neuronale Netz approximierten Funktion \cite[S.~140, 169]{ZHA20}.\\
 
 \noindent
-Der Trainingsprozess erfolgt optimalerweise über mehrere sogenannte Epochen. Hier werden dem neuronalen Netz verschiedene Eingangsdaten zugeführt und beidseitige Propagationen ausgeführt. Wichtig ist dennoch, kein Overfitting beziehungsweise Underfitting zu erzeugen. Dies würde bedeuten, dass das trainierte Modell zu sehr beziehungsweise zu wenig auf die Trainingsdaten angepasst ist. Ziel ist ein möglichst hoher Generalisierungseffekt des Modells, wie \autoref{pic:FittingTypes} zeigt. Das Modell sollte den Lernfortschritt auf noch unbekannte Daten adaptieren können und darauf eine hohe Genauigkeit erreichen. Es gibt verschiedene Ansätze, um beispielsweise Overfitting vorzubeugen. Hier seien insbesondere Batch Normalization, Dropout und Early Stopping genannt, wobei entsprechende Mechanismen an anderweitiger Stelle erläutert werden \cite[S.~143-149]{ZHA20}.\\
+Der Trainingsprozess erfolgt optimalerweise über mehrere sogenannte Epochen. Hier werden dem neuronalen Netz verschiedene Eingangsdaten zugeführt und beidseitige Propagationen ausgeführt. Wichtig ist dennoch, kein Overfitting beziehungsweise Underfitting zu erzeugen. Dies würde bedeuten, dass das trainierte Modell zu sehr oder zu wenig auf die Trainingsdaten angepasst ist. Ziel ist ein möglichst hoher Generalisierungseffekt des Modells, wie \autoref{pic:FittingTypes} zeigt. Das Modell sollte den Lernfortschritt auf unbekannte Daten adaptieren können und darauf eine hohe Genauigkeit erreichen. Es gibt verschiedene Ansätze, um beispielsweise Overfitting vorzubeugen. Hier seien insbesondere Batch Normalization, Dropout und Early Stopping genannt, wobei entsprechende Mechanismen an anderweitiger Stelle erläutert werden \cite[S.~143-149]{ZHA20}.
 
 \begin{figure}[h!]
   \centering
@@ -51,7 +51,7 @@ Um mithilfe neuronaler Netze die \ac{ATS} zu modellieren, werden nun ausgewählt
 Eingangsdaten der \ac{ATS} haben in jedem Fall einen Textcharakter. Hierbei ist die Reihenfolge der Symbole hinsichtlich eines ausreichenden Textverständnisses von großer Bedeutung. Dies gilt sowohl für die Texte selbst als auch für die darin enthaltenen Sätze. Daher werden nun \ac{RNN} vorgestellt, welche derart sequenzielle Daten mithilfe von zahlreichen verborgenen Zuständen in verborgenen Schichten verarbeiten können \cite[S.~301]{ZHA20}.\\
 
 \noindent
-Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Symbol der Eingabesequenz an einem Index $t > 0$. Der Index ist hierbei als Position eines Symbols innerhalb eines Textes zu verstehen \cite{VAS17}. \ac{RNN} können hierfür die Wahrscheinlichkeit $$P(x_t \mid x_{t-1}, ... , x_1) \approx P(x_t \mid h_{t-1})$$ modellieren. Gemäß der daraus herleitbaren Funktion $$h_t = f(x_t, h_{t-1})$$ kann der verborgene Zustand $h_t$ unter Kenntnis des Symbols $x_t$ und des verborgenen Zustandes $h_{t-1}$ berechnet werden. Letzterer verfügt über die sequenziellen Informationen bis zum Index $t-1$. Weiterhin ist erkennbar, dass die gegebene Funktion der Markoveigenschaft gerecht wird \cite[S.~323-324]{ZHA20}.\\
+Sei $h_t$ ein solcher verborgener Zustand und $x_t$ ein Symbol der Eingabesequenz an einem Index $t > 0$. Der Index ist hierbei als Position eines Symbols innerhalb eines Textes zu verstehen \cite{VAS17}. \ac{RNN} können hierfür die Wahrscheinlichkeit $$P(x_t \mid x_{t-1}, ... , x_1) \approx P(x_t \mid h_{t-1})$$ modellieren. Der verborgene Zustand $h_t$ kann unter Kenntnis des Symbols $x_t$ und des verborgenen Zustandes $h_{t-1}$ gemäß der daraus herleitbaren Funktion $$h_t = f(x_t, h_{t-1})$$ berechnet werden. Letzterer verfügt über die sequenziellen Informationen bis zum Index $t-1$. Weiterhin ist erkennbar, dass die gegebene Funktion der Markoveigenschaft gerecht wird \cite[S.~323-324]{ZHA20}.\\
 
 \noindent
 \autoref{pic:HiddenStates} demonstriert den rechentechnischen Vorgang anhand von drei prototypischen verborgenen Zuständen unter gegebenen Eingangsdaten. Wie bereits bei der oben genannten Funktion ersichtlich wurde, gehen in einen verborgenen Zustand jeweils das momentane Symbol und der vorhergegangene verborgene Zustand ein. Innerhalb eines verborgenen Zustandes werden diese beiden Eingangsgrößen mithilfe einer Aktivierungsfunktion in eine vollvermaschte Schicht überführt. Zudem wird die Ausgabeschicht mit dem momentanen Output versorgt \cite[S.~325]{ZHA20}. Allgemein haben \ac{RNN} also die Form einer Kette, in der Module neuronaler Netze immer wiederkehren \cite{AIU19}.
@@ -127,6 +127,9 @@ Die Encoder-Decoder-Architektur kann im Kontext der \ac{ATS} um einen sogenannte
 \noindent
 Der Attention-Mechanismus basiert indes auf einer Attention-Funktion, welche eine Query und ein Menge von Key-Value-Paaren einem Output zuordnet. Der Output wird dabei vektorweise als gewichtete Summe der Werte berechnet, während die Query determiniert, welchen Werten mehr Attention zugeordnet wird \cite{VAS17}. \autoref{pic:AttentionLayer} zeigt eine solche Attention-Schicht.\\
 
+\noindent
+Die Funktionsweise des Attention-Mechanismus innerhalb einer Encoder-Decoder-Architektur kann nun mithilfe \autoref{pic:AttentionMechanism} weiter vertieft werden, wobei hier Index $t$ betrachtet wird. Dabei bettet der Encoder die Eingabesequenz in bekannter Weise ein und verarbeitet sie, indem die verborgenen Zustände über alle verborgenen Schichten hinweg berechnet werden. Die Attention-Schicht erhält in der Folge alle Informationen, die der Encoder verarbeitet hat. Der Decoder wird nicht nur über den vorangegangenen verborgenen Zustand des Encoders informiert, sondern auch über den aus der Attention-Schicht resultierenden Kontext. Dieser wird als Antwort auf eine Query generiert, wobei eben diese Query wiederum durch den vorangegangenen verborgenen Zustand des Decoders repräsentiert wird \cite[S.~394]{ZHA20}. Die Ausgabesequenz wird hierbei indexweise und autoregressiv generiert, da dem Decoder in jedem Index zusätzlich die bereits generierten Symbole zugeführt werden \cite{VAS17}.\\
+
 \begin{figure}[h!]
   \centering
   \fbox{\includegraphics[width=0.4\linewidth]{./source/images/attentionlayer.png}}
@@ -134,12 +137,9 @@ Der Attention-Mechanismus basiert indes auf einer Attention-Funktion, welche ein
   \label{pic:AttentionLayer}
 \end{figure}
 
-\noindent
-Die Funktionsweise des Attention-Mechanismus innerhalb einer Encoder-Decoder-Architektur kann nun mithilfe \autoref{pic:AttentionMechanism} weiter vertieft werden, wobei hier Index $t$ betrachtet wird. Dabei bettet der Encoder die Eingabesequenz in bekannter Weise ein und verarbeitet sie, indem die verborgenen Zustände über alle verborgenen Schichten hinweg berechnet werden. Die Attention-Schicht erhält in der Folge alle Informationen, die der Encoder verarbeitet hat. Der Decoder wird nicht nur über den vorangegangenen verborgenen Zustand des Encoders informiert, sondern auch über den aus der Attention-Schicht resultierenden Kontext. Dieser wird als Antwort auf eine Query generiert, wobei eben diese Query wiederum durch den vorangegangenen verborgenen Zustand des Decoders repräsentiert wird \cite[S.~394]{ZHA20}. Die Ausgabesequenz wird hierbei indexweise und autoregressiv generiert, da dem Decoder in jedem Index zusätzlich die bereits generierten Symbole zugeführt werden \cite{VAS17}.
-
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.55\linewidth]{./source/images/attentionmechanism.png}}
+  \fbox{\includegraphics[width=0.5\linewidth]{./source/images/attentionmechanism.png}}
   \caption{Attention-Mechanismus \cite[S.~394]{ZHA20}.}
   \label{pic:AttentionMechanism}
 \end{figure}
@@ -175,7 +175,7 @@ Architektonisch werden die rekurrenten Schichten bisheriger Sequence-to-Sequence
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.5\linewidth]{./source/images/transformerarchitecture.png}}
+  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/transformerarchitecture.png}}
   \caption{Transformer-Architektur \cite[S.~399]{ZHA20}.}
   \label{pic:TransformerArchitecture}
 \end{figure}
@@ -197,7 +197,7 @@ Die \ac{LR} ist ein Hyperparameter, der bestimmt, wie viel Einfluss jede einzeln
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/gradientdescent.png}}
+  \fbox{\includegraphics[width=0.65\linewidth]{./source/images/gradientdescent.png}}
   \caption{Konvergenzverhalten im Gradientenverfahren \cite[S.~429]{ZHA20}.}
   \label{pic:GradientDescent}
 \end{figure}
@@ -209,11 +209,11 @@ Neben der sorgfältigen manuellen Auswahl der \ac{LR}, etwa mithilfe eines sogen
 Außerdem existiert das stochastische Gradientenverfahren, welches pro Epoche nur eine Stichprobe der verfügbaren Trainingsdaten berücksichtigt und einen generalisierenden Effekt verspricht \cite[S.~437]{ZHA20}. Die Größe der Stichprobe wird üblicherweise als Batch Size bezeichnet und an dieser Stelle nur als weitergehender Hyperparameter genannt \cite[S.~446]{ZHA20}.\\
 
 \noindent
-Weiterhin unterstützt das sogenannte Momentum die bereits beschriebene \ac{LR} auf der Suche nach dem globalen Minimum in der Fehlerfunktion. Dabei berücksichtigt es den Durchschnitt vorheriger Gradienten. Auf dieser Grundlage wird entschieden, in welche Richtung das stochastische Gradientenverfahren weiter absteigen soll, wie \autoref{pic:MomentumUpdate} zeigt. Das Momentum ist somit potenziell in der Lage, lokale Minima zu überspringen und die Suche erst im tatsächlichen globalen Minimum zu beenden \cite[S.~453-456]{ZHA20}.\\
+Weiterhin unterstützt das Momentum die bereits beschriebene \ac{LR} auf der Suche nach dem globalen Minimum in der Fehlerfunktion. Dabei berücksichtigt es den Durchschnitt vorheriger Gradienten. Auf dieser Grundlage wird entschieden, in welche Richtung das stochastische Gradientenverfahren weiter absteigen soll, wie \autoref{pic:MomentumUpdate} zeigt. Das Momentum ist somit potenziell in der Lage, lokale Minima zu überspringen und die Suche erst im tatsächlichen globalen Minimum zu beenden \cite[S.~453-456]{ZHA20}.\\
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.35\linewidth]{./source/images/momentumupdate.png}}
+  \fbox{\includegraphics[width=0.3\linewidth]{./source/images/momentumupdate.png}}
   \caption{Gradientenverfahren unter Einfluss eines Momentums \cite{CSNOJ}.}
   \label{pic:MomentumUpdate}
 \end{figure}
@@ -231,7 +231,7 @@ Zuletzt ist noch das Weight Decay erwähnenswert. Dieses meint die Multiplikatio
 
 \begin{figure}[h]
   \centering
-  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/finetuning.png}}
+  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/finetuning.png}}
   \caption{Fine-Tuning vortrainierter Modelle \cite[S.~555]{ZHA20}.}
   \label{pic:FineTuning}
 \end{figure}
