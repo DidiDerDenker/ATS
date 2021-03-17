@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  17 MAR 2021 09:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  17 MAR 2021 13:58
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1456,6 +1456,12 @@ Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 3
 8.
 (pdftex.def)             Requested size: 291.28238pt x 96.41158pt.
 
+Overfull \hbox (0.71439pt too wide) in paragraph at lines 50--52
+\OT1/cmr/m/n/12 ver-bor-ge-nen Zust[]anden in ver-bor-ge-nen Schich-ten ver-ar-
+bei-ten k[]onnen [[],
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 50--52
 
  []
@@ -1739,80 +1745,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 26--28
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
+8.
+ (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
 
  []
 
 [21]
 Package acronym Info: Label `acro:NLTK' newly defined as it shall be overridden
 
-although it is yet undefined on input line 30.
+although it is yet undefined on input line 31.
 
-Overfull \hbox (33.92795pt too wide) in paragraph at lines 29--31
+Overfull \hbox (33.92795pt too wide) in paragraph at lines 30--32
 \OT1/cmr/m/n/12 nltk.stem.snowball eig-nen sich po-ten-zi-ell f[]ur einen Ein-s
 atz mit deut-scher Spra-che [[]]. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
  []
 
 
-Overfull \hbox (9.78737pt too wide) in paragraph at lines 32--34
+Overfull \hbox (9.78737pt too wide) in paragraph at lines 33--35
 \OT1/cmr/m/n/12 Aufgaben. Hin-sicht-lich der deut-schen Spra-che eig-nen sich h
 ier ins-be-son-de-re die verf[]ugbaren
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
 
-Overfull \hbox (14.57538pt too wide) in paragraph at lines 35--37
+Overfull \hbox (14.57538pt too wide) in paragraph at lines 36--38
 \OT1/cmr/m/n/12 Die Wahl ge-eig-ne-ter Stem-mer und Lem-ma-ti-zer ob-liegt den-
 noch den sub-jek-ti-ven Pr[]aferenzen
  []
 
-
-Overfull \hbox (0.19011pt too wide) in paragraph at lines 40--43
-\OT1/cmr/m/n/12 Token de-fi-nie-ren, To-ken als Rea-li-sie-rung von Sym-bo-len 
-o.[]a. To-ke-ni-sie-rung (Spa-Cy, NLTK
- []
-
 [22]
-Overfull \hbox (24.31311pt too wide) in paragraph at lines 48--49
-[]\OT1/cmr/m/n/12 Extraktive Zu-sam-men-fas-sung: Po-ten-zi-el-le Fea-tu-res bz
-w. Kenn-zah-len: []Ubereinstimmung
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
+
  []
 
 
-Overfull \hbox (6.06819pt too wide) in paragraph at lines 48--49
-\OT1/cmr/m/n/12 mit dem Ti-tel, Satz-po-si-ti-on, Satz[]ahnlichkeit, Satzl[]ang
-e, dom[]anenspezifische W[]orter,
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
+
  []
 
 
-Overfull \hbox (14.55208pt too wide) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+
+ []
+
+[23]
+Overfull \hbox (14.55208pt too wide) in paragraph at lines 81--82
 \OT1/cmtt/m/n/12 1WIk2bxglElfZewOHboPFNj8H44 _ VAyKE ? usp = sharing # scrollTo
  = 4M2uzGLV9a _ O$[][] \OT1/cmr/m/n/12 un-
  []
 
-[23]
-Overfull \hbox (262.9643pt too wide) in paragraph at lines 73--74
+[24]
+Overfull \hbox (262.9643pt too wide) in paragraph at lines 82--83
 []\OT1/cmr/m/n/12 BERT vs. Al-ter-na-ti-ven: [][]$\OT1/cmtt/m/n/12 https : / / 
 towardsdatascience . com / bert-[]roberta-[]distilbert-[]xlnet-[]which-[]one-[]
 to-[]use-[]3d5ab82ba5f8$[][] 
  []
 
 
-Overfull \hbox (33.80154pt too wide) in paragraph at lines 80--81
+Overfull \hbox (33.80154pt too wide) in paragraph at lines 89--90
 []\OT1/cmr/m/n/12 Am bes-ten di-rekt ein vor-trai-nier-tes Transformer-Modell n
 ut-zen (ex-tra f[]ur Summarization-
  []
 
-[24]) [25]
+[25]) [26]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
@@ -1827,7 +1848,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[26
+[27
 
 
 
@@ -1846,7 +1867,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--60
 
  []
 
-[27]
+[28]
 \openout2 = `"source/content/Abstraktiver Ansatz.aux"'.
 
  ("source/content/Abstraktiver Ansatz.tex"
@@ -1879,7 +1900,19 @@ Overfull \hbox (14.56842pt too wide) in paragraph at lines 20--21
 ch mit nicht-vorkommenden
  []
 
-[28
+
+Overfull \hbox (24.31311pt too wide) in paragraph at lines 21--22
+[]\OT1/cmr/m/n/12 Extraktive Zu-sam-men-fas-sung: Po-ten-zi-el-le Fea-tu-res bz
+w. Kenn-zah-len: []Ubereinstimmung
+ []
+
+
+Overfull \hbox (6.06819pt too wide) in paragraph at lines 21--22
+\OT1/cmr/m/n/12 mit dem Ti-tel, Satz-po-si-ti-on, Satz[]ahnlichkeit, Satzl[]ang
+e, dom[]anenspezifische W[]orter,
+ []
+
+[29
 
 
 
@@ -1948,7 +1981,7 @@ Overfull \hbox (0.1127pt too wide) in paragraph at lines 32--33
 /n/12 , Skiz-zen von dort nut-zen, Encoder-
  []
 
-[29]
+[30]
 Overfull \hbox (26.84396pt too wide) in paragraph at lines 36--37
 \OT1/cmtt/m/n/12 patrickvonplaten / longformer2roberta-[]cnn _ dailymail-[]fp16
  / blob / main / README .
@@ -1985,7 +2018,7 @@ Overfull \hbox (0.21571pt too wide) in paragraph at lines 44--45
 lich -> Zur[]uckgestellt
  []
 
-[30]
+[31]
 Overfull \hbox (13.54543pt too wide) in paragraph at lines 45--46
 []\OT1/cmr/m/n/12 BERT-Encoder Transformer-Decoder: Pa-per [][]$\OT1/cmtt/m/n/1
 2 https : / / arxiv . org / pdf / 2008 . 09676 .
@@ -2004,7 +2037,7 @@ Overfull \hbox (46.13461pt too wide) in paragraph at lines 54--55
 aws . amazon . com / dlami / latest / devguide / tutorials .
  []
 
-[31]
+[32]
 Overfull \hbox (5.23314pt too wide) in paragraph at lines 69--70
 []\OT1/cmr/m/n/12 Qualit[]at der Zu-sam-men-fas-sung mes-sen (BLEU [][]$\OT1/cm
 tt/m/n/12 https : / / en . wikipedia . org / wiki /
@@ -2016,12 +2049,12 @@ Overfull \hbox (102.944pt too wide) in paragraph at lines 74--75
 tomatic-[]summarization-[]4c2b89f2a9ea$[][] 
  []
 
-[32]) [33]
+[33]) [34]
 \openout2 = `"source/content/Sprachtechnische Adaption.aux"'.
 
  ("source/content/Sprachtechnische Adaption.tex"
 chapter 6.
-) [34
+) [35
 
 
 
@@ -2034,7 +2067,7 @@ chapter 6.
 
  (source/content/Zusammenfassung.tex
 chapter 7.
-) [35
+) [36
 
 
 
@@ -2047,7 +2080,7 @@ chapter 7.
 
  ("source/content/Diskussion und Ausblick.tex"
 chapter 8.
-[36
+[37
 
 
 
@@ -2055,7 +2088,7 @@ chapter 8.
 
 
 
-]) [37] (source/formal/Literature.tex
+]) [38] (source/formal/Literature.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 []\OT1/cmr/m/n/10.95 AI-United: LSTM als neu-ro-na-les Netz-werk mit
  []
@@ -2132,40 +2165,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 []\OT1/cmr/m/n/10.95 McCullum, Nick: De-ep Lear-ning Neural Net-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 \OT1/cmr/m/n/10.95 works Ex-plai-ned, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
 www . freecodecamp . org / news /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 \OT1/cmtt/m/n/10.95 deep-[]learning-[]neural-[]networks-[]explained-[]in-[]plai
 n-[]english/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 84--85
+Underfull \hbox (badness 3148) in paragraph at lines 87--88
 []\OT1/cmr/m/n/10.95 SpaCy: Ger-man Mo-dels, in: [][]$\OT1/cmtt/m/n/10.95 https
  : / / spacy . io / models / de$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 []\OT1/cmr/m/n/10.95 Thaker, Ma-dhav: Com-pa-ring Text Sum-ma-ri-za-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 \OT1/cmr/m/n/10.95 ti-on Tech-ni-ques, in: [][]$\OT1/cmtt/m/n/10.95 https : / /
  towardsdatascience . com /
  []
 
-[51]) [52] (source/formal/Theses.tex) (source/formal/Statement.tex [53
+) [52] (source/formal/Theses.tex) (source/formal/Statement.tex [53
 
 
 
@@ -2205,11 +2238,11 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27186 strings out of 480257
- 523130 string characters out of 2881437
+ 27209 strings out of 480257
+ 523512 string characters out of 2881437
  974108 words of memory out of 3000000
- 42890 multiletter control sequences out of 15000+200000
- 544694 words of font info for 65 fonts, out of 3000000 for 9000
+ 42907 multiletter control sequences out of 15000+200000
+ 545041 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\didid\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
@@ -2225,11 +2258,12 @@ did/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/U
 sers/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmtt12.pfb>
-Output written on Thesis.pdf (54 pages, 949710 bytes).
+sfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Thesis.pdf (55 pages, 965629 bytes).
 PDF statistics:
- 1047 PDF objects out of 1200 (max. 8388607)
- 181 named destinations out of 1000 (max. 500000)
+ 1061 PDF objects out of 1200 (max. 8388607)
+ 183 named destinations out of 1000 (max. 500000)
  512 words of extra memory for PDF output out of 10000 (max. 10000000)
 
