@@ -1,8 +1,8 @@
 install transformer-kernel (see taurus.txt)
 
 conda env list
-cd /home/h1/davo557d/user-kernel/transformer-kernel/
 conda activate /home/davo557d/user-kernel/transformer-kernel
+cd /home/h1/davo557d/user-kernel/transformer-kernel/
 bash
 
 conda install pandas

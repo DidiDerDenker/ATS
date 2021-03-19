@@ -17,6 +17,8 @@
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Gradientenverfahren unter Einfluss eines Momentums \cite {CSNOJ}.\relax }}{18}{figure.caption.47}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Fine-Tuning vortrainierter Modelle \cite [S.~555]{ZHA20}.\relax }}{19}{figure.caption.50}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tokenisierung eines beispielhaften Satzes.\relax }}{23}{figure.caption.59}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces One Hot Encoding zwei beispielhafter Sätze.\relax }}{25}{figure.caption.62}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -49,32 +49,87 @@ Der einfachste Ansatz einer wortbasierten Tokenisierung besteht darin, den Text 
 Ob weiterhin auch Interpunktion berücksichtigt oder verworfen werden soll, ist hinsichtlich der anvisierten \ac{NLP}-Aufgabe individuell zu entscheiden und zu erproben. Gleiches gilt für die Entscheidung, ob eingehende Texte roh oder vorverarbeitet hineingegeben werden.\\
 
 \noindent
-Sei nun der Satz '\textit{Deutschland (DE) ist Weltmeister 2014.}' gegeben. Eine Textbereinigung und Textnormalisierung entfällt. Eine Tokenisierung, welche die Eigenschaften der deutschen Sprache sowie Interpunktion hinreichend berücksichtigt, würde die nachstehende Menge von Token generieren: \{\textit{Deutschland, (, DE, ), ist, Weltmeister, 2014, .}\}.\\
+Sei nun ein Satz gegeben, welcher keiner Textbereinigung und keiner Textnormalisierung unterzogen wird. Eine Tokenisierung, welche die Eigenschaften der deutschen Sprache sowie Interpunktion hinreichend berücksichtigt, würde die in \autoref{pic:Tokenization} visualisierte Menge von Token generieren.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/tokenization.png}}
+  \caption{Tokenisierung eines beispielhaften Satzes.}
+  \label{pic:Tokenization}
+\end{figure}
 
 \noindent
-Die Arbeit mit Texten erfordert bekanntermaßen eine geeignete mathematische Form. Die zeichenbasierten Token der Texte werden daher in einem Wortschatz (engl. Vocabulary) mithilfe numerischer Indizes kodiert. Hier ist es möglich, die Anzahl eindeutiger Token zu identifizieren oder gar seltene Token aus praktischen Gründen zu entfernen \cite[S.~311-312]{ZHA20}.\\
+Die Arbeit mit Texten erfordert bekanntermaßen eine geeignete mathematische Form. Die zeichenbasierten Token der Texte werden daher in einem Wortschatz (engl. Vocabulary) mithilfe numerischer Indizes kodiert. Hier ist es möglich, die Anzahl eindeutiger Token zu identifizieren oder gar seltene Token aus praktischen Gründen zu entfernen \cite[S.~311-312]{ZHA20}.
+\newpage
 
 \noindent
 Die Python-Bibliotheken \ac{NLTK} und SpaCy stellen entsprechende Tokenizer für eine möglichst schnelle Implementierung bereit. Beide sind überdies in einer für die deutsche Sprache ausgereiften Version verfügbar. Oftmals werden hierbei weitere Funktionalitäten mitgeliefert, darunter meist das Entfernen sprachbezogener Stoppwörter, die Lemmatisierung oder auch das Part-of-Speech-Tagging \cite[S.~111]{BIR09}.
 
 
 \section{Word Embeddings}
-Notizen:
-\begin{itemize}
-	\item Bereich des Language Modeling, d.h. Language Models beschreiben (siehe Leveraging ...)
-	\item Token nochmal als Begriff aufgreifen
-	\item Sinn und allgemeine Funktionsweise von Word Embeddings aufzeigen
-	\item Word2Vec
-	\item OneHotEncoding?
-	\item BOW
-	\item BPE
-	\item GloVe
-	\item Keyword Network generieren, bestenfalls mit eigenen Korpora
-	\item Beschreibung im Kapitel der Encoder-Decoder-Architekturen mit den neu gewonnenen Informationen aktualisieren
-\end{itemize}
+\noindent
+Word Embeddings überführen Texte in einen Vektorraum (engl. Vector Space), um Wörter syntaktisch, semantisch und insbesondere untereinander in Kontext zu bringen. Dabei wird ein Wortschatz benutzt, welcher die entsprechenden Vektoren, bestehend aus eindeutig kodierbaren ganzzahligen Werten, aufbaut \cite{KAR18}. Word Embeddings werden üblicherweise noch vor der Entwicklung der ursprünglichen \ac{NLP}-Aufgabe trainiert, weshalb ihnen ein unmittelbarer qualitativer Einfluss zugesprochen wird. Die entstehenden Modelle sind in der Folge schnell implementierbar. Weiterhin haben sie einen hohen skalierenden Effekt, da sie als Grundlage verschiedenster nachgelagerter \ac{NLP}-Aufgaben eingesetzt werden können \cite{NIT19}. Word Embeddings können durch verschiedene mehr oder minder komplexe Ansätze realisiert werden. Diese werden nachfolgend vorgestellt, wobei stets verdeutlicht wird, wie der entsprechende Vektorraum aufgebaut und in Kontext gebracht wird.
+
+
+\subsection{One-Hot-Encoding}
+\noindent
+One-Hot-Encoding ist einer der einfachsten Ansätze, um Texte in einen Vektorraum einzubetten. Dabei werden allgemein kategorische Variablen in ein numerisches und somit mathematisch verarbeitbares Format gebracht \cite{KAR18}. Seien nun zwei gleichbedeutende Sätze gegeben. Eben jene Sätze sowie der entsprechende Wortschatz und die binär kodierten Vektoren sind in \autoref{pic:OneHotEncoding} ersichtlich. Die Vektoren sind hierbei als Matrix zusammengefasst, wobei die Zeilen und Spalten anhand der Anfangsbuchstaben der Wörter kenntlich gemacht sind.\\
+
+\noindent
+Versucht man nun, diese Vektoren in einem Vektorraum zu visualisieren, dann entspricht jeder Vektor einer eigenen Dimension. Dabei wird allerdings klar, dass keine dimensionsübergreifenden Projektionen existieren \cite{KAR18}. Dies bedeutet, dass die Wörter \textit{gutes} und \textit{schönes} genauso verschieden sind, wie die Wörter \textit{heute} und \textit{ist}. Dies ist offensichtlich falsch. One-Hot-Encoding ist dennoch als Grundlage zu verstehen, wobei etwaige Probleme innerhalb der nachfolgenden Ansätze weiterbehandelt werden.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.65\linewidth]{./source/images/onehotencoding.png}}
+  \caption{One Hot Encoding zwei beispielhafter Sätze.}
+  \label{pic:OneHotEncoding}
+\end{figure}
+
+
+\subsection{Bag-of-Words}
+\noindent
+Text
+
+\url{https://towardsdatascience.com/introduction-to-word-embedding-and-word2vec-652d0c2060fa}
+
+\subsection{Word2Vec}
+\noindent
+Text
+
+-> auf Basis von BOW und Skip-Gram
+
+\subsection{Byte-Pair-Encoding}
+\noindent
+Text
+
+\subsection{GloVe}
+\noindent
+Text
+
+
+-> Word Embeddings in den Kontext des Language Modeling, d.h. Language Models einordnen (siehe Leveraging ...), ggf. bei den Deep Language Representations nach deren Definition aufgreifen
+
+-> Keyword Network generieren, bestenfalls mit eigenem Modell, welches auf den eigenen Korpora basiert
+
+-> Beschreibung im Kapitel der Encoder-Decoder-Architekturen unbedingt mit den jetzt neu gewonnenen Informationen aktualisieren
 
 
 \section{Deep Language Representations}
+Text
+
+\subsection{BERT}
+\noindent
+Text
+
+\subsection{ELMo}
+\noindent
+Text
+
+\subsection{GPT}
+\noindent
+Text
+
+
 Notizen:
 \begin{itemize}
 	\item Deep Language Models

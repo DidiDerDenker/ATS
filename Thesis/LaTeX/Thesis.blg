@@ -11,17 +11,17 @@ White space in argument---line 160 of file Thesis.aux
 I'm skipping whatever remains of this command
 Reallocating 'name_of_file' (item size: 1) to 34 items.
 A level-1 auxiliary file: source/content/Datengrundlage.aux
-White space in argument---line 170 of file Thesis.aux
+White space in argument---line 178 of file Thesis.aux
  : \@input{source/content/Abstraktiver
  :                                     Ansatz.aux}
 I'm skipping whatever remains of this command
-White space in argument---line 175 of file Thesis.aux
+White space in argument---line 183 of file Thesis.aux
  : \@input{source/content/Sprachtechnische
  :                                         Adaption.aux}
 I'm skipping whatever remains of this command
 Reallocating 'name_of_file' (item size: 1) to 35 items.
 A level-1 auxiliary file: source/content/Zusammenfassung.aux
-White space in argument---line 182 of file Thesis.aux
+White space in argument---line 190 of file Thesis.aux
  : \@input{source/content/Diskussion
  :                                   und Ausblick.aux}
 I'm skipping whatever remains of this command
