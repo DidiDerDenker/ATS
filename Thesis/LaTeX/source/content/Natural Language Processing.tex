@@ -68,28 +68,55 @@ Die Python-Bibliotheken \ac{NLTK} und SpaCy stellen entsprechende Tokenizer für
 
 \section{Word Embeddings}
 \noindent
-Word Embeddings überführen Texte in einen Vektorraum (engl. Vector Space), um Wörter syntaktisch, semantisch und insbesondere untereinander in Kontext zu bringen. Dabei wird ein Wortschatz benutzt, welcher die entsprechenden Vektoren, bestehend aus eindeutig kodierbaren ganzzahligen Werten, aufbaut \cite{KAR18}. Word Embeddings werden üblicherweise noch vor der Entwicklung der ursprünglichen \ac{NLP}-Aufgabe trainiert, weshalb ihnen ein unmittelbarer qualitativer Einfluss zugesprochen wird. Die entstehenden Modelle sind in der Folge schnell implementierbar. Weiterhin haben sie einen hohen skalierenden Effekt, da sie als Grundlage verschiedenster nachgelagerter \ac{NLP}-Aufgaben eingesetzt werden können \cite{NIT19}. Word Embeddings können durch verschiedene mehr oder minder komplexe Ansätze realisiert werden. Diese werden nachfolgend vorgestellt, wobei stets verdeutlicht wird, wie der entsprechende Vektorraum aufgebaut und in Kontext gebracht wird.
+Algorithmen können Texte bekanntermaßen nicht in ihrer Rohform verarbeiten. Texte bedürfen einer geeigneten mathematischen Form. Word Embeddings überführen Texte hierfür in einen Vektorraum (engl. Vector Space), um Wörter syntaktisch, semantisch und insbesondere untereinander in Kontext zu bringen. Dabei wird ein Wortschatz benutzt, welcher die entsprechenden Vektoren, bestehend aus eindeutig kodierbaren ganzzahligen Werten, aufbaut \cite{KAR18}. Die Ableitung der Vektoren aus den Textdaten wird auch als Feature Extraction oder Feature Encoding bezeichnet. Insgesamt befindet man sich hier im Bereich des Language Modeling \cite{BRO19}.\\
+
+\noindent
+Word Embeddings werden üblicherweise noch vor der Entwicklung der ursprünglich anvisierten \ac{NLP}-Aufgabe trainiert, weshalb ihnen ein unmittelbarer qualitativer Einfluss zugesprochen wird. Die entstehenden Modelle sind in der Folge schnell implementierbar. Weiterhin haben sie hiermit einen hohen skalierenden Effekt, da sie als Grundlage verschiedenster nachgelagerter \ac{NLP}-Aufgaben eingesetzt werden können \cite{NIT19}. Word Embeddings können durch verschiedene mehr oder minder komplexe Ansätze realisiert werden. Diese werden nachfolgend vorgestellt, wobei stets verdeutlicht wird, wie der entsprechende Vektorraum aufgebaut und in Kontext gebracht wird.
 
 
 \subsection{One-Hot-Encoding}
 \noindent
-One-Hot-Encoding ist einer der einfachsten Ansätze, um Texte in einen Vektorraum einzubetten. Dabei werden allgemein kategorische Variablen in ein numerisches und somit mathematisch verarbeitbares Format gebracht \cite{KAR18}. Seien nun zwei gleichbedeutende Sätze gegeben. Eben jene Sätze sowie der entsprechende Wortschatz und die binär kodierten Vektoren sind in \autoref{pic:OneHotEncoding} ersichtlich. Die Vektoren sind hierbei als Matrix zusammengefasst, wobei die Zeilen und Spalten anhand der Anfangsbuchstaben der Wörter kenntlich gemacht sind.\\
+\ac{OHE} ist einer der einfachsten Ansätze, um Texte in einen Vektorraum einzubetten. Dabei werden allgemein kategorische Variablen in ein numerisches und somit mathematisch verarbeitbares Format gebracht \cite{KAR18}. Seien nun zwei gleichbedeutende Sätze gegeben. Eben jene Sätze sowie der entsprechende Wortschatz und die binär kodierten Vektoren sind in \autoref{pic:OneHotEncoding} ersichtlich. Die Vektoren sind hierbei als Matrix zusammengefasst, wobei die Zeilen und Spalten anhand der Anfangsbuchstaben der Wörter kenntlich gemacht sind.\\
 
 \noindent
-Versucht man nun, diese Vektoren in einem Vektorraum zu visualisieren, dann entspricht jeder Vektor einer eigenen Dimension. Dabei wird allerdings klar, dass keine dimensionsübergreifenden Projektionen existieren \cite{KAR18}. Dies bedeutet, dass die Wörter \textit{gutes} und \textit{schönes} genauso verschieden sind, wie die Wörter \textit{heute} und \textit{ist}. Dies ist offensichtlich falsch. One-Hot-Encoding ist dennoch als Grundlage zu verstehen, wobei etwaige Probleme innerhalb der nachfolgenden Ansätze weiterbehandelt werden.
+Versucht man nun, diese Vektoren in einem Vektorraum zu visualisieren, dann entspricht jeder Vektor einer eigenen Dimension. Dabei wird allerdings klar, dass keine dimensionsübergreifenden Projektionen existieren \cite{KAR18}. Dies bedeutet, dass die Wörter \textit{gutes} und \textit{schönes} genauso verschieden sind, wie die Wörter \textit{heute} und \textit{ist}. Dies ist offensichtlich falsch. \ac{OHE} ist dennoch als Grundlage zu verstehen, wobei etwaige Probleme innerhalb der nachfolgenden Ansätze weiterbehandelt werden.
 
 \begin{figure}[h!]
   \centering
   \fbox{\includegraphics[width=0.65\linewidth]{./source/images/onehotencoding.png}}
-  \caption{One Hot Encoding zwei beispielhafter Sätze.}
+  \caption{One-Hot-Encoding mit zwei beispielhaften Sätzen.}
   \label{pic:OneHotEncoding}
 \end{figure}
 
 
 \subsection{Bag-of-Words}
 \noindent
-Text
+Ein weiterer einfacher Ansatz zur Feature Extraction kann durch das sogenannte \ac{BOW} realisiert werden. Diese zählen das Aufkommen in einem Wortschatz definierter Wörter textbezogen über eine Vielzahl von Texten. Dabei ist allerdings ein gewisser Informationsverlust zu erwarten, da beispielsweise die Reihenfolge der Wörter nicht berücksichtigt wird. \autoref{table:BagOfWords} zeigt beispielhaft eine Matrix eines solchen \ac{BOW}-Modells. In den Zeilen sind die betrachteten Texte indiziert, in den Spalten hingegen die Wörter des frei erfundenen Wortschatzes. Die Matrix hat demnach eine daran orientierte fixe Größe. In den Zellen ergeben sich somit die Häufigkeiten der Wörter, bezogen auf ihr Aufkommen in den einzelnen Texten \cite{BRO19}.
 
+\begin{table}[htb]
+\centering
+\begin{tabular}{ | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | }
+\hline
+\textbf{ID} & \textbf{Spanien} & \textbf{ist} & \textbf{Mitglied} & \textbf{der} & \textbf{EU} \\
+\hline
+Text 1 & 2 & 8 & 1 & 5 & 1 \\
+\hline
+Text 2 & 1 & 3 & 0 & 2 & 0 \\
+\hline
+Text 3 & 0 & 4 & 0 & 7 & 0 \\
+\hline
+\end{tabular}
+\caption{Bag-of-Words mit einem beispielhaften Wortschatz \cite{HUI20}.}
+\label{table:BagOfWords}
+\end{table}
+\newpage
+
+\noindent
+Nachteilig ist dieser Ansatz hinsichtlich der \ac{ATS} insbesondere dadurch, dass die Reihenfolge der Wörter nicht berücksichtigt wird. Wie in \autoref{table:BagOfWords} ersichtlich wurde, lassen sich aus der Matrix keine Informationen über die Semantik oder Grammatik rekonstruieren. Aus technischer Sicht würde die Matrix bei steigender Wortschatzgröße nicht nur mitwachsen, sondern zudem viele Null-Einträge enthalten \cite{HUI20}. Vorteilig ist dieser Ansatz hingegen für eher schlichtere \ac{NLP}-Aufgaben. Hier sei die Klassifikation von Dokumenten als mögliches Einsatzgebiet genannt.
+
+
+\subsection{Skip-Gram-Model}
+\noindent
 \url{https://towardsdatascience.com/introduction-to-word-embedding-and-word2vec-652d0c2060fa}
 
 \subsection{Word2Vec}

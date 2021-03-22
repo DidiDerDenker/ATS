@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  19 MAR 2021 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  22 MAR 2021 14:12
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1347,7 +1347,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-<./source/images/summarizationprocess.png, id=306, 370.38374pt x 179.92218pt>
+<./source/images/summarizationprocess.png, id=320, 370.38374pt x 179.92218pt>
 File: ./source/images/summarizationprocess.png Graphic file (type png)
 <use ./source/images/summarizationprocess.png>
 Package pdftex.def Info: ./source/images/summarizationprocess.png  used on inpu
@@ -1439,13 +1439,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
 
 ]
-<./source/images/artificialneuron.png, id=403, 551.81157pt x 307.90031pt>
+<./source/images/artificialneuron.png, id=417, 551.81157pt x 307.90031pt>
 File: ./source/images/artificialneuron.png Graphic file (type png)
 <use ./source/images/artificialneuron.png>
 Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
 ne 18.
 (pdftex.def)             Requested size: 246.47339pt x 137.52965pt.
-<./source/images/multilayerperceptron.png, id=406, 854.44218pt x 462.22687pt>
+<./source/images/multilayerperceptron.png, id=420, 854.44218pt x 462.22687pt>
 File: ./source/images/multilayerperceptron.png Graphic file (type png)
 <use ./source/images/multilayerperceptron.png>
 Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
@@ -1458,7 +1458,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
 [6 <./source/images/artificialneuron.png> <./source/images/multilayerperceptron
 .png>]
-<./source/images/fittingtypes.png, id=418, 748.29562pt x 247.67531pt>
+<./source/images/fittingtypes.png, id=432, 748.29562pt x 247.67531pt>
 File: ./source/images/fittingtypes.png Graphic file (type png)
 <use ./source/images/fittingtypes.png>
 Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 3
@@ -1480,7 +1480,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-<./source/images/hiddenstates.png, id=438, 744.53156pt x 216.05719pt>
+<./source/images/hiddenstates.png, id=452, 744.53156pt x 216.05719pt>
 File: ./source/images/hiddenstates.png Graphic file (type png)
 <use ./source/images/hiddenstates.png>
 Package pdftex.def Info: ./source/images/hiddenstates.png  used on input line 6
@@ -1509,7 +1509,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
  []
 
 [9]
-<./source/images/lstmcell.png, id=472, 747.54282pt x 333.49594pt>
+<./source/images/lstmcell.png, id=486, 747.54282pt x 333.49594pt>
 File: ./source/images/lstmcell.png Graphic file (type png)
 <use ./source/images/lstmcell.png>
 Package pdftex.def Info: ./source/images/lstmcell.png  used on input line 84.
@@ -1552,7 +1552,7 @@ T1/cmr/m/n/12 = [\OML/cmm/m/it/12 y[]; :::; y[]\OT1/cmr/m/n/12 ]$ ge-ne-rie-ren
  kann [[]]. 
  []
 
-<./source/images/encoderdecoder.png, id=504, 499.11469pt x 108.405pt>
+<./source/images/encoderdecoder.png, id=518, 499.11469pt x 108.405pt>
 File: ./source/images/encoderdecoder.png Graphic file (type png)
 <use ./source/images/encoderdecoder.png>
 Package pdftex.def Info: ./source/images/encoderdecoder.png  used on input line
@@ -1583,19 +1583,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--132
  []
 
 [12 <./source/images/encoderdecoder.png>]
-<./source/images/attentionlayer.png, id=527, 597.73312pt x 426.84468pt>
+<./source/images/attentionlayer.png, id=541, 597.73312pt x 426.84468pt>
 File: ./source/images/attentionlayer.png Graphic file (type png)
 <use ./source/images/attentionlayer.png>
 Package pdftex.def Info: ./source/images/attentionlayer.png  used on input line
  135.
 (pdftex.def)             Requested size: 179.24963pt x 128.00229pt.
-<./source/images/attentionmechanism.png, id=530, 577.40718pt x 453.94594pt>
+<./source/images/attentionmechanism.png, id=544, 577.40718pt x 453.94594pt>
 File: ./source/images/attentionmechanism.png Graphic file (type png)
 <use ./source/images/attentionmechanism.png>
 Package pdftex.def Info: ./source/images/attentionmechanism.png  used on input 
 line 142.
 (pdftex.def)             Requested size: 224.06548pt x 176.15851pt.
-<./source/images/selfattention.png, id=535, 550.30594pt x 352.31625pt>
+<./source/images/selfattention.png, id=549, 550.30594pt x 352.31625pt>
 File: ./source/images/selfattention.png Graphic file (type png)
 <use ./source/images/selfattention.png>
 Package pdftex.def Info: ./source/images/selfattention.png  used on input line 
@@ -1612,7 +1612,7 @@ Overfull \hbox (17.22116pt too wide) in paragraph at lines 158--159
 ifend iden-ti-fi-ziert [[]].
  []
 
-<./source/images/multiheadattention.png, id=547, 715.17188pt x 395.97937pt>
+<./source/images/multiheadattention.png, id=561, 715.17188pt x 395.97937pt>
 File: ./source/images/multiheadattention.png Graphic file (type png)
 <use ./source/images/multiheadattention.png>
 Package pdftex.def Info: ./source/images/multiheadattention.png  used on input 
@@ -1644,7 +1644,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
-<./source/images/transformerarchitecture.png, id=559, 560.8453pt x 679.78969pt>
+<./source/images/transformerarchitecture.png, id=573, 560.8453pt x 679.78969pt>
 
 File: ./source/images/transformerarchitecture.png Graphic file (type png)
 <use ./source/images/transformerarchitecture.png>
@@ -1672,7 +1672,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--197
 
  []
 
-<./source/images/gradientdescent.png, id=583, 895.09406pt x 245.41687pt>
+<./source/images/gradientdescent.png, id=597, 895.09406pt x 245.41687pt>
 File: ./source/images/gradientdescent.png Graphic file (type png)
 <use ./source/images/gradientdescent.png>
 Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
@@ -1699,7 +1699,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--213
 
  []
 
-<./source/images/momentumupdate.png, id=597, 319.1925pt x 322.95656pt>
+<./source/images/momentumupdate.png, id=611, 319.1925pt x 322.95656pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
@@ -1720,7 +1720,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 229--231
  []
 
 [18 <./source/images/momentumupdate.png>]
-<./source/images/finetuning.png, id=623, 682.04813pt x 344.03531pt>
+<./source/images/finetuning.png, id=637, 682.04813pt x 344.03531pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
 Package pdftex.def Info: ./source/images/finetuning.png  used on input line 234
@@ -1813,52 +1813,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
-<./source/images/tokenization.png, id=679, 693.34032pt x 115.93312pt>
+<./source/images/tokenization.png, id=693, 693.34032pt x 115.93312pt>
 File: ./source/images/tokenization.png Graphic file (type png)
 <use ./source/images/tokenization.png>
 Package pdftex.def Info: ./source/images/tokenization.png  used on input line 5
 6.
 (pdftex.def)             Requested size: 268.8813pt x 44.96075pt.
 [23 <./source/images/tokenization.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-<./source/images/onehotencoding.png, id=696, 515.67656pt x 238.64156pt>
+Package acronym Info: Label `acro:OHE' newly defined as it shall be overridden
+although it is yet undefined on input line 79.
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--80
+
+ []
+
+[24]
+<./source/images/onehotencoding.png, id=719, 515.67656pt x 238.64156pt>
 File: ./source/images/onehotencoding.png Graphic file (type png)
 <use ./source/images/onehotencoding.png>
 Package pdftex.def Info: ./source/images/onehotencoding.png  used on input line
- 83.
+ 86.
 (pdftex.def)             Requested size: 291.28238pt x 134.79994pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[24]
-Overfull \hbox (103.04434pt too wide) in paragraph at lines 93--94
-[][][]$\OT1/cmtt/m/n/12 https : / / towardsdatascience . com / introduction-[]t
-o-[]word-[]embedding-[]and-[]word2vec-[]652d0c2060fa$[][] 
- []
-
-[25 <./source/images/onehotencoding.png>]
-Overfull \hbox (14.55208pt too wide) in paragraph at lines 136--137
+Package acronym Info: Label `acro:BOW' newly defined as it shall be overridden
+although it is yet undefined on input line 94.
+ [25 <./source/images/onehotencoding.png>] [26]
+Overfull \hbox (14.55208pt too wide) in paragraph at lines 163--164
 \OT1/cmtt/m/n/12 1WIk2bxglElfZewOHboPFNj8H44 _ VAyKE ? usp = sharing # scrollTo
  = 4M2uzGLV9a _ O$[][] \OT1/cmr/m/n/12 un-
  []
 
 
-Overfull \hbox (262.9643pt too wide) in paragraph at lines 137--138
+Overfull \hbox (262.9643pt too wide) in paragraph at lines 164--165
 []\OT1/cmr/m/n/12 BERT vs. Al-ter-na-ti-ven: [][]$\OT1/cmtt/m/n/12 https : / / 
 towardsdatascience . com / bert-[]roberta-[]distilbert-[]xlnet-[]which-[]one-[]
 to-[]use-[]3d5ab82ba5f8$[][] 
  []
 
-[26]
-Overfull \hbox (33.80154pt too wide) in paragraph at lines 144--145
+[27]
+Overfull \hbox (33.80154pt too wide) in paragraph at lines 171--172
 []\OT1/cmr/m/n/12 Am bes-ten di-rekt ein vor-trai-nier-tes Transformer-Modell n
 ut-zen (ex-tra f[]ur Summarization-
  []
 
-) [27]
+) [28]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
@@ -1873,7 +1874,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[28
+[29
 
 
 
@@ -1892,7 +1893,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--60
 
  []
 
-[29]
+[30]
 \openout2 = `"source/content/Abstraktiver Ansatz.aux"'.
 
  ("source/content/Abstraktiver Ansatz.tex"
@@ -1937,7 +1938,7 @@ Overfull \hbox (6.06819pt too wide) in paragraph at lines 21--22
 e, dom[]anenspezifische W[]orter,
  []
 
-[30
+[31
 
 
 
@@ -2006,7 +2007,7 @@ Overfull \hbox (0.1127pt too wide) in paragraph at lines 32--33
 /n/12 , Skiz-zen von dort nut-zen, Encoder-
  []
 
-[31]
+[32]
 Overfull \hbox (26.84396pt too wide) in paragraph at lines 36--37
 \OT1/cmtt/m/n/12 patrickvonplaten / longformer2roberta-[]cnn _ dailymail-[]fp16
  / blob / main / README .
@@ -2043,7 +2044,7 @@ Overfull \hbox (0.21571pt too wide) in paragraph at lines 44--45
 lich -> Zur[]uckgestellt
  []
 
-[32]
+[33]
 Overfull \hbox (13.54543pt too wide) in paragraph at lines 45--46
 []\OT1/cmr/m/n/12 BERT-Encoder Transformer-Decoder: Pa-per [][]$\OT1/cmtt/m/n/1
 2 https : / / arxiv . org / pdf / 2008 . 09676 .
@@ -2062,7 +2063,7 @@ Overfull \hbox (46.13461pt too wide) in paragraph at lines 54--55
 aws . amazon . com / dlami / latest / devguide / tutorials .
  []
 
-[33]
+[34]
 Overfull \hbox (5.23314pt too wide) in paragraph at lines 69--70
 []\OT1/cmr/m/n/12 Qualit[]at der Zu-sam-men-fas-sung mes-sen (BLEU [][]$\OT1/cm
 tt/m/n/12 https : / / en . wikipedia . org / wiki /
@@ -2074,12 +2075,12 @@ Overfull \hbox (102.944pt too wide) in paragraph at lines 74--75
 tomatic-[]summarization-[]4c2b89f2a9ea$[][] 
  []
 
-[34]) [35]
+[35]) [36]
 \openout2 = `"source/content/Sprachtechnische Adaption.aux"'.
 
  ("source/content/Sprachtechnische Adaption.tex"
 chapter 6.
-) [36
+) [37
 
 
 
@@ -2092,7 +2093,7 @@ chapter 6.
 
  (source/content/Zusammenfassung.tex
 chapter 7.
-) [37
+) [38
 
 
 
@@ -2105,7 +2106,7 @@ chapter 7.
 
  ("source/content/Diskussion und Ausblick.tex"
 chapter 8.
-[38
+[39
 
 
 
@@ -2113,7 +2114,7 @@ chapter 8.
 
 
 
-]) [39] (source/formal/Literature.tex
+]) [40] (source/formal/Literature.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 []\OT1/cmr/m/n/10.95 AI-United: LSTM als neu-ro-na-les Netz-werk mit
  []
@@ -2148,55 +2149,55 @@ anishing-[]gradients-[]a6784971a577$[][]\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+[][]$\OT1/cmtt/m/n/10.95 https : / / machinelearningmastery . com / gentle-[]in
+troduction-[]bag-[]words-[]model/$[][]\OT1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
 []\OT1/cmr/m/n/10.95 Culurciello, Eu-ge-nio: The Fall of RNN/ LSTM, in: [][]$\O
 T1/cmtt/m/n/10.95 https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
 \OT1/cmtt/m/n/10.95 / / towardsdatascience . com / the-[]fall-[]of-[]rnn-[]lstm
 -[]2d1594c74ce0$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
 []\OT1/cmr/m/n/10.95 Goncalves, Luis: Au-to-ma-tic Text Sum-ma-ri-za-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
 \OT1/cmr/m/n/10.95 on with Ma-chi-ne Lear-ning, in: [][]$\OT1/cmtt/m/n/10.95 ht
 tps : / / medium . com / luisfredgs /
  []
 
 
-Overfull \hbox (12.9706pt too wide) in paragraph at lines 36--37
+Overfull \hbox (12.9706pt too wide) in paragraph at lines 39--40
 \OT1/cmtt/m/n/10.95 automatic-[]text-[]summarization-[]with-[]machine-[]learnin
 g-[]an-[]overview-[]68ded5717a25$[][]\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 []\OT1/cmr/m/n/10.95 Karani, Dhru-vil: In-tro-duc-ti-on to Word Em-bed-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 \OT1/cmr/m/n/10.95 ding and Word2Vec, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
 towardsdatascience . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 \OT1/cmtt/m/n/10.95 introduction-[]to-[]word-[]embedding-[]and-[]word2vec-[]652
 d0c2060fa$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-[]\OT1/cmr/m/n/10.95 Karim, Rai-mi: Self-Attention, in: [][]$\OT1/cmtt/m/n/10.9
-5 https : / / towardsdatascience . com /
  []
 
 [50
@@ -2207,35 +2208,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+[]\OT1/cmr/m/n/10.95 Karim, Rai-mi: Self-Attention, in: [][]$\OT1/cmtt/m/n/10.9
+5 https : / / towardsdatascience . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 []\OT1/cmr/m/n/10.95 McCullum, Nick: De-ep Lear-ning Neural Net-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 \OT1/cmr/m/n/10.95 works Ex-plai-ned, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
 www . freecodecamp . org / news /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 \OT1/cmtt/m/n/10.95 deep-[]learning-[]neural-[]networks-[]explained-[]in-[]plai
 n-[]english/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 [51]
-Underfull \hbox (badness 3148) in paragraph at lines 90--91
+Underfull \hbox (badness 3148) in paragraph at lines 96--97
 []\OT1/cmr/m/n/10.95 SpaCy: Ger-man Mo-dels, in: [][]$\OT1/cmtt/m/n/10.95 https
  : / / spacy . io / models / de$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 []\OT1/cmr/m/n/10.95 Thaker, Ma-dhav: Com-pa-ring Text Sum-ma-ri-za-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 \OT1/cmr/m/n/10.95 ti-on Tech-ni-ques, in: [][]$\OT1/cmtt/m/n/10.95 https : / /
  towardsdatascience . com /
  []
@@ -2280,10 +2287,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27423 strings out of 480257
- 525824 string characters out of 2881437
- 977306 words of memory out of 3000000
- 43107 multiletter control sequences out of 15000+200000
+ 27452 strings out of 480257
+ 526177 string characters out of 2881437
+ 978306 words of memory out of 3000000
+ 43127 multiletter control sequences out of 15000+200000
  545041 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2303,9 +2310,9 @@ m/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Thesis.pdf (56 pages, 1031644 bytes).
+Output written on Thesis.pdf (57 pages, 1040822 bytes).
 PDF statistics:
- 1127 PDF objects out of 1200 (max. 8388607)
- 195 named destinations out of 1000 (max. 500000)
- 586 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1165 PDF objects out of 1200 (max. 8388607)
+ 204 named destinations out of 1000 (max. 500000)
+ 594 words of extra memory for PDF output out of 10000 (max. 10000000)
 
