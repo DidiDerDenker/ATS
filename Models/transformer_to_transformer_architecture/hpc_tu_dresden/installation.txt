@@ -12,4 +12,8 @@ conda install -c pytorch pytorch cuda91
 conda install tensorflow-gpu
 conda install xlrd
 conda install openpyxl
-conda install -c conda-forge datasets
+
+cd /home/h1/davo557d/
+git clone https://github.com/huggingface/datasets.git
+cd datasets
+pip install . --user
