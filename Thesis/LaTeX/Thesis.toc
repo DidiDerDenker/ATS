@@ -23,30 +23,30 @@
 \contentsline {subsection}{\numberline {3.1.2}Textnormalisierung}{21}{subsection.56}%
 \contentsline {subsection}{\numberline {3.1.3}Tokenisierung}{23}{subsection.58}%
 \contentsline {section}{\numberline {3.2}Word Embeddings}{24}{section.60}%
-\contentsline {subsection}{\numberline {3.2.1}One-Hot-Encoding}{24}{subsection.61}%
+\contentsline {subsection}{\numberline {3.2.1}One-Hot-Encoding}{25}{subsection.61}%
 \contentsline {subsection}{\numberline {3.2.2}Bag-of-Words}{25}{subsection.64}%
 \contentsline {subsection}{\numberline {3.2.3}Skip-Gram-Model}{26}{subsection.67}%
-\contentsline {subsection}{\numberline {3.2.4}Word2Vec}{26}{subsection.68}%
-\contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{26}{subsection.69}%
-\contentsline {subsection}{\numberline {3.2.6}GloVe}{26}{subsection.70}%
-\contentsline {section}{\numberline {3.3}Deep Language Representations}{26}{section.71}%
-\contentsline {subsection}{\numberline {3.3.1}BERT}{27}{subsection.72}%
-\contentsline {subsection}{\numberline {3.3.2}ELMo}{27}{subsection.73}%
-\contentsline {subsection}{\numberline {3.3.3}GPT}{27}{subsection.74}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{29}{chapter.75}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{31}{chapter.76}%
-\contentsline {section}{\numberline {5.1}Architektur}{32}{section.77}%
-\contentsline {section}{\numberline {5.2}Training}{34}{section.78}%
-\contentsline {section}{\numberline {5.3}Evaluation}{34}{section.79}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{37}{chapter.80}%
-\contentsline {section}{\numberline {6.1}Konzeption}{37}{section.81}%
-\contentsline {section}{\numberline {6.2}Training}{37}{section.82}%
-\contentsline {section}{\numberline {6.3}Evaluation}{37}{section.83}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{38}{chapter.84}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{39}{chapter.85}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.85}%
-\contentsline {chapter}{Thesen}{53}{chapter*.87}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{54}{chapter*.88}%
-\contentsline {chapter}{\numberline {A}Erster Anhang}{55}{appendix.89}%
-\contentsline {chapter}{\numberline {B}Zweiter Anhang}{56}{appendix.90}%
+\contentsline {subsection}{\numberline {3.2.4}Word2Vec}{27}{subsection.68}%
+\contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{27}{subsection.70}%
+\contentsline {subsection}{\numberline {3.2.6}GloVe}{27}{subsection.71}%
+\contentsline {section}{\numberline {3.3}Deep Language Representations}{28}{section.72}%
+\contentsline {subsection}{\numberline {3.3.1}BERT}{28}{subsection.73}%
+\contentsline {subsection}{\numberline {3.3.2}ELMo}{28}{subsection.74}%
+\contentsline {subsection}{\numberline {3.3.3}GPT}{28}{subsection.75}%
+\contentsline {chapter}{\numberline {4}Datengrundlage}{31}{chapter.76}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{33}{chapter.77}%
+\contentsline {section}{\numberline {5.1}Architektur}{34}{section.78}%
+\contentsline {section}{\numberline {5.2}Training}{36}{section.79}%
+\contentsline {section}{\numberline {5.3}Evaluation}{36}{section.80}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{39}{chapter.81}%
+\contentsline {section}{\numberline {6.1}Konzeption}{39}{section.82}%
+\contentsline {section}{\numberline {6.2}Training}{39}{section.83}%
+\contentsline {section}{\numberline {6.3}Evaluation}{39}{section.84}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{40}{chapter.85}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{41}{chapter.86}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.86}%
+\contentsline {chapter}{Thesen}{53}{chapter*.88}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{54}{chapter*.89}%
+\contentsline {chapter}{\numberline {A}Erster Anhang}{55}{appendix.90}%
+\contentsline {chapter}{\numberline {B}Zweiter Anhang}{56}{appendix.91}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,9 +1,8 @@
 install transformer-kernel (see taurus.txt)
 
-conda env list
 conda activate /home/davo557d/user-kernel/transformer-kernel
-cd /home/h1/davo557d/user-kernel/transformer-kernel/
 bash
+cd /home/h1/davo557d/user-kernel/transformer-kernel/
 
 conda install pandas
 conda install -c conda-forge pyarrow
@@ -14,6 +13,18 @@ conda install xlrd
 conda install openpyxl
 
 cd /home/h1/davo557d/
+
+git clone https://github.com/apache/arrow.git
+cd arrow
+cd python
+pip install . --user
+
 git clone https://github.com/huggingface/datasets.git
 cd datasets
 pip install . --user
+
+python
+from distutils.sysconfig import get_python_lib
+print(get_python_lib())
+exit()
+cd /sw/installed/Anaconda3/2019.03/lib/python3.7/site-packages
