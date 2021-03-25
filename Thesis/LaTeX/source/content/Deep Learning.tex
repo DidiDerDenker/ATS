@@ -23,7 +23,7 @@ Die elementarste Form neuronaler Netze wird \ac{MLP} genannt. \ac{MLP} bestehen 
 \begin{figure}[h!]
   \centering
   \fbox{\includegraphics[width=0.65\linewidth]{./source/images/multilayerperceptron.png}}
-  \caption{Aufbau eines MLP \cite[S.~133]{ZHA20}.}
+  \caption{Aufbau eines MLP \cite[S.~388]{RAS19}.}
   \label{pic:MultiLayerPerceptron}
 \end{figure}
 
@@ -222,7 +222,7 @@ Weiterhin unterstützt das Momentum die bereits beschriebene \ac{LR} auf der Suc
 Bei der Auswahl eines hohen Momentums sollte die \ac{LR} eher niedriger sein, oder anders herum. Eine Möglichkeit der stochastischen Optimierung ist hierbei \ac{ADAM}. Dieser Algorithmus übernimmt nicht nur die Auswahl der adaptiven \ac{LR}, sondern auch die Auswahl des entsprechenden Momentums. \ac{ADAM} arbeitet weitreichenden Analysen zufolge effizient für daten- und parameterintensive Probleme. Dabei konvergiert der Algorithmus üblicherweise schneller als vergleichbare Optimierungsalgorithmen \cite[S.~1-2]{KIN17}.\\
 
 \noindent
-Zuletzt ist noch das Weight Decay erwähnenswert. Dieses meint die Multiplikation der Gewichte einer Architektur nach jeder Epoche mit einem Faktor kleiner als eins, um sehr große Gewichte zu verhindern. Die Gefahr von Overfitting wird hierbei verringert, während sich die Generalisierung des Modells verbessert \cite[S.~154]{ZHA20}. Allgemein lässt sich die optimale Kombination aller Hyperparameter auch durch Techniken wie Grid Search annähern \cite[S.~24]{YAN20}.
+Zuletzt ist noch das Weight Decay erwähnenswert. Dieses meint die Multiplikation der Gewichte einer Architektur nach jeder Epoche mit einem Faktor kleiner als eins, um sehr große Gewichte zu verhindern. Die Gefahr von Overfitting wird hierbei verringert, während sich die Generalisierung des Modells verbessert \cite[S.~154]{ZHA20}. Allgemein lässt sich die optimale Kombination aller Hyperparameter auch durch Techniken wie Grid Search (vgl. Brute-Force) annähern \cite[S.~24]{YAN20}.
 
 
 \section{Transfer Learning}

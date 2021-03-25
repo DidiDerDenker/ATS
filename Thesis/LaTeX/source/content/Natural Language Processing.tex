@@ -92,7 +92,7 @@ Versucht man nun, diese Vektoren in einem Vektorraum zu visualisieren, dann ents
 
 \subsection{Bag-of-Words}
 \noindent
-\ac{BOW} realisieren vornehmlich die Feature Extraction, indem entsprechende Modelle das Aufkommen von in einem Wortschatz definierter Wörter über eine Vielzahl von Texten zählen. Dabei ist allerdings ein gewisser Informationsverlust zu erwarten, da beispielsweise die Reihenfolge der Wörter nicht berücksichtigt wird. \autoref{table:BagOfWords} zeigt beispielhaft eine Matrix eines solchen \ac{BOW}-Modells.
+\ac{BOW} realisieren die Feature Extraction, indem entsprechende Modelle das Aufkommen von in einem Wortschatz definierter Wörter über eine Vielzahl von Texten zählen. Dabei ist allerdings ein gewisser Informationsverlust zu erwarten, da beispielsweise die Reihenfolge der Wörter nicht berücksichtigt wird \cite[S.~262]{RAS19}. \autoref{table:BagOfWords} zeigt beispielhaft eine Matrix eines solchen \ac{BOW}-Modells.
 \newpage
 
 \noindent
@@ -166,7 +166,7 @@ Hierbei werden sehr große Matrizen durch mehrere niederrangige Matrizen approxi
 
 \section{Deep Language Representations}
 \noindent
-Die beschriebenen Word Embeddings verfolgen teils sehr abstrakte Ansätze, welche sich mitunter nur auf sehr wenige Teilbereiche des \ac{NLP} adaptieren lassen oder entscheidende Nachteile aufweisen. Zudem unterliegen sie meist statistischen und somit rechentechnischen Limitationen. \ac{ATS}-Modelle erfordern daher weitergehende Deep Language Representations, um den Anforderungen an das \ac{NLU} und die \ac{NLG} gerecht zu werden. Dabei werden die ursprünglichen Ansätze durch umfangreichere und komplexere neuronale Netze ersetzt. Nur wenige Akteure sind hierbei dazu fähig, geeignete Architekturen zu konzipieren und entsprechende Modelle von Grund auf neu zu trainieren. Dies wurde in der Vergangenheit bereits getan und veröffentlicht, sodass gemäß \ac{TL} nur noch ein weitergehendes Fine-Tuning nötig ist. Dabei profitierten nahezu alle nachstehenden \ac{NLP}-Aufgaben qualitativ von diesen Fortschritten. Architekturen, welche als Deep Language Representations zu verstehen sind und eine \ac{ATS} begünstigen, werden nachfolgend offengelegt \cite[S.~25]{NIT19}.
+Die beschriebenen Word Embeddings verfolgen teils sehr abstrakte Ansätze, welche sich mitunter nur auf sehr wenige Teilbereiche des \ac{NLP} adaptieren lassen oder entscheidende Nachteile aufweisen. Zudem unterliegen sie meist statistischen und somit rechentechnischen Limitationen. \ac{ATS}-Modelle erfordern daher weitergehende Deep Language Representations, um den Anforderungen an das \ac{NLU} und die \ac{NLG} gerecht zu werden. Dabei werden die ursprünglichen Ansätze durch umfangreichere und komplexere neuronale Netze ersetzt. Diese werden fortan als Language Models bezeichnet. Nur wenige Akteure sind hierbei dazu fähig, geeignete Architekturen zu konzipieren und entsprechende Modelle von Grund auf neu zu trainieren. Dies wurde in der Vergangenheit bereits getan und veröffentlicht, sodass gemäß \ac{TL} nur noch ein weitergehendes Fine-Tuning nötig ist. Dabei profitierten nahezu alle nachstehenden \ac{NLP}-Aufgaben qualitativ von diesen Fortschritten. Architekturen, welche als Deep Language Representations zu verstehen sind und eine \ac{ATS} begünstigen, werden nachfolgend offengelegt \cite[S.~25]{NIT19}.
 
 + DEFINITION DEEP LANGUAGE REPRESENTATIONS
 + KONTEXT UND NOTWENDIGKEIT ZU LANGUAGE MODEL

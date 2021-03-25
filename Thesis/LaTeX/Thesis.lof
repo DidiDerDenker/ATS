@@ -3,7 +3,7 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Ablauf einer automatischen Zusammenfassung \cite {THA19}.\relax }}{1}{figure.caption.11}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Aufbau eines künstlichen Neurons \cite {MCC20}.\relax }}{6}{figure.caption.27}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Aufbau eines MLP \cite [S.~133]{ZHA20}.\relax }}{6}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Aufbau eines MLP \cite [S.~388]{RAS19}.\relax }}{6}{figure.caption.28}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Typen von Generalisierungseffekten \cite {EDPOJ}.\relax }}{7}{figure.caption.29}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces RNN mit verborgenen Zuständen \cite [S.~325]{ZHA20}.\relax }}{8}{figure.caption.32}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Aufbau einer LSTM-Zelle \cite [S.~357]{ZHA20}.\relax }}{10}{figure.caption.34}%
