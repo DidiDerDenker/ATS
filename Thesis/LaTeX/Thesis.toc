@@ -1,52 +1,52 @@
 \babel@toc {ngerman}{}
 \contentsline {chapter}{Inhaltsverzeichnis}{II}{chapter*.3}%
 \contentsline {chapter}{Abbildungsverzeichnis}{III}{chapter*.4}%
-\contentsline {chapter}{Tabellenverzeichnis}{IV}{chapter*.5}%
-\contentsline {chapter}{Abkürzungsverzeichnis}{V}{chapter*.6}%
-\contentsline {chapter}{Quellcodeverzeichnis}{VI}{chapter*.7}%
-\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.8}%
-\contentsline {section}{\numberline {1.1}Zielsetzung}{2}{section.12}%
-\contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{3}{section.14}%
-\contentsline {section}{\numberline {1.3}Forschungsstand \& Referenzen}{3}{section.16}%
-\contentsline {chapter}{\numberline {2}Deep Learning}{5}{chapter.23}%
-\contentsline {section}{\numberline {2.1}Neuronale Netze}{5}{section.25}%
-\contentsline {section}{\numberline {2.2}Architekturen}{7}{section.30}%
-\contentsline {subsection}{\numberline {2.2.1}Recurrent Neural Networks}{7}{subsection.31}%
-\contentsline {subsection}{\numberline {2.2.2}Encoder-Decoder-Networks}{10}{subsection.35}%
-\contentsline {subsection}{\numberline {2.2.3}Attention in Neural Networks}{12}{subsection.37}%
-\contentsline {subsection}{\numberline {2.2.4}Transformer Networks}{14}{subsection.42}%
-\contentsline {section}{\numberline {2.3}Hyperparameter}{16}{section.44}%
-\contentsline {section}{\numberline {2.4}Transfer Learning}{18}{section.49}%
-\contentsline {chapter}{\numberline {3}Natural Language Processing}{20}{chapter.51}%
-\contentsline {section}{\numberline {3.1}Vorverarbeitung}{21}{section.54}%
-\contentsline {subsection}{\numberline {3.1.1}Textbereinigung}{21}{subsection.55}%
-\contentsline {subsection}{\numberline {3.1.2}Textnormalisierung}{21}{subsection.56}%
-\contentsline {subsection}{\numberline {3.1.3}Tokenisierung}{23}{subsection.58}%
-\contentsline {section}{\numberline {3.2}Word Embeddings}{24}{section.60}%
-\contentsline {subsection}{\numberline {3.2.1}One-Hot-Encoding}{25}{subsection.61}%
-\contentsline {subsection}{\numberline {3.2.2}Bag-of-Words}{25}{subsection.64}%
-\contentsline {subsection}{\numberline {3.2.3}Skip-Gram-Model}{26}{subsection.67}%
-\contentsline {subsection}{\numberline {3.2.4}Word2Vec}{27}{subsection.68}%
-\contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{27}{subsection.70}%
-\contentsline {subsection}{\numberline {3.2.6}GloVe}{28}{subsection.72}%
-\contentsline {section}{\numberline {3.3}Deep Language Representations}{29}{section.74}%
-\contentsline {subsection}{\numberline {3.3.1}BERT}{29}{subsection.75}%
-\contentsline {subsection}{\numberline {3.3.2}ELMo}{29}{subsection.76}%
-\contentsline {subsection}{\numberline {3.3.3}GPT}{29}{subsection.77}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{32}{chapter.78}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{34}{chapter.79}%
-\contentsline {section}{\numberline {5.1}Architektur}{35}{section.80}%
-\contentsline {section}{\numberline {5.2}Training}{37}{section.81}%
-\contentsline {section}{\numberline {5.3}Evaluation}{37}{section.82}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{40}{chapter.83}%
-\contentsline {section}{\numberline {6.1}Konzeption}{40}{section.84}%
-\contentsline {section}{\numberline {6.2}Training}{40}{section.85}%
-\contentsline {section}{\numberline {6.3}Evaluation}{40}{section.86}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{41}{chapter.87}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{42}{chapter.88}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.88}%
-\contentsline {chapter}{Thesen}{53}{chapter*.90}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{54}{chapter*.91}%
-\contentsline {chapter}{\numberline {A}Erster Anhang}{55}{appendix.92}%
-\contentsline {chapter}{\numberline {B}Zweiter Anhang}{56}{appendix.93}%
+\contentsline {chapter}{Tabellenverzeichnis}{IV}{chapter*.6}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{V}{chapter*.7}%
+\contentsline {chapter}{Quellcodeverzeichnis}{VI}{chapter*.8}%
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.9}%
+\contentsline {section}{\numberline {1.1}Zielsetzung}{2}{section.13}%
+\contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{3}{section.15}%
+\contentsline {section}{\numberline {1.3}Forschungsstand \& Referenzen}{3}{section.17}%
+\contentsline {chapter}{\numberline {2}Deep Learning}{5}{chapter.24}%
+\contentsline {section}{\numberline {2.1}Neuronale Netze}{5}{section.26}%
+\contentsline {section}{\numberline {2.2}Architekturen}{7}{section.31}%
+\contentsline {subsection}{\numberline {2.2.1}Recurrent Neural Networks}{7}{subsection.32}%
+\contentsline {subsection}{\numberline {2.2.2}Encoder-Decoder-Networks}{10}{subsection.36}%
+\contentsline {subsection}{\numberline {2.2.3}Attention in Neural Networks}{12}{subsection.38}%
+\contentsline {subsection}{\numberline {2.2.4}Transformer Networks}{14}{subsection.43}%
+\contentsline {section}{\numberline {2.3}Hyperparameter}{16}{section.45}%
+\contentsline {section}{\numberline {2.4}Transfer Learning}{18}{section.50}%
+\contentsline {chapter}{\numberline {3}Natural Language Processing}{20}{chapter.52}%
+\contentsline {section}{\numberline {3.1}Vorverarbeitung}{21}{section.55}%
+\contentsline {subsection}{\numberline {3.1.1}Textbereinigung}{21}{subsection.56}%
+\contentsline {subsection}{\numberline {3.1.2}Textnormalisierung}{21}{subsection.57}%
+\contentsline {subsection}{\numberline {3.1.3}Tokenisierung}{23}{subsection.59}%
+\contentsline {section}{\numberline {3.2}Word Embeddings}{24}{section.61}%
+\contentsline {subsection}{\numberline {3.2.1}One-Hot-Encoding}{25}{subsection.62}%
+\contentsline {subsection}{\numberline {3.2.2}Bag-of-Words}{25}{subsection.65}%
+\contentsline {subsection}{\numberline {3.2.3}Skip-Gram-Model}{26}{subsection.68}%
+\contentsline {subsection}{\numberline {3.2.4}Word2Vec}{27}{subsection.69}%
+\contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{27}{subsection.71}%
+\contentsline {subsection}{\numberline {3.2.6}GloVe}{28}{subsection.73}%
+\contentsline {section}{\numberline {3.3}Deep Language Representations}{29}{section.75}%
+\contentsline {subsection}{\numberline {3.3.1}BERT}{29}{subsection.76}%
+\contentsline {subsection}{\numberline {3.3.2}ELMo}{31}{subsection.79}%
+\contentsline {subsection}{\numberline {3.3.3}GPT}{31}{subsection.80}%
+\contentsline {chapter}{\numberline {4}Datengrundlage}{34}{chapter.81}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{36}{chapter.82}%
+\contentsline {section}{\numberline {5.1}Architektur}{37}{section.83}%
+\contentsline {section}{\numberline {5.2}Training}{39}{section.84}%
+\contentsline {section}{\numberline {5.3}Evaluation}{39}{section.85}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{42}{chapter.86}%
+\contentsline {section}{\numberline {6.1}Konzeption}{42}{section.87}%
+\contentsline {section}{\numberline {6.2}Training}{42}{section.88}%
+\contentsline {section}{\numberline {6.3}Evaluation}{42}{section.89}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{43}{chapter.90}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{44}{chapter.91}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.91}%
+\contentsline {chapter}{Thesen}{53}{chapter*.93}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{54}{chapter*.94}%
+\contentsline {chapter}{\numberline {A}Erster Anhang}{55}{appendix.95}%
+\contentsline {chapter}{\numberline {B}Zweiter Anhang}{56}{appendix.96}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  25 MAR 2021 11:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  30 MAR 2021 14:48
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1315,7 +1315,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `Thesis.toc'.
 
- [2] (Thesis.lof)
+ [2] (Thesis.lof
+Package acronym Info: Label `acro:MLM' newly defined as it shall be overridden
+although it is yet undefined on input line 22.
+
+Overfull \hbox (38.8017pt too wide) in paragraph at lines 22--22
+ [][] [][][]\OT1/cmr/m/n/12 Architektur von BERT mit [][][]Masked Lan-gua-ge Mo
+-dels ([])[] [[], 
+ []
+
+)
 \tf@lof=\write6
 \openout6 = `Thesis.lof'.
 
@@ -1328,8 +1337,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lot=\write7
 \openout7 = `Thesis.lot'.
 
- (source/formal/Abbreviations.tex
-[4
+ (source/formal/Abbreviations.tex [4
 
 
 ]) [5
@@ -1339,11 +1347,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lol=\write8
 \openout8 = `Thesis.lol'.
 
- (source/formal/Empty.tex [6
+
+(source/formal/Empty.tex [6
 
 
-]) [7]
-(source/content/Einleitung.tex
+]) [7] (source/content/Einleitung.tex
 chapter 1.
 Package acronym Info: Label `acro:ATS' newly defined as it shall be overridden
 although it is yet undefined on input line 7.
@@ -1354,7 +1362,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-<./source/images/summarizationprocess.png, id=333, 370.38374pt x 179.92218pt>
+<./source/images/summarizationprocess.png, id=346, 370.38374pt x 179.92218pt>
 File: ./source/images/summarizationprocess.png Graphic file (type png)
 <use ./source/images/summarizationprocess.png>
 Package pdftex.def Info: ./source/images/summarizationprocess.png  used on inpu
@@ -1446,13 +1454,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
 
 ]
-<./source/images/artificialneuron.png, id=430, 551.81157pt x 307.90031pt>
+<./source/images/artificialneuron.png, id=442, 551.81157pt x 307.90031pt>
 File: ./source/images/artificialneuron.png Graphic file (type png)
 <use ./source/images/artificialneuron.png>
 Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
 ne 18.
 (pdftex.def)             Requested size: 246.47339pt x 137.52965pt.
-<./source/images/multilayerperceptron.png, id=433, 854.44218pt x 462.22687pt>
+<./source/images/multilayerperceptron.png, id=445, 854.44218pt x 462.22687pt>
 File: ./source/images/multilayerperceptron.png Graphic file (type png)
 <use ./source/images/multilayerperceptron.png>
 Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
@@ -1465,7 +1473,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
 [6 <./source/images/artificialneuron.png> <./source/images/multilayerperceptron
 .png>]
-<./source/images/fittingtypes.png, id=445, 748.29562pt x 247.67531pt>
+<./source/images/fittingtypes.png, id=457, 748.29562pt x 247.67531pt>
 File: ./source/images/fittingtypes.png Graphic file (type png)
 <use ./source/images/fittingtypes.png>
 Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 3
@@ -1487,7 +1495,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-<./source/images/hiddenstates.png, id=465, 744.53156pt x 216.05719pt>
+<./source/images/hiddenstates.png, id=477, 744.53156pt x 216.05719pt>
 File: ./source/images/hiddenstates.png Graphic file (type png)
 <use ./source/images/hiddenstates.png>
 Package pdftex.def Info: ./source/images/hiddenstates.png  used on input line 6
@@ -1516,7 +1524,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
  []
 
 [9]
-<./source/images/lstmcell.png, id=499, 747.54282pt x 333.49594pt>
+<./source/images/lstmcell.png, id=511, 747.54282pt x 333.49594pt>
 File: ./source/images/lstmcell.png Graphic file (type png)
 <use ./source/images/lstmcell.png>
 Package pdftex.def Info: ./source/images/lstmcell.png  used on input line 84.
@@ -1559,7 +1567,7 @@ T1/cmr/m/n/12 = [\OML/cmm/m/it/12 y[]; :::; y[]\OT1/cmr/m/n/12 ]$ ge-ne-rie-ren
  kann [[]]. 
  []
 
-<./source/images/encoderdecoder.png, id=531, 499.11469pt x 108.405pt>
+<./source/images/encoderdecoder.png, id=543, 499.11469pt x 108.405pt>
 File: ./source/images/encoderdecoder.png Graphic file (type png)
 <use ./source/images/encoderdecoder.png>
 Package pdftex.def Info: ./source/images/encoderdecoder.png  used on input line
@@ -1590,19 +1598,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--132
  []
 
 [12 <./source/images/encoderdecoder.png>]
-<./source/images/attentionlayer.png, id=554, 597.73312pt x 426.84468pt>
+<./source/images/attentionlayer.png, id=566, 597.73312pt x 426.84468pt>
 File: ./source/images/attentionlayer.png Graphic file (type png)
 <use ./source/images/attentionlayer.png>
 Package pdftex.def Info: ./source/images/attentionlayer.png  used on input line
  135.
 (pdftex.def)             Requested size: 179.24963pt x 128.00229pt.
-<./source/images/attentionmechanism.png, id=557, 577.40718pt x 453.94594pt>
+<./source/images/attentionmechanism.png, id=569, 577.40718pt x 453.94594pt>
 File: ./source/images/attentionmechanism.png Graphic file (type png)
 <use ./source/images/attentionmechanism.png>
 Package pdftex.def Info: ./source/images/attentionmechanism.png  used on input 
 line 142.
 (pdftex.def)             Requested size: 224.06548pt x 176.15851pt.
-<./source/images/selfattention.png, id=562, 550.30594pt x 352.31625pt>
+<./source/images/selfattention.png, id=574, 550.30594pt x 352.31625pt>
 File: ./source/images/selfattention.png Graphic file (type png)
 <use ./source/images/selfattention.png>
 Package pdftex.def Info: ./source/images/selfattention.png  used on input line 
@@ -1619,7 +1627,7 @@ Overfull \hbox (17.22116pt too wide) in paragraph at lines 158--159
 ifend iden-ti-fi-ziert [[]].
  []
 
-<./source/images/multiheadattention.png, id=574, 715.17188pt x 395.97937pt>
+<./source/images/multiheadattention.png, id=586, 715.17188pt x 395.97937pt>
 File: ./source/images/multiheadattention.png Graphic file (type png)
 <use ./source/images/multiheadattention.png>
 Package pdftex.def Info: ./source/images/multiheadattention.png  used on input 
@@ -1651,7 +1659,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--175
 
  []
 
-<./source/images/transformerarchitecture.png, id=586, 560.8453pt x 679.78969pt>
+<./source/images/transformerarchitecture.png, id=598, 560.8453pt x 679.78969pt>
 
 File: ./source/images/transformerarchitecture.png Graphic file (type png)
 <use ./source/images/transformerarchitecture.png>
@@ -1679,7 +1687,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--197
 
  []
 
-<./source/images/gradientdescent.png, id=610, 895.09406pt x 245.41687pt>
+<./source/images/gradientdescent.png, id=622, 895.09406pt x 245.41687pt>
 File: ./source/images/gradientdescent.png Graphic file (type png)
 <use ./source/images/gradientdescent.png>
 Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
@@ -1706,7 +1714,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--213
 
  []
 
-<./source/images/momentumupdate.png, id=624, 319.1925pt x 322.95656pt>
+<./source/images/momentumupdate.png, id=636, 319.1925pt x 322.95656pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
@@ -1727,7 +1735,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 229--231
  []
 
 [18 <./source/images/momentumupdate.png>]
-<./source/images/finetuning.png, id=650, 682.04813pt x 344.03531pt>
+<./source/images/finetuning.png, id=662, 682.04813pt x 344.03531pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
 Package pdftex.def Info: ./source/images/finetuning.png  used on input line 234
@@ -1820,7 +1828,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
-<./source/images/tokenization.png, id=706, 693.34032pt x 115.93312pt>
+<./source/images/tokenization.png, id=718, 693.34032pt x 115.93312pt>
 File: ./source/images/tokenization.png Graphic file (type png)
 <use ./source/images/tokenization.png>
 Package pdftex.def Info: ./source/images/tokenization.png  used on input line 5
@@ -1839,7 +1847,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--81
 
  []
 
-<./source/images/onehotencoding.png, id=734, 515.67656pt x 238.64156pt>
+<./source/images/onehotencoding.png, id=746, 515.67656pt x 238.64156pt>
 File: ./source/images/onehotencoding.png Graphic file (type png)
 <use ./source/images/onehotencoding.png>
 Package pdftex.def Info: ./source/images/onehotencoding.png  used on input line
@@ -1876,26 +1884,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--162
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
+
+ []
+
 [28]
-Overfull \hbox (14.55208pt too wide) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--181
+
+ []
+
+[29]
+<./source/images/bertencoder.png, id=837, 645.91313pt x 520.19344pt>
+File: ./source/images/bertencoder.png Graphic file (type png)
+<use ./source/images/bertencoder.png>
+Package pdftex.def Info: ./source/images/bertencoder.png  used on input line 18
+7.
+(pdftex.def)             Requested size: 268.8813pt x 216.543pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
+
+ []
+
+<./source/images/inputrepresentation.png, id=845, 936.49875pt x 235.63031pt>
+File: ./source/images/inputrepresentation.png Graphic file (type png)
+<use ./source/images/inputrepresentation.png>
+Package pdftex.def Info: ./source/images/inputrepresentation.png  used on input
+ line 197.
+(pdftex.def)             Requested size: 425.72302pt x 107.11487pt.
+[30 <./source/images/bertencoder.png>]
+Overfull \hbox (14.55208pt too wide) in paragraph at lines 218--219
 \OT1/cmtt/m/n/12 1WIk2bxglElfZewOHboPFNj8H44 _ VAyKE ? usp = sharing # scrollTo
  = 4M2uzGLV9a _ O$[][] \OT1/cmr/m/n/12 un-
  []
 
-[29]
-Overfull \hbox (262.9643pt too wide) in paragraph at lines 192--193
+[31 <./source/images/inputrepresentation.png>]
+Overfull \hbox (262.9643pt too wide) in paragraph at lines 219--220
 []\OT1/cmr/m/n/12 BERT vs. Al-ter-na-ti-ven: [][]$\OT1/cmtt/m/n/12 https : / / 
 towardsdatascience . com / bert-[]roberta-[]distilbert-[]xlnet-[]which-[]one-[]
 to-[]use-[]3d5ab82ba5f8$[][] 
  []
 
 
-Overfull \hbox (33.80154pt too wide) in paragraph at lines 199--200
+Overfull \hbox (33.80154pt too wide) in paragraph at lines 226--227
 []\OT1/cmr/m/n/12 Am bes-ten di-rekt ein vor-trai-nier-tes Transformer-Modell n
 ut-zen (ex-tra f[]ur Summarization-
  []
 
-[30]) [31]
+[32]) [33]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
@@ -1910,7 +1951,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[32
+[34
 
 
 
@@ -1929,7 +1970,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--60
 
  []
 
-[33]
+[35]
 \openout2 = `"source/content/Abstraktiver Ansatz.aux"'.
 
  ("source/content/Abstraktiver Ansatz.tex"
@@ -1974,7 +2015,7 @@ Overfull \hbox (6.06819pt too wide) in paragraph at lines 21--22
 e, dom[]anenspezifische W[]orter,
  []
 
-[34
+[36
 
 
 
@@ -2043,7 +2084,7 @@ Overfull \hbox (0.1127pt too wide) in paragraph at lines 32--33
 /n/12 , Skiz-zen von dort nut-zen, Encoder-
  []
 
-[35]
+[37]
 Overfull \hbox (26.84396pt too wide) in paragraph at lines 36--37
 \OT1/cmtt/m/n/12 patrickvonplaten / longformer2roberta-[]cnn _ dailymail-[]fp16
  / blob / main / README .
@@ -2080,7 +2121,7 @@ Overfull \hbox (0.21571pt too wide) in paragraph at lines 44--45
 lich -> Zur[]uckgestellt
  []
 
-[36]
+[38]
 Overfull \hbox (13.54543pt too wide) in paragraph at lines 45--46
 []\OT1/cmr/m/n/12 BERT-Encoder Transformer-Decoder: Pa-per [][]$\OT1/cmtt/m/n/1
 2 https : / / arxiv . org / pdf / 2008 . 09676 .
@@ -2099,7 +2140,7 @@ Overfull \hbox (46.13461pt too wide) in paragraph at lines 54--55
 aws . amazon . com / dlami / latest / devguide / tutorials .
  []
 
-[37]
+[39]
 Overfull \hbox (5.23314pt too wide) in paragraph at lines 69--70
 []\OT1/cmr/m/n/12 Qualit[]at der Zu-sam-men-fas-sung mes-sen (BLEU [][]$\OT1/cm
 tt/m/n/12 https : / / en . wikipedia . org / wiki /
@@ -2111,12 +2152,12 @@ Overfull \hbox (102.944pt too wide) in paragraph at lines 74--75
 tomatic-[]summarization-[]4c2b89f2a9ea$[][] 
  []
 
-[38]) [39]
+[40]) [41]
 \openout2 = `"source/content/Sprachtechnische Adaption.aux"'.
 
  ("source/content/Sprachtechnische Adaption.tex"
 chapter 6.
-) [40
+) [42
 
 
 
@@ -2129,7 +2170,7 @@ chapter 6.
 
  (source/content/Zusammenfassung.tex
 chapter 7.
-) [41
+) [43
 
 
 
@@ -2142,7 +2183,7 @@ chapter 7.
 
  ("source/content/Diskussion und Ausblick.tex"
 chapter 8.
-[42
+[44
 
 
 
@@ -2150,7 +2191,7 @@ chapter 8.
 
 
 
-]) [43] (source/formal/Literature.tex
+]) [45] (source/formal/Literature.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 []\OT1/cmr/m/n/10.95 AI-United: LSTM als neu-ro-na-les Netz-werk mit
  []
@@ -2323,10 +2364,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27566 strings out of 480257
- 527445 string characters out of 2881437
+ 27592 strings out of 480257
+ 528047 string characters out of 2881437
  979579 words of memory out of 3000000
- 43220 multiletter control sequences out of 15000+200000
+ 43238 multiletter control sequences out of 15000+200000
  548116 words of font info for 76 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2347,9 +2388,9 @@ amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Thesis.pdf (60 pages, 1068521 bytes).
+Output written on Thesis.pdf (62 pages, 1178836 bytes).
 PDF statistics:
- 1240 PDF objects out of 1440 (max. 8388607)
- 214 named destinations out of 1000 (max. 500000)
- 594 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1294 PDF objects out of 1440 (max. 8388607)
+ 220 named destinations out of 1000 (max. 500000)
+ 604 words of extra memory for PDF output out of 10000 (max. 10000000)
 
