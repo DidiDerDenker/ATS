@@ -172,20 +172,40 @@ Die beschriebenen Word Embeddings verfolgen teils sehr abstrakte Ansätze, welch
 \ac{ATS}-Modelle erfordern daher weitergehende Deep Language Representations, um den Anforderungen an das \ac{NLU} und die \ac{NLG} gerecht zu werden. Dabei werden die ursprünglichen Ansätze durch umfangreichere und komplexere neuronale Netze ersetzt. Diese werden fortan als Language Models bezeichnet. Nur wenige marktpräsente Akteure sind hierbei dazu fähig, geeignete Architekturen zu konzipieren und entsprechende Modelle von Grund auf neu zu trainieren. Dies wurde in der Vergangenheit bereits getan und veröffentlicht, sodass gemäß \ac{TL} nur noch ein weitergehendes Fine-Tuning nötig ist. Dabei profitierten nahezu alle nachstehenden \ac{NLP}-Aufgaben qualitativ von diesen Fortschritten. Architekturen, welche als Deep Language Representations zu verstehen sind und eine \ac{ATS} begünstigen, werden nachfolgend offengelegt \cite[S.~25]{NIT19}.
 
 
-\subsection{BERT}
+\subsection{ELMo}
 \noindent
-Zuerst sei \ac{BERT} als mögliches Modell zur Deep Language Representation genannt. Es wurde von Forschern der Google AI Language entwickelt und veröffentlicht. \ac{BERT} basiert auf der bereits bekannten Transformer-Architektur, wobei unstrukturierte Textdaten mithilfe links- und rechtsseitiger Kontextfenster bidirektional angelernt werden. Dabei entstammen die Daten verschiedenartigen \ac{NLP}-Aufgaben, sodass \ac{BERT} größtenteils aufgabenunabhängig einsetzbar ist. Im anschließenden Fine-Tuning werden die vortrainierten modellinternen Parameter zunächst initialisiert und wiederum mithilfe von gelabelten Daten angepasst. \ac{BERT} zeichnet sich weiterhin dadurch aus, dass sich die vortrainierte Architektur nur minimal von der weitertrainierten Architektur unterscheidet \cite[S.~1-3]{DEV19}.\\
+Zuerst sei \ac{ELMo} als Deep Contextualized Word Representation genannt. Es wurde vom Allen Institute for Artificial Intelligence entwickelt und 2018 veröffentlicht. \ac{ELMo} modelliert dabei einerseits komplexe Wortcharakteristiken wie Syntax und Semantik, andererseits aber auch den linguistischen Kontext eben dieser Wörter. Es ist als vortrainiertes Modell verfügbar und konnte nach der Veröffentlichung insbesondere \ac{NLU}-Aufgaben begünstigen \cite[S.~1]{PET18}.\\
 
 \noindent
-Nun wird die Architektur von \ac{BERT} umfassender untersucht, indem die einleitenden Worte aufgegriffen und theoretisch ergründet werden. \ac{BERT} ist prinzipiell als Encoder zu verstehen, welcher durch einen mehrschichtigen bidirektionalen Transformer repräsentiert wird. Dabei werden die Schichten durch Transformer-Module repräsentiert. Diese verfügen über entsprechende Attention-Mechanismen, um kontextuelle Informationen zu erkennen. Weiterhin werden Sequenzen nicht nur einseitig betrachtet, sondern beidseitig, also bidirektional. Somit werden wortbezogene Kontexte gelernt, was insbesondere zu einem tieferen Verständnis der Sprache seitens \ac{BERT} führt. Dies ist ein großer Vorteil gegenüber bisheriger Architekturen, welche Sequenzen zumeist nur einseitig betrachten konnten, also von links nach rechts oder andersherum \cite[S.~3]{DEV19}.\\
+\ac{ELMo} arbeitet mit wortbezogenen kontextbasierten Vektoren, welche aus zwei bidirektionalen Language Models abgeleitet und trainiert werden. Diese bestehen wiederum aus zwei gekoppelten \ac{LSTM}-Schichten. Der umfangreiche Korpus an Textdaten wird dabei schichtweise vorwärts und rückwärts durch die Architektur propagiert. Somit sind kontextabhängige Informationen verfolgbar und die Bedeutungen der Wörter erlernbar. Aufgrund der zeichenbasierten Funktionsweise kann \ac{ELMo} sogar Wissen über Wortformen erlernen. Im Vergleich zu \ac{W2V} oder etwa \ac{GloVe} werden die Vektoren nicht tokenbasiert berechnet, sondern mithilfe einer Funktion, welche stets eine Sequenz berücksichtigt. Wörter können daher in verschiedenen Kontexten verschiedene Vektoren besitzen. \autoref{pic:ElmoStructure} visualisiert dies \cite[S.~2-3]{PET18}.
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/elmostructure.png}}
+  \caption{Architektur und Funktionsweise von \ac{ELMo} \cite{IRE18}.}
+  \label{pic:ElmoStructure}
+\end{figure}
+
+
+\subsection{GPT}
+\noindent
+Text
+
+
+\subsection{BERT}
+\noindent
+Zuletzt sei \ac{BERT} als mögliches Modell zur Deep Language Representation genannt. Es wurde von Forschern der Google AI Language entwickelt und 2019 veröffentlicht. \ac{BERT} basiert auf der bereits bekannten Transformer-Architektur, wobei unstrukturierte Textdaten mithilfe links- und rechtsseitiger Kontextfenster bidirektional angelernt werden. Dabei entstammen die Daten verschiedenartigen \ac{NLP}-Aufgaben, sodass \ac{BERT} größtenteils aufgabenunabhängig einsetzbar ist. Im anschließenden Fine-Tuning werden die vortrainierten modellinternen Parameter zunächst initialisiert und wiederum mithilfe von gelabelten Daten angepasst. \ac{BERT} zeichnet sich weiterhin dadurch aus, dass sich die vortrainierte Architektur nur minimal von der weitertrainierten Architektur unterscheidet \cite[S.~1-3]{DEV19}.\\
+
+\noindent
+Nun wird die Architektur von \ac{BERT} umfassender untersucht, indem die einleitenden Worte aufgegriffen und theoretisch ergründet werden. \ac{BERT} ist prinzipiell als Encoder zu verstehen, welcher durch einen mehrschichtigen bidirektionalen Transformer repräsentiert wird. Dabei werden die Schichten durch Transformer-Module repräsentiert. Diese verfügen über entsprechende Attention-Mechanismen, um kontextuelle Informationen zu erkennen. Weiterhin werden Sequenzen nicht nur einseitig betrachtet, sondern beidseitig, also bidirektional. Somit werden wortbezogene Kontexte gelernt, was insbesondere zu einem tieferen Verständnis der Sprache seitens \ac{BERT} führt. Dies ist ein großer Vorteil gegenüber bisheriger Architekturen, inklusive \ac{ELMo} und \ac{GPT}, welche Sequenzen zumeist nur einseitig betrachten konnten, also von links nach rechts oder andersherum \cite[S.~3]{DEV19}.\\
 
 \noindent
 Um \ac{BERT} entsprechend vortrainieren zu können, werden \ac{MLM} genutzt. Bevor die Textdaten in die Architektur geführt werden, werden etwa 15\% der Wörter durch ein $[\text{MASK}]$-Token ersetzt. Daraufhin versucht das Modell, die maskierten Token auf Grundlage der umliegenden nicht-maskierten Token vorherzusagen (engl. Next Word Prediction). Da die zu erwartenden Wörter bekannt sind, kann über eine Klassifikationsschicht ein Lerneffekt erzielt werden, indem entsprechende Matrizen dimensional transformiert und wertmäßig aktualisiert werden. \autoref{pic:BertEncoder} zeigt die beschriebene Architektur \cite[S.~4-5]{DEV19}.
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/bertencoder.png}}
-  \caption{Architektur von BERT mit \ac{MLM} \cite[S.~3]{DEV19}.}
+  \fbox{\includegraphics[width=0.65\linewidth]{./source/images/bertencoder.png}}
+  \caption{Architektur von \ac{BERT} mit \ac{MLM} \cite[S.~3]{DEV19}.}
   \label{pic:BertEncoder}
 \end{figure}
 
@@ -200,38 +220,8 @@ Um zudem weitergehende Informationen auf Satzebene zu erhalten, werden dem Train
 \end{figure}
 
 \noindent
-\ac{BERT} wurde initial in zwei verschiedenen Versionen veröffentlicht: BASE und LARGE. Die veröffentlichten Modelle wurden von den Forschern der Google AI Language auf zwei verschiedenen Korpora mit insgesamt über drei Millionen Wörtern trainiert. Sei $L$ die Anzahl der Schichten (oder: Transformer-Module), $H$ die Größe der verborgenen Schichten und $A$ die Anzahl der Self-Attention-Heads, dann sind die Versionen wie folgt definiert \cite[S.~3-5]{DEV19}. $$BERT_{BASE}: (L=12, H=768, A=12) \text{ mit } 110 \text{M Parametern}$$ $$BERT_{LARGE}: (L=24, H=1024, A=16) \text{ mit } 340 \text{M Parametern}$$
+\ac{BERT} wurde initial in zwei verschiedenen Versionen veröffentlicht: BASE und LARGE. Die veröffentlichten Modelle wurden von den Forschern der Google AI Language auf zwei verschiedenen Korpora mit insgesamt über drei Millionen Wörtern trainiert. Sei $L$ die Anzahl der Schichten (oder: Transformer-Module), $H$ die Größe der verborgenen Schichten und $A$ die Anzahl der Self-Attention-Heads, dann sind die Versionen wie folgt definiert \cite[S.~3-5]{DEV19}. $$\text{BERT}_{\text{BASE}}: (L=12, H=768, A=12) \text{ mit } 110 \text{M Parametern}$$ $$\text{BERT}_{\text{LARGE}}: (L=24, H=1024, A=16) \text{ mit } 340 \text{M Parametern}$$
 
 
-\subsection{ELMo}
-\noindent
-Text
-
-\subsection{GPT}
-\noindent
-Text
-
-
-Notizen:
-\begin{itemize}
-	\item Keyword Network
-	\item BERT als Encoder \& Decoder nutzen, Architekturen und TL dementsprechend aufgreifen (S. 1 in YAN19), bspw. als Encoder oder/ und Decoder verwenden, siehe ROT20 auf S. 2 rechts und S. 6 unten, Encoder zur NLU und Decoder zur NLG, d.h. BERT oder andere Transformer als vortrainiertes multilinguales Modell für Encoder/ Decoder nutzen, Ausblick auf Adaption von EN->DE: Fine-Tuning der Modelle, verschiedene Experimente, aber dazu im späteren Kapitel mehr, BERT ist außerdem austauschbar, durch sowohl größere als auch kleinere Modelle, Multilingualität architektonisch ergründen, erwähnen, dass diese Modelle die Encoder oder auch Decoder ersetzen können, hierzu populäre Ansätze wie \cite{ROT20}, Trainingsvorgehensweise von BERT und ELMo beschreiben, wie im Forschungsstand bereits erwähnt, konnten diese vortrainierten Language Models die NLU-Welt revolutionieren, wie viele Parameter wurden genutzt? Verschiedene Modelle vergleichen, bspw. das Notebook \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=4M2uzGLV9a_O} unter "Analysis" referenzieren, jeweils maximale Token-Länge oder verschieden trainierte Versionen hervorheben, ggf. LongFormer als Encoder benutzen
-	\item BERT vs. Alternativen: \url{https://towardsdatascience.com/bert-roberta-distilbert-xlnet-which-one-to-use-3d5ab82ba5f8}
-	\item ELMo
-	\item GPT
-	\item Transfer Learning mit BERT hier sinnvoll, sodass das Modell die Sprache nicht in einer bestimmten Domain oder mit zu wenigen Texten neu erlernen muss, TL durch Encoder, Decoder etc. auf jeden Fall hier aufgreifen
-	\item BERT zunächst in Englisch nutzen, weil SOTA, ggf. Grafik aus Oli's VL integrieren, irgendwie in Abstractive Summarization Pipelines integrieren
-	\item BERT ist auch multilingual, d.h. englisches Modell mit deutschem Fine-Tuning vermutlich sogar brauchbar
-	\item Modell beschreiben, d.h. Datensätze und Parametrisierung, SOTA für verschiedene NLP-Tasks, von Kapazitäten profitieren, hat viel Kontextwissen, Fine-Tuning für eigenes Problem, d.h. domainspezifisch o.ä.
-	\item Am besten direkt ein vortrainiertes Transformer-Modell nutzen (extra für Summarization-Tasks), BERT und RL bspw. in der Pipeline integrieren, Ziel wäre dann: Verbesserung im Score erzielen
-	\item BERT vielleicht durch andere (teils bessere und neuere) Transformer ersetzen? Transformer in NLP recherchieren, LSTM als veraltet bezeichnen
-\end{itemize}
-
-Notizen:
-\begin{itemize}
-	\item Quelle: \cite{NIT19}
-	\item Transfer Learning with German BERT? \url{https://deepset.ai/german-bert} -> Modell muss die deutsche Sprache nicht alleine und von neu  mit den Trainingsdaten lernen, sondern erhält einen großen Vorsprung, BERT ist Modell, welches der Transformer-Architektur nachkommt, d.h. Transformer sind bestimmte Architekturen, eventuell hiermit die Struktur dieses Kapitels überarbeiten, hier für vor allem aus meinem privaten Verzeichnis das Paper "Pre-Training of Deep Bidirectional Transformers for Language Understanding using BERT" nutzen
-	\item GLoVe-Embeddings nutzen, weil TF-IDF etc. nicht den Kontext eines Satzes betrachten
-	\item Supervised Learning nutzen, aber es ist eventuell nicht genug, hier kommt bspw. Transfer Learning mit BERT zur Abhilfe, zudem bspw. semi-supervised Learning mit Auto-Encoders? Self-supervised Training
-	\item Siehe Abstract im Exposé
-\end{itemize}
+\newpage
+Keyword Network, BERT als Encoder \& Decoder nutzen, Architekturen und TL dementsprechend aufgreifen (S. 1 in YAN19), bspw. als Encoder oder/ und Decoder verwenden, siehe ROT20 auf S. 2 rechts und S. 6 unten, Encoder zur NLU und Decoder zur NLG, d.h. BERT oder andere Transformer als vortrainiertes multilinguales Modell für Encoder/ Decoder nutzen, Ausblick auf Adaption von EN->DE: Fine-Tuning der Modelle, verschiedene Experimente, aber dazu im späteren Kapitel mehr, BERT ist außerdem austauschbar, durch sowohl größere als auch kleinere Modelle, Multilingualität architektonisch ergründen, erwähnen, dass diese Modelle die Encoder oder auch Decoder ersetzen können, hierzu populäre Ansätze wie \cite{ROT20}, Trainingsvorgehensweise von BERT und ELMo beschreiben, wie im Forschungsstand bereits erwähnt, konnten diese vortrainierten Language Models die NLU-Welt revolutionieren, wie viele Parameter wurden genutzt? Verschiedene Modelle vergleichen, bspw. das Notebook \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=4M2uzGLV9a_O} unter "Analysis" referenzieren, jeweils maximale Token-Länge oder verschieden trainierte Versionen hervorheben, ggf. LongFormer als Encoder benutzen, Transfer Learning mit BERT hier sinnvoll, sodass das Modell die Sprache nicht in einer bestimmten Domain oder mit zu wenigen Texten neu erlernen muss, TL durch Encoder, Decoder etc. auf jeden Fall hier aufgreifen, Fine-Tuning für eigenes Problem, d.h. domainspezifisch o.ä., am besten direkt ein vortrainiertes Transformer-Modell nutzen (extra für Summarization-Tasks), BERT und RL bspw. in der Pipeline integrieren, Ziel wäre dann: Verbesserung im Score erzielen, BERT vielleicht durch andere (teils bessere und neuere) Transformer ersetzen? Transformer in NLP recherchieren, Longformer?

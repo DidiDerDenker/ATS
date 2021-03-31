@@ -1,13 +1,13 @@
 \babel@toc {ngerman}{}
 \contentsline {chapter}{Inhaltsverzeichnis}{II}{chapter*.3}%
 \contentsline {chapter}{Abbildungsverzeichnis}{III}{chapter*.4}%
-\contentsline {chapter}{Tabellenverzeichnis}{IV}{chapter*.6}%
-\contentsline {chapter}{Abkürzungsverzeichnis}{V}{chapter*.7}%
-\contentsline {chapter}{Quellcodeverzeichnis}{VI}{chapter*.8}%
-\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.9}%
-\contentsline {section}{\numberline {1.1}Zielsetzung}{2}{section.13}%
-\contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{3}{section.15}%
-\contentsline {section}{\numberline {1.3}Forschungsstand \& Referenzen}{3}{section.17}%
+\contentsline {chapter}{Tabellenverzeichnis}{IV}{chapter*.8}%
+\contentsline {chapter}{Abkürzungsverzeichnis}{V}{chapter*.9}%
+\contentsline {chapter}{Quellcodeverzeichnis}{VI}{chapter*.10}%
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.11}%
+\contentsline {section}{\numberline {1.1}Zielsetzung}{2}{section.15}%
+\contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{3}{section.17}%
+\contentsline {section}{\numberline {1.3}Forschungsstand \& Referenzen}{3}{section.19}%
 \contentsline {chapter}{\numberline {2}Deep Learning}{5}{chapter.24}%
 \contentsline {section}{\numberline {2.1}Neuronale Netze}{5}{section.26}%
 \contentsline {section}{\numberline {2.2}Architekturen}{7}{section.31}%
@@ -30,23 +30,23 @@
 \contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{27}{subsection.71}%
 \contentsline {subsection}{\numberline {3.2.6}GloVe}{28}{subsection.73}%
 \contentsline {section}{\numberline {3.3}Deep Language Representations}{29}{section.75}%
-\contentsline {subsection}{\numberline {3.3.1}BERT}{29}{subsection.76}%
-\contentsline {subsection}{\numberline {3.3.2}ELMo}{31}{subsection.79}%
-\contentsline {subsection}{\numberline {3.3.3}GPT}{31}{subsection.80}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{34}{chapter.81}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{36}{chapter.82}%
-\contentsline {section}{\numberline {5.1}Architektur}{37}{section.83}%
-\contentsline {section}{\numberline {5.2}Training}{39}{section.84}%
-\contentsline {section}{\numberline {5.3}Evaluation}{39}{section.85}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{42}{chapter.86}%
-\contentsline {section}{\numberline {6.1}Konzeption}{42}{section.87}%
-\contentsline {section}{\numberline {6.2}Training}{42}{section.88}%
-\contentsline {section}{\numberline {6.3}Evaluation}{42}{section.89}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{43}{chapter.90}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{44}{chapter.91}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.91}%
-\contentsline {chapter}{Thesen}{53}{chapter*.93}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{54}{chapter*.94}%
-\contentsline {chapter}{\numberline {A}Erster Anhang}{55}{appendix.95}%
-\contentsline {chapter}{\numberline {B}Zweiter Anhang}{56}{appendix.96}%
+\contentsline {subsection}{\numberline {3.3.1}ELMo}{29}{subsection.76}%
+\contentsline {subsection}{\numberline {3.3.2}GPT}{30}{subsection.78}%
+\contentsline {subsection}{\numberline {3.3.3}BERT}{30}{subsection.79}%
+\contentsline {chapter}{\numberline {4}Datengrundlage}{34}{chapter.83}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{36}{chapter.84}%
+\contentsline {section}{\numberline {5.1}Architektur}{37}{section.85}%
+\contentsline {section}{\numberline {5.2}Training}{39}{section.86}%
+\contentsline {section}{\numberline {5.3}Evaluation}{39}{section.87}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{42}{chapter.88}%
+\contentsline {section}{\numberline {6.1}Konzeption}{42}{section.89}%
+\contentsline {section}{\numberline {6.2}Training}{42}{section.90}%
+\contentsline {section}{\numberline {6.3}Evaluation}{42}{section.91}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{43}{chapter.92}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{44}{chapter.93}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.93}%
+\contentsline {chapter}{Thesen}{53}{chapter*.95}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{54}{chapter*.96}%
+\contentsline {chapter}{\numberline {A}Erster Anhang}{55}{appendix.97}%
+\contentsline {chapter}{\numberline {B}Zweiter Anhang}{56}{appendix.98}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
