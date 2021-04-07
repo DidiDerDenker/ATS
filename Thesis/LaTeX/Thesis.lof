@@ -20,8 +20,8 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Tokenisierung eines beispielhaften Satzes.\relax }}{23}{figure.caption.60}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces One-Hot-Encoding mit zwei beispielhaften Sätzen.\relax }}{25}{figure.caption.64}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Architektur und Funktionsweise von \ac {ELMo} \cite {IRE18}.\relax }}{30}{figure.caption.77}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Architektur von \ac {BERT} mit \ac {MLM} \cite [S.~3]{DEV19}.\relax }}{31}{figure.caption.81}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{32}{figure.caption.82}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Architektur von \ac {BERT} mit \ac {MLM} \cite [S.~3]{DEV19}.\relax }}{32}{figure.caption.81}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{33}{figure.caption.82}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

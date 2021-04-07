@@ -32,18 +32,18 @@
 \contentsline {section}{\numberline {3.3}Deep Language Representations}{29}{section.75}%
 \contentsline {subsection}{\numberline {3.3.1}ELMo}{29}{subsection.76}%
 \contentsline {subsection}{\numberline {3.3.2}GPT}{30}{subsection.78}%
-\contentsline {subsection}{\numberline {3.3.3}BERT}{30}{subsection.79}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{34}{chapter.83}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{36}{chapter.84}%
-\contentsline {section}{\numberline {5.1}Architektur}{37}{section.85}%
-\contentsline {section}{\numberline {5.2}Training}{39}{section.86}%
-\contentsline {section}{\numberline {5.3}Evaluation}{39}{section.87}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{42}{chapter.88}%
-\contentsline {section}{\numberline {6.1}Konzeption}{42}{section.89}%
-\contentsline {section}{\numberline {6.2}Training}{42}{section.90}%
-\contentsline {section}{\numberline {6.3}Evaluation}{42}{section.91}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{43}{chapter.92}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{44}{chapter.93}%
+\contentsline {subsection}{\numberline {3.3.3}BERT}{31}{subsection.80}%
+\contentsline {chapter}{\numberline {4}Datengrundlage}{35}{chapter.83}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{37}{chapter.84}%
+\contentsline {section}{\numberline {5.1}Architektur}{38}{section.85}%
+\contentsline {section}{\numberline {5.2}Training}{40}{section.86}%
+\contentsline {section}{\numberline {5.3}Evaluation}{40}{section.87}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{43}{chapter.88}%
+\contentsline {section}{\numberline {6.1}Konzeption}{43}{section.89}%
+\contentsline {section}{\numberline {6.2}Training}{43}{section.90}%
+\contentsline {section}{\numberline {6.3}Evaluation}{43}{section.91}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{44}{chapter.92}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{45}{chapter.93}%
 \contentsline {chapter}{Literaturverzeichnis}{50}{chapter.93}%
 \contentsline {chapter}{Thesen}{53}{chapter*.95}%
 \contentsline {chapter}{Selbstständigkeitserklärung}{54}{chapter*.96}%
