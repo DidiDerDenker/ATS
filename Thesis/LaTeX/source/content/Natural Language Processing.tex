@@ -139,7 +139,18 @@ Der Ansatz des \ac{W2V} kombiniert \ac{BOW}-Modelle mit Skip-Gram-Modellen, um d
 Die entsprechenden bedingten Wahrscheinlichkeiten können gemäß der nachstehenden Formeln modelliert werden. Dabei werden Skip-Gram-Modelle (erstgenannt) den \ac{BOW}-Modellen (zweitgenannt) anhand des oben genannten Beispiels gegenübergestellt. $$P(a, b, d, e \mid c) \qquad P(c \mid a, b, d, e)$$
 
 \noindent
-\ac{W2V}-Modelle können mithilfe neuronaler Netze trainiert werden. Dies befähigt sie, Zusammenhänge zwischen Wörtern zu erlernen. Hierbei werden Distanzen minimiert, die aus den zuvor beschriebenen Vektoren hervorgehen. Dieser Ansatz eignet sich in der Folge etwa dazu, Synonyme für gegebene Wörter zu bestimmen. \ac{ATS}-Modelle, welche den \ac{W2V}-Ansatz verfolgen, konnten sich in der Vergangenheit bereits in akzeptablem Maße beweisen \cite{KAR18}.
+\ac{W2V}-Modelle können mithilfe neuronaler Netze trainiert werden. Dies befähigt sie, Zusammenhänge zwischen Wörtern zu erlernen. Hierbei werden Distanzen minimiert, die aus den zuvor beschriebenen Vektoren hervorgehen. Dieser Ansatz eignet sich in der Folge etwa dazu, Synonyme für gegebene Wörter zu bestimmen. \ac{ATS}-Modelle, welche den \ac{W2V}-Ansatz verfolgen, konnten sich in der Vergangenheit bereits in akzeptablem Maße beweisen \cite{KAR18}.\\
+
+\noindent
+\autoref{pic:OnlineSphere} zeigt die beispielhaften Projektionen von etwa 10.000 Wörtern, welche mit dem Embedding Projektor von TensorFlow und einer entsprechenden Hauptkomponentenanalyse generiert wurden. Dabei ist das Ergebnis der Suche nach dem Wort $play$ zu sehen. Es ist erkennbar, dass bedeutungsähnliche Wörter kürzere Distanzen aufweisen.
+\newpage
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.75\linewidth]{./source/images/onlinesphere.png}}
+  \caption{\ac{W2V} auf 10.000 Wörtern mit dem Embedding Projector von TensorFlow.}
+  \label{pic:OnlineSphere}
+\end{figure}
 
 
 \subsection{Byte-Pair-Encoding}
@@ -162,6 +173,7 @@ Hierbei werden sehr große Matrizen durch mehrere niederrangige Matrizen approxi
 
 \noindent
 \ac{GloVe} ist praktisch als vortrainiertes Modell verfügbar. Dies basiert auf vier verschiedenen Korpora mit insgesamt etwa 55 Milliarden Token und einer durchschnittlichen Wortschatzgröße von etwa 1,5 Millionen Token. Im Training werden hierbei in der Matrix nur von Null verschiedene Werte berücksichtigt. Die mittlere quadratische Abweichung wird zudem als Fehlerfunktion ausgewählt. Das initiale Training ist zwar sehr rechenintensiv, dafür allerdings im Sinne des \ac{TL} a priori nur einmalig auszuführen. \ac{NLP}-Aufgaben, darunter auch die \ac{ATS}, profitierten stark vom Erfolg des \ac{GloVe}-Ansatzes. Trotzdem ist der Einsatz stets sorgfältig zu evaluieren, da innerhalb der modellinternen Vorverarbeitung die zugrundeliegenden Korpora beispielsweise auf Kleinschreibung forciert wurden. Dies müsste bei nachstehenden \ac{NLP}-Aufgaben ebenfalls berücksichtigt werden \cite[S.~6-9]{PEN14}.
+\newpage
 
 
 \section{Deep Language Representations}
@@ -229,7 +241,3 @@ Um zudem weitergehende Informationen auf Satzebene zu erhalten, werden dem Train
 
 \noindent
 \ac{BERT} wurde initial in zwei verschiedenen Versionen veröffentlicht: BASE und LARGE. Die veröffentlichten Modelle wurden von den Forschern der Google AI Language auf zwei verschiedenen Korpora mit insgesamt über drei Millionen Wörtern trainiert. Sei $L$ die Anzahl der Schichten (oder: Transformer-Module), $H$ die Größe der verborgenen Schichten und $A$ die Anzahl der Self-Attention-Heads, dann sind die Versionen wie folgt definiert \cite[S.~3-5]{DEV19}. $$\text{BERT}_{\text{BASE}}: (L=12, H=768, A=12) \text{ mit } 110 \text{M Parametern}$$ $$\text{BERT}_{\text{LARGE}}: (L=24, H=1024, A=16) \text{ mit } 340 \text{M Parametern}$$
-
-
-\newpage
-Keyword Network, BERT als Encoder \& Decoder nutzen, Architekturen und TL dementsprechend aufgreifen (S. 1 in YAN19), bspw. als Encoder oder/ und Decoder verwenden, siehe ROT20 auf S. 2 rechts und S. 6 unten, Encoder zur NLU und Decoder zur NLG, d.h. BERT oder andere Transformer als vortrainiertes multilinguales Modell für Encoder/ Decoder nutzen, Ausblick auf Adaption von EN->DE: Fine-Tuning der Modelle, verschiedene Experimente, aber dazu im späteren Kapitel mehr, BERT ist außerdem austauschbar, durch sowohl größere als auch kleinere Modelle, Multilingualität architektonisch ergründen, erwähnen, dass diese Modelle die Encoder oder auch Decoder ersetzen können, hierzu populäre Ansätze wie \cite{ROT20}, Trainingsvorgehensweise von BERT und ELMo beschreiben, wie im Forschungsstand bereits erwähnt, konnten diese vortrainierten Language Models die NLU-Welt revolutionieren, wie viele Parameter wurden genutzt? Verschiedene Modelle vergleichen, bspw. das Notebook \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=4M2uzGLV9a_O} unter "Analysis" referenzieren, jeweils maximale Token-Länge oder verschieden trainierte Versionen hervorheben, ggf. LongFormer als Encoder benutzen, Transfer Learning mit BERT hier sinnvoll, sodass das Modell die Sprache nicht in einer bestimmten Domain oder mit zu wenigen Texten neu erlernen muss, TL durch Encoder, Decoder etc. auf jeden Fall hier aufgreifen, Fine-Tuning für eigenes Problem, d.h. domainspezifisch o.ä., am besten direkt ein vortrainiertes Transformer-Modell nutzen (extra für Summarization-Tasks), BERT und RL bspw. in der Pipeline integrieren, Ziel wäre dann: Verbesserung im Score erzielen, BERT vielleicht durch andere (teils bessere und neuere) Transformer ersetzen? Transformer in NLP recherchieren, Longformer?
