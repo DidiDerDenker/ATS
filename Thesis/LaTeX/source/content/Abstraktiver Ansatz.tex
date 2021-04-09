@@ -3,7 +3,47 @@
 \label{chap:Abstraktiver Ansatz}
 
 \noindent
-Unter Kenntnis der zu implementierenden Architekturen, entsprechender \ac{NLP}-Grundlagen und der Datengrundlage kann nun eine gesamtheitliche Architektur für die \ac{ATS} konzipiert und trainiert werden. Dafür sind zunächst einige Vorbemerkungen zu spezifizieren.\\
+Unter Kenntnis der Grundlagen des \ac{DL} und des \ac{NLP} wird nun eine Architektur konzipiert und beschrieben, welche die \ac{ATS} gemäß des abstraktiven Ansatzes ermöglicht. Hierfür werden verschiedene Experimente durchgeführt, deren Training stets auf der beschriebenen Datengrundlage erfolgt.\\
+
+
+\section{Metriken}
+\noindent
+Zuvor sind ausgewählte Metriken offenzulegen, mit denen die Qualität der \ac{ATS} gemessen werden kann: \ac{ROUGE} und \ac{BLEU}. In der Wissenschaft werden \ac{ATS}-Modelle meist mithilfe des \ac{ROUGE}-Scores evaluiert und verglichen. Dabei erfordern diese Metriken eine \ac{REFZ} zu jeder \ac{SYSZ}, welche maschinell generiert wurde. Dies ist unabhängig davon, ob das Training überwacht oder unüberwacht durchgeführt wurde. Allgemein unterliegen diese Metriken der Herausforderung, dass es für einen gegebenen Text keine objektiv beste Zusammenfassung gibt. Folglich können verschiedene \ac{SYSZ} oder sogar \ac{REFZ} gleich gut sein. Dies ist statistisch sehr schwer zu bewerten, zumal selbst Menschen aufgrund ihrer subjektiven Bewertungsweise nicht einheitlich definieren können, welche Faktoren für eine gute Zusammenfassung stehen. Weiterhin werden in den Metriken menschliche Bewertungsfaktoren wie beispielsweise Lesbarkeit nicht berücksichtigt \cite{LEM20}.\\
+
+
+\subsection{ROUGE}
+\noindent
+\ac{ROUGE} kann zunächst mithilfe folgender Kennzahlen weitergehend differenziert werden: Recall, Precision und Measure. Dabei quantifiziert der Recall-Score den Anteil der sowohl in \ac{REFZ} als auch in \ac{SYSZ} vorkommender Wörter gemäß folgender Formel:\\
+$$\frac{\text{Anzahl übereinstimmender Wörter}}{\text{Anzahl der Wörter in der REFZ}}$$
+\newpage
+
+\noindent
+Sei hierfür verkürzt \glqq Der Sommer war sehr warm\grqq{} als \ac{REFZ} und \glqq Der Sommer war wieder sehr warm\grqq{} als \ac{SYSZ} gegeben. Dann gilt: $\text{Recall} = \frac{5}{5} = 1.0$. Trotzdem sollen \ac{SYSZ} nicht unendlich lang werden, um alle Wörter der \ac{REFZ} abzudecken, sondern weiterhin den eigentlichen Sinn einer Zusammenfassung erfüllen. Hier quantifiziert der Precision-Score den Anteil der tatsächlich relevanten Wörter gemäß folgender Formel:\\
+$$\frac{\text{Anzahl übereinstimmender Wörter}}{\text{Anzahl der Wörter in der SYSZ}}$$ \newline
+
+\noindent
+Wie man sieht, ändert sich nur der Nenner. Im oben genannten Beispiel gilt somit: $\text{Precision} = \frac{5}{6} = 0.8\overline{3}$. Nimmt man ferner \glqq Der letzte Sommer war wieder sehr warm und trocken\grqq{} als neue \ac{SYSZ} an, dann reduziert sich der Precision-Score aufgrund der erhöhten Anzahl unrelevanter Wörter wie folgt: $\text{Precision} = \frac{5}{9} = 0.5\overline{5}$. Weiterhin kann der Measure-Score als gewöhnlicher F-Score verstanden und interpretiert werden. Er ergibt sich als harmonisches Mittel zwischen dem Recall und der Precision, womit er beide Scores berücksichtigt \cite[S.~1-3]{LIN04}.\\
+
+\noindent
+\ac{ROUGE} wird allgemein auch als \ac{ROUGE}-N geschrieben, wobei das N bestimmt, ob obige Kennzahlen auf Grundlagen von Uni-, Bi- oder Trigrammen berechnet werden sollen. Im genannten Beispiel wurden also die \ac{ROUGE}-1 Recall-, Precision- und Measure-Scores berechnet. Zudem existieren Ansätze, welche die \ac{LCS} verfolgen. Diese werden hier jedoch vernachlässigt.\\
+
+\noindent
+Trotz oder gerade wegen der wissenschaftlichen Verbreitung des \ac{ROUGE}-Scores kommt immer mehr Kritik auf. Demnach kann \ac{ROUGE} beispielsweise nicht zwischen verschiedenen aber bedeutungsähnlichen Wörtern unterscheiden. Dies führt tendenziell zu einer schlechteren Bewertung, obgleich ein gegebener Text etwa in einer entsprechenden \ac{SYSZ} präzise zusammengefasst wurde. Außerdem wird den Texten zur Berechnung des \ac{ROUGE}-Scores Kleinschreibung abverlangt, unabhängig von den vorgeschalteten Modellen. Die Bewertung geschieht also eher auf syntaktischer als auf semantischer Basis. Aufgrund der bereits genannten weitreichenden Nutzung des \ac{ROUGE}-Scores und der damit gegebenen Vergleichbarkeit kommt er trotzdem in dieser Arbeit zum Einsatz \cite[S.~5]{LIN04}.
+\newpage
+
+	
+\subsection{BLEU}
+\noindent
+Text
+
+
+\section{Architektur}
+\noindent
+Einleitungstext von unten anpassen und übernehmen, mit Notizen darunter fortsetzen
+
+\noindent
+Hierfür werden mithilfe diverser Experimente entsprechende Modelle trainiert, welche allesamt mit den beschriebenen Daten arbeiten.
+relevanter Architekturen, entsprechender \ac{NLP}-Grundlagen und der Datengrundlage kann nun eine gesamtheitliche Architektur für die \ac{ATS} konzipiert und trainiert werden. Dafür sind zunächst einige Vorbemerkungen zu spezifizieren.\\
 
 \noindent
 Die Textinhalte aller Korpora bedürfen keiner weitergehenden Vorverarbeitung im herkömmlichen Sinne. Diese ist bekanntermaßen sehr individuell und stark modellabhängig. Unter Verwendung der als sehr robust geltenden Transformer-Architekturen entfällt daher die sonst übliche Textbereinigung sowie die Textnormalisierung. Dies unterliegt der Annahme, dass Transformer-Architekturen potenziell aus jeder Eigenart ein relevantes Feature schaffen können, welches das spätere Ergebnis begünstigt. Von der zugeführten Interpunktion und den vielfältigen Wortformen wird sich indes erhofft, potenzielle Mehr- oder Uneindeutigkeiten zu minimieren. Das Fine-Tuning sollte darüber hinaus unter gleichen Bedingungen wie das initiale Training stattfinden. Gleichzeitig sinkt hierdurch der vorverarbeitende Aufwand und damit auch etwaige Wartezeiten bei der praktischen Anwendung bereits trainierter Modelle in Echtzeit. Dennoch ist es möglich, bestimmte Vorverarbeitungsschritte a posteriori zu implementieren. Die Auswirkungen auf das Modell und die entsprechenden Ergebnisse sind somit messbar.\\
@@ -12,9 +52,11 @@ Die Textinhalte aller Korpora bedürfen keiner weitergehenden Vorverarbeitung im
 
 TODO: Leveraging-Paper hier umfänglich beschreiben, auf dokumentierte Inhalte dieser Arbeit eingehen + \cite{VAS17}
 
+Nitsche lesen und einarbeiten
+
 Notizen:
 \begin{itemize}
-	\item Quelle: \cite{NIT19}
+	\item Quelle: \cite{NIT19} ab Kapitel 4 (!)
 	\item Abgrenzung zum extraktiven Ansatz beschreiben
 	\item Vorteile gegenüber referenzierten Modellen herausstellen
 	\item Generierung neuer Sätze sowohl mit vorkommenden als auch mit nicht-vorkommenden Wörtern (vgl. Paper: „Automatic Text Summarization with Machine Learning“)
@@ -33,8 +75,6 @@ Multilingualität architektonisch ergründen, Ausblick auf Adaption von EN->DE, 
 
 Notebook \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=4M2uzGLV9a_O} im abstraktiven Ansatz einarbeiten und unter "Analysis" referenzieren, jeweils maximale Token-Länge oder verschieden trainierte Versionen hervorheben, ggf. LongFormer als Encoder benutzen
 
-
-\section{Architektur}
 Notizen:
 \begin{itemize}
 	\item Eignung von Python für ML/ DL
@@ -74,16 +114,10 @@ Notizen:
 \section{Evaluation}
 Notizen:
 \begin{itemize}
-	\item Zwecks Einleitung für ROUGE auf die Einleitung im NLP-Kapitel eingehen, d.h. Mehrdeutigkeit der Lösungen bzw. mehrere korrekte Lösungen, Metriken zur Evaluation dieser Korrektheit erforderlich, verschiedene Ansätze nachfolgend
-	\item ROUGE vorstellen, evtl. BLEU, auch die Implementierung beschreiben, ROUGE-Score umstritten, daher evtl. alternativen Score nutzen, Kritik inkl. Grenzen nennen, dennoch weitreichend genutzt und daher vergleichbar, wichtig für die Interpretation, ROUGE evaluiert uncased, \url{https://huggingface.co/metrics/rouge}
-	\item Kompressionsrate messen
-	\item Accuracy, Precision \& Recall inkl. Trade-Off auf S. 239 BIR09
-	\item Qualität der Zusammenfassung messen (BLEU \url{https://en.wikipedia.org/wiki/BLEU}, ROUGE \url{https://en.wikipedia.org/wiki/ROUGE_(metric)}, evtl. Funktionen fusionieren)
 	\item Evaluation verschiedener Modelle mit geeigneter Vergleichstabelle
-	\item Vergleich mit SOTA-Modellen
 	\item Praktische Nutzung durch Implementation eines vortrainierten Modells in ein Skript oder eine Software
 	\item Es muss eine Metrik existieren, mit der man die Genauigkeit bzw. Qualität der Zusammenfassung messen kann, d.h. man möchte die Texte nicht mit menschlich generierten Zusammenfassungen vergleichen, sondern automatisiert lernen, ggf. sollte man auch Grammatik und Inhalt separat prüfen
-	\item For a given document there is no summary which is objectively the best. As a general rule, many of them that would be judged equally good by a human. It is hard to define precisely what a good summary is and what score we should use for its evaluation. Good training data has long been scarce and expensive to collect. Human evaluation of a summary is subjective and involves judgments like style, coherence, completeness and readability. Unfortunately no score is currently known which is both easy to compute and faithful to human judgment. The ROUGE score [6] is the best we have but it has obvious shortcomings as we shall see. ROUGE simply counts the number of words, or n-grams, that are common to the summary produced by a machine and a reference summary written by a human. \url{https://towardsdatascience.com/deep-learning-models-for-automatic-summarization-4c2b89f2a9ea}
+	
 	\item Bei der Anwendung einer Architektur, in der das Modell durch Reinforcement Learning trainiert wird, braucht man keine massenhaft menschlich generierten Referenztexte, sondern eine wohlbedachte Kostenfunktion, der ein entsprechender Aufwand entgegen gebracht werden muss, d.h. die Herausforderung liegt beim RL eher darin, eine Umwelt und eine geeignete Funktion zum Belohnen und Bestrafen zu konstruieren, hier sind bspw. auch Evaluationsmetriken notwendig
 	\item Rouge-Score in Python: \url{https://pypi.org/project/rouge-score/}
 	\item Typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen
