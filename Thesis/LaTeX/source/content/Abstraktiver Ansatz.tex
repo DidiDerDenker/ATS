@@ -57,16 +57,11 @@ TODO: Leveraging-Paper hier umfänglich beschreiben, auf dokumentierte Inhalte d
 
 Nitsche lesen und einarbeiten
 
-Notizen:
-\begin{itemize}
-	\item Quelle: \cite{NIT19} ab Kapitel 4 (!)
-	\item Abgrenzung zum extraktiven Ansatz beschreiben
-	\item Vorteile gegenüber referenzierten Modellen herausstellen
-	\item Generierung neuer Sätze sowohl mit vorkommenden als auch mit nicht-vorkommenden Wörtern (vgl. Paper: „Automatic Text Summarization with Machine Learning“)
-	\item Extraktive Zusammenfassung: Potenzielle Features bzw. Kennzahlen: Übereinstimmung mit dem Titel, Satzposition, Satzähnlichkeit, Satzlänge, domänenspezifische Wörter, Eigennamen, numerische Daten
-\end{itemize}
+Daten und Baseline (englisches Modell reproduzieren) aufsetzen, dann Experimente anschließen, bzgl. Austausch vortrainierter Modelle, Austausch zugrundeliegender Korpora bzw. deren Mix, Longformer o.ä., Variation der Tokenlänge
 
-Notizen:
+Laufzeitkomplexität durch Self-Attention (jedes Zeichen mit jedem Zeichen), zu aufwendig für Longformer o.ä., Attention-Mechanismen daher austauschen, bspw. lokale Attention, sonst Sliding-Window-Approach (512 Token vorne, mittig, hinten), sonst Ausblick, Literaturrecherche
+
+Quelle: \cite{NIT19} ab Kapitel 4 (!)
 
 BERT als Encoder \& Decoder nutzen, Architekturen und TL dementsprechend aufgreifen (YAN19 auf S. 1, ROT20 auf S. 2 rechts und S. 6 unten)
 
@@ -78,28 +73,19 @@ Multilingualität architektonisch ergründen, Ausblick auf Adaption von EN->DE, 
 
 Notebook \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=4M2uzGLV9a_O} im abstraktiven Ansatz einarbeiten und unter "Analysis" referenzieren, jeweils maximale Token-Länge oder verschieden trainierte Versionen hervorheben, ggf. LongFormer als Encoder benutzen
 
-Notizen:
-\begin{itemize}
-	\item Eignung von Python für ML/ DL
-	\item Anmerkungen zum CNN-Korpus aus der Datengrundlage aufgreifen und mit Colab-Notebook vervollständigen, d.h. wie viele Texte sind länger als BERT-MAX 512 Token? Was 	haben Experimente ergeben? Token-Länge/ Longformer? Gibt es alternative Lösungen? Z.B. Longformer -> Ausblick
-	\item Multilingual BERT: \url{https://huggingface.co/bert-base-multilingual-cased}
-	\item \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=ZwQIEhKOrJpl}, \url{https://huggingface.co/transformers/training.html#trainer}, \url{https://www.quora.com/What-is-the-difference-between-FP16-and-FP32-when-doing-deep-learning}, \url{https://margaretmz.medium.com/setting-up-aws-ec2-for-running-jupyter-notebook-on-gpu-c281231fad3f} + Jupyter Notebook auf Tesla 80K \url{https://www.nvidia.com/de-de/data-center/tesla-k80/}
-	\item \cite{ROT20} um Encoder und Decoder zu ersetzen, laut beschriebener Encoder-Decoder-Architektur + Language Model + Transfer Learning in Kombination, also die drei Grundlagenkapitel werden hier zusammengeführt, sogenannter Warm-Start des Encoder-Decoder-Models, d.h. kein initiales Training erforderlich, welches im Bereich von NLP-Tasks ein Neuerlernen einer Sprache bedeuten würde, Architektur skizzieren, in der sowohl Encoder als auch Decoder "warm gestartet" werden, Fine-Tuning auch skizzieren, Warm-Starting beschreiben, wie hier in der Theorie beschrieben: \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=Gw3IZYrfKl4Z}, Skizzen von dort nutzen, Encoder-Decoder-Weight-Sharing beschreiben, zuvor muss hier erstmal beschrieben werden, wie die Encoder-Decoder-Architektur konkret aussieht, also BERT o.ä., dann verschiedene Skizzen und Dinge wie Weight-Sharing beschreiben, prinzipiell das Colab-Notebook nutzen, Multilingualität behandeln
-	\item \cite{YAN19} S. 4 rechts, S. 5 oben für Evaluation, S. 6 links unten für Konfiguration
-	\item Frage: Fine-Tuning auf CNN/ Dailymail für Funktionalität der ATS auf englischer Sprache, d.h. Modell soll auf ATS fokussiert werden (bspw. von HuggingFace übernehmen), dann weiteres Fine-Tuning auf deutschen Korpus zur sprachlichen Adaption, also zweistufig?
-	\item Modellauswahl begründen, d.h. warum "Transformer"? Warum genau dieses vortrainierte Modell? Auf vorherige Inhalte der Masterarbeit verweisen
-	\item Transformer-to-Transformer-Architektur beschreiben, Grundlagen des TL, der Encoder/ Decoder und der Embeddings/ Language Model Representations etc. aufgreifen, bspw. Bert2Bert, Longformer2Roberta wie in \url{https://huggingface.co/patrickvonplaten/longformer2roberta-cnn_dailymail-fp16/blob/main/README.md}
-	\item Netzwerk des abstraktiven Ansatzes als Pipeline skizzieren
-	\item Vorgehen bei der Datenverarbeitung/ -vorbereitung wie im Notebook beschreiben, d.h. warum cased/ uncased? Token-Länge von BERT o.ä. als Begründung erwähnen
-	\item Transformers-Library -> Scores in Excel, funktioniert gut als Benchmark/ "Nullfall"
-	\item Komponenten wie den Encoder oder den Decoder mit der behandelten Theorie auf die durch die Datengrundlage gestellten Anforderungen mappen, d.h. tatsächlich eine Auswahl aus den vorgestellten theoretischen Inhalten treffen und stets ausführlich begründen
-	\item Seq2Seq-Trainer wie im Notebook beschreiben, Notebook nochmal durchlesen und wichtige Informationen sinnvoll einbinden
-	\item Seq2Seq \url{https://github.com/yaserkl/RLSeq2Seq#dataset} -> Fehler
-	\item Seq2Seq-Library: \url{https://github.com/dongjun-Lee/text-summarization-tensorflow} -> Done, aber Scores auf meinem Datensatz nicht evaluierbar, da Aufbau des Vocabularies und Training auf meinem Korpus ausstehend ist, aber zu rechenintensiv ist, alternativ nur Scores auf anderem Korpus auswertbar, Azure ML vs. AWS SageMaker?
-	\item Deep Reinforcement Learning (DeepRL) for Abstractive Text Summarization \url{https://medium.com/analytics-vidhya/deep-reinforcement-learning-deeprl-for-abstractive-text-summarization-made-easy-tutorial-9-c6914999c76c} -> Rouge-Scores ausschließlich auf dem CNN-Korpus berechnet, Anpassungen an den Daten, an der Code-Architektur und an den Modellen möglich -> Zurückgestellt aber bei Bedarf mit Potenzial
-	\item BERT-Encoder Transformer-Decoder: Paper \url{https://arxiv.org/pdf/2008.09676.pdf}, Code \url{https://github.com/nlpyang/PreSumm}, Results \url{https://paperswithcode.com/paper/abstractive-summarization-of-spoken#code} -> In Progress...
-	\item Deep Reinforced Model with PyTorch: \url{https://github.com/rohithreddy024/Text-Summarizer-Pytorch} -> TBD
-\end{itemize}
+Eignung von Python für ML/ DL
+
+Multilingual BERT: \url{https://huggingface.co/bert-base-multilingual-cased}, \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=ZwQIEhKOrJpl}, \url{https://huggingface.co/transformers/training.html#trainer}, \url{https://www.quora.com/What-is-the-difference-between-FP16-and-FP32-when-doing-deep-learning}, \url{https://margaretmz.medium.com/setting-up-aws-ec2-for-running-jupyter-notebook-on-gpu-c281231fad3f} + Jupyter Notebook auf Tesla 80K \url{https://www.nvidia.com/de-de/data-center/tesla-k80/}
+
+\cite{ROT20} um Encoder und Decoder zu ersetzen, laut beschriebener Encoder-Decoder-Architektur + Language Model + Transfer Learning in Kombination, also die drei Grundlagenkapitel werden hier zusammengeführt, sogenannter Warm-Start des Encoder-Decoder-Models, d.h. kein initiales Training erforderlich, welches im Bereich von NLP-Tasks ein Neuerlernen einer Sprache bedeuten würde, Architektur skizzieren, in der sowohl Encoder als auch Decoder "warm gestartet" werden, Fine-Tuning auch skizzieren, Warm-Starting beschreiben, wie hier in der Theorie beschrieben: \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=Gw3IZYrfKl4Z}, Skizzen von dort nutzen, Encoder-Decoder-Weight-Sharing beschreiben, zuvor muss hier erstmal beschrieben werden, wie die Encoder-Decoder-Architektur konkret aussieht, also BERT o.ä., dann verschiedene Skizzen und Dinge wie Weight-Sharing beschreiben, prinzipiell das Colab-Notebook nutzen, Multilingualität behandeln
+
+\cite{YAN19} S. 4 rechts, S. 5 oben für Evaluation, S. 6 links unten für Konfiguration
+
+Transformer-to-Transformer-Architektur beschreiben, Grundlagen des TL, der Encoder/ Decoder und der Embeddings/ Language Model Representations etc. aufgreifen, bspw. Bert2Bert, Longformer2Roberta wie in \url{https://huggingface.co/patrickvonplaten/longformer2roberta-cnn_dailymail-fp16/blob/main/README.md}
+
+Vorgehen bei der Datenverarbeitung/ -vorbereitung wie im Notebook beschreiben, d.h. warum cased/ uncased? Token-Länge von BERT o.ä. als Begründung erwähnen
+
+Transformers-Library -> Scores in Excel, funktioniert gut als Benchmark/ "Nullfall"/ Baseline-Model
 
 
 \section{Training}
@@ -120,7 +106,6 @@ Notizen:
 	\item Evaluation verschiedener Modelle mit geeigneter Vergleichstabelle
 	\item Praktische Nutzung durch Implementation eines vortrainierten Modells in ein Skript oder eine Software
 	\item Es muss eine Metrik existieren, mit der man die Genauigkeit bzw. Qualität der Zusammenfassung messen kann, d.h. man möchte die Texte nicht mit menschlich generierten Zusammenfassungen vergleichen, sondern automatisiert lernen, ggf. sollte man auch Grammatik und Inhalt separat prüfen
-	
 	\item Bei der Anwendung einer Architektur, in der das Modell durch Reinforcement Learning trainiert wird, braucht man keine massenhaft menschlich generierten Referenztexte, sondern eine wohlbedachte Kostenfunktion, der ein entsprechender Aufwand entgegen gebracht werden muss, d.h. die Herausforderung liegt beim RL eher darin, eine Umwelt und eine geeignete Funktion zum Belohnen und Bestrafen zu konstruieren, hier sind bspw. auch Evaluationsmetriken notwendig
 	\item Rouge-Score in Python: \url{https://pypi.org/project/rouge-score/}
 	\item Typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen
