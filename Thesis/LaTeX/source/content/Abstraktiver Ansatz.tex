@@ -55,6 +55,38 @@ Die Textinhalte aller Korpora bedürfen keiner weitergehenden Vorverarbeitung im
 
 TODO: Leveraging-Paper hier umfänglich beschreiben, auf dokumentierte Inhalte dieser Arbeit eingehen + \cite{VAS17}
 
+Transformers aus Deep Learning und BERT aus Natural Language Processing aufgreifen:
+- S. 2 in \url{https://arxiv.org/pdf/1910.10781.pdf}:
+  BERT ist SOTA in 11 NLP-Tasks ohne Modifikationen, hohe Adaptionsfähigkeit,
+  abgesehen von der aufgabenbezogenen Ausgabeschicht
+- S. 2 in \url{https://arxiv.org/pdf/1910.10781.pdf}:
+  Komplexität der Berechnung von Self-Attention in Transformers, insb. BERT,
+  skaliert quadratisch mit der Sequenzlänge,
+  zudem etwas nachteilig, dass positionsbezogene Schemata gelernt werden,
+  weshalb sehr viele Trainingsdaten erforderlich sind, bestenfalls verschiedener Art und Domäne
+- S. 2 in \url{https://proceedings.neurips.cc/paper/2020/file/96671501524948bc3937b4b30d0e57b9-Paper.pdf}:
+  Herausforderung bei der Verarbeitung langer Texte:
+  Die vortrainierten Modelle wurden auf Texten mit einer maximalen Sequenzlänge trainiert,
+  bei BERT sind das 512 Token, d.h. Sequenzen werden nach 512 Token abgeschnitten,
+  doch ein einfaches Erhöhen hilft nicht unbedingt, weil Speicher und Rechenzeit quadratisch ansteigen,
+  Ansatz: Subtexte mit in Summe 512 Token extrahieren, Sliding Window Approach,
+  wobei dabei langfristige Abhängigkeiten verloren gehen,
+  Ansatz: Text alle 512 Token splitten, letzten Part padden,
+  dann einzeln zusammenfassen und Zusammenfassungen konkatenieren
+- \url{https://medium.com/@Synced/transformers-scale-to-long-sequences-with-linear-complexity-via-nystr\%C3\%B6m-based-self-attention-c67c851ddc8a}:
+  Bekannt ist: Transformer und Self-Attention überkommen Restriktionen gewöhnlicher RNN's, bspw. Vanishing Gradients
+  und die damit nicht-erlernten langfristigen Abhängigkeiten, Self-Attention wird aber in O(n^2) berechnet,
+  Ansatz: Nyströmformer approximiert Self-Attention in O(n)
+- \url{https://arxiv.org/pdf/2007.14062.pdf}: Big Bird auch (s.o.)
+- S. 1 in \url{https://arxiv.org/pdf/2004.05150.pdf}: Longformer auch (s.o.),
+  Erreicht ebenfalls lineare Komplexität durch lokale Attention und einer
+  angeschlossenenen globalen Attention
+- S. 2: Aber: Keine multilingualen Modelle verfügbar, weil Forschung noch jung,
+  daher weiterhin Standard-BERT, Anpassungen dann bei neuen Erkenntnissen
+- \url{https://towardsdatascience.com/deep-generative-models-25ab2821afd3}:
+  Deep Generative Models: BERT: Verteilung von Daten unüberwacht lernen,
+  d.h. ungelabelte Daten, Berechnung bedingter Wahrscheinlichkeiten
+
 Nitsche lesen und einarbeiten
 
 Daten und Baseline (englisches Modell reproduzieren) aufsetzen, dann Experimente anschließen, bzgl. Austausch vortrainierter Modelle, Austausch zugrundeliegender Korpora bzw. deren Mix, Longformer o.ä., Variation der Tokenlänge
