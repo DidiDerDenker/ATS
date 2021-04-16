@@ -1,0 +1,28 @@
+https://doc.zih.tu-dresden.de/hpc-wiki/bin/view/Compendium/JupyterHub#Conda_environment
+
+module load Anaconda3
+mkdir user-kernel-2
+conda create --prefix ~/user-kernel-2/test python=3.7
+bash
+conda activate ~/user-kernel-2/test
+conda install ipykernel
+python -m ipykernel install --user --name test-kernel --display-name="test kernel"
+pip install datasets==1.0.2
+conda install -c conda-forge importlib_metadata
+pip uninstall numpy
+conda install numpy
+conda config --prepend channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/linux-ppc64le/
+conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+pip install tokenizers regex
+pip install tokenizers==0.10.1
+conda install -c huggingface transformers==4.0.1
+conda install openpyxl
+conda install xlrd
+
+continue in kernel-notebook
+
+conda update -n base conda
+conda install -c huggingface transformers
+pip install datasets
+pip install tokenizers
+conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
