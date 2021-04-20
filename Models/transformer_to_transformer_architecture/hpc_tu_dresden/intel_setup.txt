@@ -12,12 +12,13 @@ conda install -c conda-forge importlib_metadata
 conda install numpy
 conda config --prepend channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/linux-ppc64le/
 conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+conda list torch
+conda install -c conda-forge ipywidgets
+jupyter nbextension enable --py widgetsnbextension
 conda install -c conda-forge tokenizers
 conda install -c huggingface transformers # ==4.0.1
 conda install openpyxl
 conda install xlrd
-
-continue in kernel-notebook
-
-# pip install datasets
-# pip install tokenizers
+conda install nltk
+pip install rouge_score
+pip install psutil
