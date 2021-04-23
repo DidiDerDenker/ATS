@@ -42,11 +42,33 @@ Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstüt
 
 \section{Architektur}
 \noindent
-Einleitungstext von unten anpassen und übernehmen, mit Notizen darunter fortsetzen
+Die Architektur besteht aus einem sogenannten Sequence-to-Sequence-Transformer-Modell. Dabei wird sowohl der Encoder als auch der Decoder durch ein eigenständiges gemäß \ac{TL} vortrainiertes Modell repräsentiert. Aufgrund der bereits beschriebenen Grundlagen werden nun lediglich weitergehende Vorbemerkungen spezifiziert. Hierbei gibt es unter anderem die folgenden beiden Möglichkeiten, um die den Encoder und den Decoder zu initialisieren \cite[S.~2]{ROT20}.\\
 
 \noindent
-Hierfür werden mithilfe diverser Experimente entsprechende Modelle trainiert, welche allesamt mit den beschriebenen Daten arbeiten.
-relevanter Architekturen, entsprechender \ac{NLP}-Grundlagen und der Datengrundlage kann nun eine gesamtheitliche Architektur für die \ac{ATS} konzipiert und trainiert werden. Dafür sind zunächst einige Vorbemerkungen zu spezifizieren.\\
+Einerseits ist es möglich, den Encoder und den Decoder jeweils mit einem autarken Modell zu initialisieren, beispielsweise den Encoder mit \ac{BERT} und den Decoder mit \ac{GPT}. Andererseits ist es aber auch möglich, sowohl den Encoder als auch den Decoder mit dem gleichen Checkpoint eines Modells zu initialisieren, welches ursprünglich nur als Encoder trainiert wurde, beispielsweise mit \ac{BERT}. Aufgrund der Verfügbarkeit von \ac{BERT} wird in der Folge nur letztere Möglichkeit betrachtet. Die folgenden Ausführungen sind in \autoref{pic:EncoderDecoderBert} visualisiert \cite[S.~2-3]{ROT20}.
+\newpage
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.85\linewidth]{./source/images/encoderdecoderbert.png}}
+  \caption{Sequence-to-Sequence-Transformer-Modell mit BERT \cite{VON20}.}
+  \label{pic:EncoderDecoderBert}
+\end{figure}
+
+\noindent
+Die Gewichte der bidirektionalen Self-Attention-Schichten und der Feed-Forward-Schichten aller \ac{BERT}-Blöcke werden mit den vortrainierten Gewichten von \ac{BERT} initialisiert. Dabei kann der Encoder schlichtweg als \ac{BERT} in seiner bekannten Funktionsweise verstanden werden. Der Decoder hingegen bedarf mindestens der nachstehenden Anpassungen \cite{VON20}.\\
+
+\noindent
+Zunächst werden sogenannte Cross-Attention-Schichten zwischen den Self-Attention-Schichten und den Feed-Forward-Schichten aller \ac{BERT}-Blöcke eingeführt, um die kontextbasierten Sequenzen verarbeiten zu können. Die Gewichte der Cross-Attention-Schichten werden hierbei zufällig initialisiert \cite{VON20}.
+\newpage
+
+\noindent
+Zudem werden die bidirektionalen Self-Attention-Schichten zu unidirektionalen Self-Attention-Schichten transformiert, um der autoregressiven Funktionsweise eines Decoders gerecht zu werden. Beide basieren auf den gleichen Projektionen aus Key, Query und Value, weshalb die Gewichte dieser Schichten weiterhin mit den Werten von \ac{BERT} initialisiert werden können. Die unidirektionalen Self-Attention-Schichten berücksichtigen nun nur noch vorangegangene Token, nicht mehr auch die nachstehenden Token. Dies führt interessanterweise zu veränderten Ausgabevektoren im Vergleich zum ursprünglich \ac{BERT}, obwohl sie die gleichen Gewichte teilen \cite[S.~2]{ROT20}.\\
+
+\noindent
+Zuletzt wird dem Decoder eine sogenannte Language-Model-Head-Schicht hinzugefügt, dessen Gewichte mit denen des gewählten Word Embeddings initialisiert werden. Hierbei handelt es sich erneut um \ac{BERT}. Es wird deutlich, dass sich der Encoder und der Decoder viele Gewichte teilen können. Dies führt zu einer erheblichen Reduktion des Speicherbedarfs, während die Qualität anschließender \ac{NLP}-Aufgaben nahezu unverändert bleibt \cite[S.~2]{ROT20}.\\
+
+% TODO: Texte abwärts einarbeiten, von der Initialisierung zum Training übergehen
 
 \noindent
 Die Textinhalte aller Korpora bedürfen keiner weitergehenden Vorverarbeitung im herkömmlichen Sinne. Diese ist bekanntermaßen sehr individuell und stark modellabhängig. Unter Verwendung der als sehr robust geltenden Transformer-Architekturen entfällt daher die sonst übliche Textbereinigung sowie die Textnormalisierung. Dies unterliegt der Annahme, dass Transformer-Architekturen potenziell aus jeder Eigenart ein relevantes Feature schaffen können, welches das spätere Ergebnis begünstigt. Von der zugeführten Interpunktion und den vielfältigen Wortformen wird sich indes erhofft, potenzielle Mehr- oder Uneindeutigkeiten zu minimieren. Das Fine-Tuning sollte darüber hinaus unter gleichen Bedingungen wie das initiale Training stattfinden. Gleichzeitig sinkt hierdurch der vorverarbeitende Aufwand und damit auch etwaige Wartezeiten bei der praktischen Anwendung bereits trainierter Modelle in Echtzeit. Dennoch ist es möglich, bestimmte Vorverarbeitungsschritte a posteriori zu implementieren. Die Auswirkungen auf das Modell und die entsprechenden Ergebnisse sind somit messbar.\\
@@ -76,7 +98,7 @@ Transformers aus Deep Learning und BERT aus Natural Language Processing aufgreif
   dann einzeln zusammenfassen und Zusammenfassungen konkatenieren
 - \url{https://medium.com/@Synced/transformers-scale-to-long-sequences-with-linear-complexity-via-nystr\%C3\%B6m-based-self-attention-c67c851ddc8a}:
   Bekannt ist: Transformer und Self-Attention überkommen Restriktionen gewöhnlicher RNN's, bspw. Vanishing Gradients
-  und die damit nicht-erlernten langfristigen Abhängigkeiten, Self-Attention wird aber in O(n^2) berechnet,
+  und die damit nicht-erlernten langfristigen Abhängigkeiten, Self-Attention wird aber in O(n hoch 2) berechnet,
   Ansatz: Nyströmformer approximiert Self-Attention in O(n)
 - \url{https://arxiv.org/pdf/2007.14062.pdf}: Big Bird auch (s.o.)
 - S. 1 in \url{https://arxiv.org/pdf/2004.05150.pdf}: Longformer auch (s.o.),

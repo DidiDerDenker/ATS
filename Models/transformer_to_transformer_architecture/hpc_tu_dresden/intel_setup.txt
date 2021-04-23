@@ -7,12 +7,14 @@ bash
 conda activate ~/user-kernel-3/test
 conda install ipykernel
 python -m ipykernel install --user --name test-kernel-3 --display-name="test kernel 3"
+
 conda install datasets # ==1.0.2
 conda install -c conda-forge importlib_metadata
 conda install numpy
 conda config --prepend channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/linux-ppc64le/
 conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
 conda list torch
+
 conda install -c conda-forge ipywidgets
 jupyter nbextension enable --py widgetsnbextension
 conda install -c conda-forge tokenizers

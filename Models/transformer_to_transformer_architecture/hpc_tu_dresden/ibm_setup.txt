@@ -1,4 +1,12 @@
-install transformer-kernel (see taurus.txt)
+https://doc.zih.tu-dresden.de/hpc-wiki/bin/view/Compendium/JupyterHub#Conda_environment
+
+module load PythonAnaconda
+mkdir user-kernel-4
+conda create --prefix /home/davo557d/user-kernel-4/test python=3.7
+bash
+conda activate ~/user-kernel-4/test
+conda install ipykernel
+python -m ipykernel install --user --name test-kernel-4 --display-name="test kernel 4"
 
 conda activate /home/davo557d/user-kernel/transformer-kernel
 bash
