@@ -42,7 +42,7 @@ Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstüt
 
 \section{Architektur}
 \noindent
-Die Architektur besteht aus einem sogenannten Sequence-to-Sequence-Transformer-Modell. Dabei wird sowohl der Encoder als auch der Decoder durch ein eigenständiges gemäß \ac{TL} vortrainiertes Modell repräsentiert. Aufgrund der bereits beschriebenen Grundlagen werden nun lediglich weitergehende Vorbemerkungen spezifiziert. Hierbei gibt es unter anderem die folgenden beiden Möglichkeiten, um die den Encoder und den Decoder zu initialisieren \cite[S.~2]{ROT20}.\\
+Die Architektur ist als Sequence-to-Sequence-Transformer-Modell zu verstehen. Dabei wird sowohl der Encoder als auch der Decoder durch ein eigenständiges gemäß \ac{TL} vortrainiertes Modell repräsentiert. Aufgrund der bereits beschriebenen Grundlagen werden nun weitergehende Besonderheiten spezifiziert. Hierbei gibt es unter anderem die folgenden beiden Möglichkeiten, um den Encoder und den Decoder zu initialisieren \cite[S.~2]{ROT20}.\\
 
 \noindent
 Einerseits ist es möglich, den Encoder und den Decoder jeweils mit einem autarken Modell zu initialisieren, beispielsweise den Encoder mit \ac{BERT} und den Decoder mit \ac{GPT}. Andererseits ist es aber auch möglich, sowohl den Encoder als auch den Decoder mit dem gleichen Checkpoint eines Modells zu initialisieren, welches ursprünglich nur als Encoder trainiert wurde, beispielsweise mit \ac{BERT}. Aufgrund der Verfügbarkeit von \ac{BERT} wird in der Folge nur letztere Möglichkeit betrachtet. Die folgenden Ausführungen sind in \autoref{pic:EncoderDecoderBert} visualisiert \cite[S.~2-3]{ROT20}.
@@ -68,101 +68,35 @@ Zudem werden die bidirektionalen Self-Attention-Schichten zu unidirektionalen Se
 \noindent
 Zuletzt wird dem Decoder eine sogenannte Language-Model-Head-Schicht hinzugefügt, dessen Gewichte mit denen des gewählten Word Embeddings initialisiert werden. Hierbei handelt es sich erneut um \ac{BERT}. Es wird deutlich, dass sich der Encoder und der Decoder viele Gewichte teilen können. Dies führt zu einer erheblichen Reduktion des Speicherbedarfs, während die Qualität anschließender \ac{NLP}-Aufgaben nahezu unverändert bleibt \cite[S.~2]{ROT20}.\\
 
-% TODO: Texte abwärts einarbeiten, von der Initialisierung zum Training übergehen
+\noindent
+Die Textinhalte der Datengrundlage bedürfen keiner weitergehenden Vorverarbeitung im herkömmlichen Sinne. Diese ist bekanntermaßen sehr individuell und stark modellabhängig. Unter Verwendung der als sehr robust geltenden Transformer-Architekturen entfällt daher die sonst übliche Textbereinigung sowie die Textnormalisierung. Dies unterliegt der Annahme, dass Transformer-Architekturen potenziell aus jeder Eigenart ein relevantes Feature schaffen können, welches das spätere Ergebnis begünstigt. Von der zugeführten Interpunktion und den vielfältigen Wortformen wird sich indes erhofft, potenzielle Mehr- oder Uneindeutigkeiten zu minimieren. Das Fine-Tuning sollte darüber hinaus unter gleichen Bedingungen wie das initiale Training stattfinden. Gleichzeitig sinkt hierdurch der vorverarbeitende Aufwand und damit auch etwaige Wartezeiten bei der praktischen Anwendung bereits trainierter Modelle in Echtzeit. Dennoch ist es möglich, bestimmte Vorverarbeitungsschritte a posteriori zu implementieren. Die Auswirkungen auf das Modell und die entsprechenden Ergebnisse würden somit zugleich messbar.\\
 
 \noindent
-Die Textinhalte aller Korpora bedürfen keiner weitergehenden Vorverarbeitung im herkömmlichen Sinne. Diese ist bekanntermaßen sehr individuell und stark modellabhängig. Unter Verwendung der als sehr robust geltenden Transformer-Architekturen entfällt daher die sonst übliche Textbereinigung sowie die Textnormalisierung. Dies unterliegt der Annahme, dass Transformer-Architekturen potenziell aus jeder Eigenart ein relevantes Feature schaffen können, welches das spätere Ergebnis begünstigt. Von der zugeführten Interpunktion und den vielfältigen Wortformen wird sich indes erhofft, potenzielle Mehr- oder Uneindeutigkeiten zu minimieren. Das Fine-Tuning sollte darüber hinaus unter gleichen Bedingungen wie das initiale Training stattfinden. Gleichzeitig sinkt hierdurch der vorverarbeitende Aufwand und damit auch etwaige Wartezeiten bei der praktischen Anwendung bereits trainierter Modelle in Echtzeit. Dennoch ist es möglich, bestimmte Vorverarbeitungsschritte a posteriori zu implementieren. Die Auswirkungen auf das Modell und die entsprechenden Ergebnisse sind somit messbar.\\
+TODO: Tokenizer auswählen, ebenfalls BERT, aber in der Cased-Version, Textlängen in den Korpora aufgreifen, aber Annahme anfügen, dass wichtige Informationen meist am Anfang der Texte stehen, sonst sind andere Operationen notwendig, bspw. Sliding-Window-Approach o.ä., BERT ist limitiert auf eine Tokenlänge von 512, was unter der Annahme akzeptiert wird, 128 wird als maximale Tokenlänge für die Zusammenfassung gewählt, weitere Parameter wie u.a. Batch Size nennen, auf tie_encoder_decoder, max_length (enc/ dec), vocab_size eingehen, Eignung von Python für ML/ DL beschreiben, Verwendung von CUDA und Torch erläutern, ggf. erst in den Experimenten, auch Seq2Seq-Klassen von HuggingFace sowie deren Parametrisierung erläutern, evtl. Longformer bzgl. der Behandlung längerer Token erwähnen, Aufbau von BERT und BERT.config aus dem Colab aufgreifen, ggf. einen Auszug dokumentieren, Quelle: \cite{VON20}, Daten und Baseline (SOTA, also englisches Modell reproduzieren) aufsetzen, dann Experimente anschließen, bzgl. Austausch vortrainierter Modelle, andere Versionen von BERT.\\
 
-... Architektur beschreiben, auf bereits beschriebene Inhalte eingehen, Notizen beachten, Tokenlänge o.ä. bemerken, Quellen!
-... Zunächst Architektur mit einigen Feinheiten beschreiben, dann englisches Modell trainieren und SOTA reproduzieren, dann erst in der sprachtechnischen Adaption weitere Anpassungen und Experimente dokumentieren, evtl. weiteren minimalen Testdatensatz aufsetzen und in der Datengrundlage erörtern
-
-TODO: Leveraging-Paper hier umfänglich beschreiben, auf dokumentierte Inhalte dieser Arbeit eingehen + \cite{VAS17}
-
-Transformers aus Deep Learning und BERT aus Natural Language Processing aufgreifen:
-- S. 2 in \url{https://arxiv.org/pdf/1910.10781.pdf}:
-  BERT ist SOTA in 11 NLP-Tasks ohne Modifikationen, hohe Adaptionsfähigkeit,
-  abgesehen von der aufgabenbezogenen Ausgabeschicht
-- S. 2 in \url{https://arxiv.org/pdf/1910.10781.pdf}:
-  Komplexität der Berechnung von Self-Attention in Transformers, insb. BERT,
-  skaliert quadratisch mit der Sequenzlänge,
-  zudem etwas nachteilig, dass positionsbezogene Schemata gelernt werden,
-  weshalb sehr viele Trainingsdaten erforderlich sind, bestenfalls verschiedener Art und Domäne
-- S. 2 in \url{https://proceedings.neurips.cc/paper/2020/file/96671501524948bc3937b4b30d0e57b9-Paper.pdf}:
-  Herausforderung bei der Verarbeitung langer Texte:
-  Die vortrainierten Modelle wurden auf Texten mit einer maximalen Sequenzlänge trainiert,
-  bei BERT sind das 512 Token, d.h. Sequenzen werden nach 512 Token abgeschnitten,
-  doch ein einfaches Erhöhen hilft nicht unbedingt, weil Speicher und Rechenzeit quadratisch ansteigen,
-  Ansatz: Subtexte mit in Summe 512 Token extrahieren, Sliding Window Approach,
-  wobei dabei langfristige Abhängigkeiten verloren gehen,
-  Ansatz: Text alle 512 Token splitten, letzten Part padden,
-  dann einzeln zusammenfassen und Zusammenfassungen konkatenieren
-- \url{https://medium.com/@Synced/transformers-scale-to-long-sequences-with-linear-complexity-via-nystr\%C3\%B6m-based-self-attention-c67c851ddc8a}:
-  Bekannt ist: Transformer und Self-Attention überkommen Restriktionen gewöhnlicher RNN's, bspw. Vanishing Gradients
-  und die damit nicht-erlernten langfristigen Abhängigkeiten, Self-Attention wird aber in O(n hoch 2) berechnet,
-  Ansatz: Nyströmformer approximiert Self-Attention in O(n)
-- \url{https://arxiv.org/pdf/2007.14062.pdf}: Big Bird auch (s.o.)
-- S. 1 in \url{https://arxiv.org/pdf/2004.05150.pdf}: Longformer auch (s.o.),
-  Erreicht ebenfalls lineare Komplexität durch lokale Attention und einer
-  angeschlossenenen globalen Attention
-- S. 2: Aber: Keine multilingualen Modelle verfügbar, weil Forschung noch jung,
-  daher weiterhin Standard-BERT, Anpassungen dann bei neuen Erkenntnissen
-- \url{https://towardsdatascience.com/deep-generative-models-25ab2821afd3}:
-  Deep Generative Models: BERT: Verteilung von Daten unüberwacht lernen,
-  d.h. ungelabelte Daten, Berechnung bedingter Wahrscheinlichkeiten
-
-Nitsche lesen und einarbeiten
-
-Daten und Baseline (englisches Modell reproduzieren) aufsetzen, dann Experimente anschließen, bzgl. Austausch vortrainierter Modelle, Austausch zugrundeliegender Korpora bzw. deren Mix, Longformer o.ä., Variation der Tokenlänge
-
-Laufzeitkomplexität durch Self-Attention (jedes Zeichen mit jedem Zeichen), zu aufwendig für Longformer o.ä., Attention-Mechanismen daher austauschen, bspw. lokale Attention, sonst Sliding-Window-Approach (512 Token vorne, mittig, hinten), sonst Ausblick, Literaturrecherche
-
-Quelle: \cite{NIT19} ab Kapitel 4 (!)
-
-BERT als Encoder \& Decoder nutzen, Architekturen und TL dementsprechend aufgreifen (YAN19 auf S. 1, ROT20 auf S. 2 rechts und S. 6 unten)
-
-Encoder zur NLU und Decoder zur NLG, d.h. BERT oder andere Transformer als vortrainiertes multilinguales Modell für Encoder/ Decoder nutzen
-
-BERT ist außerdem austauschbar, durch sowohl größere als auch kleinere Modelle
-
-Multilingualität architektonisch ergründen, Ausblick auf Adaption von EN->DE, erwähnen, dass diese Modelle die Encoder oder auch Decoder ersetzen können, hierzu populäre Ansätze wie \cite{ROT20}
-
-Notebook \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=4M2uzGLV9a_O} im abstraktiven Ansatz einarbeiten und unter "Analysis" referenzieren, jeweils maximale Token-Länge oder verschieden trainierte Versionen hervorheben, ggf. LongFormer als Encoder benutzen
-
-Eignung von Python für ML/ DL
-
-Multilingual BERT: \url{https://huggingface.co/bert-base-multilingual-cased}, \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=ZwQIEhKOrJpl}, \url{https://huggingface.co/transformers/training.html#trainer}, \url{https://www.quora.com/What-is-the-difference-between-FP16-and-FP32-when-doing-deep-learning}, \url{https://margaretmz.medium.com/setting-up-aws-ec2-for-running-jupyter-notebook-on-gpu-c281231fad3f} + Jupyter Notebook auf Tesla 80K \url{https://www.nvidia.com/de-de/data-center/tesla-k80/}
-
-\cite{ROT20} um Encoder und Decoder zu ersetzen, laut beschriebener Encoder-Decoder-Architektur + Language Model + Transfer Learning in Kombination, also die drei Grundlagenkapitel werden hier zusammengeführt, sogenannter Warm-Start des Encoder-Decoder-Models, d.h. kein initiales Training erforderlich, welches im Bereich von NLP-Tasks ein Neuerlernen einer Sprache bedeuten würde, Architektur skizzieren, in der sowohl Encoder als auch Decoder "warm gestartet" werden, Fine-Tuning auch skizzieren, Warm-Starting beschreiben, wie hier in der Theorie beschrieben: \url{https://colab.research.google.com/drive/1WIk2bxglElfZewOHboPFNj8H44_VAyKE?usp=sharing#scrollTo=Gw3IZYrfKl4Z}, Skizzen von dort nutzen, Encoder-Decoder-Weight-Sharing beschreiben, zuvor muss hier erstmal beschrieben werden, wie die Encoder-Decoder-Architektur konkret aussieht, also BERT o.ä., dann verschiedene Skizzen und Dinge wie Weight-Sharing beschreiben, prinzipiell das Colab-Notebook nutzen, Multilingualität behandeln
-
-\cite{YAN19} S. 4 rechts, S. 5 oben für Evaluation, S. 6 links unten für Konfiguration
-
-Transformer-to-Transformer-Architektur beschreiben, Grundlagen des TL, der Encoder/ Decoder und der Embeddings/ Language Model Representations etc. aufgreifen, bspw. Bert2Bert, Longformer2Roberta wie in \url{https://huggingface.co/patrickvonplaten/longformer2roberta-cnn_dailymail-fp16/blob/main/README.md}
-
-Vorgehen bei der Datenverarbeitung/ -vorbereitung wie im Notebook beschreiben, d.h. warum cased/ uncased? Token-Länge von BERT o.ä. als Begründung erwähnen
-
-Transformers-Library -> Scores in Excel, funktioniert gut als Benchmark/ "Nullfall"/ Baseline-Model
+\noindent
++ \cite{VAS17}
++ \cite{NIT19} ab Kapitel 4
++ \url{https://huggingface.co/blog/how-to-generate}
++ S. 2 in \url{https://arxiv.org/pdf/1910.10781.pdf}: BERT ist SOTA in 11 NLP-Tasks ohne Modifikationen, hohe Adaptionsfähigkeit, abgesehen von der aufgabenbezogenen Ausgabeschicht
++ S. 2 in \url{https://arxiv.org/pdf/1910.10781.pdf}: Komplexität der Berechnung von Self-Attention in Transformers, insb. BERT, skaliert quadratisch mit der Sequenzlänge, zudem etwas nachteilig, dass positionsbezogene Schemata gelernt werden, weshalb sehr viele Trainingsdaten erforderlich sind, bestenfalls verschiedener Art und Domäne
++ S. 2 in \url{https://proceedings.neurips.cc/paper/2020/file/96671501524948bc3937b4b30d0e57b9-Paper.pdf}: Herausforderung bei der Verarbeitung langer Texte: Die vortrainierten Modelle wurden auf Texten mit einer maximalen Sequenzlänge trainiert, bei BERT sind das 512 Token, d.h. Sequenzen werden nach 512 Token abgeschnitten, doch ein einfaches Erhöhen hilft nicht unbedingt, weil Speicher und Rechenzeit quadratisch ansteigen, Ansatz: Subtexte mit in Summe 512 Token extrahieren, Sliding Window Approach, wobei dabei langfristige Abhängigkeiten verloren gehen, Ansatz: Text alle 512 Token splitten, letzten Part padden, dann einzeln zusammenfassen und Zusammenfassungen konkatenieren
++ \url{https://arxiv.org/pdf/2007.14062.pdf}: Big Bird auch (s.o.)
++ S. 1 in \url{https://arxiv.org/pdf/2004.05150.pdf}: Longformer auch (s.o.), erreicht ebenfalls lineare Komplexität durch lokale Attention und einer angeschlossenen globalen Attention
++ S. 2: Aber: Keine multilingualen Modelle verfügbar, weil Forschung noch jung, daher weiterhin Standard-BERT, Anpassungen dann bei neuen Erkenntnissen
++ \url{https://towardsdatascience.com/deep-generative-models-25ab2821afd3}: Deep Generative Models: BERT: Verteilung von Daten unüberwacht lernen, d.h. ungelabelte Daten, Berechnung bedingter Wahrscheinlichkeiten
++ Laufzeitkomplexität durch Self-Attention (jedes Zeichen mit jedem Zeichen), zu aufwendig für Longformer o.ä., Attention-Mechanismen daher austauschen, bspw. lokale Attention, sonst Sliding-Window-Approach (512 Token vorne, mittig, hinten), sonst Ausblick, Literaturrecherche
++ YAN19 auf S. 1, ROT20 auf S. 2 rechts und S. 6 unten
++ Encoder zur NLU und Decoder zur NLG, d.h. BERT oder andere Transformer als vortrainiertes multilinguales Modell für Encoder/ Decoder nutzen
++ Warm-Start des Encoder-Decoder-Models, d.h. kein initiales Training erforderlich, welches im Bereich von NLP-Tasks ein Neuerlernen einer Sprache bedeuten würde, Encoder-Decoder-Weight-Sharing bei der Initialisierung nochmal schriftlich kompaktieren und deutlich machen
++ \cite{YAN19} S. 4 rechts, S. 5 oben für Evaluation, S. 6 links unten für Konfiguration.\\
 
 
-\section{Training}
-Notizen:
-\begin{itemize}
-	\item ZIH-Cluster mit HPC/ Taurus aus IT- /ML-Infrastruktur zum Training, Spezifikationen etwas beschreiben
-	\item Setup beschreiben \url{https://docs.aws.amazon.com/dlami/latest/devguide/tutorials.html}, \url{https://youtu.be/pK-LYoRwp-k?list=WL}
-	\item Konfiguration
-	\item Training verschiedener Modelle
-	\item Kompressionsrate der Referenzzusammenfassungen in Bezug auf die Originaltexte liegt bei 12 Prozent, d.h. mit einer gewissen Toleranz wird die maximale Zusammenfassungslänge auf 15 Prozent des Originaltextes festgelegt
-	\item Architektur beschreiben, d.h. IT-Infrastruktur + GPU-Architektur
-\end{itemize}
-
-
-\section{Evaluation}
-Notizen:
-\begin{itemize}
-	\item Evaluation verschiedener Modelle mit geeigneter Vergleichstabelle
-	\item Praktische Nutzung durch Implementation eines vortrainierten Modells in ein Skript oder eine Software
-	\item Es muss eine Metrik existieren, mit der man die Genauigkeit bzw. Qualität der Zusammenfassung messen kann, d.h. man möchte die Texte nicht mit menschlich generierten Zusammenfassungen vergleichen, sondern automatisiert lernen, ggf. sollte man auch Grammatik und Inhalt separat prüfen
-	\item Bei der Anwendung einer Architektur, in der das Modell durch Reinforcement Learning trainiert wird, braucht man keine massenhaft menschlich generierten Referenztexte, sondern eine wohlbedachte Kostenfunktion, der ein entsprechender Aufwand entgegen gebracht werden muss, d.h. die Herausforderung liegt beim RL eher darin, eine Umwelt und eine geeignete Funktion zum Belohnen und Bestrafen zu konstruieren, hier sind bspw. auch Evaluationsmetriken notwendig
-	\item Rouge-Score in Python: \url{https://pypi.org/project/rouge-score/}
-	\item Typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen
-	\item Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen
-\end{itemize}
+\section{Experimente}
+\noindent
++ Mit der Beschreibung des Trainings beginnen
++ ZIH-Cluster mit HPC/ Taurus aus IT- /ML-Infrastruktur zum Training, Spezifikationen etwas beschreiben, z.B. Tesla K80
++ Setup beschreiben \url{https://docs.aws.amazon.com/dlami/latest/devguide/tutorials.html}, \url{https://youtu.be/pK-LYoRwp-k?list=WL}
++ Vergleichstabelle der Experimente einbinden und beschreiben
++ Typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen
++ Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen, ggf. erst bei der sprachtechnischen Adaption.\\
