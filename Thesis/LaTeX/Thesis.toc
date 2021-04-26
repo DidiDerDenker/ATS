@@ -39,17 +39,15 @@
 \contentsline {subsection}{\numberline {5.1.1}ROUGE}{37}{subsection.91}%
 \contentsline {subsection}{\numberline {5.1.2}BLEU}{39}{subsection.93}%
 \contentsline {section}{\numberline {5.2}Architektur}{39}{section.94}%
-\contentsline {section}{\numberline {5.3}Training}{44}{section.96}%
-\contentsline {section}{\numberline {5.4}Evaluation}{44}{section.97}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{46}{chapter.98}%
-\contentsline {section}{\numberline {6.1}Konzeption}{46}{section.99}%
-\contentsline {section}{\numberline {6.2}Training}{46}{section.100}%
-\contentsline {section}{\numberline {6.3}Evaluation}{46}{section.101}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{47}{chapter.102}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{48}{chapter.103}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.103}%
-\contentsline {chapter}{Thesen}{54}{chapter*.105}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.106}%
-\contentsline {chapter}{\numberline {A}Erster Anhang}{56}{appendix.107}%
-\contentsline {chapter}{\numberline {B}Zweiter Anhang}{57}{appendix.108}%
+\contentsline {section}{\numberline {5.3}Experimente}{42}{section.96}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{45}{chapter.98}%
+\contentsline {section}{\numberline {6.1}Architektur}{45}{section.99}%
+\contentsline {section}{\numberline {6.2}Experimente}{45}{section.100}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{46}{chapter.101}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{47}{chapter.102}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.102}%
+\contentsline {chapter}{Thesen}{54}{chapter*.104}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.105}%
+\contentsline {chapter}{\numberline {A}Erster Anhang}{56}{appendix.106}%
+\contentsline {chapter}{\numberline {B}Zweiter Anhang}{57}{appendix.107}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
