@@ -40,11 +40,11 @@
 \contentsline {subsection}{\numberline {5.1.2}BLEU}{39}{subsection.93}%
 \contentsline {section}{\numberline {5.2}Architektur}{39}{section.94}%
 \contentsline {section}{\numberline {5.3}Experimente}{42}{section.96}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{45}{chapter.98}%
-\contentsline {section}{\numberline {6.1}Architektur}{45}{section.99}%
-\contentsline {section}{\numberline {6.2}Experimente}{45}{section.100}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{46}{chapter.101}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{47}{chapter.102}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{44}{chapter.98}%
+\contentsline {section}{\numberline {6.1}Architektur}{44}{section.99}%
+\contentsline {section}{\numberline {6.2}Experimente}{44}{section.100}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{45}{chapter.101}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{46}{chapter.102}%
 \contentsline {chapter}{Literaturverzeichnis}{50}{chapter.102}%
 \contentsline {chapter}{Thesen}{54}{chapter*.104}%
 \contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.105}%

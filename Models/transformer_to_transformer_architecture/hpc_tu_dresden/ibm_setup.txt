@@ -2,6 +2,7 @@ https://doc.zih.tu-dresden.de/hpc-wiki/bin/view/Compendium/JupyterHub#Conda_envi
 
 module load PythonAnaconda
 mkdir user-kernel-4
+conda config --prepend channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/linux-ppc64le/
 conda create --prefix /home/davo557d/user-kernel-4/test python=3.7
 bash
 conda activate ~/user-kernel-4/test
