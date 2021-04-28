@@ -50,7 +50,7 @@ Einerseits ist es möglich, den Encoder und den Decoder jeweils mit einem autark
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.85\linewidth]{./source/images/encoderdecoderbert.png}}
+  \fbox{\includegraphics[width=0.8\linewidth]{./source/images/encoderdecoderbert.png}}
   \caption{Sequence-to-Sequence-Transformer-Modell mit BERT \cite{VON20}.}
   \label{pic:EncoderDecoderBert}
 \end{figure}
@@ -79,7 +79,7 @@ In der sonstigen technischen Vorbereitung ist weiterhin ein Tokenizer zu definie
 Von einer schlichten Erhöhung der maximalen Tokenlänge ist indes abzuraten, da hierbei ein quadratischer Anstieg der Rechenzeit und des Speicherbedarfs zu erwarten ist. Zudem wurde \ac{BERT} ausschließlich auf Texten mit einer maximalen Tokenlänge von 512 trainiert. Ein denkbarer Lösungsansatz, welcher an dieser Stelle nur genannt sei, ist der sogenannte Sliding-Window-Approach. Hierbei besteht jedoch die Gefahr, dass langfristige Abhängigkeiten verloren gehen. Zuvor sind außerdem entsprechende Testläufe durchzuführen. Weiterhin existieren Ansätze wie etwa Longformer oder auch Big Bird, welche die Verarbeitung langer Sequenzen verfolgen \cite{ZAH21}. Diese versuchen zugleich, lineare Komplexität zu erreichen, beispielsweise mithilfe lokaler Attention-Mechanismen, die wiederum mit globaler Attention verknüpft sind \cite{BEL20}. Ein eher anwendungsbezogener Workaround besteht hingegen darin, den jeweils eingehenden Rohtext alle 512 Token zu unterteilen, die Subtexte einzeln zusammenzufassen und die Zusammenfassungen zu konkatenieren. Dies betrifft jedoch nicht das eigentliche Training \cite[S.~2]{DIN20}.\\
 
 \noindent
-Texte werden also zusammenfassend in den nachfolgenden Schritten jeweils nach 512 Token abgeschnitten. Die maximale Tokenlänge der entstehenden Zusammenfassungen wird auf 128 limitiert. Anpassungen, welche etwa im Laufe der experimentgetriebenen Entwicklung und Optimierung an Potenzial gewinnen, werden an den entsprechenden Stellen ergründet und evaluiert.\\
+Texte werden also zusammenfassend in den nachfolgenden Schritten jeweils nach 512 Token abgeschnitten. Die maximale Tokenlänge der entstehenden Zusammenfassungen wird auf 128 limitiert. Anpassungen, welche etwa im Laufe der experimentgetriebenen Entwicklung und Optimierung an Potenzial gewinnen, werden an den entsprechenden Stellen ergründet und evaluiert.
 
 
 \section{Experimente}
@@ -97,4 +97,6 @@ Zunächst erfolgt die Reproduktion des \ac{SOTA}, um eine Baseline zu setzen, an
 + Vergleichstabelle der Experimente einbinden und beschreiben
 + Typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen
 + Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen, ggf. erst bei der sprachtechnischen Adaption
-+ Erwähnen, dass dies als Experiment genügt, sprachtechnische Anpassungen dann erst im nächsten Kapitel.\\
++ Erwähnen, dass dies als Experiment genügt, sprachtechnische Anpassungen dann erst im nächsten Kapitel
++ Referenzzusammenfassungen mit ROUGE und BLEU bewerten, um Vergleichswerte nennen zu können
++ Texte manuell zusammenfassen, um ebenfalls einen Vergleichswert von ROUGE und BLEU zu haben\\
