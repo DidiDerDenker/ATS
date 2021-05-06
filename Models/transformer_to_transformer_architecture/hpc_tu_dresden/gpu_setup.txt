@@ -1,9 +1,12 @@
+===== Tutorial =====
 https://doc.zih.tu-dresden.de/hpc-wiki/bin/view/Compendium/GetStartedWithHPCDA
 
+===== Connection =====
 ssh davo557d@taurus.hrsk.tu-dresden.de
 srun --pty -p gpu3 -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 24:00:00 bash -l
 ls
 
+===== Setup =====
 mkdir /home/davo557d/project
 cd /home/davo557d/project
 python -m venv ./venv
@@ -14,29 +17,47 @@ pip install psutil
 pip install rouge_score
 pip install sacrebleu
 
+===== Check =====
 python -V
 nvidia-smi -l 1
-ls
-rm -rf bert2bert_multilingual
 
+===== Test =====
 ipython
 from transformers import pipeline
 text = "Dies ist ein Test"
 summarizer = pipeline("summarization", device=0)
 summarizer(text)
 
-Visual Studio Code:
+===== Visual Studio Code =====
 Install the OpenSSH-Extension
 Open a Remote Window with davo557d@taurus.hrsk.tu-dresden.de
 Connect to SSH-Host as Linux
 Open the Project-Folder
 
-Training:
+===== Workspace =====
+ws_allocate -F scratch ws_project 50
+cd /scratch/ws/1/davo557d-ws_project
+
+===== Training =====
 ssh davo557d@taurus.hrsk.tu-dresden.de
 srun --pty -p gpu3 -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 24:00:00 bash -l
+
+screen
+strg+a+c # new shell
+strg+a+0 # first shell
+strg+a+tab # next shell
+
+screen 0:
 cd /home/davo557d/project
 source venv/bin/activate
 python tf2tf_tud_gpu.py
 
+screen 1:
+cd /scratch/ws/1/davo557d-ws_project
+nvidia-smi -l 100
+ls
+
+===== Cleanup =====
 sacct -S 2021-05-01
 skill id
+scp -r davo557d@taurusexport.hrsk.tu-dresden.de:/scratch/ws/1/davo557d-ws_project/... C:\Temp\HPC
