@@ -1,0 +1,67 @@
+===== Tutorial =====
+https://doc.zih.tu-dresden.de/hpc-wiki/bin/view/Compendium/GetStartedWithHPCDA
+
+===== Connection =====
+ssh davo557d@taurus.hrsk.tu-dresden.de
+srun --pty -p gpu3 -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 24:00:00 bash -l
+ls
+
+===== Setup =====
+mkdir /home/davo557d/project
+cd /home/davo557d/project
+python -m venv ./venv
+source venv/bin/activate
+pip install transformers tokenizers datasets (e.g. load datasets to /tmp)
+pip install torch==1.8.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+pip install psutil
+pip install rouge_score
+pip install sacrebleu
+pip install openpyxl
+pip install xlrd
+
+===== Check =====
+python -V
+nvidia-smi -l 1
+
+===== Test =====
+ipython
+from transformers import pipeline
+text = "Dies ist ein Test"
+summarizer = pipeline("summarization", device=0)
+summarizer(text)
+
+===== Visual Studio Code =====
+Install the OpenSSH-Extension
+Open a Remote Window with davo557d@taurus.hrsk.tu-dresden.de
+Connect to SSH-Host as Linux
+Open the Project-Folder
+
+===== Workspace =====
+ws_allocate -F scratch ws_project 50
+cd /scratch/ws/1/davo557d-ws_project
+
+===== Training =====
+ssh davo557d@taurus.hrsk.tu-dresden.de
+srun --pty -p gpu3 -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 24:00:00 bash -l
+
+cd /home/davo557d/project
+source venv/bin/activate
+python tf2tf_tud_gpu_train.py
+
+cd /scratch/ws/1/davo557d-ws_project
+nvidia-smi -l 100
+ls
+
+===== Test =====
+cd /home/davo557d/project
+source venv/bin/activate
+python tf2tf_tud_gpu_eval.py
+
+===== Export =====
+sacct -S 2021-05-01
+skill id
+
+cd /scratch/ws/1/davo557d-ws_project
+cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-52000 /home/davo557d/project
+cd /home/davo557d/project + download in vsc
+rm -rf checkpoint-52000

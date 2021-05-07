@@ -37,7 +37,7 @@ Trotz oder gerade wegen der wissenschaftlichen Verbreitung des \ac{ROUGE}-Scores
 \ac{BLEU} kommt der Funktionsweise von \ac{ROUGE} weitestgehend gleich. Demnach repräsentiert der Score ebenfalls die Ähnlichkeit längendefinierter N-Gramme. Dabei wird weiterhin für jede \ac{SYSZ} eine entsprechende \ac{REFZ} gefordert. Beide Metriken funktionieren indes sprachunabhängig. Im Unterschied zu \ac{ROUGE} führt \ac{BLEU} einen multiplikativen Bestrafungsterm ein, um zu kurze \ac{SYSZ} zu entwerten. Dies ist nicht notwendig, wenn die \ac{SYSZ} länger ist als die \ac{REFZ}. Der Precision-Score berücksichtigt dies bereits \cite[S.~5]{PAP02}.\\
 
 \noindent
-Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstützt, eignet er sich gewissermaßen auch für \ac{ATS}-Aufgaben. Zuletzt konnte wissenschaftlich bewiesen werden, dass der \ac{BLEU}-Score recht gut mit menschlichen Bewertungen korreliert. Trotz ähnelnden Nachteilen zu denen des \ac{ROUGE}-Score wird auch der \ac{BLEU}-Score vergleichend in dieser Arbeit verwendet \cite[S.~6-7]{PAP02}.
+Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstützt, eignet er sich gewissermaßen auch für \ac{ATS}-Aufgaben. Zuletzt konnte wissenschaftlich bewiesen werden, dass der \ac{BLEU}-Score recht gut mit menschlichen Bewertungen korreliert. Aufgrund ähnelnder Nachteile zu denen des \ac{ROUGE}-Score und fehlender wissenschaftlicher Vergleichbarkeit wird der \ac{BLEU}-Score in dieser Arbeit nicht verwendet \cite[S.~6-7]{PAP02}.
 
 
 \section{Architektur}

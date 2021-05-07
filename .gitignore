@@ -77,3 +77,13 @@ Database/swiss_challenge/data_train.csv
 Database/swiss_challenge/data_test.csv
 Database/news_mining/data_train_test.xlsx
 Database/swiss_challenge/data_train_test.xlsx
+Models/transformer_to_transformer_architecture/gpu_tu_dresden/~$analysis.xlsx
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/config.json
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/optimizer.pt
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/scheduler.pt
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/pytorch_model.bin
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/special_tokens_map.json
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/tokenizer_config.json
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/trainer_state.json
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/training_args.bin
+Models/transformer_to_transformer_architecture/models/tf2tf_eng/vocab.txt
