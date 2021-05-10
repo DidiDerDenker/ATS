@@ -53,9 +53,10 @@ nvidia-smi -l 100
 ls
 
 ===== Test =====
-cd /home/davo557d/project
+cd /home/davo557d/project + edit config
 source venv/bin/activate
 python tf2tf_tud_gpu_eval.py
+python tf2tf_tud_gpu_example.py
 
 ===== Export =====
 sacct -S 2021-05-01
