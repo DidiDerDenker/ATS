@@ -10,11 +10,60 @@ Unter Kenntnis der Architektur des abstraktiven Ansatzes und der Baseline des en
 \noindent
 + Beschreiben, warum die Architektur sich für die Multilingualität eignet
 + Anpassungen dokumentieren, anderweitig parametrisieren
-+ Auswahl von BERT damit begründen, dass Multilingualität gegeben ist, gut erforscht, Alternativen nicht, obwohl sie teilweise Verbesserungen versprechen, aber Alternativen nennen, teilweise keine Unterstützung der Multilingualität, da zunächst auf englischen Daten erprobt und bewiesen sein muss
++ Auswahl von BERT damit begründen, dass Multilingualität gegeben ist, gut erforscht, Alternativen nicht, obwohl sie teilweise Verbesserungen versprechen, aber Alternativen nennen, teilweise keine Unterstützung der Multilingualität, da zunächst auf englischen Daten erprobt und bewiesen sein muss,
+auch deutschen BERT verweisen
 + \url{https://towardsdatascience.com/deep-generative-models-25ab2821afd3}: Deep Generative Models: BERT: Verteilung von Daten unüberwacht lernen, d.h. ungelabelte Daten, Berechnung bedingter Wahrscheinlichkeiten\\
 
 
 \section{Experimente}
 \noindent
-+ Trainings und Tests ausführen
-+ Korpora austauschen o.ä.\\
+In einem initialen Experiment wird die multilinguale Version von \ac{BERT} mit einem Mix aus allen verfügbaren deutschsprachigen Daten trainiert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 24.56, R-Precision: 15.05, R-Measure: 17.25. Dies überliegt dem \ac{SOTA} zwar deutlich, ist allerdings auf die Struktur der Trainingsdaten zurückzuführen, da mehr als die Hälfte aller Daten aus Wikipedia-Artikeln stammen. Dennoch sei nachfolgend die Zusammenfassung des in Anhang B einzusehenden deutschsprachigen Textes gezeigt. Dieser gleicht strukturell sowie inhaltlich dem bereits beschriebenen Text in Anhang A.\\
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+}%
+}
+
+\noindent
+TODO: KRITIK ZUR ZUSAMMENFASSUNG. In der Folge schließen sich verschiedene Experimente an. Zuerst wird die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 24.20, R-Precision: 14.65, R-Measure: 16.85. Dies unterliegt den \ac{ROUGE}-Scores der multilingualen Version von \ac{BERT}. Letzterer scheint von verborgenen Strukturen anderer Sprachen zu profitieren und wird deshalb weiterhin verwendet.\\
+
+\noindent
+Um den Umfang der deutschsprachigen Datengrundlage nicht reduzieren zu müssen, wird nun zunächst der jeweils erste Abschnitt der Wikipedia-Artikel entfernt. Ein erneutes Training der multilingualen Version von \ac{BERT} bringt die folgenden \ac{ROUGE}-Scores hervor: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00. TODO: KRITIK BZGL. OVERFITTING. Die entstehende Zusammenfassung sieht nun wie folgt aus:\\
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+}%
+}
+
+\noindent
+- Sliding-Window-Approach bei zu großen Texten beschreiben und entwickeln, Zielgröße von 512 anvisieren\\
+
+\noindent
+- Wikipedia-Anteil reduzieren
+- BERT auf Wikipedia trainieren, nur auf ZEIT evaluieren
+- BERT auf ZEIT trainieren und evaluieren\\
+
+\noindent
+- BERT durch XML-Roberta-Large austauschen, dann ggf. in Theorie anpassen
+- Alternative: BERT zur Translation nutzen, CNN/ Dailymail übersetzen\\
+
+\noindent
+-> Daten im Skript auswählbar machen (Korpus, Nutzanteil)
+-> Beispielevaluation in separatem Skript lokal aufsetzen
+-> Kapitel besser strukturieren (format-technisch, inhaltlich)
+-> Beschreibung der Datengrundlage nochmal überprüfen
+-> Lorem ipsum und Capslock-TODO's in beiden Kapiteln herausarbeiten 
+-> Hyperparameteroptimierung auf 10-20 Prozent der Daten\\
+
+
+\noindent
++ \cite{YAN19} S. 4 rechts, Herausforderung: Encoder overfitted, Decoder underfitted oder andersherum, wird durch HuggingFace-Framework vorgebeugt
++ \cite{YAN19} S. 5 oben für Evaluation
++ Vergleichstabelle der Experimente einbinden und beschreiben
++ Typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen
++ Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen, ggf. erst bei der sprachtechnischen Adaption
++ Erwähnen, dass dies als Experiment genügt, sprachtechnische Anpassungen dann erst im nächsten Kapitel
++ Referenzzusammenfassungen mit ROUGE und BLEU bewerten, um Vergleichswerte nennen zu können
++ Texte manuell zusammenfassen, um ebenfalls einen Vergleichswert von ROUGE und BLEU zu haben\\
