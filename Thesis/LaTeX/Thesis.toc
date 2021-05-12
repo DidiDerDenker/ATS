@@ -33,22 +33,23 @@
 \contentsline {subsection}{\numberline {3.3.1}ELMo}{31}{subsection.76}%
 \contentsline {subsection}{\numberline {3.3.2}GPT}{32}{subsection.78}%
 \contentsline {subsection}{\numberline {3.3.3}BERT}{33}{subsection.80}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{36}{chapter.84}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{38}{chapter.85}%
-\contentsline {section}{\numberline {5.1}Metriken}{38}{section.86}%
-\contentsline {subsection}{\numberline {5.1.1}ROUGE}{38}{subsection.91}%
-\contentsline {subsection}{\numberline {5.1.2}BLEU}{40}{subsection.93}%
-\contentsline {section}{\numberline {5.2}Architektur}{40}{section.94}%
-\contentsline {section}{\numberline {5.3}Experimente}{43}{section.96}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{46}{chapter.99}%
-\contentsline {section}{\numberline {6.1}Architektur}{46}{section.100}%
-\contentsline {section}{\numberline {6.2}Experimente}{46}{section.101}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{48}{chapter.102}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{49}{chapter.103}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.103}%
-\contentsline {chapter}{Thesen}{54}{chapter*.105}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.106}%
-\contentsline {chapter}{Quellcode}{56}{chapter*.107}%
-\contentsline {chapter}{\numberline {A}Englischer Text}{66}{appendix.544}%
-\contentsline {chapter}{\numberline {B}Deutscher Text}{67}{appendix.545}%
+\contentsline {subsection}{\numberline {3.3.4}XLM-RoBERTa}{35}{subsection.84}%
+\contentsline {chapter}{\numberline {4}Datengrundlage}{36}{chapter.86}%
+\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{38}{chapter.87}%
+\contentsline {section}{\numberline {5.1}Metriken}{38}{section.88}%
+\contentsline {subsection}{\numberline {5.1.1}ROUGE}{38}{subsection.93}%
+\contentsline {subsection}{\numberline {5.1.2}BLEU}{40}{subsection.95}%
+\contentsline {section}{\numberline {5.2}Architektur}{40}{section.96}%
+\contentsline {section}{\numberline {5.3}Experimente}{43}{section.98}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{45}{chapter.100}%
+\contentsline {section}{\numberline {6.1}Architektur}{45}{section.101}%
+\contentsline {section}{\numberline {6.2}Experimente}{45}{section.102}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{49}{chapter.103}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{50}{chapter.104}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.104}%
+\contentsline {chapter}{Thesen}{54}{chapter*.106}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.107}%
+\contentsline {chapter}{Quellcode}{56}{chapter*.108}%
+\contentsline {chapter}{\numberline {A}Englischer Text}{66}{appendix.545}%
+\contentsline {chapter}{\numberline {B}Deutscher Text}{67}{appendix.546}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

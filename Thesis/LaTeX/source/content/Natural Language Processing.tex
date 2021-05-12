@@ -241,3 +241,7 @@ Um zudem weitergehende Informationen auf Satzebene zu erhalten, werden dem Train
 
 \noindent
 \ac{BERT} wurde initial in zwei verschiedenen Versionen veröffentlicht: BASE und LARGE. Die veröffentlichten Modelle wurden von den Forschern der Google AI Language auf zwei verschiedenen Korpora mit insgesamt über drei Millionen Wörtern trainiert. Sei $L$ die Anzahl der Schichten (oder: Transformer-Module), $H$ die Größe der verborgenen Schichten und $A$ die Anzahl der Self-Attention-Heads, dann sind die Versionen wie folgt definiert \cite[S.~3-5]{DEV19}. $$\text{BERT}_{\text{BASE}}: (L=12, H=768, A=12) \text{ mit } 110 \text{M Parametern}$$ $$\text{BERT}_{\text{LARGE}}: (L=24, H=1024, A=16) \text{ mit } 340 \text{M Parametern}$$
+
+\subsection{XLM}
+\noindent
+\ac{XLM-R} ist ein weiteres Language Model, welches der Architektur von \ac{BERT} ähnelt, allerdings insbesondere Multilingualität unterstützt. Hierfür wurde es auf mehr als doppelt so vielen Textdaten wie \ac{BERT} vortrainiert, darunter 100 verschiedene Sprachen. Offensichtlich werden sprachübergreifende verborgene Strukturen erlernt, um anschließend monolingual davon zu profitieren. Dabei ist eine qualitative Verbesserung in verschiedenen \ac{NLP}-Tasks gegenüber der multilingualen Version von \ac{BERT} zu erwarten \cite{CON20}.
