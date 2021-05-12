@@ -33,7 +33,7 @@
 \contentsline {subsection}{\numberline {3.3.1}ELMo}{31}{subsection.76}%
 \contentsline {subsection}{\numberline {3.3.2}GPT}{32}{subsection.78}%
 \contentsline {subsection}{\numberline {3.3.3}BERT}{33}{subsection.80}%
-\contentsline {subsection}{\numberline {3.3.4}XLM-RoBERTa}{35}{subsection.84}%
+\contentsline {subsection}{\numberline {3.3.4}XLM}{35}{subsection.84}%
 \contentsline {chapter}{\numberline {4}Datengrundlage}{36}{chapter.86}%
 \contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{38}{chapter.87}%
 \contentsline {section}{\numberline {5.1}Metriken}{38}{section.88}%

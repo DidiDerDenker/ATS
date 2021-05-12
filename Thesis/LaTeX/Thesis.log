@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  12 MAY 2021 09:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  12 MAY 2021 13:25
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -2086,7 +2086,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--46
  []
 
 [40]
-<./source/images/encoderdecoderbert.png, id=1069, 608.2725pt x 635.37375pt>
+<./source/images/encoderdecoderbert.png, id=1075, 608.2725pt x 635.37375pt>
 File: ./source/images/encoderdecoderbert.png Graphic file (type png)
 <use ./source/images/encoderdecoderbert.png>
 Package pdftex.def Info: ./source/images/encoderdecoderbert.png  used on input 
@@ -2196,6 +2196,11 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 18--23
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 18--23
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
  []
@@ -2203,6 +2208,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 30--35
 [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
+
  []
 
 [46]
@@ -2213,6 +2223,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--38
 
 Overfull \hbox (6.79999pt too wide) in paragraph at lines 39--44
 [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--44
+
  []
 
 
@@ -2532,7 +2547,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  28759 strings out of 480257
  542039 string characters out of 2881437
- 1407107 words of memory out of 3000000
+ 1407099 words of memory out of 3000000
  43904 multiletter control sequences out of 15000+200000
  548457 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2556,9 +2571,9 @@ type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/didid/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Thesis.pdf (80 pages, 1617315 bytes).
+Output written on Thesis.pdf (80 pages, 1619047 bytes).
 PDF statistics:
- 2106 PDF objects out of 2487 (max. 8388607)
+ 2113 PDF objects out of 2487 (max. 8388607)
  710 named destinations out of 1000 (max. 500000)
  643 words of extra memory for PDF output out of 10000 (max. 10000000)
 
