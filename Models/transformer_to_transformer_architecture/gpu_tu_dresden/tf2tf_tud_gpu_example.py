@@ -12,39 +12,63 @@ import tf2tf_tud_gpu_helpers as helpers
 from datasets import ClassLabel
 
 
-# Variables
+# Main
+batch_size = 16
 model = config.model
 tokenizer = transformers.BertTokenizer.from_pretrained(model)
-batch_size = 16
 
+tf2tf = transformers.EncoderDecoderModel.from_pretrained(
+    config.path_checkpoint
+)
 
-# Main
-def main():
+tf2tf.to("cuda")
+text = None
+
+if config.language == "english":
     text = config.text_english
 
-    tf2tf = transformers.EncoderDecoderModel.from_pretrained(
-        config.path_model
+elif config.language == "german":
+    text = config.text_german
+
+temp = {
+    "article": [text, text],
+    "hightlights": ["Zusammenfassung", "Zusammenfassung"]
+}
+
+helpers.test_cuda()
+helpers.empty_cache()
+rouge = datasets.load_metric("rouge")
+
+test_data = datasets.arrow_dataset.Dataset.from_pandas(
+    pd.DataFrame.from_dict(
+        temp, columns=["article", "highlights"], orient="index"
+    )
+)
+
+
+def generate_summary(batch):
+    inputs = tokenizer(
+        batch["article"],
+        padding="max_length",
+        truncation=True,
+        max_length=512,
+        return_tensors="pt"
     )
 
-    tf2tf = helpers.configure_model(tf2tf, tokenizer)
-    tf2tf.to("cuda")
+    input_ids = inputs.input_ids.to("cuda")
+    attention_mask = inputs.attention_mask.to("cuda")
 
-    rouge = datasets.load_metric("rouge")
-    helpers.empty_cache()
+    outputs = tf2tf.generate(input_ids, attention_mask=attention_mask)
+    output_str = tokenizer.batch_decode(outputs, skip_special_tokens=True)
+    batch["pred_summary"] = output_str
 
-    test_data = datasets.arrow_dataset.Dataset.from_pandas(
-        pd.DataFrame([[text], [None]], columns=[
-                     "article", "highlights"])  # TODO: Test
-    )
-
-    summary = test_data.map(
-        generate_summary,
-        batched=True,
-        batch_size=batch_size
-    )
-
-    print(f"HYP: {summary[0]['pred_summary']}")
+    return batch
 
 
-if __name__ == "__main__":
-    main()
+summary = test_data.map(
+    generate_summary,
+    batched=True,
+    batch_size=batch_size
+)
+
+print(f"HYP: {summary[0]['pred_summary']}")

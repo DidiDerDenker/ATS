@@ -12,13 +12,28 @@ import tf2tf_tud_gpu_helpers as helpers
 from datasets import ClassLabel
 
 
-# Variables
+# Main
+batch_size = 16
 model = config.model
 tokenizer = transformers.BertTokenizer.from_pretrained(model)
-batch_size = 16
+
+tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
+    model, model, tie_encoder_decoder=False
+)
+
+train_data, val_data, test_data = helpers.load_data(
+    language=config.language,
+    corpus_wiki=config.corpus_wiki,
+    corpus_news=config.corpus_news
+)
+
+helpers.test_cuda()
+helpers.explore_corpus(train_data)
+helpers.empty_cache()
+helpers.configure_model(tf2tf, tokenizer)
+rouge = datasets.load_metric("rouge")
 
 
-# Methods
 def process_data_to_model_inputs(batch):
     encoder_max_length = 512
     decoder_max_length = 128
@@ -38,6 +53,38 @@ def process_data_to_model_inputs(batch):
                        for labels in batch["labels"]]
 
     return batch
+
+
+train_data = train_data.map(
+    process_data_to_model_inputs,
+    batched=True,
+    batch_size=batch_size,
+    remove_columns=["article", "highlights"]
+)
+
+train_data.set_format(
+    type="torch",
+    columns=["input_ids",
+             "attention_mask",
+             "decoder_input_ids",
+             "decoder_attention_mask",
+             "labels"]
+)
+
+val_data = val_data.map(
+    process_data_to_model_inputs,
+    batched=True,
+    remove_columns=["article", "highlights"]
+)
+
+val_data.set_format(
+    type="torch",
+    columns=["input_ids",
+             "attention_mask",
+             "decoder_input_ids",
+             "decoder_attention_mask",
+             "labels"]
+)
 
 
 def compute_metrics(pred):
@@ -61,82 +108,27 @@ def compute_metrics(pred):
     }
 
 
-# Main
-def main():
-    train_data, val_data, test_data = helpers.load_data(
-        language=config.language,
-        corpus_wiki=config.corpus_wiki,
-        corpus_news=config.corpus_news
-    )
+training_args = transformers.Seq2SeqTrainingArguments(
+    predict_with_generate=True,
+    evaluation_strategy="steps",
+    per_device_train_batch_size=batch_size,
+    per_device_eval_batch_size=batch_size,
+    output_dir=config.path_output,
+    warmup_steps=1000,
+    save_steps=2000,
+    logging_steps=1000,
+    eval_steps=2000,
+    save_total_limit=1,
+    fp16=True,
+)
 
-    helpers.test_cuda()
-    helpers.explore_corpus(train_data)
+trainer = transformers.Seq2SeqTrainer(
+    model=tf2tf,
+    args=training_args,
+    compute_metrics=compute_metrics,
+    train_dataset=train_data,
+    eval_dataset=val_data,
+    tokenizer=tokenizer
+)
 
-    train_data = train_data.map(
-        process_data_to_model_inputs,
-        batched=True,
-        batch_size=batch_size,
-        remove_columns=["article", "highlights"]
-    )
-
-    train_data.set_format(
-        type="torch",
-        columns=["input_ids",
-                 "attention_mask",
-                 "decoder_input_ids",
-                 "decoder_attention_mask",
-                 "labels"]
-    )
-
-    val_data = val_data.map(
-        process_data_to_model_inputs,
-        batched=True,
-        remove_columns=["article", "highlights"]
-    )
-
-    val_data.set_format(
-        type="torch",
-        columns=["input_ids",
-                 "attention_mask",
-                 "decoder_input_ids",
-                 "decoder_attention_mask",
-                 "labels"]
-    )
-
-    tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
-        model, model, tie_encoder_decoder=False
-    )
-
-    tf2tf = helpers.configure_model(tf2tf, tokenizer)
-    rouge = datasets.load_metric("rouge")
-    helpers.empty_cache()
-    tf2tf.to("cuda")
-
-    training_args = transformers.Seq2SeqTrainingArguments(
-        predict_with_generate=True,
-        evaluation_strategy="steps",
-        per_device_train_batch_size=batch_size,
-        per_device_eval_batch_size=batch_size,
-        output_dir=config.path_output,
-        warmup_steps=1000,
-        save_steps=2000,
-        logging_steps=1000,
-        eval_steps=2000,
-        save_total_limit=1,
-        fp16=True,
-    )
-
-    trainer = transformers.Seq2SeqTrainer(
-        model=tf2tf,
-        args=training_args,
-        compute_metrics=helpers.compute_metrics,
-        train_dataset=train_data,
-        eval_dataset=val_data,
-        tokenizer=tokenizer
-    )
-
-    trainer.train()
-
-
-if __name__ == "__main__":
-    main()
+trainer.train()

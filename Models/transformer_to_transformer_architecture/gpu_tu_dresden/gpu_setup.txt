@@ -58,6 +58,6 @@ sacct -S 2021-05-01
 skill id
 
 cd /scratch/ws/1/davo557d-ws_project
-cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-52000 /home/davo557d/project
+cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-18000 /home/davo557d/project
 cd /home/davo557d/project + download in vsc
-rm -rf checkpoint-52000
+rm -rf checkpoint-18000

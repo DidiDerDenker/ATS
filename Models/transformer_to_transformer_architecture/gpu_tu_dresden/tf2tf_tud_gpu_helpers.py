@@ -59,9 +59,9 @@ def load_data(language, corpus_wiki=0.0, corpus_news=0.0):
 
         german_data = german_data.shuffle()
 
-        train_size = int(len(dataframe) * 0.8)
-        valid_size = int(len(dataframe) * 0.1)
-        test_size = int(len(dataframe) * 0.1)
+        train_size = int(len(dataframe) * 0.9)
+        valid_size = int(len(dataframe) * 0.025)
+        test_size = int(len(dataframe) * 0.075)
 
         train_data = german_data.select(
             range(0, train_size))
@@ -69,6 +69,10 @@ def load_data(language, corpus_wiki=0.0, corpus_news=0.0):
             range(train_size, train_size + valid_size))
         test_data = german_data.select(
             range(train_size + valid_size, len(dataframe)))
+
+        print(
+            f"Corpus-Size: {len(train_data) + len(val_data) + len(test_data)}"
+        )
 
         return train_data, val_data, test_data
 
@@ -96,15 +100,20 @@ def explore_corpus(data):
         text_list.append(len(text))
         summary_list.append(len(summary))
 
-    print(data.info.description)
-    print(sum(text_list) / len(text_list))
-    print(sum(summary_list) / len(summary_list))
+    print(f"Text-Length: {sum(text_list) / len(text_list)}")
+    print(f"Summary-Length: {sum(summary_list) / len(summary_list)}")
 
     df = pd.DataFrame(data[:1])
 
     for column, typ in data.features.items():
         if isinstance(typ, ClassLabel):
             df[column] = df[column].transform(lambda i: typ.names[i])
+
+
+def empty_cache():
+    gc.collect()
+    torch.cuda.empty_cache()
+    psutil.virtual_memory()
 
 
 def configure_model(tf2tf, tokenizer):
@@ -121,14 +130,8 @@ def configure_model(tf2tf, tokenizer):
     tf2tf.config.length_penalty = 2.0
     tf2tf.config.num_beams = 4
 
-    print(tf2tf.config.decoder_start_token_id)
-    print(tf2tf.config.eos_token_id)
-    print(tf2tf.config.vocab_size)
+    tf2tf.to("cuda")
 
-    return tf2tf
-
-
-def empty_cache():
-    gc.collect()
-    torch.cuda.empty_cache()
-    psutil.virtual_memory()
+    print(f"Start-Token: {tf2tf.config.decoder_start_token_id}")
+    print(f"End-Token: {tf2tf.config.eos_token_id}")
+    print(f"Vocab-Size: {tf2tf.config.vocab_size}")
