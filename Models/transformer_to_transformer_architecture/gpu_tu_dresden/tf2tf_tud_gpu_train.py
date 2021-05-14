@@ -1,21 +1,17 @@
 # Imports
-import gc
-import csv
-import torch
-import psutil
 import datasets
-import pandas as pd
 import transformers
 import tf2tf_tud_gpu_config as config
 import tf2tf_tud_gpu_helpers as helpers
 
-from datasets import ClassLabel
-
 
 # Main
-batch_size = 16
+batch_size = 4
 model = config.model
-tokenizer = transformers.BertTokenizer.from_pretrained(model)
+
+tokenizer = transformers.XLMRobertaTokenizer.from_pretrained(
+    model
+)  # BertTokenizer
 
 tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
     model, model, tie_encoder_decoder=False

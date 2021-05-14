@@ -17,6 +17,10 @@ pip install rouge_score
 pip install sacrebleu
 pip install openpyxl
 pip install xlrd
+pip install cmake
+pip install SentencePiece
+conda install SentencePiece
+conda install libgcc
 
 ===== Check =====
 python -V

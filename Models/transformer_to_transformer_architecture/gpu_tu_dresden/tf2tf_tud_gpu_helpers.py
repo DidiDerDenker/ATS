@@ -5,9 +5,6 @@ import torch
 import psutil
 import datasets
 import pandas as pd
-import transformers
-import tf2tf_tud_gpu_config as config
-import tf2tf_tud_gpu_helpers as helpers
 
 from datasets import ClassLabel
 
