@@ -7,12 +7,13 @@ import tf2tf_tud_gpu_helpers as helpers
 
 
 # Main
-batch_size = 16
+batch_size = config.batch_size
 model = config.model
+tokenizer = config.tokenizer
 
 tokenizer = transformers.XLMRobertaTokenizer.from_pretrained(
-    model
-)  # BertTokenizer
+    tokenizer
+)
 
 tf2tf = transformers.EncoderDecoderModel.from_pretrained(
     config.path_checkpoint

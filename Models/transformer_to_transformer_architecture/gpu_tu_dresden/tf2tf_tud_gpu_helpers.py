@@ -57,8 +57,8 @@ def load_data(language, corpus_wiki=0.0, corpus_news=0.0):
         german_data = german_data.shuffle()
 
         train_size = int(len(dataframe) * 0.9)
-        valid_size = int(len(dataframe) * 0.025)
-        test_size = int(len(dataframe) * 0.075)
+        valid_size = int(len(dataframe) * 0.015)
+        test_size = int(len(dataframe) * 0.085)
 
         train_data = german_data.select(
             range(0, train_size))

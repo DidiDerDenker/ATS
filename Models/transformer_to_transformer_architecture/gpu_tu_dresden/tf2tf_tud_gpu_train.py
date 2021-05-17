@@ -6,12 +6,13 @@ import tf2tf_tud_gpu_helpers as helpers
 
 
 # Main
-batch_size = 4
+batch_size = config.batch_size
 model = config.model
+tokenizer = config.tokenizer
 
-tokenizer = transformers.XLMRobertaTokenizer.from_pretrained(
-    model
-)  # BertTokenizer
+tokenizer = transformers.BertTokenizer.from_pretrained(
+    tokenizer
+)
 
 tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
     model, model, tie_encoder_decoder=False
@@ -111,9 +112,9 @@ training_args = transformers.Seq2SeqTrainingArguments(
     per_device_eval_batch_size=batch_size,
     output_dir=config.path_output,
     warmup_steps=1000,
-    save_steps=2000,
+    save_steps=10000,
     logging_steps=1000,
-    eval_steps=2000,
+    eval_steps=10000,
     save_total_limit=1,
     fp16=True,
 )
