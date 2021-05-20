@@ -17,6 +17,7 @@ pip install rouge_score
 pip install sacrebleu
 pip install openpyxl
 pip install xlrd
+pip install pyarrow
 pip install cmake
 pip install SentencePiece
 conda install SentencePiece
@@ -25,8 +26,6 @@ conda install libgcc
 ===== Check =====
 python -V
 nvidia-smi -l 1
-
-===== Test =====
 ipython
 from transformers import pipeline
 text = "Dies ist ein Test"
@@ -65,3 +64,8 @@ cd /scratch/ws/1/davo557d-ws_project
 cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-50000 /home/davo557d/project
 cd /home/davo557d/project + download in vsc
 rm -rf checkpoint-50000
+
+===== Cache =====
+cd /home/davo557d/project/venv/lib/python3.7/site-packages
+cd /home/h1/davo557d/.cache/datasets
+cd /home/h1/davo557d/.cache/huggingface
