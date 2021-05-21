@@ -29,7 +29,9 @@ In New York ist ein Flugzeug aus dem World Trade Center auf dem Nordturm des Wor
 Die inhaltliche Schwäche ist für den menschlichen Leser unschwer erkennbar auch ohne Kenntnis über den Originaltext. Daher wird nun die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 24.20, R-Precision: 14.65, R-Measure: 16.85. Dies unterliegt den \ac{ROUGE}-Scores der multilingualen Version von \ac{BERT}. Letzterer scheint tatsächlich von den verborgenen Strukturen anderer Sprachen zu profitieren.\\
 
 \noindent
-Mit dem Wissen, dass multilingual vortrainierte Modelle sogar die Qualität monolingualer Modelle im deutschsprachigen Raum übersteigen, wird nun \ac{BERT} durch \ac{XLM-R} ersetzt, um sich geeigneten Ergebnissen zu nähern. Es entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00. TODO: KRITIK UND DEUTSCHE ZUSAMMENFASSUNG, WAHRSCHEINLICH NUTZUNG VON XLM-R BEGRÜNDEN, WEITERHIN STRUKTUR ERLERNT, DAHER UNTEN METHODISCH WEITER.\\
+Mit dem Wissen, dass multilingual vortrainierte Modelle sogar die Qualität monolingualer Modelle im deutschsprachigen Raum übersteigen, wird nun \ac{BERT} durch \ac{XLM-R} ersetzt, um sich geeigneten Ergebnissen zu nähern. Es entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00.\\
+
+% TODO: Kritik am vorherigen Abschnitt anfügen, deutsche Zusammenfassung unten einfügen, entweder Nutzung von XLM-R begründen oder weitere Experimente anschließen, daher methodsich unten weiter
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
@@ -37,8 +39,14 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 }%
 }\\
 
+% TODO: Modellwechsel: xlm-roberta-large-mnli, xlm-roberta-large, electra-base-german-uncased, mbart-large-cc25
+
+% TODO: Modelle, die experimentell namentlich in der Thesis erwähnt werden, im theoretischen Kapitel ergänzen, hier mit einem weiteren Block mit ROUGE-Scores und Beispielzusammenfassung hinzufügen
+
+% TODO: Nachfolgenden Abschnitt bzgl. Entfernen der ersten Wikipedia-Absätze mit korrektem Modellnamen und ROUGE-Scores aktualisieren, Änderungen kritisch kommentieren, damit begründet weitere Anpassungen vornehmen
+
 \noindent
-Um den Umfang der deutschsprachigen Datengrundlage nicht reduzieren zu müssen, wird nun zunächst der jeweils erste Abschnitt der Wikipedia-Artikel entfernt. Ein erneutes Training der \ac{XLM-R} bringt die folgenden \ac{ROUGE}-Scores hervor: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00. TODO: KRITIK BZGL. OVERFITTING. Die entstehende Zusammenfassung sieht nun wie folgt aus:\\
+Um den Umfang der deutschsprachigen Datengrundlage nicht reduzieren zu müssen, wird nun zunächst der jeweils erste Abschnitt der Wikipedia-Artikel entfernt. Ein erneutes Training der \ac{XLM-R} bringt die folgenden \ac{ROUGE}-Scores hervor: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00. Die entstehende Zusammenfassung sieht nun wie folgt aus:\\
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
@@ -46,35 +54,10 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 }%
 }\\
 
-\noindent
-- Sliding-Window-Approach bei zu großen Texten beschreiben und entwickeln, Zielgröße von 512 anvisieren\\
+% TODO: Sliding-Window-Approach bei zu großen Texten beschreiben und entwickeln, beim Laden der Texte, aber als separate Methode, die auf einzelne Texte anwendbar ist, trotzdem mit Map als Batch-Verarbeitung, über Bool in der Config beim Training auswählbar machen, im Beispiel als Methode einbinden
 
-\noindent
-- Wikipedia-Anteil reduzieren
-- XLM-R auf Wikipedia trainieren, nur auf ZEIT evaluieren
-- XLM-R auf ZEIT trainieren und evaluieren\\
+% TODO: Wikipedia-Anteil reduzieren, Modell nur auf Wikipedia trainieren, nur auf ZEIT evaluieren, dann nur auf ZEIT trainieren und evaluieren
 
-\noindent
-- Alternative: BERT zur Translation nutzen, CNN/ Dailymail übersetzen\\
-- Option: XLM-RoBERTa BASE/ LARGE, evtl. zu wenig Daten, dann auf vielversprechenden Fortschritt verweisen, (\url{https://huggingface.co/transformers/model_doc/xlmroberta.html})\\
-- Option: Electra (\url{https://huggingface.co/german-nlp-group/electra-base-german-uncased})\\
-- Option: BART von Facebook, multilingual (\url{https://huggingface.co/facebook/mbart-large-cc25})
-- Optionen entweder in der Theorie ergänzen oder hier eingangs erwähnen
+% TODO: Kapitel besser strukturieren (format-technisch, inhaltlich), Beschreibung der Datengrundlage nochmal überprüfen, Lorem ipsum und TODO's in beiden Kapiteln herausarbeiten, Hyperparameteroptimierung auf 10-20 Prozent der Daten vornehmen, Verdichtung der Zusammenfassung verdeutlichen, d.h. Token-Reduktion, zudem die prozentuale Kompressionsrate angeben, d.h. mit technischen Anpassungen können auch 5 DIN A4-Seiten um x Prozent verdichtet werden (Wie lang ist der Eingangstext? Wie lang ist der Ausgangstext? Wie geht das Modell mit längeren Texten um?)
 
-\noindent
--> Kapitel besser strukturieren (format-technisch, inhaltlich)
--> Beschreibung der Datengrundlage nochmal überprüfen
--> Lorem ipsum und Capslock-TODO's in beiden Kapiteln herausarbeiten 
--> Hyperparameteroptimierung auf 10-20 Prozent der Daten\\
--> Verdichtung der Zusammenfassung verdeutlichen, d.h. Token-Reduktion, zudem die prozentuale Kompressionsrate angeben, d.h. mit technischen Anpassungen können auch 5 DIN A4-Seiten um x Prozent verdichtet werden (Wie lang ist der Eingangstext? Wie lang ist der Ausgangstext?
-Wie geht das Modell mit längeren Texten um?)
-
-\noindent
-+ \cite{YAN19} S. 4 rechts, Herausforderung: Encoder overfitted, Decoder underfitted oder andersherum, wird durch HuggingFace-Framework vorgebeugt
-+ \cite{YAN19} S. 5 oben für Evaluation
-+ Vergleichstabelle der Experimente einbinden und beschreiben
-+ Typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen
-+ Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen, ggf. erst bei der sprachtechnischen Adaption
-+ Erwähnen, dass dies als Experiment genügt, sprachtechnische Anpassungen dann erst im nächsten Kapitel
-+ Referenzzusammenfassungen mit ROUGE und BLEU bewerten, um Vergleichswerte nennen zu können
-+ Texte manuell zusammenfassen, um ebenfalls einen Vergleichswert von ROUGE und BLEU zu haben\\
+% TODO: \cite{YAN19} S. 4 rechts, Herausforderung: Encoder overfitted, Decoder underfitted oder andersherum, wird durch HuggingFace-Framework vorgebeugt, \cite{YAN19} S. 5 oben für Evaluation, Vergleichstabelle der Experimente einbinden und beschreiben, typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen, Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen, ggf. erst bei der sprachtechnischen Adaption, erwähnen, dass dies als Experiment genügt, sprachtechnische Anpassungen dann erst im nächsten Kapitel, Referenzzusammenfassungen mit ROUGE und BLEU bewerten, um Vergleichswerte nennen zu können, Texte manuell zusammenfassen, um ebenfalls einen Vergleichswert von ROUGE und BLEU zu haben\\

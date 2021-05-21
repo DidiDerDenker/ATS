@@ -69,3 +69,14 @@ rm -rf checkpoint-50000
 cd /home/davo557d/project/venv/lib/python3.7/site-packages
 cd /home/h1/davo557d/.cache/datasets
 cd /home/h1/davo557d/.cache/huggingface
+
+===== Versions =====
+python
+import PACKAGE
+print(PACKAGE.__version__)
+
+transformers==4.5.1
+tokenizers==0.10.2
+datasets==1.6.2
+torch==1.8.1+cu111
+psutil==5.8.0
