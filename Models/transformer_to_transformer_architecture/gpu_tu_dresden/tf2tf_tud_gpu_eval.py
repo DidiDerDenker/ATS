@@ -11,7 +11,7 @@ model = config.model
 tokenizer = config.tokenizer
 
 tokenizer = transformers.XLMRobertaTokenizer.from_pretrained(
-    tokenizer
+    tokenizer  # BertTokenizer
 )
 
 tf2tf = transformers.EncoderDecoderModel.from_pretrained(

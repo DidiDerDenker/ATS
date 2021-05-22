@@ -10,7 +10,7 @@ from datasets import ClassLabel
 
 
 # Methods
-def load_data(language, corpus_wiki=0.0, corpus_news=0.0):
+def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0):
     if str(language) == "english":
         train_data = datasets.load_dataset(
             "cnn_dailymail", "3.0.0", split="train")
@@ -33,7 +33,7 @@ def load_data(language, corpus_wiki=0.0, corpus_news=0.0):
                 data_ref.append(row[1])
 
         tuples_wiki = list(zip(data_txt, data_ref))
-        tuples_wiki = tuples_wiki[0:int(len(tuples_wiki) * corpus_wiki)]
+        tuples_wiki = tuples_wiki[0:int(len(tuples_wiki) * ratio_corpus_wiki)]
 
         dataframe = pd.DataFrame(
             tuples_wiki, columns=["article", "highlights"]
@@ -43,7 +43,7 @@ def load_data(language, corpus_wiki=0.0, corpus_news=0.0):
             "./data_train_test.xlsx", engine="openpyxl"
         )
 
-        tuples_news = tuples_news[0:int(len(tuples_news) * corpus_news)]
+        tuples_news = tuples_news[0:int(len(tuples_news) * ratio_corpus_news)]
         del tuples_news["Unnamed: 0"]
 
         dataframe = pd.concat([dataframe, tuples_news])

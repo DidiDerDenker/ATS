@@ -10,12 +10,12 @@ batch_size = config.batch_size
 model = config.model
 tokenizer = config.tokenizer
 
-tokenizer = transformers.BertTokenizer.from_pretrained(
-    tokenizer
+tokenizer = transformers.XLMRobertaTokenizerFast.from_pretrained(
+    tokenizer  # BertTokenizer, XLMRobertaTokenizer
 )
 
 tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
-    model, model, tie_encoder_decoder=False
+    model, model, tie_encoder_decoder=True
 )
 
 train_data, val_data, test_data = helpers.load_data(
@@ -112,9 +112,9 @@ training_args = transformers.Seq2SeqTrainingArguments(
     per_device_eval_batch_size=batch_size,
     output_dir=config.path_output,
     warmup_steps=1000,
-    save_steps=10000,
+    save_steps=100,  # 10000
     logging_steps=1000,
-    eval_steps=10000,
+    eval_steps=100,  # 10000
     save_total_limit=1,
     fp16=True,
 )

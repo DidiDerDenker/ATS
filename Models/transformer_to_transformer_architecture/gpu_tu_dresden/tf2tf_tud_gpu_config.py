@@ -1,10 +1,10 @@
 language = "german"  # english
-model = "xlm-roberta-base"  # bert-base-multilingual-cased, xlm-roberta-large
-tokenizer = "xlm-roberta-base"  # "bert-base-german-cased"
-batch_size = 4  # 16
+model = "xlm-roberta-large-mnli"  # bert-base-multilingual-cased, xlm-roberta-large
+tokenizer = model
+batch_size = 6  # 16
 
-corpus_wiki = 1.0
-corpus_news = 1.0
+ratio_corpus_wiki = 1.0
+ratio_corpus_news = 1.0
 
 path_output = "/scratch/ws/1/davo557d-ws_project/"
 path_checkpoint = "/scratch/ws/1/davo557d-ws_project/checkpoint-50000"

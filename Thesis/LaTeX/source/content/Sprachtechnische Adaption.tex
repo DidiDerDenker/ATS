@@ -29,9 +29,9 @@ In New York ist ein Flugzeug aus dem World Trade Center auf dem Nordturm des Wor
 Die inhaltliche Schwäche ist für den menschlichen Leser unschwer erkennbar auch ohne Kenntnis über den Originaltext. Daher wird nun die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 24.20, R-Precision: 14.65, R-Measure: 16.85. Dies unterliegt den \ac{ROUGE}-Scores der multilingualen Version von \ac{BERT}. Letzterer scheint tatsächlich von den verborgenen Strukturen anderer Sprachen zu profitieren.\\
 
 \noindent
-Mit dem Wissen, dass multilingual vortrainierte Modelle sogar die Qualität monolingualer Modelle im deutschsprachigen Raum übersteigen, wird nun \ac{BERT} durch \ac{XLM-R} ersetzt, um sich geeigneten Ergebnissen zu nähern. Es entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00.\\
+Mit dem Wissen, dass multilingual vortrainierte Modelle sogar die Qualität monolingualer Modelle im deutschsprachigen Raum übersteigen, wird nun \ac{BERT} durch \ac{XLM-R} ersetzt, um sich geeigneten Ergebnissen zu nähern. Die deutsche Version des \ac{BERT} dient hingegen weiterhin als Tokenizer. Es entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00.\\
 
-% TODO: Kritik am vorherigen Abschnitt anfügen, deutsche Zusammenfassung unten einfügen, entweder Nutzung von XLM-R begründen oder weitere Experimente anschließen, daher methodsich unten weiter
+% TODO: Kritik am vorherigen Abschnitt anfügen, deutsche Zusammenfassung unten einfügen, nochmal auf bereits entfernte erste Absätze verweisen, entweder Nutzung von XLM-R begründen oder weitere Experimente anschließen, daher methodisch unten weiter
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
@@ -45,19 +45,10 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 % TODO: Nachfolgenden Abschnitt bzgl. Entfernen der ersten Wikipedia-Absätze mit korrektem Modellnamen und ROUGE-Scores aktualisieren, Änderungen kritisch kommentieren, damit begründet weitere Anpassungen vornehmen
 
-\noindent
-Um den Umfang der deutschsprachigen Datengrundlage nicht reduzieren zu müssen, wird nun zunächst der jeweils erste Abschnitt der Wikipedia-Artikel entfernt. Ein erneutes Training der \ac{XLM-R} bringt die folgenden \ac{ROUGE}-Scores hervor: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00. Die entstehende Zusammenfassung sieht nun wie folgt aus:\\
-
-\noindent\fbox{%
-\parbox{\textwidth}{%
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-}%
-}\\
-
 % TODO: Sliding-Window-Approach bei zu großen Texten beschreiben und entwickeln, beim Laden der Texte, aber als separate Methode, die auf einzelne Texte anwendbar ist, trotzdem mit Map als Batch-Verarbeitung, über Bool in der Config beim Training auswählbar machen, im Beispiel als Methode einbinden
 
 % TODO: Wikipedia-Anteil reduzieren, Modell nur auf Wikipedia trainieren, nur auf ZEIT evaluieren, dann nur auf ZEIT trainieren und evaluieren
 
-% TODO: Kapitel besser strukturieren (format-technisch, inhaltlich), Beschreibung der Datengrundlage nochmal überprüfen, Lorem ipsum und TODO's in beiden Kapiteln herausarbeiten, Hyperparameteroptimierung auf 10-20 Prozent der Daten vornehmen, Verdichtung der Zusammenfassung verdeutlichen, d.h. Token-Reduktion, zudem die prozentuale Kompressionsrate angeben, d.h. mit technischen Anpassungen können auch 5 DIN A4-Seiten um x Prozent verdichtet werden (Wie lang ist der Eingangstext? Wie lang ist der Ausgangstext? Wie geht das Modell mit längeren Texten um?)
+% TODO: Kapitel besser strukturieren (format-technisch, inhaltlich), Beschreibung der Datengrundlage nochmal überprüfen, Lorem ipsum und TODO's in beiden Kapiteln herausarbeiten, Hyperparameteroptimierung auf 10-20 Prozent der Daten vornehmen, Verdichtung der Zusammenfassung verdeutlichen, d.h. Token-Reduktion, zudem die prozentuale Kompressionsrate angeben (75% von 512 auf 128 Token), d.h. mit technischen Anpassungen können auch 5 DIN A4-Seiten um x Prozent verdichtet werden (Wie lang ist der Eingangstext? Wie lang ist der Ausgangstext? Wie geht das Modell mit längeren Texten um?)
 
 % TODO: \cite{YAN19} S. 4 rechts, Herausforderung: Encoder overfitted, Decoder underfitted oder andersherum, wird durch HuggingFace-Framework vorgebeugt, \cite{YAN19} S. 5 oben für Evaluation, Vergleichstabelle der Experimente einbinden und beschreiben, typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen, Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen, ggf. erst bei der sprachtechnischen Adaption, erwähnen, dass dies als Experiment genügt, sprachtechnische Anpassungen dann erst im nächsten Kapitel, Referenzzusammenfassungen mit ROUGE und BLEU bewerten, um Vergleichswerte nennen zu können, Texte manuell zusammenfassen, um ebenfalls einen Vergleichswert von ROUGE und BLEU zu haben\\
