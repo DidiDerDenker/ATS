@@ -18,6 +18,7 @@ pip install sacrebleu
 pip install openpyxl
 pip install xlrd
 pip install pyarrow
+pip install protobuf
 pip install cmake
 pip install SentencePiece
 conda install SentencePiece
@@ -69,6 +70,7 @@ rm -rf checkpoint-50000
 cd /home/davo557d/project/venv/lib/python3.7/site-packages
 cd /home/h1/davo557d/.cache/datasets
 cd /home/h1/davo557d/.cache/huggingface
+rm -rf transformers
 
 ===== Versions =====
 python
