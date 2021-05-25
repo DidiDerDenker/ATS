@@ -7,12 +7,8 @@ import tf2tf_tud_gpu_helpers as helpers
 
 
 # Main
-batch_size = config.batch_size
-model = config.model
-tokenizer = config.tokenizer
-
-tokenizer = transformers.XLMRobertaTokenizer.from_pretrained(
-    tokenizer  # BertTokenizer
+tokenizer = transformers.AutoTokenizer.from_pretrained(
+    config.tokenizer_name
 )
 
 tf2tf = transformers.EncoderDecoderModel.from_pretrained(
@@ -21,27 +17,44 @@ tf2tf = transformers.EncoderDecoderModel.from_pretrained(
 
 tf2tf.to("cuda")
 text = None
+parts = []
 
-if config.language == "english":
-    text = config.text_english
 
-elif config.language == "german":
-    text = config.text_german
+def split_long_texts(text):
+    limit = 512
 
-temp = {
-    "article": [text, text],
-    "hightlights": ["Zusammenfassung", "Zusammenfassung"]
-}
+    if len(text) > limit:
+        end_index = max([
+            text.rfind(".", 0, limit),
+            text.rfind("!", 0, limit),
+            text.rfind("?", 0, limit)
+        ])
+
+        parts.append(text[0:end_index + 1].strip())
+        text = text[end_index + 1:len(text)].strip()
+        split_long_texts(text)
+
+    else:
+        parts.append(text)
+
+
+text = config.text_english if config.language == "english" else config.text_german
+split_long_texts(text)
+
+if len(parts) > 1:
+    article = parts
+    highlights = [None] * len(parts)
+
+else:
+    article = [text] * 2
+    highlights = [None] * 2
 
 helpers.test_cuda()
 helpers.empty_cache()
 rouge = datasets.load_metric("rouge")
 
-test_data = datasets.arrow_dataset.Dataset.from_pandas(
-    pd.DataFrame.from_dict(
-        temp, columns=["article", "highlights"], orient="index"
-    )
-)
+df = pd.DataFrame({"article": article, "highlights": highlights})
+test_data = datasets.arrow_dataset.Dataset.from_pandas(df)
 
 
 def generate_summary(batch):
@@ -66,7 +79,8 @@ def generate_summary(batch):
 summary = test_data.map(
     generate_summary,
     batched=True,
-    batch_size=batch_size
+    batch_size=config.batch_size
 )
 
-print(f"HYP: {summary[0]['pred_summary']}")
+for i in range(0, len(parts)):
+    print(summary[i]["pred_summary"])

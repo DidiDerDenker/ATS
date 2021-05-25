@@ -29,17 +29,15 @@ In New York ist ein Flugzeug aus dem World Trade Center auf dem Nordturm des Wor
 Die inhaltliche Schwäche ist für den menschlichen Leser unschwer erkennbar auch ohne Kenntnis über den Originaltext. Daher wird nun die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 24.20, R-Precision: 14.65, R-Measure: 16.85. Dies unterliegt den \ac{ROUGE}-Scores der multilingualen Version von \ac{BERT}. Letzterer scheint tatsächlich von den verborgenen Strukturen anderer Sprachen zu profitieren.\\
 
 \noindent
-Mit dem Wissen, dass multilingual vortrainierte Modelle sogar die Qualität monolingualer Modelle im deutschsprachigen Raum übersteigen, wird nun \ac{BERT} durch \ac{XLM-R} ersetzt, um sich geeigneten Ergebnissen zu nähern. Die deutsche Version des \ac{BERT} dient hingegen weiterhin als Tokenizer. Es entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 0.00, R-Precision: 0.00, R-Measure: 0.00.\\
-
-% TODO: Kritik am vorherigen Abschnitt anfügen, deutsche Zusammenfassung unten einfügen, nochmal auf bereits entfernte erste Absätze verweisen, entweder Nutzung von XLM-R begründen oder weitere Experimente anschließen, daher methodisch unten weiter
+Mit dem Wissen, dass multilingual vortrainierte Modelle sogar die Qualität monolingualer Modelle im deutschsprachigen Raum übersteigen, wird nun \ac{BERT} durch \ac{XLM-R} ersetzt, um sich geeigneten Ergebnissen zu nähern. Der Tokenizer wird ebenfalls entsprechend ausgewechselt. Es entstehen jedoch wider Erwarten die folgenden \ac{ROUGE}-Scores: R-Recall: 23.02, R-Precision: 13.95, R-Measure: 16.09. Mutmaßlich sind die Ergebnisse von \ac{XLM-R} doch nicht besser als die von \ac{BERT}. Dies zeigt auch die nachfolgende exemplarische Zusammenfassung von Anhang B, welche subjektiv als inhaltlich mangelhaft einzustufen ist.\\
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Der 11. Flugtag der Weltturm-Weltmeisterschaft 2001 fand am 11. September 2001 in New York City statt und war das erste Mal in der Geschichte des World Trade Centers. Das National September 11 Memorial and Museum in Manhattan ist ein historischer Gedenkpavillon in Manhattan. Es befindet sich in der Nähe des World Trade Centers in Manhattan.
 }%
 }\\
 
-% TODO: Modellwechsel: xlm-roberta-large-mnli, xlm-roberta-large, electra-base-german-uncased, mbart-large-cc25
+% TODO: BART probieren, mit bestem Modell fortfahren, diese Entscheidung begründen, dann weiterhin geeigneten Ergebnissen nähern, Korpora variieren, Data Augmentation etc.
 
 % TODO: Modelle, die experimentell namentlich in der Thesis erwähnt werden, im theoretischen Kapitel ergänzen, hier mit einem weiteren Block mit ROUGE-Scores und Beispielzusammenfassung hinzufügen
 

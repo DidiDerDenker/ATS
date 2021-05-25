@@ -6,12 +6,8 @@ import tf2tf_tud_gpu_helpers as helpers
 
 
 # Main
-batch_size = config.batch_size
-model = config.model
-tokenizer = config.tokenizer
-
-tokenizer = transformers.XLMRobertaTokenizer.from_pretrained(
-    tokenizer  # BertTokenizer
+tokenizer = transformers.AutoTokenizer.from_pretrained(
+    config.tokenizer_name
 )
 
 tf2tf = transformers.EncoderDecoderModel.from_pretrained(
@@ -20,15 +16,17 @@ tf2tf = transformers.EncoderDecoderModel.from_pretrained(
 
 train_data, val_data, test_data = helpers.load_data(
     language=config.language,
-    corpus_wiki=config.corpus_wiki,
-    corpus_news=config.corpus_news
+    ratio_corpus_wiki=config.ratio_corpus_wiki,
+    ratio_corpus_news=config.ratio_corpus_news
 )
 
 helpers.test_cuda()
 helpers.explore_corpus(train_data)
 helpers.empty_cache()
-helpers.configure_model(tf2tf, tokenizer)
 rouge = datasets.load_metric("rouge")
+
+tf2tf = helpers.configure_model(tf2tf, tokenizer)
+tf2tf.to("cuda")
 
 
 def generate_summary(batch):
@@ -53,13 +51,8 @@ def generate_summary(batch):
 results = test_data.map(
     generate_summary,
     batched=True,
-    batch_size=batch_size
+    batch_size=config.batch_size
 )
-
-'''
-print(f"HYP: {results[0]['pred_summary']}")
-print(f"REF: {results[0]['highlights']}")
-'''
 
 print(
     rouge.compute(

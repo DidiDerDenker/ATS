@@ -56,9 +56,9 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0):
 
         german_data = german_data.shuffle()
 
-        train_size = int(len(dataframe) * 0.9)
-        valid_size = int(len(dataframe) * 0.015)
-        test_size = int(len(dataframe) * 0.085)
+        train_size = int(len(dataframe) * 0.900)
+        valid_size = int(len(dataframe) * 0.005)
+        test_size = int(len(dataframe) * 0.095)
 
         train_data = german_data.select(
             range(0, train_size))
@@ -67,14 +67,9 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0):
         test_data = german_data.select(
             range(train_size + valid_size, len(dataframe)))
 
-        print(
-            f"Corpus-Size: {len(train_data) + len(val_data) + len(test_data)}"
-        )
+        del german_data
 
-        return train_data, val_data, test_data
-
-    else:
-        print("Error...")
+        return train_data.shuffle(), val_data.shuffle(), test_data.shuffle()
 
 
 def test_cuda():
@@ -97,9 +92,6 @@ def explore_corpus(data):
         text_list.append(len(text))
         summary_list.append(len(summary))
 
-    print(f"Text-Length: {sum(text_list) / len(text_list)}")
-    print(f"Summary-Length: {sum(summary_list) / len(summary_list)}")
-
     df = pd.DataFrame(data[:1])
 
     for column, typ in data.features.items():
@@ -111,6 +103,10 @@ def empty_cache():
     gc.collect()
     torch.cuda.empty_cache()
     psutil.virtual_memory()
+
+    # print(torch.cuda.get_device_properties(0).total_memory)
+    # print(torch.cuda.memory_reserved(0))
+    # print(torch.cuda.memory_allocated(0))
 
 
 def configure_model(tf2tf, tokenizer):
@@ -127,8 +123,4 @@ def configure_model(tf2tf, tokenizer):
     tf2tf.config.length_penalty = 2.0
     tf2tf.config.num_beams = 4
 
-    tf2tf.to("cuda")
-
-    print(f"Start-Token: {tf2tf.config.decoder_start_token_id}")
-    print(f"End-Token: {tf2tf.config.eos_token_id}")
-    print(f"Vocab-Size: {tf2tf.config.vocab_size}")
+    return tf2tf
