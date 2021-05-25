@@ -44,8 +44,8 @@
 \contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{45}{chapter.100}%
 \contentsline {section}{\numberline {6.1}Architektur}{45}{section.101}%
 \contentsline {section}{\numberline {6.2}Experimente}{45}{section.102}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{49}{chapter.103}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{50}{chapter.104}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{48}{chapter.103}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{49}{chapter.104}%
 \contentsline {chapter}{Literaturverzeichnis}{50}{chapter.104}%
 \contentsline {chapter}{Thesen}{54}{chapter*.106}%
 \contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.107}%
