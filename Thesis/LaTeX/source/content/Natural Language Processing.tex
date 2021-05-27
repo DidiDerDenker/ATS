@@ -102,13 +102,13 @@ In den Zeilen sind die betrachteten Texte indiziert, in den Spalten hingegen die
 \centering
 \begin{tabular}{ | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | }
 \hline
-\textbf{ID} & \textbf{Vögel} & \textbf{sind} & \textbf{Tiere} & \textbf{der} & \textbf{Lüfte} \\
+\textbf{ID} & \textbf{Heute} & \textbf{ist} & \textbf{schönes} & \textbf{Wetter} \\
 \hline
-Text 1 & 2 & 8 & 1 & 5 & 1 \\
+Text 1 & 2 & 8 & 1 & 3 \\
 \hline
-Text 2 & 1 & 3 & 0 & 2 & 0 \\
+Text 2 & 1 & 3 & 0 & 2 \\
 \hline
-Text 3 & 0 & 4 & 0 & 7 & 0 \\
+Text 3 & 0 & 4 & 1 & 4 \\
 \hline
 \end{tabular}
 \caption{Bag-of-Words mit einem beispielhaften Wortschatz \cite{HUI20}.}
@@ -212,7 +212,7 @@ Im mathematischen Sinne wurde im Kontext der \ac{ATS} bislang meist die Wahrsche
 
 \subsection{BERT}
 \noindent
-Zuletzt sei \ac{BERT} als mögliches Modell zur Deep Language Representation genannt. Es wurde von Forschern der Google AI Language entwickelt und 2019 veröffentlicht. \ac{BERT} basiert auf ebenfalls der bereits bekannten Transformer-Architektur, wobei unstrukturierte Textdaten mithilfe links- und rechtsseitiger Kontextfenster bidirektional angelernt werden. Dabei entstammen die Daten verschiedenartigen \ac{NLP}-Aufgaben, sodass \ac{BERT} größtenteils aufgabenunabhängig einsetzbar ist. Im anschließenden Fine-Tuning werden die vortrainierten modellinternen Parameter zunächst initialisiert und wiederum mithilfe von gelabelten Daten angepasst. \ac{BERT} zeichnet sich weiterhin dadurch aus, dass er höchst anpassungsfähig ist und sich die vortrainierte Architektur nur minimal von der weitertrainierten Architektur unterscheidet \cite[S.~1-3]{DEV19}.\\
+Zudem sei \ac{BERT} als mögliches Modell zur Deep Language Representation genannt. Es wurde von Forschern der Google AI Language entwickelt und 2019 veröffentlicht. \ac{BERT} basiert auf ebenfalls der bereits bekannten Transformer-Architektur, wobei unstrukturierte Textdaten mithilfe links- und rechtsseitiger Kontextfenster bidirektional angelernt werden. Dabei entstammen die Daten verschiedenartigen \ac{NLP}-Aufgaben, sodass \ac{BERT} größtenteils aufgabenunabhängig einsetzbar ist. Im anschließenden Fine-Tuning werden die vortrainierten modellinternen Parameter zunächst initialisiert und wiederum mithilfe von gelabelten Daten angepasst. \ac{BERT} zeichnet sich weiterhin dadurch aus, dass er höchst anpassungsfähig ist und sich die vortrainierte Architektur nur minimal von der weitertrainierten Architektur unterscheidet \cite[S.~1-3]{DEV19}.\\
 
 \noindent
 Nun wird die Architektur von \ac{BERT} umfassender untersucht, indem die einleitenden Worte aufgegriffen und theoretisch ergründet werden. \ac{BERT} ist prinzipiell als Encoder zu verstehen, welcher durch einen mehrschichtigen bidirektionalen Transformer repräsentiert wird. Dabei werden die Schichten durch Transformer-Module repräsentiert. Diese verfügen über entsprechende Attention-Mechanismen, um kontextuelle Informationen zu erkennen. Weiterhin werden Sequenzen nicht nur einseitig betrachtet, sondern beidseitig, also bidirektional. Somit werden wortbezogene Kontexte gelernt, was insbesondere zu einem tieferen Verständnis der Sprache seitens \ac{BERT} führt. Dies ist ein großer Vorteil gegenüber bisheriger Architekturen, inklusive \ac{ELMo} und \ac{GPT}, welche Sequenzen zumeist nur einseitig betrachten konnten, also von links nach rechts oder andersherum. Aufgrund der qualitativen Vorteile von \ac{BERT} wird es umfänglicher als die ausgewählten Vorgänger und Konkurrenten analysiert \cite[S.~3]{DEV19}.
@@ -242,6 +242,44 @@ Um zudem weitergehende Informationen auf Satzebene zu erhalten, werden dem Train
 \noindent
 \ac{BERT} wurde initial in zwei verschiedenen Versionen veröffentlicht: BASE und LARGE. Die veröffentlichten Modelle wurden von den Forschern der Google AI Language auf zwei verschiedenen Korpora mit insgesamt über drei Millionen Wörtern trainiert. Sei $L$ die Anzahl der Schichten (oder: Transformer-Module), $H$ die Größe der verborgenen Schichten und $A$ die Anzahl der Self-Attention-Heads, dann sind die Versionen wie folgt definiert \cite[S.~3-5]{DEV19}. $$\text{BERT}_{\text{BASE}}: (L=12, H=768, A=12) \text{ mit } 110 \text{M Parametern}$$ $$\text{BERT}_{\text{LARGE}}: (L=24, H=1024, A=16) \text{ mit } 340 \text{M Parametern}$$
 
+
 \subsection{XLM}
 \noindent
-\ac{XLM-R} ist ein weiteres Language Model, welches 2019 von Facebook AI veröffentlicht wurde und der Architektur von \ac{BERT} gleichkommt. Es basiert demnach ebenfalls auf der bereits bekannten Transformer-Architektur. Es wird weiterhin über die Vorhersage absichtlich versteckter Textabschnitte unüberwacht trainiert. \ac{XLM-R} zeichnet sich insbesondere durch die multilinguale Funktionsweise aus. Hierfür wurde es auf mehr als zwei Terabyte an Textdaten vortrainiert, darunter Texte aus 100 verschiedenen Sprachen. Die Next Sentence Prediciton entfällt hingegen im Vergleich zu \ac{BERT}, während die \ac{LR} deutlich erhöht wird. Letztlich ist von \ac{XLM-R} durch die entsprechenden Anpassungen eine qualitative Verbesserung in verschiedenen \ac{NLP}-Aufgaben gegenüber der multilingualen Version von \ac{BERT} zu erwarten. Offensichtlich werden sprachübergreifende verborgene Strukturen erlernt, welche sich gegenseitig begünstigen. Darüber hinaus verwendet \ac{XLM-R} einen sprachübergreifenden Tokenizer. \ac{XLM-R} fordert Rechnern allerdings auch eine höhere Leistung ab \cite{CON20}.
+\ac{XLM-R} ist ein weiteres Language Model, welches 2019 von Facebook AI veröffentlicht wurde und der Architektur von \ac{BERT} nahekommt. Es basiert demnach ebenfalls auf der bereits bekannten Transformer-Architektur. Es wird weiterhin über die Vorhersage absichtlich versteckter Textabschnitte unüberwacht trainiert. \ac{XLM-R} zeichnet sich insbesondere durch die multilinguale Funktionsweise aus. Hierfür wurde es auf mehr als zwei Terabyte an Textdaten vortrainiert, darunter Texte aus 100 verschiedenen Sprachen. Die Next Sentence Prediciton entfällt hingegen im Vergleich zu \ac{BERT}, während die \ac{LR} deutlich erhöht wird. Letztlich ist von \ac{XLM-R} durch die entsprechenden Anpassungen eine qualitative Verbesserung in verschiedenen \ac{NLP}-Aufgaben gegenüber der multilingualen Version von \ac{BERT} zu erwarten. Offensichtlich werden sprachübergreifende verborgene Strukturen erlernt, welche sich gegenseitig begünstigen. Darüber hinaus verwendet \ac{XLM-R} einen sprachübergreifenden Tokenizer. \ac{XLM-R} fordert Rechnern allerdings auch eine höhere Leistung ab \cite{CON20}.
+
+
+\subsection{BART}
+\noindent
+\ac{BART} ist eine weitere Architektur der Facebook AI ais dem Jahre 2019, welche sich insbesondere für das Vortraining von Sequence-to-Sequence-Modellen eignet. Hierfür wird eingehender Text mithilfe einer Rauschfunktion verändert. Das Modell versucht daraufhin, den ursprünglichen Text zu rekonstruieren, um unüberwacht einen Lernfortschritt zu erzielen. \ac{BART} generalisiert bisherige Architekturen wie \ac{BERT} oder auch \ac{GPT}, weshalb es sich weiterhin um eine Transformer-Architektur handelt. Die besten Ergebnisse erzielte \ac{BART} in der jüngsten Vergangenheit bei \ac{NLG}-Aufgaben wie der \ac{ATS}, sowohl mono- als auch multilingual. Dabei schließt \ac{BART} qualitativ nicht nur zu \ac{XLM-R} auf, sondern übersteigt sie zu Teilen sogar \cite{LEW19}.
+
+
+\section{Metriken}
+\noindent
+Weiterhin sind ausgewählte Metriken offenzulegen, mit denen die Qualität der \ac{ATS} gemessen werden kann: \ac{ROUGE} und \ac{BLEU}. In der Wissenschaft werden \ac{ATS}-Modelle meist mithilfe des \ac{ROUGE}-Scores evaluiert und verglichen. Dabei erfordern diese Metriken eine \ac{REFZ} zu jeder \ac{SYSZ}, welche maschinell generiert wurde. Dies ist unabhängig davon, ob das Training überwacht oder unüberwacht durchgeführt wird. Allgemein unterliegen diese Metriken der Herausforderung, dass es für einen gegebenen Text keine objektiv beste Zusammenfassung gibt. Folglich können verschiedene \ac{SYSZ} oder sogar \ac{REFZ} gleich gut sein. Dies ist statistisch sehr schwer zu bewerten, zumal selbst Menschen aufgrund ihrer subjektiven Bewertungsweise nicht einheitlich definieren können, welche Faktoren für eine gute Zusammenfassung stehen. Weiterhin werden in den Metriken menschliche Bewertungsfaktoren wie beispielsweise Lesbarkeit nicht berücksichtigt \cite{LEM20}.
+
+
+\subsection{ROUGE}
+\noindent
+\ac{ROUGE} kann zunächst mithilfe folgender Kennzahlen weitergehend differenziert werden: Recall, Precision und Measure. Dabei quantifiziert der Recall-Score den Anteil der sowohl in \ac{REFZ} als auch in \ac{SYSZ} vorkommender Wörter gemäß folgender Formel:\\
+$$\frac{\text{Anzahl übereinstimmender Wörter}}{\text{Anzahl der Wörter in der REFZ}}$$ \newline
+
+\noindent
+Sei hierfür verkürzt \glqq Der Sommer war sehr warm\grqq{} als \ac{REFZ} und \glqq Der Sommer war wieder sehr warm\grqq{} als \ac{SYSZ} gegeben. Dann gilt: $\text{Recall} = \frac{5}{5} = 1.0$. Trotzdem sollen \ac{SYSZ} nicht unendlich lang werden, um alle Wörter der \ac{REFZ} abzudecken, sondern weiterhin den eigentlichen Sinn einer Zusammenfassung erfüllen. Hier quantifiziert der Precision-Score den Anteil der tatsächlich relevanten Wörter gemäß folgender Formel:\\
+$$\frac{\text{Anzahl übereinstimmender Wörter}}{\text{Anzahl der Wörter in der SYSZ}}$$ \newline
+
+\noindent
+Wie man sieht, ändert sich nur der Nenner. Im oben genannten Beispiel gilt somit: $\text{Precision} = \frac{5}{6} = 0.8\overline{3}$. Nimmt man ferner \glqq Der letzte Sommer war wieder sehr warm und trocken\grqq{} als neue \ac{SYSZ} an, dann reduziert sich der Precision-Score aufgrund der erhöhten Anzahl unrelevanter Wörter wie folgt: $\text{Precision} = \frac{5}{9} = 0.5\overline{5}$. Weiterhin kann der Measure-Score als gewöhnlicher F-Score verstanden und interpretiert werden. Er ergibt sich als harmonisches Mittel zwischen dem Recall und der Precision, womit er beide Scores berücksichtigt \cite[S.~1-3]{LIN04}.\\
+
+\noindent
+\ac{ROUGE} wird allgemein auch als \ac{ROUGE}-N geschrieben, wobei das N bestimmt, ob obige Kennzahlen auf Grundlagen von Uni-, Bi- oder Trigrammen berechnet werden sollen. Im genannten Beispiel wurden also die \ac{ROUGE}-1 Recall-, Precision- und Measure-Scores berechnet. Zudem existieren Ansätze, welche die \ac{LCS} verfolgen. Diese werden hier jedoch vernachlässigt.\\
+
+\noindent
+Trotz oder gerade wegen der wissenschaftlichen Verbreitung des \ac{ROUGE}-Scores kommt immer mehr Kritik auf. Demnach kann \ac{ROUGE} beispielsweise nicht zwischen verschiedenen aber bedeutungsähnlichen Wörtern unterscheiden. Dies führt tendenziell zu einer schlechteren Bewertung, obgleich ein gegebener Text etwa in einer entsprechenden \ac{SYSZ} präzise zusammengefasst wurde. Außerdem wird den Texten zur Berechnung des \ac{ROUGE}-Scores Kleinschreibung abverlangt, unabhängig von den vorgeschalteten Modellen. Die Bewertung geschieht also eher auf syntaktischer als auf semantischer Basis. Aufgrund der bereits genannten weitreichenden Nutzung des \ac{ROUGE}-Scores und der damit gegebenen Vergleichbarkeit kommt er trotzdem in dieser Arbeit zum Einsatz \cite[S.~5]{LIN04}.
+
+	
+\subsection{BLEU}
+\noindent
+\ac{BLEU} kommt der Funktionsweise von \ac{ROUGE} weitestgehend gleich. Demnach repräsentiert der Score ebenfalls die Ähnlichkeit längendefinierter N-Gramme. Dabei wird weiterhin für jede \ac{SYSZ} eine entsprechende \ac{REFZ} gefordert. Beide Metriken funktionieren indes sprachunabhängig. Im Unterschied zu \ac{ROUGE} führt \ac{BLEU} einen multiplikativen Bestrafungsterm ein, um zu kurze \ac{SYSZ} zu entwerten. Dies ist nicht notwendig, wenn die \ac{SYSZ} länger ist als die \ac{REFZ}. Der Precision-Score berücksichtigt dies bereits \cite[S.~5]{PAP02}.\\
+
+\noindent
+Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstützt, eignet er sich gewissermaßen auch für \ac{ATS}-Aufgaben. Zuletzt konnte wissenschaftlich bewiesen werden, dass der \ac{BLEU}-Score recht gut mit menschlichen Bewertungen korreliert. Aufgrund ähnelnder Nachteile zu denen des \ac{ROUGE}-Score und fehlender wissenschaftlicher Vergleichbarkeit wird der \ac{BLEU}-Score in dieser Arbeit nicht verwendet \cite[S.~6-7]{PAP02}.

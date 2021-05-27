@@ -6,13 +6,7 @@ import tf2tf_tud_gpu_helpers as helpers
 
 
 # Main
-tokenizer = transformers.AutoTokenizer.from_pretrained(
-    config.tokenizer_name
-)
-
-tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
-    config.model_name, config.model_name, tie_encoder_decoder=True
-)
+tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=False)
 
 train_data, val_data, test_data = helpers.load_data(
     language=config.language,
@@ -114,7 +108,9 @@ training_args = transformers.Seq2SeqTrainingArguments(
     logging_steps=1000,
     eval_steps=5000,
     save_total_limit=1,
-    fp16=True,
+    learning_rate=5e-5,
+    adafactor=True,
+    fp16=True
 )
 
 trainer = transformers.Seq2SeqTrainer(

@@ -23,31 +23,54 @@ Dennoch sei nachfolgend die Zusammenfassung des in Anhang B einzusehenden deutsc
 \parbox{\textwidth}{%
 In New York ist ein Flugzeug aus dem World Trade Center auf dem Nordturm des World Trade Centers gebrannt. In den USA ist es zu einem Unfall gekommen. Nun ist das Land wieder in Schock, wo es sich um einen Brand ereignete. Es war der erste Unfall, der sich in den USA ereignet hat.
 }%
-}\\
+}
 \newline
 
 \noindent
-Die inhaltliche Schwäche ist für den menschlichen Leser auch ohne Kenntnis über den Originaltext unschwer erkennbar. Daher wird nun die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 24.20, R-Precision: 14.65, R-Measure: 16.85. Dies unterliegt den \ac{ROUGE}-Scores der multilingualen Version von \ac{BERT}. Letzterer scheint tatsächlich von den verborgenen Strukturen anderer Sprachen zu profitieren.\\
+Die inhaltliche Schwäche ist für den menschlichen Leser auch ohne Kenntnis über den Originaltext unschwer erkennbar. Daher wird nun die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. Hierbei handelt es sich um den sogenannten \ac{GBERT}, welcher von Deepset AI, einem globalen Anbieter von Open-Source-Lösungen für \ac{NLP}, vortrainiert und bereitgestellt wird. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 28.51, R-Precision: 16.91, R-Measure: 19.59. Nachfolgend ist erneut eine Zusammenfassung des Textes aus Anhang B zu sehen.\\
+
+\noindent\fbox{%
+\parbox{\textwidth}{%
+...
+}%
+}\\
+
+
+
+Letzterer scheint tatsächlich von den verborgenen Strukturen anderer Sprachen zu profitieren.\\
+
+% TODO: Andere neuere deutsche Version ausprobieren, ggf. doch damit weiter machen und oben rechtfertigen, Relevanz des Vortrainings verdeutlichen, untere Absätze aktualisieren
 
 \noindent
-Mit dem Wissen, dass multilingual vortrainierte Modelle sogar die Qualität monolingualer Modelle im deutschsprachigen Raum übersteigen, wird nun \ac{BERT} durch \ac{XLM-R} ersetzt, um sich bestenfalls aus praktischer Sicht geeigneten Ergebnissen zu nähern. Der Tokenizer wird ebenfalls entsprechend ausgetauscht. Es entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 23.02, R-Precision: 13.95, R-Measure: 16.09. Obgleich \ac{XLM-R} bewiesenermaßen verschiedene \ac{NLP}-Aufgaben begünstigt, kann sie in der vorliegenden Konfiguration keine Verbesserung der \ac{ATS} erzielen. Dies basiert nicht nur auf den verringerten \ac{ROUGE}-Scores, sondern auch auf der nachfolgenden exemplarischen Zusammenfassung von Anhang B, welche inhaltlich subjektiv als mangelhaft eingestuft werden kann.\\
+Trotz der monolingualen Fortschritte wird \ac{GBERT} zunächst durch \ac{XLM-R} und anschließend durch \ac{BART} ersetzt, um sich weiterhin geeigneten Ergebnissen zu nähern. Der Tokenizer wird ebenfalls entsprechend ausgetauscht. Es entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 23.02, R-Precision: 13.95, R-Measure: 16.09. Obgleich \ac{XLM-R} bewiesenermaßen verschiedene \ac{NLP}-Aufgaben begünstigt, kann sie in der vorliegenden Konfiguration keine Verbesserung der \ac{ATS} erzielen. Dies basiert nicht nur auf den verringerten \ac{ROUGE}-Scores, sondern auch auf der nachfolgenden exemplarischen Zusammenfassung von Anhang B, welche inhaltlich subjektiv als mangelhaft eingestuft werden kann.\\
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
 Der 11. Flugtag der Weltturm-Weltmeisterschaft 2001 fand am 11. September 2001 in New York City statt und war das erste Mal in der Geschichte des World Trade Centers. Das National September 11 Memorial and Museum in Manhattan ist ein historischer Gedenkpavillon in Manhattan. Es befindet sich in der Nähe des World Trade Centers in Manhattan.
 }%
-}
-\newpage
+}\\
+
+% TODO: BART trainieren und kritisieren, evtl. ist GBERT trotzdem besser
 
 \noindent
-In der Konsequenz wird die multilinguale Version von \ac{BERT} für die weiteren Experimente genutzt. Hierbei werden insbesondere die Anteile der jeweiligen Korpora an den Trainings- und Testdaten variiert, um vornehmlich dem Lernen der Textstruktur entgegenzuwirken. Die Konfigurationen sowie entsprechende Ergebnisse sind der Tabelle ? zu entnehmen.
+In der Konsequenz wird \ac{GBERT} für die weiteren Experimente genutzt. Hierbei werden insbesondere die Anteile der jeweiligen Korpora an den Trainings- und Testdaten variiert, um vornehmlich dem Lernen der Textstruktur entgegenzuwirken. Die Konfigurationen sowie entsprechende Ergebnisse sind der Tabelle ? zu entnehmen.\\
 
-% TODO: Tabelle ? nach erfolgten Trainingsschritten erstellen, oben referenzieren und kommentieren, weitere Schritte begründet anschließen, bspw. Data Augmentation, Übersetzung englischsprachiger Korpora
+% TODO: Tabelle ? nach erfolgten Trainingsschritten erstellen, oben referenzieren und Erkenntnisse beschreiben/ herausstellen, weitere Schritte begründet anschließen, bspw. Data Augmentation, Übersetzung englischsprachiger Korpora, Experimente im Excel kompaktieren, bspw. letztes Tabellenblatt
+
+\noindent
+- Training auf Wiki, Evaluation auf News
+  -> Sehr schlecht, strukturerlernend
+- Training auf News mit ein bisschen Wiki, Evaluation mit New
+   -> Positiver Effekt, aber zu wenig Daten
+- Training auf News und 50 Prozent von Wiki, Evaluation mit News
+  -> ?
+- Training auf übersetztem CNN/ Dailymail, Evaluation mit News
+  -> ?
 
 % TODO: Sliding-Window-Approach bei zu großen Texten beschreiben und entwickeln, beim Laden der Texte, aber als separate Methode, die auf einzelne Texte anwendbar ist, trotzdem mit Map als Batch-Verarbeitung, über Bool in der Config beim Training auswählbar machen, im Beispiel als Methode einbinden
-
-% TODO: Wikipedia-Anteil reduzieren, Modell nur auf Wikipedia trainieren, nur auf ZEIT evaluieren, dann nur auf ZEIT trainieren und evaluieren
 
 % TODO: Kapitel besser strukturieren (format-technisch, inhaltlich), German Abstractive Summarization lesen und einarbeiten, Beschreibung der Datengrundlage nochmal überprüfen, Lorem ipsum und TODO's in beiden Kapiteln herausarbeiten, Hyperparameteroptimierung auf 10-20 Prozent der Daten vornehmen, Verdichtung der Zusammenfassung verdeutlichen, d.h. Token-Reduktion, zudem die prozentuale Kompressionsrate angeben (75% von 512 auf 128 Token), d.h. mit technischen Anpassungen können auch 5 DIN A4-Seiten um x Prozent verdichtet werden (Wie lang ist der Eingangstext? Wie lang ist der Ausgangstext? Wie geht das Modell mit längeren Texten um?)
 
 % TODO: \cite{YAN19} S. 4 rechts, Herausforderung: Encoder overfitted, Decoder underfitted oder andersherum, wird durch HuggingFace-Framework vorgebeugt, \cite{YAN19} S. 5 oben für Evaluation, Vergleichstabelle der Experimente einbinden und beschreiben, typisches Diagramm zur Visualisierung des Trainingsprozesses anfügen, Verhalten des Modells interpretieren und Anpassungen ableiten, bspw. Exploitation wegen der Struktur der Artikel nochmal aufgreifen, ggf. erst bei der sprachtechnischen Adaption, erwähnen, dass dies als Experiment genügt, sprachtechnische Anpassungen dann erst im nächsten Kapitel, Referenzzusammenfassungen mit ROUGE und BLEU bewerten, um Vergleichswerte nennen zu können, Texte manuell zusammenfassen, um ebenfalls einen Vergleichswert von ROUGE und BLEU zu haben\\
+
+% TODO: Dateien vom Taurus herunterladen und synchronisieren

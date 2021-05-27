@@ -6,13 +6,7 @@ import tf2tf_tud_gpu_helpers as helpers
 
 
 # Main
-tokenizer = transformers.AutoTokenizer.from_pretrained(
-    config.tokenizer_name
-)
-
-tf2tf = transformers.EncoderDecoderModel.from_pretrained(
-    config.path_checkpoint
-)
+tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=True)
 
 train_data, val_data, test_data = helpers.load_data(
     language=config.language,

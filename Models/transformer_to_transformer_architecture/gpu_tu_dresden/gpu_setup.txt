@@ -45,7 +45,7 @@ cd /scratch/ws/1/davo557d-ws_project
 
 ===== Training & Test =====
 ssh davo557d@taurus.hrsk.tu-dresden.de
-srun --pty -p gpu3 -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 24:00:00 bash -l
+srun --pty -p alpha -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 12:00:00 bash -l
 
 cd /home/davo557d/project
 source venv/bin/activate

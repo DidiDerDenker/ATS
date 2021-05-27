@@ -4,7 +4,9 @@ import csv
 import torch
 import psutil
 import datasets
+import transformers
 import pandas as pd
+import tf2tf_tud_gpu_config as config
 
 from datasets import ClassLabel
 
@@ -56,9 +58,9 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0):
 
         german_data = german_data.shuffle()
 
-        train_size = int(len(dataframe) * 0.900)
-        valid_size = int(len(dataframe) * 0.005)
-        test_size = int(len(dataframe) * 0.095)
+        train_size = int(len(dataframe) * 0.850)
+        valid_size = int(len(dataframe) * 0.050)
+        test_size = int(len(dataframe) * 0.100)
 
         train_data = german_data.select(
             range(0, train_size))
@@ -109,18 +111,48 @@ def empty_cache():
     # print(torch.cuda.memory_allocated(0))
 
 
+def load_tokenizer_and_model(from_checkpoint=False):
+    tokenizer = transformers.AutoTokenizer.from_pretrained(
+        config.tokenizer_name, strip_accent=False  # add_prefix_space=True
+    )
+
+    if from_checkpoint:
+        if "mbart" in config.model_name:
+            tf2tf = transformers.AutoModelForSeq2SeqLM.from_pretrained(
+                config.path_checkpoint
+            )
+
+        else:
+            tf2tf = transformers.EncoderDecoderModel.from_pretrained(
+                config.path_checkpoint
+            )
+
+    else:
+        if "mbart" in config.model_name:
+            tf2tf = transformers.AutoModelForSeq2SeqLM.from_pretrained(
+                config.model_name
+            )
+
+        else:
+            tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
+                config.model_name, config.model_name, tie_encoder_decoder=True
+            )
+
+    return tokenizer, tf2tf
+
+
 def configure_model(tf2tf, tokenizer):
     tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
     tf2tf.config.bos_token_id = tokenizer.bos_token_id
     tf2tf.config.eos_token_id = tokenizer.sep_token_id
     tf2tf.config.pad_token_id = tokenizer.pad_token_id
-    tf2tf.config.vocab_size = tf2tf.config.encoder.vocab_size
+    # tf2tf.config.vocab_size = tf2tf.config.encoder.vocab_size
 
-    tf2tf.config.max_length = 142
+    tf2tf.config.max_length = 128
     tf2tf.config.min_length = 56
     tf2tf.config.no_repeat_ngram_size = 3
     tf2tf.config.early_stopping = True
     tf2tf.config.length_penalty = 2.0
-    tf2tf.config.num_beams = 4
+    tf2tf.config.num_beams = 2
 
     return tf2tf

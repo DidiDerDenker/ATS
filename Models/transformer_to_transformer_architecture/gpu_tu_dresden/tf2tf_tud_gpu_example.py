@@ -7,15 +7,11 @@ import tf2tf_tud_gpu_helpers as helpers
 
 
 # Main
-tokenizer = transformers.AutoTokenizer.from_pretrained(
-    config.tokenizer_name
-)
+tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=True)
 
-tf2tf = transformers.EncoderDecoderModel.from_pretrained(
-    config.path_checkpoint
-)
-
+tf2tf = helpers.configure_model(tf2tf, tokenizer)
 tf2tf.to("cuda")
+
 text = None
 parts = []
 
@@ -46,6 +42,7 @@ if len(parts) > 1:
     highlights = [None] * len(parts)
 
 else:
+    parts = [text]
     article = [text] * 2
     highlights = [None] * 2
 
@@ -82,5 +79,9 @@ summary = test_data.map(
     batch_size=config.batch_size
 )
 
+result = ""
+
 for i in range(0, len(parts)):
-    print(summary[i]["pred_summary"])
+    result = result + " " + summary[i]["pred_summary"]
+
+print(result.strip())
