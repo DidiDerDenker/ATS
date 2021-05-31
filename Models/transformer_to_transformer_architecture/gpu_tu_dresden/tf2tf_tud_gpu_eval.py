@@ -11,7 +11,8 @@ tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=True)
 train_data, val_data, test_data = helpers.load_data(
     language=config.language,
     ratio_corpus_wiki=config.ratio_corpus_wiki,
-    ratio_corpus_news=config.ratio_corpus_news
+    ratio_corpus_news=config.ratio_corpus_news,
+    ratio_corpus_mlsum=config.ratio_corpus_mlsum
 )
 
 helpers.test_cuda()

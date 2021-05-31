@@ -11,7 +11,8 @@ tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=False)
 train_data, val_data, test_data = helpers.load_data(
     language=config.language,
     ratio_corpus_wiki=config.ratio_corpus_wiki,
-    ratio_corpus_news=config.ratio_corpus_news
+    ratio_corpus_news=config.ratio_corpus_news,
+    ratio_corpus_mlsum=config.ratio_corpus_mlsum
 )
 
 helpers.test_cuda()
@@ -27,10 +28,10 @@ def process_data_to_model_inputs(batch):
     encoder_max_length = 512
     decoder_max_length = 128
 
-    inputs = tokenizer(batch["article"], padding="max_length",
+    inputs = tokenizer(batch["text"], padding="max_length",
                        truncation=True, max_length=encoder_max_length)
 
-    outputs = tokenizer(batch["highlights"], padding="max_length",
+    outputs = tokenizer(batch["summary"], padding="max_length",
                         truncation=True, max_length=decoder_max_length)
 
     batch["input_ids"] = inputs.input_ids
@@ -48,7 +49,7 @@ train_data = train_data.map(
     process_data_to_model_inputs,
     batched=True,
     batch_size=config.batch_size,
-    remove_columns=["article", "highlights"]
+    remove_columns=["text", "summary"]
 )
 
 train_data.set_format(
@@ -63,7 +64,7 @@ train_data.set_format(
 val_data = val_data.map(
     process_data_to_model_inputs,
     batched=True,
-    remove_columns=["article", "highlights"]
+    remove_columns=["text", "summary"]
 )
 
 val_data.set_format(

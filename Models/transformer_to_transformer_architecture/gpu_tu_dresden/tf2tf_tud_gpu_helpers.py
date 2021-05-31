@@ -12,7 +12,7 @@ from datasets import ClassLabel
 
 
 # Methods
-def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0):
+def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corpus_mlsum=0.0):
     if str(language) == "english":
         train_data = datasets.load_dataset(
             "cnn_dailymail", "3.0.0", split="train")
@@ -21,11 +21,19 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0):
         test_data = datasets.load_dataset(
             "cnn_dailymail", "3.0.0", split="test[:5%]")
 
+        train_data = train_data.rename_column("article", "text")
+        train_data = train_data.rename_column("highlights", "summary")
+        val_data = val_data.rename_column("article", "text")
+        val_data = val_data.rename_column("highlights", "summary")
+        test_data = test_data.rename_column("article", "text")
+        test_data = test_data.rename_column("highlights", "summary")
+
         return train_data, val_data, test_data
 
     elif str(language) == "german":
         data_txt, data_ref = [], []
 
+        # CORPUS: WIKI
         with open("./data_train.csv", "r", encoding="utf-8") as f:
             reader = csv.reader(f, delimiter=",", quoting=csv.QUOTE_ALL)
             next(reader, None)
@@ -34,40 +42,69 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0):
                 data_txt.append(row[0])
                 data_ref.append(row[1])
 
-        tuples_wiki = list(zip(data_txt, data_ref))
-        tuples_wiki = tuples_wiki[0:int(len(tuples_wiki) * ratio_corpus_wiki)]
-
-        dataframe = pd.DataFrame(
-            tuples_wiki, columns=["article", "highlights"]
+        ds_wiki = datasets.arrow_dataset.Dataset.from_pandas(
+            pd.DataFrame(
+                list(zip(data_txt, data_ref)),
+                columns=["text", "summary"]
+            )
         )
 
-        tuples_news = pd.read_excel(
-            "./data_train_test.xlsx", engine="openpyxl"
+        # CORPUS: NEWS
+        df_news = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
+        df_news = df_news[["article", "highlights"]]
+        df_news.columns = ["text", "summary"]
+        df_news = df_news[~df_news["summary"].str.contains("ZEIT")]
+        df_news = df_news.dropna()
+        ds_news = datasets.arrow_dataset.Dataset.from_pandas(df_news)
+        ds_news = ds_news.remove_columns("__index_level_0__")
+
+        # CORPUS: MLSUM
+        ds_mlsum = datasets.load_dataset("mlsum", "de", split="train")
+        ds_mlsum = ds_mlsum.remove_columns(["topic", "url", "title", "date"])
+
+        text_corpus_mlsum = []
+        summary_corpus_mlsum = []
+
+        for entry in ds_mlsum:
+            text = entry["text"]
+            summary = entry["summary"]
+
+            if summary in text:
+                text = text[len(summary) + 1:len(text)]
+
+            text_corpus_mlsum.append(text)
+            summary_corpus_mlsum.append(summary)
+
+        ds_mlsum = datasets.arrow_dataset.Dataset.from_pandas(
+            pd.DataFrame(
+                list(zip(text_corpus_mlsum, summary_corpus_mlsum)),
+                columns=["text", "summary"]
+            )
         )
 
-        tuples_news = tuples_news[0:int(len(tuples_news) * ratio_corpus_news)]
-        del tuples_news["Unnamed: 0"]
-
-        dataframe = pd.concat([dataframe, tuples_news])
-        dataframe = dataframe.dropna()
-        dataframe = dataframe[~dataframe["highlights"].str.contains("ZEIT")]
-
-        german_data = datasets.arrow_dataset.Dataset.from_pandas(
-            dataframe[["article", "highlights"]]
-        )
+        # ACTION: CONCAT
+        german_data = datasets.concatenate_datasets([
+            ds_wiki.select(
+                range(0, int(len(ds_wiki) * ratio_corpus_wiki))),
+            ds_news.select(
+                range(0, int(len(ds_news) * ratio_corpus_news))),
+            ds_mlsum.select(
+                range(0, int(len(ds_mlsum) * ratio_corpus_mlsum)))
+        ])
 
         german_data = german_data.shuffle()
 
-        train_size = int(len(dataframe) * 0.850)
-        valid_size = int(len(dataframe) * 0.050)
-        test_size = int(len(dataframe) * 0.100)
+        # ACTION: SPLIT
+        train_size = int(len(german_data) * 0.800)
+        valid_size = int(len(german_data) * 0.100)
+        test_size = int(len(german_data) * 0.100)
 
         train_data = german_data.select(
             range(0, train_size))
         val_data = german_data.select(
             range(train_size, train_size + valid_size))
         test_data = german_data.select(
-            range(train_size + valid_size, len(dataframe)))
+            range(train_size + valid_size, train_size + valid_size + test_size))
 
         del german_data
 
@@ -89,8 +126,8 @@ def explore_corpus(data):
     summary_list = []
 
     for index, row in df.iterrows():
-        text = row["article"]
-        summary = row["highlights"]
+        text = row["text"]
+        summary = row["summary"]
         text_list.append(len(text))
         summary_list.append(len(summary))
 

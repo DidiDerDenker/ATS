@@ -45,11 +45,11 @@ cd /scratch/ws/1/davo557d-ws_project
 
 ===== Training & Test =====
 ssh davo557d@taurus.hrsk.tu-dresden.de
-srun --pty -p alpha -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 12:00:00 bash -l
+srun --pty -p alpha -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 24:00:00 bash -l
 
 cd /home/davo557d/project
 source venv/bin/activate
-python tf2tf_tud_gpu_train.py + edit config
+python tf2tf_tud_gpu_train.py
 python tf2tf_tud_gpu_eval.py
 python tf2tf_tud_gpu_example.py
 
@@ -62,13 +62,12 @@ sacct -S 2021-05-01
 skill id
 
 cd /scratch/ws/1/davo557d-ws_project
-cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-35000 /home/davo557d/project
+cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-55000 /home/davo557d/project
 cd /home/davo557d/project + download in vsc
-rm -rf checkpoint-35000
+rm -rf checkpoint-55000
 
 ===== Cache =====
 cd /home/davo557d/project/venv/lib/python3.7/site-packages
-cd /home/h1/davo557d/.cache/datasets
 cd /home/h1/davo557d/.cache/huggingface
 rm -rf transformers
 

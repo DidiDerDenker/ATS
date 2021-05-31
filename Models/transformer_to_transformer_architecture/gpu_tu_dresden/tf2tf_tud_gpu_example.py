@@ -84,4 +84,4 @@ result = ""
 for i in range(0, len(parts)):
     result = result + " " + summary[i]["pred_summary"]
 
-print(result.strip())
+print(summary[0]["pred_summary"])

@@ -1,32 +1,32 @@
 \babel@toc {ngerman}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Ablauf einer automatischen Zusammenfassung \cite {THA19}.\relax }}{1}{figure.caption.11}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Aufbau der Arbeit.\relax }}{4}{figure.caption.16}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Ablauf einer automatischen Zusammenfassung \cite {THA19}.\relax }}{1}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Aufbau der Arbeit.\relax }}{4}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Aufbau eines künstlichen Neurons \cite {MCC20}.\relax }}{7}{figure.caption.28}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Aufbau eines MLP \cite [S.~388]{RAS19}.\relax }}{7}{figure.caption.29}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Supervised Learning \cite [S.~3]{RAS19}.\relax }}{8}{figure.caption.30}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Typen von Generalisierungseffekten \cite {EDPOJ}.\relax }}{8}{figure.caption.31}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces RNN mit verborgenen Zuständen \cite [S.~325]{ZHA20}.\relax }}{10}{figure.caption.34}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Aufbau einer LSTM-Zelle \cite [S.~357]{ZHA20}.\relax }}{11}{figure.caption.36}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Encoder-Decoder-Architektur \cite [S.~375]{ZHA20}.\relax }}{13}{figure.caption.38}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Attention-Mechanismus \cite [S.~394]{ZHA20}.\relax }}{14}{figure.caption.40}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Self-Attention \cite [S.~400]{ZHA20}.\relax }}{15}{figure.caption.41}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Multi-Head-Attention \cite [S.~400]{ZHA20}.\relax }}{16}{figure.caption.42}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Transformer-Architektur \cite [S.~399]{ZHA20}.\relax }}{17}{figure.caption.44}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Konvergenzverhalten im Gradientenverfahren \cite [S.~429]{ZHA20}.\relax }}{18}{figure.caption.47}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Gradientenverfahren unter Einfluss eines Momentums \cite {CSNOJ}.\relax }}{19}{figure.caption.48}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Fine-Tuning vortrainierter Modelle \cite [S.~555]{ZHA20}.\relax }}{20}{figure.caption.51}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Aufbau eines künstlichen Neurons \cite {MCC20}.\relax }}{7}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Aufbau eines MLP \cite [S.~388]{RAS19}.\relax }}{7}{figure.caption.30}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Supervised Learning \cite [S.~3]{RAS19}.\relax }}{8}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Typen von Generalisierungseffekten \cite {EDPOJ}.\relax }}{8}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces RNN mit verborgenen Zuständen \cite [S.~325]{ZHA20}.\relax }}{10}{figure.caption.35}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Aufbau einer LSTM-Zelle \cite [S.~357]{ZHA20}.\relax }}{11}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Encoder-Decoder-Architektur \cite [S.~375]{ZHA20}.\relax }}{13}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Attention-Mechanismus \cite [S.~394]{ZHA20}.\relax }}{14}{figure.caption.41}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Self-Attention \cite [S.~400]{ZHA20}.\relax }}{15}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Multi-Head-Attention \cite [S.~400]{ZHA20}.\relax }}{16}{figure.caption.43}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Transformer-Architektur \cite [S.~399]{ZHA20}.\relax }}{17}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Konvergenzverhalten im Gradientenverfahren \cite [S.~429]{ZHA20}.\relax }}{18}{figure.caption.48}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Gradientenverfahren unter Einfluss eines Momentums \cite {CSNOJ}.\relax }}{19}{figure.caption.49}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Fine-Tuning vortrainierter Modelle \cite [S.~555]{ZHA20}.\relax }}{20}{figure.caption.52}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Tokenisierung eines beispielhaften Satzes.\relax }}{25}{figure.caption.60}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces One-Hot-Encoding mit zwei beispielhaften Sätzen.\relax }}{27}{figure.caption.64}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Word2Vec mit dem Embedding Projector von TensorFlow.\relax }}{30}{figure.caption.71}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Architektur und Funktionsweise von ELMo \cite {IRE18}.\relax }}{33}{figure.caption.78}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Architektur von BERT mit MLM \cite [S.~3]{DEV19}.\relax }}{35}{figure.caption.83}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{36}{figure.caption.84}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tokenisierung eines beispielhaften Satzes.\relax }}{25}{figure.caption.61}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces One-Hot-Encoding mit zwei beispielhaften Sätzen.\relax }}{27}{figure.caption.65}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Word2Vec mit dem Embedding Projector von TensorFlow.\relax }}{30}{figure.caption.72}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Architektur und Funktionsweise von ELMo \cite {IRE18}.\relax }}{33}{figure.caption.79}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Architektur von BERT mit MLM \cite [S.~3]{DEV19}.\relax }}{35}{figure.caption.84}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{36}{figure.caption.85}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{43}{figure.caption.100}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{43}{figure.caption.101}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
