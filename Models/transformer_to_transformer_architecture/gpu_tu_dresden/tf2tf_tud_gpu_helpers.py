@@ -12,7 +12,7 @@ from datasets import ClassLabel
 
 
 # Methods
-def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corpus_mlsum=0.0):
+def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corpus_mlsum=0.0, ratio_corpus_eng=0.0):
     if str(language) == "english":
         train_data = datasets.load_dataset(
             "cnn_dailymail", "3.0.0", split="train")
@@ -30,7 +30,7 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corp
 
         return train_data, val_data, test_data
 
-    elif str(language) == "german":
+    else:
         data_txt, data_ref = [], []
 
         # CORPUS: WIKI
@@ -92,21 +92,37 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corp
                 range(0, int(len(ds_mlsum) * ratio_corpus_mlsum)))
         ])
 
-        german_data = german_data.shuffle()
+        if str(language) == "multilingual":
+            english_data = datasets.load_dataset(
+                "cnn_dailymail", "3.0.0", split="train"
+            )
+
+            english_data = english_data.rename_column("article", "text")
+            english_data = english_data.rename_column("highlights", "summary")
+
+            prepared_data = datasets.concatenate_datasets([
+                german_data.shuffle(),
+                english_data.select(
+                    range(0, int(len(english_data) * ratio_corpus_eng))
+                ).shuffle()
+            ])
+
+        else:
+            prepared_data = german_data.shuffle()
 
         # ACTION: SPLIT
-        train_size = int(len(german_data) * 0.800)
-        valid_size = int(len(german_data) * 0.100)
-        test_size = int(len(german_data) * 0.100)
+        train_size = int(len(prepared_data) * 0.900)
+        valid_size = int(len(prepared_data) * 0.025)
+        test_size = int(len(prepared_data) * 0.075)
 
-        train_data = german_data.select(
+        train_data = prepared_data.select(
             range(0, train_size))
-        val_data = german_data.select(
+        val_data = prepared_data.select(
             range(train_size, train_size + valid_size))
-        test_data = german_data.select(
+        test_data = prepared_data.select(
             range(train_size + valid_size, train_size + valid_size + test_size))
 
-        del german_data
+        del prepared_data
 
         return train_data.shuffle(), val_data.shuffle(), test_data.shuffle()
 

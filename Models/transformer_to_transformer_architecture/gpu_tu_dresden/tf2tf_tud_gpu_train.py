@@ -12,7 +12,8 @@ train_data, val_data, test_data = helpers.load_data(
     language=config.language,
     ratio_corpus_wiki=config.ratio_corpus_wiki,
     ratio_corpus_news=config.ratio_corpus_news,
-    ratio_corpus_mlsum=config.ratio_corpus_mlsum
+    ratio_corpus_mlsum=config.ratio_corpus_mlsum,
+    ratio_corpus_eng=config.ratio_corpus_eng
 )
 
 helpers.test_cuda()

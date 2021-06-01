@@ -1,6 +1,5 @@
 # Imports
 import datasets
-import transformers
 import tf2tf_tud_gpu_config as config
 import tf2tf_tud_gpu_helpers as helpers
 
@@ -12,7 +11,8 @@ train_data, val_data, test_data = helpers.load_data(
     language=config.language,
     ratio_corpus_wiki=config.ratio_corpus_wiki,
     ratio_corpus_news=config.ratio_corpus_news,
-    ratio_corpus_mlsum=config.ratio_corpus_mlsum
+    ratio_corpus_mlsum=config.ratio_corpus_mlsum,
+    ratio_corpus_eng=config.ratio_corpus_eng
 )
 
 helpers.test_cuda()
@@ -26,7 +26,7 @@ tf2tf.to("cuda")
 
 def generate_summary(batch):
     inputs = tokenizer(
-        batch["article"],
+        batch["text"],
         padding="max_length",
         truncation=True,
         max_length=512,
@@ -52,7 +52,7 @@ results = test_data.map(
 print(
     rouge.compute(
         predictions=results["pred_summary"],
-        references=results["highlights"],
+        references=results["summary"],
         rouge_types=["rouge2"]
     )["rouge2"].mid
 )

@@ -1,7 +1,6 @@
 # Imports
 import datasets
 import pandas as pd
-import transformers
 import tf2tf_tud_gpu_config as config
 import tf2tf_tud_gpu_helpers as helpers
 
@@ -50,13 +49,13 @@ helpers.test_cuda()
 helpers.empty_cache()
 rouge = datasets.load_metric("rouge")
 
-df = pd.DataFrame({"article": article, "highlights": highlights})
+df = pd.DataFrame({"text": article, "summary": highlights})
 test_data = datasets.arrow_dataset.Dataset.from_pandas(df)
 
 
 def generate_summary(batch):
     inputs = tokenizer(
-        batch["article"],
+        batch["text"],
         padding="max_length",
         truncation=True,
         max_length=512,
