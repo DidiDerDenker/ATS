@@ -42,11 +42,11 @@
 \contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{42}{chapter.99}%
 \contentsline {section}{\numberline {5.1}Architektur}{42}{section.100}%
 \contentsline {section}{\numberline {5.2}Experimente}{45}{section.102}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{48}{chapter.105}%
-\contentsline {section}{\numberline {6.1}Architektur}{48}{section.106}%
-\contentsline {section}{\numberline {6.2}Experimente}{48}{section.107}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{51}{chapter.109}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{52}{chapter.110}%
+\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{47}{chapter.104}%
+\contentsline {section}{\numberline {6.1}Architektur}{47}{section.105}%
+\contentsline {section}{\numberline {6.2}Experimente}{47}{section.106}%
+\contentsline {chapter}{\numberline {7}Zusammenfassung}{50}{chapter.109}%
+\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{51}{chapter.110}%
 \contentsline {chapter}{Literaturverzeichnis}{50}{chapter.110}%
 \contentsline {chapter}{Thesen}{54}{chapter*.112}%
 \contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.113}%

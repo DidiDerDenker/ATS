@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  31 MAY 2021 13:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  1 JUN 2021 10:22
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -2182,22 +2182,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--60
 
  []
 
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 61--66
+)
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 61--63
 [] 
  []
 
 [46]
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
-
- []
-
-) [47]
 \openout2 = `"source/content/Sprachtechnische Adaption.aux"'.
 
  ("source/content/Sprachtechnische Adaption.tex"
 chapter 6.
-[48
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
+
+ []
+
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 18--24
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--24
+
+ []
+
+[47
 
 
 
@@ -2206,75 +2221,65 @@ chapter 6.
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 22--24
-
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 25--31
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 25--31
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
 
  []
 
 Package acronym Info: Label `acro:GBERT' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 33.
+although it is yet undefined on input line 29.
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 35--40
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 31--36
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--40
+Underfull \hbox (badness 10000) in paragraph at lines 31--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
 
-Overfull \hbox (29.77583pt too wide) in paragraph at lines 47--49
+Overfull \hbox (29.77583pt too wide) in paragraph at lines 45--47
 \OT1/cmr/m/n/12 R-Measure: 16.09. Ob-gleich [][] be-wie-se-ner-ma-en ver-schie
 -de-ne [][]-Aufgaben beg[]unstigt,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 50--55
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 48--53
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--55
+Underfull \hbox (badness 10000) in paragraph at lines 48--53
 
  []
 
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
 
  []
 
-) [50]
+) [49]
 \openout2 = `source/content/Zusammenfassung.aux'.
 
  (source/content/Zusammenfassung.tex
 chapter 7.
-) [51
+) [50
 
 
 
@@ -2287,7 +2292,7 @@ chapter 7.
 
  ("source/content/Diskussion und Ausblick.tex"
 chapter 8.
-) [52
+) [51
 
 
 
@@ -2548,8 +2553,8 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 28790 strings out of 480257
- 542629 string characters out of 2881437
+ 28789 strings out of 480257
+ 542622 string characters out of 2881437
  1407732 words of memory out of 3000000
  43923 multiletter control sequences out of 15000+200000
  548288 words of font info for 76 fonts, out of 3000000 for 9000
@@ -2573,9 +2578,9 @@ lic/amsfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (81 pages, 1642090 bytes).
+Output written on Thesis.pdf (80 pages, 1640403 bytes).
 PDF statistics:
- 2159 PDF objects out of 2487 (max. 8388607)
- 721 named destinations out of 1000 (max. 500000)
+ 2149 PDF objects out of 2487 (max. 8388607)
+ 720 named destinations out of 1000 (max. 500000)
  661 words of extra memory for PDF output out of 10000 (max. 10000000)
 

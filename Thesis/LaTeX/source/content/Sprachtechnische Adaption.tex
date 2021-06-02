@@ -13,23 +13,20 @@ Die bislang genutzte Architektur, welche bekanntermaßen Transformer integriert,
 
 \section{Experimente}
 \noindent
-In einem initialen Experiment wird die multilinguale Version von \ac{BERT} mit einem Mix aus allen verfügbaren deutschsprachigen Daten trainiert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 24.56, R-Precision: 15.05, R-Measure: 17.25. Dies überliegt dem \ac{SOTA} zwar deutlich, ist allerdings auf die Struktur der Trainingsdaten zurückzuführen, da mehr als die Hälfte aller Daten aus Wikipedia-Artikeln stammen.
-\newpage
-
-% TODO: Selbst der englische SOTA ist subjektiv inhaltlich fehlerbehaftet und somit praktisch nicht verwendbar, ebenso wie die deutsche Version
-
-\noindent
-Dennoch sei nachfolgend die Zusammenfassung des in Anhang B einzusehenden deutschsprachigen Textes gezeigt. Dieser gleicht strukturell sowie inhaltlich dem bereits beschriebenen Text in Anhang A. In der Folge schließen sich verschiedene jeweils aus dem vorherigen Schritt abgeleitete Experimente an.\\
+In einem initialen Experiment wird die multilinguale Version von \ac{BERT} mit einem Mix aus allen verfügbaren deutschsprachigen Daten trainiert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 15.93, R-Precision: 10.52, R-Measure: 11.97. Dies entspricht dem \ac{SOTA}, wenn man ausschließlich die Werte berücksichtigt. Nachfolgend sei die fehlerbehaftete Zusammenfassung des in Anhang B einzusehenden deutschsprachigen Textes gezeigt. Dieser gleicht strukturell sowie inhaltlich weitestgehend dem bereits beschriebenen Text in Anhang A.\\
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
-In New York ist ein Flugzeug aus dem World Trade Center auf dem Nordturm des World Trade Centers gebrannt. In den USA ist es zu einem Unfall gekommen. Nun ist das Land wieder in Schock, wo es sich um einen Brand ereignete. Es war der erste Unfall, der sich in den USA ereignet hat.
+Der 11. September 2001 war der größte Unfall in der Geschichte der USA. Doch die Bilder zeigen, wie groß die Welt ist, und wie groß der Druck auf die Menschen ist. 500 Feuerwehrleute und Polizeibeamte starben. New York steht unter Schock und vor einem Desaster für die USA. Ein Gedenkpavillon erinnert an die Aufräumarbeiten auf dem World Trade Center.
 }%
-}
+}\\
 \newline
 
 \noindent
-Die inhaltliche Schwäche ist für den menschlichen Leser auch ohne Kenntnis über den Originaltext unschwer erkennbar. Daher wird nun die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. Hierbei handelt es sich um den sogenannten \ac{GBERT}, welcher von Deepset AI, einem globalen Anbieter von Open-Source-Lösungen für \ac{NLP}, vortrainiert und bereitgestellt wird. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 28.51, R-Precision: 16.91, R-Measure: 19.59. Nachfolgend ist erneut eine Zusammenfassung des Textes aus Anhang B zu sehen.\\
+Die inhaltliche Insuffizienz ist für den menschlichen Leser auch ohne Kenntnis über den Originaltext unschwer erkennbar. Dies ist aus praktischer Sicht zwar nachteilig, ist aber indes ebenfalls im englischsprachigen \ac{SOTA} existent, wenn auch subjektiv weniger gravierend. Die Grammatik und die Orthographie hingegen scheinen fehlerfrei zu sein. In der Folge schließen sich verschiedene jeweils aus dem vorherigen Schritt abgeleitete Experimente an, welche die praktische Eignung fördern sollen.\\
+
+\noindent
+Daher wird nun die multilinguale Version von \ac{BERT} durch eine eigens für die deutsche Sprache vortrainierte Version ausgetauscht. Hierbei handelt es sich um den sogenannten \ac{GBERT}, welcher von Deepset AI, einem globalen Anbieter von Open-Source-Lösungen für \ac{NLP}, vortrainiert und bereitgestellt wird. An der deutschsprachigen Datengrundlage wird zunächst nichts verändert. Hierbei entstehen die folgenden \ac{ROUGE}-Scores: R-Recall: 28.51, R-Precision: 16.91, R-Measure: 19.59. Nachfolgend ist erneut eine Zusammenfassung des Textes aus Anhang B zu sehen.\\
 
 \noindent\fbox{%
 \parbox{\textwidth}{%
@@ -38,10 +35,7 @@ Die inhaltliche Schwäche ist für den menschlichen Leser auch ohne Kenntnis üb
 }\\
 
 
-% TODO: Modell der Wahl aus dem abstraktiven Ansatz nennen, verwenden und nur andere Modelle testen, wenn das Ergebnis nicht vielversprechend ist, dann zunächst auf englischen und deutschen Texten trainieren, dann auf übersetztem CNN-DailyMail-Korpus trainieren, Data Augmentation und Sliding Window Approach in den Ausblick verschieben, Texte untenstehend sukzessive geraderücken und komplettieren
-
-
-Letzterer scheint tatsächlich von den verborgenen Strukturen anderer Sprachen zu profitieren.\\
+% TODO: Modell der Wahl aus dem abstraktiven Ansatz nennen, verwenden und nur andere Modelle testen, wenn das Ergebnis nicht vielversprechend ist, dann zunächst auf englischen und deutschen Texten trainieren, dann auf übersetztem CNN-DailyMail-Korpus trainieren, Data Augmentation und Sliding Window Approach in den Ausblick verschieben, Texte untenstehend sukzessive geraderücken und komplettieren, profitieren multilinguale Modelle von dem verborgenen Strukturen anderer Sprachen?
 
 % TODO: Andere neuere deutsche Version ausprobieren, ggf. doch damit weiter machen und oben rechtfertigen, Relevanz des Vortrainings verdeutlichen, untere Absätze aktualisieren
 

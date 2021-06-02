@@ -58,7 +58,7 @@ nvidia-smi -l 100
 ls
 
 ===== Export =====
-sacct -S 2021-05-01
+sacct -S 2021-06-01
 skill id
 
 cd /scratch/ws/1/davo557d-ws_project
