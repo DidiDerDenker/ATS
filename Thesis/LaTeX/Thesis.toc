@@ -38,19 +38,16 @@
 \contentsline {section}{\numberline {3.4}Metriken}{37}{section.90}%
 \contentsline {subsection}{\numberline {3.4.1}ROUGE}{37}{subsection.95}%
 \contentsline {subsection}{\numberline {3.4.2}BLEU}{39}{subsection.97}%
-\contentsline {chapter}{\numberline {4}Datengrundlage}{40}{chapter.98}%
-\contentsline {chapter}{\numberline {5}Abstraktiver Ansatz}{42}{chapter.99}%
-\contentsline {section}{\numberline {5.1}Architektur}{42}{section.100}%
-\contentsline {section}{\numberline {5.2}Experimente}{45}{section.102}%
-\contentsline {chapter}{\numberline {6}Sprachtechnische Adaption}{47}{chapter.104}%
-\contentsline {section}{\numberline {6.1}Architektur}{47}{section.105}%
-\contentsline {section}{\numberline {6.2}Experimente}{47}{section.106}%
-\contentsline {chapter}{\numberline {7}Zusammenfassung}{50}{chapter.109}%
-\contentsline {chapter}{\numberline {8}Diskussion und Ausblick}{51}{chapter.110}%
-\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.110}%
-\contentsline {chapter}{Thesen}{54}{chapter*.112}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.113}%
-\contentsline {chapter}{Quellcode}{56}{chapter*.114}%
-\contentsline {chapter}{\numberline {A}Englischer Text}{66}{appendix.551}%
-\contentsline {chapter}{\numberline {B}Deutscher Text}{67}{appendix.552}%
+\contentsline {chapter}{\numberline {4}Automatic Text Summarization}{40}{chapter.98}%
+\contentsline {chapter}{\numberline {5}Datengrundlage}{44}{chapter.100}%
+\contentsline {chapter}{\numberline {6}Experimente}{47}{chapter.101}%
+\contentsline {chapter}{\numberline {7}Evaluation}{49}{chapter.103}%
+\contentsline {chapter}{\numberline {8}Zusammenfassung}{53}{chapter.106}%
+\contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{54}{chapter.107}%
+\contentsline {chapter}{Literaturverzeichnis}{50}{chapter.107}%
+\contentsline {chapter}{Thesen}{54}{chapter*.109}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{55}{chapter*.110}%
+\contentsline {chapter}{Quellcode}{56}{chapter*.111}%
+\contentsline {chapter}{\numberline {A}Englischer Korpus}{67}{appendix.535}%
+\contentsline {chapter}{\numberline {B}Deutscher Korpus}{70}{appendix.536}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

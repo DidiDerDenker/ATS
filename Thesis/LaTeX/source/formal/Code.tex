@@ -2,127 +2,284 @@
 \addcontentsline{toc}{chapter}{Quellcode}
 \markboth{Quellcode}{}
 
-\section*{Quellcode zum Training}
-\begin{lstlisting}[language=Python, caption=Quellcode zum Training]
+\section*{Konfigurationsdatei}
+\begin{lstlisting}[language=Python, caption=Konfigurationsdatei]
+language = "german"  # english, german, multilingual
+model_name = "bert-base-multilingual-cased"
+tokenizer_name = "bert-base-multilingual-cased"
+batch_size = 16
+
+ratio_corpus_wiki = 1.00
+ratio_corpus_news = 1.00
+ratio_corpus_mlsum = 1.00
+ratio_corpus_eng = 1.00
+
+path_output = "/scratch/ws/1/davo557d-ws_project/"
+path_checkpoint = "/scratch/ws/1/davo557d-ws_project/checkpoint-100000"
+
+text_english = "..."
+text_german = "..."
+\end{lstlisting}
+\newpage
+
+
+\section*{Hilfsmethoden}
+\begin{lstlisting}[language=Python, caption=Hilfsmethoden]
 # Imports
-import psutil
 import gc
-import pandas as pd
-import datasets
-import transformers
 import csv
 import torch
+import psutil
+import datasets
+import transformers
+import pandas as pd
+import tf2tf_tud_gpu_config as config
 
 from datasets import ClassLabel
 
 
-# Test CUDA
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-torch.cuda.empty_cache()
+# Methods
+def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corpus_mlsum=0.0, ratio_corpus_eng=0.0):
+    if str(language) == "english":
+        return load_english_data()
 
-print("Device:", device)
-print("Version:", torch.__version__)
+    else:
+        # CORPUS: WIKI
+        data_txt, data_ref = [], []
+
+        with open("./data_train.csv", "r", encoding="utf-8") as f:
+            reader = csv.reader(f, delimiter=",", quoting=csv.QUOTE_ALL)
+            next(reader, None)
+
+            for row in reader:
+                data_txt.append(row[0])
+                data_ref.append(row[1])
+
+        ds_wiki = datasets.arrow_dataset.Dataset.from_pandas(
+            pd.DataFrame(
+                list(zip(data_txt, data_ref)),
+                columns=["text", "summary"]
+            )
+        )
+
+        # CORPUS: NEWS
+        df_news = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
+        df_news = df_news[["article", "highlights"]]
+        df_news.columns = ["text", "summary"]
+        df_news = df_news[~df_news["summary"].str.contains("ZEIT")]
+        df_news = df_news.dropna()
+        ds_news = datasets.arrow_dataset.Dataset.from_pandas(df_news)
+        ds_news = ds_news.remove_columns("__index_level_0__")
+
+        # CORPUS: MLSUM
+        ds_mlsum = datasets.load_dataset("mlsum", "de", split="train")
+        ds_mlsum = ds_mlsum.remove_columns(["topic", "url", "title", "date"])
+
+        text_corpus_mlsum = []
+        summary_corpus_mlsum = []
+
+        for entry in ds_mlsum:
+            text = entry["text"]
+            summary = entry["summary"]
+
+            if summary in text:
+                text = text[len(summary) + 1:len(text)]
+
+            text_corpus_mlsum.append(text)
+            summary_corpus_mlsum.append(summary)
+
+        ds_mlsum = datasets.arrow_dataset.Dataset.from_pandas(
+            pd.DataFrame(
+                list(zip(text_corpus_mlsum, summary_corpus_mlsum)),
+                columns=["text", "summary"]
+            )
+        )
+
+        # ACTION: CONCAT
+        german_data = datasets.concatenate_datasets([
+            ds_wiki.select(
+                range(0, int(len(ds_wiki) * ratio_corpus_wiki))),
+            ds_news.select(
+                range(0, int(len(ds_news) * ratio_corpus_news))),
+            ds_mlsum.select(
+                range(0, int(len(ds_mlsum) * ratio_corpus_mlsum)))
+        ])
+
+        if str(language) == "multilingual":
+            english_data, _, _ = load_english_data()
+            english_data = english_data.remove_columns("id")
+
+            prepared_data = datasets.concatenate_datasets([
+                german_data.shuffle(),
+                english_data.select(
+                    range(0, int(len(english_data) * ratio_corpus_eng))
+                ).shuffle()
+            ])
+
+        else:
+            prepared_data = german_data.shuffle()
+
+        # ACTION: SPLIT
+        train_size = int(len(prepared_data) * 0.900)
+        valid_size = int(len(prepared_data) * 0.005)  # 0.025
+        test_size = int(len(prepared_data) * 0.075)
+
+        train_data = prepared_data.select(
+            range(0, train_size))
+        val_data = prepared_data.select(
+            range(train_size, train_size + valid_size))
+        test_data = prepared_data.select(
+            range(train_size + valid_size, train_size + valid_size + test_size))
+
+        del prepared_data
+
+        return train_data.shuffle(), val_data.shuffle(), test_data.shuffle()
 
 
-# Load swiss data
-data_txt = []
-data_ref = []
+def load_english_data():
+    train_data = datasets.load_dataset(
+        "cnn_dailymail", "3.0.0", split="train",
+        ignore_verifications=True)
+    val_data = datasets.load_dataset(
+        "cnn_dailymail", "3.0.0", split="validation[:10%]",
+        ignore_verifications=True)
+    test_data = datasets.load_dataset(
+        "cnn_dailymail", "3.0.0", split="test[:5%]",
+        ignore_verifications=True)
 
-with open("./data_train.csv", "r", encoding="utf-8") as f:
-    reader = csv.reader(f, delimiter=",", quoting=csv.QUOTE_ALL)
-    next(reader, None)
+    train_data = train_data.rename_column("article", "text")
+    train_data = train_data.rename_column("highlights", "summary")
+    val_data = val_data.rename_column("article", "text")
+    val_data = val_data.rename_column("highlights", "summary")
+    test_data = test_data.rename_column("article", "text")
+    test_data = test_data.rename_column("highlights", "summary")
 
-    for row in reader:
-        data_txt.append(row[0])
-        data_ref.append(row[1])
-
-tuples = list(zip(data_txt, data_ref))
-dataframe = pd.DataFrame(tuples, columns=["article", "highlights"])
-
-
-# Load german data
-tuples = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
-del tuples["Unnamed: 0"]
-dataframe = pd.concat([dataframe, tuples])
-dataframe = dataframe.dropna()
+    return train_data, val_data, test_data
 
 
-# Clean redactional data
-print(len(dataframe))
-dataframe = dataframe[~dataframe["highlights"].str.contains("ZEIT")]
-print(len(dataframe))
+def test_cuda():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    torch.cuda.empty_cache()
+
+    print("Device:", device)
+    print("Version:", torch.__version__)
 
 
-# Concat swiss and german data
-german_data = datasets.arrow_dataset.Dataset.from_pandas(
-    dataframe[["article", "highlights"]]
+def explore_corpus(data):
+    df = pd.DataFrame(data)
+
+    text_list = []
+    summary_list = []
+
+    for index, row in df.iterrows():
+        text = row["text"]
+        summary = row["summary"]
+        text_list.append(len(text))
+        summary_list.append(len(summary))
+
+    df = pd.DataFrame(data[:1])
+
+    for column, typ in data.features.items():
+        if isinstance(typ, ClassLabel):
+            df[column] = df[column].transform(lambda i: typ.names[i])
+
+
+def empty_cache():
+    gc.collect()
+    torch.cuda.empty_cache()
+    psutil.virtual_memory()
+
+    # print(torch.cuda.get_device_properties(0).total_memory)
+    # print(torch.cuda.memory_reserved(0))
+    # print(torch.cuda.memory_allocated(0))
+
+
+def load_tokenizer_and_model(from_checkpoint=False):
+    tokenizer = transformers.AutoTokenizer.from_pretrained(
+        config.tokenizer_name, strip_accent=False  # add_prefix_space=True
+    )
+
+    if from_checkpoint:
+        if "mbart" in config.model_name:
+            tf2tf = transformers.AutoModelForSeq2SeqLM.from_pretrained(
+                config.path_checkpoint
+            )
+
+        else:
+            tf2tf = transformers.EncoderDecoderModel.from_pretrained(
+                config.path_checkpoint
+            )
+
+    else:
+        if "mbart" in config.model_name:
+            tf2tf = transformers.AutoModelForSeq2SeqLM.from_pretrained(
+                config.model_name
+            )
+
+        else:
+            tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
+                config.model_name, config.model_name, tie_encoder_decoder=True
+            )
+
+    return tokenizer, tf2tf
+
+
+def configure_model(tf2tf, tokenizer):
+    tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
+    tf2tf.config.bos_token_id = tokenizer.bos_token_id
+    tf2tf.config.eos_token_id = tokenizer.sep_token_id
+    tf2tf.config.pad_token_id = tokenizer.pad_token_id
+    # tf2tf.config.vocab_size = tf2tf.config.encoder.vocab_size
+
+    tf2tf.config.max_length = 128
+    tf2tf.config.min_length = 56
+    tf2tf.config.no_repeat_ngram_size = 3
+    tf2tf.config.early_stopping = True
+    tf2tf.config.length_penalty = 2.0
+    tf2tf.config.num_beams = 2
+
+    return tf2tf
+\end{lstlisting}
+\newpage
+
+
+\section*{Trainingscode}
+\begin{lstlisting}[language=Python, caption=Trainingscode]
+# Imports
+import datasets
+import transformers
+import tf2tf_tud_gpu_config as config
+import tf2tf_tud_gpu_helpers as helpers
+
+
+# Main
+tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=False)
+
+train_data, val_data, test_data = helpers.load_data(
+    language=config.language,
+    ratio_corpus_wiki=config.ratio_corpus_wiki,
+    ratio_corpus_news=config.ratio_corpus_news,
+    ratio_corpus_mlsum=config.ratio_corpus_mlsum,
+    ratio_corpus_eng=config.ratio_corpus_eng
 )
-german_data = german_data.shuffle()
-print(dataframe.head(10))
 
+helpers.test_cuda()
+helpers.explore_corpus(train_data)
+helpers.empty_cache()
+rouge = datasets.load_metric("rouge")
 
-# Split data
-train_size = int(len(dataframe) * 0.8)
-valid_size = int(len(dataframe) * 0.1)
-test_size = int(len(dataframe) * 0.1)
-
-train_data = german_data.select(range(0, train_size))
-val_data = german_data.select(range(train_size, train_size + valid_size))
-test_data = german_data.select(range(train_size + valid_size, len(dataframe)))
-
-
-# Load english data
-'''
-train_data = datasets.load_dataset(
-    "cnn_dailymail", "3.0.0", split="train")
-val_data = datasets.load_dataset(
-    "cnn_dailymail", "3.0.0", split="validation[:10%]")
-test_data = datasets.load_dataset(
-    "cnn_dailymail", "3.0.0", split="test[:5%]")
-'''
-
-
-# Explore corpus
-df = pd.DataFrame(train_data)
-
-text_list = []
-summary_list = []
-
-for index, row in df.iterrows():
-    text = row["article"]
-    summary = row["highlights"]
-    text_list.append(len(text))
-    summary_list.append(len(summary))
-
-print(sum(text_list) / len(text_list))
-print(sum(summary_list) / len(summary_list))
-
-
-# Explore corpus
-train_data.info.description
-df = pd.DataFrame(train_data[:1])
-
-for column, typ in train_data.features.items():
-    if isinstance(typ, ClassLabel):
-        df[column] = df[column].transform(lambda i: typ.names[i])
-
-
-# Load tokenizer
-model = "bert-base-german-cased"
-tokenizer = transformers.BertTokenizer.from_pretrained(model)
-print(type(tokenizer))
-
-
-# Prepare data
-encoder_max_length = 512
-decoder_max_length = 128
-batch_size = 16
+tf2tf = helpers.configure_model(tf2tf, tokenizer)
+tf2tf.to("cuda")
 
 
 def process_data_to_model_inputs(batch):
-    inputs = tokenizer(batch["article"], padding="max_length",
+    encoder_max_length = 512
+    decoder_max_length = 128
+
+    inputs = tokenizer(batch["text"], padding="max_length",
                        truncation=True, max_length=encoder_max_length)
-    outputs = tokenizer(batch["highlights"], padding="max_length",
+
+    outputs = tokenizer(batch["summary"], padding="max_length",
                         truncation=True, max_length=decoder_max_length)
 
     batch["input_ids"] = inputs.input_ids
@@ -136,12 +293,11 @@ def process_data_to_model_inputs(batch):
     return batch
 
 
-# Training data
 train_data = train_data.map(
     process_data_to_model_inputs,
     batched=True,
-    batch_size=batch_size,
-    remove_columns=["article", "highlights"]
+    batch_size=config.batch_size,
+    remove_columns=["text", "summary"]
 )
 
 train_data.set_format(
@@ -153,12 +309,11 @@ train_data.set_format(
              "labels"]
 )
 
-
-# Validation data
 val_data = val_data.map(
     process_data_to_model_inputs,
     batched=True,
-    remove_columns=["article", "highlights"]
+    batch_size=config.batch_size,
+    remove_columns=["text", "summary"]
 )
 
 val_data.set_format(
@@ -169,37 +324,6 @@ val_data.set_format(
              "decoder_attention_mask",
              "labels"]
 )
-
-
-# Load models
-tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
-    model, model, tie_encoder_decoder=False
-)
-
-
-# Configure models
-tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
-tf2tf.config.bos_token_id = tokenizer.bos_token_id
-tf2tf.config.eos_token_id = tokenizer.sep_token_id
-tf2tf.config.pad_token_id = tokenizer.pad_token_id
-tf2tf.config.vocab_size = tf2tf.config.encoder.vocab_size
-
-print(tf2tf.config.decoder_start_token_id)
-print(tf2tf.config.eos_token_id)
-print(tf2tf.config.vocab_size)
-
-
-# Configure beam search
-tf2tf.config.max_length = 142
-tf2tf.config.min_length = 56
-tf2tf.config.no_repeat_ngram_size = 3
-tf2tf.config.early_stopping = True
-tf2tf.config.length_penalty = 2.0
-tf2tf.config.num_beams = 4
-
-
-# Prepare metric
-rouge = datasets.load_metric("rouge")
 
 
 def compute_metrics(pred):
@@ -223,32 +347,22 @@ def compute_metrics(pred):
     }
 
 
-# Empty cache
-gc.collect()
-torch.cuda.empty_cache()
-psutil.virtual_memory()
-
-
-# Setup arguments
-path_output = "/scratch/ws/1/davo557d-ws_project/"
-tf2tf.to("cuda")
-
 training_args = transformers.Seq2SeqTrainingArguments(
     predict_with_generate=True,
     evaluation_strategy="steps",
-    per_device_train_batch_size=batch_size,
-    per_device_eval_batch_size=batch_size,
-    output_dir=path_output,
+    per_device_train_batch_size=config.batch_size,
+    per_device_eval_batch_size=config.batch_size,
+    output_dir=config.path_output,
     warmup_steps=1000,
-    save_steps=2000,
+    save_steps=5000,
     logging_steps=1000,
-    eval_steps=2000,
+    eval_steps=5000,
     save_total_limit=1,
-    fp16=True,
+    learning_rate=5e-5,
+    adafactor=True,
+    fp16=True
 )
 
-
-# Start training
 trainer = transformers.Seq2SeqTrainer(
     model=tf2tf,
     args=training_args,
@@ -262,157 +376,37 @@ trainer.train()
 \end{lstlisting}
 \newpage
 
-\section*{Quellcode zur Evaluation}
-\begin{lstlisting}[language=Python, caption=Quellcode zur Evaluation]
+\section*{Evaluationscode}
+\begin{lstlisting}[language=Python, caption=Evaluationscode]
 # Imports
-import psutil
-import gc
-import pandas as pd
 import datasets
-import transformers
-import csv
-import torch
-
-from datasets import ClassLabel
+import tf2tf_tud_gpu_config as config
+import tf2tf_tud_gpu_helpers as helpers
 
 
-# Test CUDA
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-torch.cuda.empty_cache()
+# Main
+tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=True)
 
-print("Device:", device)
-print("Version:", torch.__version__)
-
-
-# Load swiss data
-data_txt = []
-data_ref = []
-
-with open("./data_train.csv", "r", encoding="utf-8") as f:
-    reader = csv.reader(f, delimiter=",", quoting=csv.QUOTE_ALL)
-    next(reader, None)
-
-    for row in reader:
-        data_txt.append(row[0])
-        data_ref.append(row[1])
-
-tuples = list(zip(data_txt, data_ref))
-dataframe = pd.DataFrame(tuples, columns=["article", "highlights"])
-
-
-# Load german data
-tuples = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
-del tuples["Unnamed: 0"]
-dataframe = pd.concat([dataframe, tuples])
-dataframe = dataframe.dropna()
-
-
-# Clean redactional data
-print(len(dataframe))
-dataframe = dataframe[~dataframe["highlights"].str.contains("ZEIT")]
-print(len(dataframe))
-
-
-# Concat swiss and german data
-german_data = datasets.arrow_dataset.Dataset.from_pandas(
-    dataframe[["article", "highlights"]]
+train_data, val_data, test_data = helpers.load_data(
+    language=config.language,
+    ratio_corpus_wiki=config.ratio_corpus_wiki,
+    ratio_corpus_news=config.ratio_corpus_news,
+    ratio_corpus_mlsum=config.ratio_corpus_mlsum,
+    ratio_corpus_eng=config.ratio_corpus_eng
 )
-german_data = german_data.shuffle()
-print(dataframe.head(10))
 
+helpers.test_cuda()
+helpers.explore_corpus(train_data)
+helpers.empty_cache()
+rouge = datasets.load_metric("rouge")
 
-# Split data
-train_size = int(len(dataframe) * 0.8)
-valid_size = int(len(dataframe) * 0.1)
-test_size = int(len(dataframe) * 0.1)
-
-train_data = german_data.select(range(0, train_size))
-val_data = german_data.select(range(train_size, train_size + valid_size))
-test_data = german_data.select(range(train_size + valid_size, len(dataframe)))
-
-
-# Load english data
-'''
-train_data = datasets.load_dataset(
-    "cnn_dailymail", "3.0.0", split="train")
-val_data = datasets.load_dataset(
-    "cnn_dailymail", "3.0.0", split="validation[:10%]")
-test_data = datasets.load_dataset(
-    "cnn_dailymail", "3.0.0", split="test[:5%]")
-'''
-
-
-# Load tokenizer
-model = "bert-base-german-cased"
-tokenizer = transformers.BertTokenizer.from_pretrained(model)
-print(type(tokenizer))
-
-
-# Prepare data
-encoder_max_length = 512
-decoder_max_length = 128
-batch_size = 16
-
-
-# Load models
-path_checkpoint = "/scratch/ws/1/davo557d-ws_project/checkpoint-50000"
-tf2tf = transformers.EncoderDecoderModel.from_pretrained(path_checkpoint)
+tf2tf = helpers.configure_model(tf2tf, tokenizer)
 tf2tf.to("cuda")
 
 
-# Configure models
-tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
-tf2tf.config.bos_token_id = tokenizer.bos_token_id
-tf2tf.config.eos_token_id = tokenizer.sep_token_id
-tf2tf.config.pad_token_id = tokenizer.pad_token_id
-tf2tf.config.vocab_size = tf2tf.config.encoder.vocab_size
-
-print(tf2tf.config.decoder_start_token_id)
-print(tf2tf.config.eos_token_id)
-print(tf2tf.config.vocab_size)
-
-
-# Configure beam search
-tf2tf.config.max_length = 142
-tf2tf.config.min_length = 56
-tf2tf.config.no_repeat_ngram_size = 3
-tf2tf.config.early_stopping = True
-tf2tf.config.length_penalty = 2.0
-tf2tf.config.num_beams = 4
-
-
-# Prepare metric
-rouge = datasets.load_metric("rouge")
-
-
-def compute_metrics(pred):
-    labels_ids = pred.label_ids
-    pred_ids = pred.predictions
-
-    pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
-    labels_ids[labels_ids == -100] = tokenizer.pad_token_id
-    label_str = tokenizer.batch_decode(labels_ids, skip_special_tokens=True)
-
-    rouge_output = rouge.compute(
-        predictions=pred_str, references=label_str, rouge_types=["rouge2"])["rouge2"].mid
-
-    return {
-        "rouge2_precision": round(rouge_output.precision, 4),
-        "rouge2_recall": round(rouge_output.recall, 4),
-        "rouge2_fmeasure": round(rouge_output.fmeasure, 4),
-    }
-
-
-# Empty cache
-gc.collect()
-torch.cuda.empty_cache()
-psutil.virtual_memory()
-
-
-# Evaluate training
 def generate_summary(batch):
     inputs = tokenizer(
-        batch["article"],
+        batch["text"],
         padding="max_length",
         truncation=True,
         max_length=512,
@@ -432,13 +426,14 @@ def generate_summary(batch):
 results = test_data.map(
     generate_summary,
     batched=True,
-    batch_size=batch_size
+    batch_size=config.batch_size
 )
 
-print(f"HYP: {results[0]['pred_summary']}")
-print(f"REF: {results[0]['highlights']}")
-
-print(rouge.compute(predictions=results["pred_summary"],
-                    references=results["highlights"],
-                    rouge_types=["rouge2"])["rouge2"].mid)
+print(
+    rouge.compute(
+        predictions=results["pred_summary"],
+        references=results["summary"],
+        rouge_types=["rouge2"]
+    )["rouge2"].mid
+)
 \end{lstlisting}
