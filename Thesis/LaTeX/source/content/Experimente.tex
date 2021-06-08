@@ -3,23 +3,30 @@
 \label{chap:Experimente}
 
 \noindent
-Unter Kenntnis der Grundlagen des \ac{DL}, des \ac{NLP} und der \ac{ATS} wird nun ein Ablauf verschiedener Experimente konzipiert. Die Entwicklung und die Durchführung aller Experimente geschieht in Python. Dies ist eine Programmiersprache, welche sich insbesondere für \ac{ML}- und \ac{DL}-Zwecke eignet. Dabei werden Trainingsprozesse durch \ac{CUDA} unterstützt, wenn entsprechende Voraussetzungen erfüllt sind. \ac{CUDA} ist eine von NVIDIA entwickelte Technik, welche es ermöglicht, bestimmte Operationen mithilfe der GPU zu beschleunigen \cite{NVI21}. Zudem ist es in dieser Umgebung möglich, vortrainierte Modelle wie \ac{BERT}, {XLM-R} und \ac{BART} zu laden und Architekturen weitergehend gemäß der bereits bekannten Konfiguration zu präparieren, darunter beispielsweise die beschriebene Encoder-Decoder-Architektur. Dies wird durch die Bibliothek PyTorch und das US-Unternehmen HuggingFace, welches den Code als Open Source bereitstellt, ermöglicht. HuggingFace stellt zudem verschiedene Klassen zum Trainieren von Sequence-to-Sequence-Modellen bereit \cite{HUG21}. Darüber hinaus erfolgen alle Experimente dieser Arbeit über einen legitimierten Zugang auf dem Hochleitungsrechner der TU Dresden, namentlich Taurus, um das Potenzial der verfügbaren Umgebung mithilfe einer leistungsstarken GPU (NVIDIA V100) vollends auszuschöpfen \cite{ZIH21}. Der Quellcode ist dem Anhang zu entnehmen.\\
+Unter Kenntnis der Grundlagen des \ac{DL}, des \ac{NLP} und der \ac{ATS} wird nun ein Ablauf verschiedener Experimente konzipiert. Zuvor wird die entsprechende Entwicklungsumgebung offengelegt.
 
+
+\section{Entwicklungsumgebung}
 \noindent
-\textbf{[EXP-01]}\\
-\noindent
-Zunächst erfolgt die Reproduktion des \ac{SOTA} auf Grundlage der konzipierten Architektur, um eine Baseline zu setzen, an welcher sich in nachfolgenden Experimenten verglichen und gemessen werden kann. Daher ist es unabdingbar, je ein erstes Modell unter Nutzung von \ac{BERT}, {XLM-R} und \ac{BART} auf dem englischsprachigen Korpus zu trainieren und zu evaluieren. Dies folgt der beschriebenen Architektur und der entsprechenden Konfiguration ohne Kompromisse.
+Die Entwicklung und die Durchführung aller Experimente geschieht in Python. Dies ist eine Programmiersprache, welche sich insbesondere für \ac{ML}- und \ac{DL}-Zwecke eignet. Dabei werden Trainingsprozesse durch \ac{CUDA} unterstützt, wenn entsprechende Voraussetzungen erfüllt sind. \ac{CUDA} ist eine von NVIDIA entwickelte Technik, welche es ermöglicht, bestimmte Operationen mithilfe der GPU zu beschleunigen \cite{NVI21}. Zudem ist es in dieser Umgebung möglich, vortrainierte Modelle wie \ac{BERT}, {XLM-R} und \ac{BART} zu laden und Architekturen weitergehend gemäß der bereits bekannten Konfiguration zu präparieren, darunter beispielsweise die beschriebene Encoder-Decoder-Architektur. Dies wird durch die Bibliothek PyTorch und das US-Unternehmen HuggingFace, welches den Code als Open Source bereitstellt, ermöglicht. HuggingFace stellt zudem verschiedene Klassen zum Trainieren von Sequence-to-Sequence-Modellen bereit \cite{HUG21}. Darüber hinaus erfolgen alle Experimente dieser Arbeit über einen legitimierten Zugang auf dem Hochleitungsrechner der TU Dresden, namentlich Taurus, um das Potenzial der verfügbaren Umgebung mithilfe einer leistungsstarken GPU (NVIDIA V100) vollends auszuschöpfen \cite{ZIH21}. Der Quellcode ist dem Anhang zu entnehmen.
 \newpage
 
-\noindent
-\textbf{[EXP-02]}\\
-\noindent
-Anschließend wird die Adaption auf die deutsche Sprache erprobt. Die bislang genutzte Architektur, welche bekanntermaßen Transformer integriert, kann auf Grundlage umfangreicher verschiedensprachiger ungelabelter Textdaten im Sinne des \ac{DL} und \ac{TL} multilingual vortrainiert werden, ohne architektonische Anpassungen vornehmen zu müssen. Hierbei werden sprachübergreifende verborgene Strukturen erlernt, um anschließend monolingual davon zu profitieren. Zudem wird dem Problem entgegengewirkt, dass sprachintern zu wenig Textdaten zur Verfügung stehen \cite{MOB20}. Modelle, welche organisationsextern bereits multilingual vortrainiert und bereitgestellt wurden, sind beispielsweise die multilinguale Version von \ac{BERT}, \ac{XLM-R} und \ac{BART}. Hinsichtlich einer anschließenden deutschsprachigen Nutzung in der \ac{ATS} ist folglich ein entsprechendes sprachbezogenes Training erforderlich. Hierfür werden die drei oben genannten Modelle mit einem Mix aus allen deutschsprachigen Daten erneut trainiert und evaluiert.\\
 
+\section{Reproduktion auf englischen Daten}
 \noindent
-\textbf{[EXP-03]}\\
-\noindent
-Basierend auf der Annahme, multilinguale Modelle würden von verborgenen Strukturen anderer Sprachen profitieren, werden die drei bewährten Modelle nun jeweils mit einem Mix aus allen englisch- und deutschsprachigen Daten trainiert und auf Basis einer deutschsprachigen Evaluation mit den bisherigen Fortschritten verglichen.\\
+Zunächst erfolgt die Reproduktion des \ac{SOTA}-Benchmark auf Grundlage der konzipierten Architektur, um eine Baseline zu setzen, an welcher sich in nachfolgenden Experimenten verglichen und gemessen werden kann. Daher ist es unabdingbar, je ein erstes Modell unter Nutzung von \ac{BERT}, {XLM-R} und \ac{BART} als Encoder und Decoder auf dem englischsprachigen Korpus zu trainieren und zu evaluieren. Dies folgt der beschriebenen Architektur und der entsprechenden Konfiguration ohne Kompromisse.
 
+
+\section{Adaption auf deutschen Daten}
 \noindent
-Weitere Experimente, wie beispielsweise die Optimierung der Hyperparameter, werden im nächsten Kapitel nach der grundlegenden Evaluation der hier konzipierten Experimente abgeleitet und durchgeführt.
+Anschließend wird die Adaption auf die deutsche Sprache erprobt. Die bislang genutzte Architektur, welche bekanntermaßen Transformer integriert, kann auf Grundlage umfangreicher verschiedensprachiger ungelabelter Textdaten im Sinne des \ac{DL} und \ac{TL} multilingual vortrainiert werden, ohne architektonische Anpassungen vornehmen zu müssen. Hierbei werden sprachübergreifende verborgene Strukturen erlernt, um anschließend monolingual davon zu profitieren. Zudem wird dem Problem entgegengewirkt, dass sprachintern zu wenig Textdaten zur Verfügung stehen \cite{MOB20}. Modelle, welche organisationsextern bereits multilingual vortrainiert und bereitgestellt wurden, sind beispielsweise die multilinguale Version von \ac{BERT}, \ac{XLM-R} und \ac{BART}. Hinsichtlich einer anschließenden deutschsprachigen Nutzung in der \ac{ATS} ist folglich ein entsprechendes sprachbezogenes Training erforderlich. Hierfür werden die drei oben genannten Modelle mit einem Mix aus allen deutschsprachigen Daten erneut trainiert und evaluiert.
+
+
+\section{Adaption auf multilingualen Daten}
+\noindent
+Basierend auf der Annahme, multilinguale Modelle würden von verborgenen Strukturen anderer Sprachen profitieren, werden die drei bewährten Modelle nun jeweils mit einem Mix aus allen englisch- und deutschsprachigen Daten trainiert und auf Basis einer deutschsprachigen Evaluation mit den bisherigen Fortschritten verglichen.
+
+
+\section{Optimierung der Hyperparameter}
+\noindent
+Weitere Experimente, wie beispielsweise die Optimierung der Hyperparameter oder die Variation der jeweiligen Korpusanteile, werden im nächsten Kapitel nach der grundlegenden Evaluation der hier konzipierten Experimente abgeleitet und durchgeführt.
