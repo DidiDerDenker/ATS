@@ -87,3 +87,8 @@ Models/transformer_to_transformer_architecture/models/tf2tf_eng/tokenizer_config
 Models/transformer_to_transformer_architecture/models/tf2tf_eng/trainer_state.json
 Models/transformer_to_transformer_architecture/models/tf2tf_eng/training_args.bin
 Models/transformer_to_transformer_architecture/models/tf2tf_eng/vocab.txt
+Database/corpus_news.xlsx
+Database/corpus_swiss_test.csv
+Database/corpus_swiss_train.csv
+Models/~$analysis.xlsx
+Models/tud.ovpn

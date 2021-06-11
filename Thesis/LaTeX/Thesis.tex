@@ -19,7 +19,6 @@
 \markboth{Inhaltsverzeichnis}{}
 \tableofcontents
 \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
-\thispagestyle{fancy}
 \newpage
 \cleardoublepage
 \pagestyle{fancy}
@@ -74,6 +73,11 @@
 
 \include{source/content/Diskussion und Ausblick}
 \cleardoublepage
+
+\input{./source/formal/Appendix}
+\input{./source/formal/Code}
+\cleardoublepage
+
 \renewcommand{\baselinestretch}{1.0}
 \small
 
@@ -83,10 +87,6 @@
 
 \input{./source/formal/Theses}
 \input{./source/formal/Statement}
-\cleardoublepage
-
-\input{./source/formal/Code}
-\input{./source/formal/Appendix}
 
 \end{document}
 
