@@ -26,7 +26,7 @@ In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller
 \hline
 3 & BERT & EN \& DE & 16.76 & 11.18 & 12.68 \\
 \hline
-3 & XLM-R & EN \& DE & 15.13 & 9.55 & 11.08 \\
+3 & XLM-R & EN \& DE & 16.44 & 15.45 & 15.35 \\
 \hline
 3 & BART & EN \& DE & 19.39 & 11.08 & 13.73 \\
 \hline
@@ -80,9 +80,8 @@ Im zweiten Experiment werden die deutschen \ac{TF2TF} miteinander verglichen. Hi
 \newpage
 
 \noindent
-Im dritten Experiment werden die multilingual trainierten \ac{TF2TF} miteinander verglichen. Hierbei verbessert sich \ac{BERT} wertmäßig. Subjektiv verbessert er sich in Englisch nun bis hin zur praktischen Eignung, in Deutsch jedoch nicht, weil in Form von Overfitting offensichtlich Sätze der Trainingsdaten auswendig gelernt wurden. \ac{XLM-R}...\\ % TODO: Kritik ergänzen, Abschnitte verbinden
-\ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie \ac{BERT} und \ac{XLM-R} auf, scheint jedoch robuster zu sein und insgesamt weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in einer deutschen Zusammenfassung zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das Modell der Wahl, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist wertmäßig und subjektiv wieder Erwarten nur leicht unterlegen.
+Im dritten Experiment werden die multilingual trainierten \ac{TF2TF} miteinander verglichen. Hierbei verbessert sich \ac{BERT} wertmäßig. Subjektiv verbessert er sich in Englisch nun bis hin zur praktischen Eignung, in Deutsch jedoch nicht, weil in Form von Overfitting offensichtlich Sätze der Trainingsdaten auswendig gelernt wurden. \ac{XLM-R} erzielt keine Verbesserung, da die ursprüngliche Sprache häufig verwechselt und in der generierten Zusammenfassung gemischt wird. \ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in einer deutschen Zusammenfassung zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das Modell der Wahl, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist wertmäßig und subjektiv wieder Erwarten nur leicht unterlegen.
 
-% TODO: Optimierung mit bewährtem Modell vornehmen (auf 10-20% der Daten)
+% TODO: Optimierung mit bewährtem Modell vornehmen (auf 10-20% der Daten), sonst in Experimenten nicht mehr ankündigen
 
 % TODO: \cite{YAN19} S. 4 rechts, Herausforderung: Encoder overfitted, Decoder underfitted oder andersherum, wird durch HuggingFace-Framework vorgebeugt, \cite{YAN19} S. 5 oben für Evaluation, Exploitation wegen der Struktur der Artikel nochmal aufgreifen
