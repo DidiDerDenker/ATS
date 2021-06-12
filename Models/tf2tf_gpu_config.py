@@ -1,18 +1,15 @@
-language = "english"  # english, german, multilingual
-model_name = "facebook/mbart-large-cc25"
-tokenizer_name = "facebook/mbart-large-cc25"
-batch_size = 8  # 16
+language: str = "multilingual"  # english, german, multilingual
+model_name: str = "xlm-roberta-base"
+tokenizer_name: str = "xlm-roberta-base"
+batch_size: int = 8  # 16
 
-ratio_corpus_wiki = 1.00
-ratio_corpus_news = 1.00
-ratio_corpus_mlsum = 1.00
-ratio_corpus_eng = 0.10
+ratio_corpus_wik: float = 1.0
+ratio_corpus_nws: float = 1.0
+ratio_corpus_mls: float = 1.0
+ratio_corpus_eng: float = 1.0
 
-path_output = "/scratch/ws/1/davo557d-ws_project/"
-path_checkpoint = "/scratch/ws/1/davo557d-ws_project/checkpoint-100000"
-
-text_english = "..."
-text_german = "..."
+path_output: str = "/scratch/ws/1/davo557d-ws_project/"
+path_checkpoint: str = "/scratch/ws/1/davo557d-ws_project/checkpoint-40000"
 
 '''
 - bert-base-multilingual-cased

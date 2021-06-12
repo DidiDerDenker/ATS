@@ -10,9 +10,9 @@ tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=False)
 
 train_data, val_data, test_data = helpers.load_data(
     language=config.language,
-    ratio_corpus_wiki=config.ratio_corpus_wiki,
-    ratio_corpus_news=config.ratio_corpus_news,
-    ratio_corpus_mlsum=config.ratio_corpus_mlsum,
+    ratio_corpus_wik=config.ratio_corpus_wik,
+    ratio_corpus_nws=config.ratio_corpus_nws,
+    ratio_corpus_mls=config.ratio_corpus_mls,
     ratio_corpus_eng=config.ratio_corpus_eng
 )
 
@@ -100,29 +100,48 @@ def compute_metrics(pred):
     }
 
 
-training_args = transformers.Seq2SeqTrainingArguments(
-    predict_with_generate=True,
-    evaluation_strategy="steps",
-    per_device_train_batch_size=config.batch_size,
-    per_device_eval_batch_size=config.batch_size,
-    output_dir=config.path_output,
-    warmup_steps=1000,
-    save_steps=20000,  # 5000
-    logging_steps=2000,  # 1000
-    eval_steps=20000,  # 5000
-    save_total_limit=1,
-    learning_rate=5e-5,
-    adafactor=True,
-    fp16=True
-)
+if "mbart" in config.model_name:
+    training_args = transformers.TrainingArguments(
+        output_dir=config.path_output,
+        logging_dir=config.path_output,
+        per_device_train_batch_size=1,
+        per_device_eval_batch_size=1,
+        num_train_epochs=1,
+        warmup_steps=500,
+        weight_decay=0.01
+    )
 
-trainer = transformers.Seq2SeqTrainer(
-    model=tf2tf,
-    args=training_args,
-    compute_metrics=compute_metrics,
-    train_dataset=train_data,
-    eval_dataset=val_data,
-    tokenizer=tokenizer
-)
+    trainer = transformers.Trainer(
+        model=tf2tf,
+        args=training_args,
+        train_dataset=train_data,
+        eval_dataset=val_data
+    )
+
+else:
+    training_args = transformers.Seq2SeqTrainingArguments(
+        predict_with_generate=True,
+        evaluation_strategy="steps",
+        per_device_train_batch_size=config.batch_size,
+        per_device_eval_batch_size=config.batch_size,
+        output_dir=config.path_output,
+        warmup_steps=1000,
+        save_steps=10000,
+        logging_steps=2000,
+        eval_steps=10000,
+        save_total_limit=1,
+        learning_rate=5e-5,
+        adafactor=True,
+        fp16=True
+    )
+
+    trainer = transformers.Seq2SeqTrainer(
+        model=tf2tf,
+        args=training_args,
+        compute_metrics=compute_metrics,
+        train_dataset=train_data,
+        eval_dataset=val_data,
+        tokenizer=tokenizer
+    )
 
 trainer.train()

@@ -8,11 +8,12 @@ import transformers
 import pandas as pd
 import tf2tf_tud_gpu_config as config
 
+from typing import Tuple
 from datasets import ClassLabel
 
 
 # Methods
-def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corpus_mlsum=0.0, ratio_corpus_eng=0.0):
+def load_data(language: str, ratio_corpus_wik: float = 0.0, ratio_corpus_nws: float = 0.0, ratio_corpus_mls: float = 0.0, ratio_corpus_eng: float = 0.0) -> Tuple[datasets.Dataset, datasets.Dataset, datasets.Dataset]:
     if str(language) == "english":
         return load_english_data()
 
@@ -28,7 +29,7 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corp
                 data_txt.append(row[0])
                 data_ref.append(row[1])
 
-        ds_wiki = datasets.arrow_dataset.Dataset.from_pandas(
+        ds_wik = datasets.arrow_dataset.Dataset.from_pandas(
             pd.DataFrame(
                 list(zip(data_txt, data_ref)),
                 columns=["text", "summary"]
@@ -36,46 +37,46 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corp
         )
 
         # Corpus: K_nws
-        df_news = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
-        df_news = df_news[["article", "highlights"]]
-        df_news.columns = ["text", "summary"]
-        df_news = df_news[~df_news["summary"].str.contains("ZEIT")]
-        df_news = df_news.dropna()
-        ds_news = datasets.arrow_dataset.Dataset.from_pandas(df_news)
-        ds_news = ds_news.remove_columns("__index_level_0__")
+        df_nws = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
+        df_nws = df_nws[["article", "highlights"]]
+        df_nws.columns = ["text", "summary"]
+        df_nws = df_nws[~df_nws["summary"].str.contains("ZEIT")]
+        df_nws = df_nws.dropna()
+        ds_nws = datasets.arrow_dataset.Dataset.from_pandas(df_nws)
+        ds_nws = ds_nws.remove_columns("__index_level_0__")
 
         # Corpus: K_mls
-        ds_mlsum = datasets.load_dataset("mlsum", "de", split="train")
-        ds_mlsum = ds_mlsum.remove_columns(["topic", "url", "title", "date"])
+        ds_mls = datasets.load_dataset("mlsum", "de", split="train")
+        ds_mls = ds_mls.remove_columns(["topic", "url", "title", "date"])
 
-        text_corpus_mlsum = []
-        summary_corpus_mlsum = []
+        text_corpus_mls = []
+        summary_corpus_mls = []
 
-        for entry in ds_mlsum:
+        for entry in ds_mls:
             text = entry["text"]
             summary = entry["summary"]
 
             if summary in text:
                 text = text[len(summary) + 1:len(text)]
 
-            text_corpus_mlsum.append(text)
-            summary_corpus_mlsum.append(summary)
+            text_corpus_mls.append(text)
+            summary_corpus_mls.append(summary)
 
-        ds_mlsum = datasets.arrow_dataset.Dataset.from_pandas(
+        ds_mls = datasets.arrow_dataset.Dataset.from_pandas(
             pd.DataFrame(
-                list(zip(text_corpus_mlsum, summary_corpus_mlsum)),
+                list(zip(text_corpus_mls, summary_corpus_mls)),
                 columns=["text", "summary"]
             )
         )
 
         # Action: Concat
         german_data = datasets.concatenate_datasets([
-            ds_wiki.select(
-                range(0, int(len(ds_wiki) * ratio_corpus_wiki))),
-            ds_news.select(
-                range(0, int(len(ds_news) * ratio_corpus_news))),
-            ds_mlsum.select(
-                range(0, int(len(ds_mlsum) * ratio_corpus_mlsum)))
+            ds_wik.select(
+                range(0, int(len(ds_wik) * ratio_corpus_wik))),
+            ds_nws.select(
+                range(0, int(len(ds_nws) * ratio_corpus_nws))),
+            ds_mls.select(
+                range(0, int(len(ds_mls) * ratio_corpus_mls)))
         ])
 
         if str(language) == "multilingual":
@@ -94,7 +95,7 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corp
 
         # Action: Split
         train_size = int(len(prepared_data) * 0.900)
-        valid_size = int(len(prepared_data) * 0.005)  # 0.025
+        valid_size = int(len(prepared_data) * 0.025)
         test_size = int(len(prepared_data) * 0.075)
 
         train_data = prepared_data.select(
@@ -114,7 +115,7 @@ def load_data(language, ratio_corpus_wiki=0.0, ratio_corpus_news=0.0, ratio_corp
         return train_data.shuffle(), val_data.shuffle(), test_data.shuffle()
 
 
-def load_english_data():
+def load_english_data() -> Tuple[datasets.Dataset, datasets.Dataset, datasets.Dataset]:
     train_data = datasets.load_dataset(
         "cnn_dailymail", "3.0.0", split="train",
         ignore_verifications=True)
@@ -135,7 +136,7 @@ def load_english_data():
     return train_data, val_data, test_data
 
 
-def test_cuda():
+def test_cuda() -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     torch.cuda.empty_cache()
 
@@ -143,7 +144,7 @@ def test_cuda():
     print("Version:", torch.__version__)
 
 
-def explore_corpus(data):
+def explore_corpus(data: datasets.Dataset) -> None:
     df = pd.DataFrame(data)
 
     text_list = []
@@ -162,7 +163,7 @@ def explore_corpus(data):
             df[column] = df[column].transform(lambda i: typ.names[i])
 
 
-def empty_cache():
+def empty_cache() -> None:
     gc.collect()
     torch.cuda.empty_cache()
     psutil.virtual_memory()
@@ -172,7 +173,7 @@ def empty_cache():
     # print(torch.cuda.memory_allocated(0))
 
 
-def load_tokenizer_and_model(from_checkpoint=False):
+def load_tokenizer_and_model(from_checkpoint: bool = False) -> Tuple[transformers.AutoTokenizer, transformers.EncoderDecoderModel]:
     tokenizer = transformers.AutoTokenizer.from_pretrained(
         config.tokenizer_name, strip_accent=False  # add_prefix_space=True
     )
@@ -202,7 +203,7 @@ def load_tokenizer_and_model(from_checkpoint=False):
     return tokenizer, tf2tf
 
 
-def configure_model(tf2tf, tokenizer):
+def configure_model(tf2tf: transformers.EncoderDecoderModel, tokenizer: transformers.AutoTokenizer):
     tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
     tf2tf.config.bos_token_id = tokenizer.bos_token_id
     tf2tf.config.eos_token_id = tokenizer.sep_token_id
