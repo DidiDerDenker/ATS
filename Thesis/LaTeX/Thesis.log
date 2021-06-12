@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  12 JUN 2021 10:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  12 JUN 2021 10:59
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -2094,18 +2094,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
 
-
-Overfull \hbox (12.13318pt too wide) in paragraph at lines 51--53
-\OT1/cmr/m/n/12 der Ar-chi-tek-tur de-fi-niert. Hier-bei gibt es un-ter an-de-r
-em die fol-gen-den bei-den M[]oglichkeiten,
- []
-
-
-Overfull \hbox (0.60889pt too wide) in paragraph at lines 51--53
-\OT1/cmr/m/n/12 um den En-co-der zum [][] und den De-co-der zur [][] zu in-itia
--li-sie-ren [[],
- []
-
+Package acronym Info: Label `acro:TF2TF' newly defined as it shall be overridde
+n
+although it is yet undefined on input line 52.
 
 Underfull \hbox (badness 10000) in paragraph at lines 51--53
 
@@ -2116,7 +2107,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
-<./source/images/encoderdecoderbert.png, id=1184, 608.2725pt x 635.37375pt>
+<./source/images/encoderdecoderbert.png, id=1185, 608.2725pt x 635.37375pt>
 File: ./source/images/encoderdecoderbert.png Graphic file (type png)
 <use ./source/images/encoderdecoderbert.png>
 Package pdftex.def Info: ./source/images/encoderdecoderbert.png  used on input 
@@ -2171,7 +2162,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
-) [45]
+)
+Underfull \hbox (badness 10000) in paragraph at lines 87--63
+
+ []
+
+[45]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
@@ -2235,7 +2231,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
  []
 
-<./source/images/lossenglish.png, id=1304, 377.41pt x 262.9825pt>
+<./source/images/lossenglish.png, id=1311, 377.41pt x 262.9825pt>
 File: ./source/images/lossenglish.png Graphic file (type png)
 <use ./source/images/lossenglish.png>
 Package pdftex.def Info: ./source/images/lossenglish.png  used on input line 43
@@ -2258,69 +2254,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
 
 ]
-<./source/images/lossgerman.png, id=1313, 377.41pt x 262.9825pt>
+<./source/images/lossgerman.png, id=1321, 377.41pt x 262.9825pt>
 File: ./source/images/lossgerman.png Graphic file (type png)
 <use ./source/images/lossgerman.png>
 Package pdftex.def Info: ./source/images/lossgerman.png  used on input line 53.
 
 (pdftex.def)             Requested size: 268.8813pt x 187.3569pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+ [53 <./source/images/lossenglish.png> <./source/images/lossgerman.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
 
  []
 
-[53 <./source/images/lossenglish.png> <./source/images/lossgerman.png>]
-<./source/images/lossmultilingual.png, id=1330, 377.41pt x 262.9825pt>
+<./source/images/lossmultilingual.png, id=1337, 377.41pt x 262.9825pt>
 File: ./source/images/lossmultilingual.png Graphic file (type png)
 <use ./source/images/lossmultilingual.png>
 Package pdftex.def Info: ./source/images/lossmultilingual.png  used on input li
-ne 63.
+ne 64.
 (pdftex.def)             Requested size: 268.8813pt x 187.3569pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--72
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--75
-
- []
-
 [54 <./source/images/lossmultilingual.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 76--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--82
-
- []
-
-[55]
-Package acronym Info: Label `acro:GBERT' newly defined as it shall be overridde
-n
-although it is yet undefined on input line 91.
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--92
+Underfull \hbox (badness 10000) in paragraph at lines 78--80
 
  []
 
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 93--98
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--98
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
-
- []
-
-) [56]
+[55]) [56]
 \openout2 = `source/content/Zusammenfassung.aux'.
 
  (source/content/Zusammenfassung.tex
@@ -3693,10 +3659,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29215 strings out of 480257
- 548670 string characters out of 2881437
- 1371642 words of memory out of 3000000
- 44030 multiletter control sequences out of 15000+200000
+ 29217 strings out of 480257
+ 548695 string characters out of 2881437
+ 1371676 words of memory out of 3000000
+ 44032 multiletter control sequences out of 15000+200000
  547947 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,1994s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3717,7 +3683,7 @@ sfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (126 pages, 1851504 bytes).
+Output written on Thesis.pdf (126 pages, 1849849 bytes).
 PDF statistics:
  2799 PDF objects out of 2984 (max. 8388607)
  1030 named destinations out of 1200 (max. 500000)

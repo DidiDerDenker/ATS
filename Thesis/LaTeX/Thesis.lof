@@ -25,13 +25,13 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Architektur von BERT mit MLM \cite [S.~3]{DEV19}.\relax }}{35}{figure.caption.86}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{36}{figure.caption.87}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{43}{figure.caption.104}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{43}{figure.caption.105}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Loss in der SOTA-Reproduktion im Modellvergleich.\relax }}{53}{figure.caption.116}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Loss in der Adaption auf deutschen Daten im Modellvergleich.\relax }}{53}{figure.caption.117}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Loss in der Adaption auf multilingualen Daten im Modellvergleich.\relax }}{54}{figure.caption.118}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Loss in der SOTA-Reproduktion im Modellvergleich.\relax }}{53}{figure.caption.117}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Loss in der Adaption auf deutschen Daten im Modellvergleich.\relax }}{53}{figure.caption.118}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Loss in der Adaption auf multilingualen Daten im Modellvergleich.\relax }}{54}{figure.caption.119}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

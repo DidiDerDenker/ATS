@@ -42,16 +42,16 @@
 \contentsline {section}{\numberline {4.1}Typisierung von Systemen}{40}{section.101}%
 \contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{41}{section.102}%
 \contentsline {section}{\numberline {4.3}Konzeption einer Architektur}{42}{section.103}%
-\contentsline {chapter}{\numberline {5}Datengrundlage}{46}{chapter.105}%
-\contentsline {chapter}{\numberline {6}Experimente}{49}{chapter.106}%
-\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{49}{section.107}%
-\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{50}{section.109}%
-\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{50}{section.110}%
-\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{50}{section.111}%
-\contentsline {section}{\numberline {6.5}Optimierung der Hyperparameter}{51}{section.112}%
-\contentsline {chapter}{\numberline {7}Evaluation}{52}{chapter.113}%
-\contentsline {section}{\numberline {7.1}Automatische Auswertung}{52}{section.114}%
-\contentsline {section}{\numberline {7.2}Qualitative Analyse}{54}{section.119}%
+\contentsline {chapter}{\numberline {5}Datengrundlage}{46}{chapter.106}%
+\contentsline {chapter}{\numberline {6}Experimente}{49}{chapter.107}%
+\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{49}{section.108}%
+\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{50}{section.110}%
+\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{50}{section.111}%
+\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{50}{section.112}%
+\contentsline {section}{\numberline {6.5}Optimierung der Hyperparameter}{51}{section.113}%
+\contentsline {chapter}{\numberline {7}Evaluation}{52}{chapter.114}%
+\contentsline {section}{\numberline {7.1}Automatische Auswertung}{52}{section.115}%
+\contentsline {section}{\numberline {7.2}Qualitative Analyse}{54}{section.120}%
 \contentsline {chapter}{\numberline {8}Zusammenfassung}{57}{chapter.121}%
 \contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{58}{chapter.122}%
 \contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{59}{appendix.123}%
