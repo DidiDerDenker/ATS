@@ -1,25 +1,18 @@
 # Imports
 import datasets
 import transformers
-import tf2tf_tud_gpu_config as config
-import tf2tf_tud_gpu_helpers as helpers
+import tf2tf_gpu_config as config
+import tf2tf_gpu_helpers as helpers
 
 
 # Main
 tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=False)
-
-train_data, val_data, test_data = helpers.load_data(
-    language=config.language,
-    ratio_corpus_wik=config.ratio_corpus_wik,
-    ratio_corpus_nws=config.ratio_corpus_nws,
-    ratio_corpus_mls=config.ratio_corpus_mls,
-    ratio_corpus_eng=config.ratio_corpus_eng
-)
+train_data, val_data, test_data = helpers.load_data()
+rouge = datasets.load_metric("rouge")
 
 helpers.test_cuda()
 helpers.explore_corpus(train_data)
 helpers.empty_cache()
-rouge = datasets.load_metric("rouge")
 
 tf2tf = helpers.configure_model(tf2tf, tokenizer)
 tf2tf.to("cuda")

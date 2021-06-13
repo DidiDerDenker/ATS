@@ -4,18 +4,22 @@
 
 \section*{Konfigurationsdatei}
 \begin{lstlisting}[language=Python, caption=Konfigurationsdatei]
-language = "german"  # english, german, multilingual
-model_name = "bert-base-multilingual-cased"
-tokenizer_name = "bert-base-multilingual-cased"
-batch_size = 16
+language: str = "english"  # english, german, multilingual
+model_name: str = "bert-base-multilingual-cased"
+tokenizer_name: str = "bert-base-multilingual-cased"
+batch_size: int = 16
 
-ratio_corpus_wki = 1.00
-ratio_corpus_nws = 1.00
-ratio_corpus_mls = 1.00
-ratio_corpus_eng = 1.00
+ratio_corpus_wik: float = 1.0
+ratio_corpus_nws: float = 1.0
+ratio_corpus_mls: float = 1.0
+ratio_corpus_eng: float = 1.0
 
-path_output = "/scratch/ws/1/davo557d-ws_project/"
-path_checkpoint = "/scratch/ws/1/davo557d-ws_project/checkpoint-100000"
+path_output: str = "/scratch/ws/1/davo557d-ws_project/"
+path_checkpoint: str = "/scratch/ws/1/davo557d-ws_project/checkpoint-100000"
+
+train_size: float = 0.900
+val_size: float = 0.025
+test_size: float = 0.075
 
 '''
 - bert-base-multilingual-cased
@@ -30,158 +34,212 @@ path_checkpoint = "/scratch/ws/1/davo557d-ws_project/checkpoint-100000"
 \section*{Hilfsmethoden}
 \begin{lstlisting}[language=Python, caption=Hilfsmethoden]
 # Imports
-import gc
 import csv
-import torch
-import psutil
 import datasets
-import transformers
+import gc
+import psutil
 import pandas as pd
-import tf2tf_tud_gpu_config as config
+import torch
+import transformers
+import tf2tf_gpu_config as config
 
 from datasets import ClassLabel
+from typing import Tuple
 
 
 # Methods
-def load_data(language, ratio_corpus_wik=0.0, ratio_corpus_nws=0.0,
-              ratio_corpus_mls=0.0, ratio_corpus_eng=0.0):
-
-    if str(language) == "english":
+def load_data() -> Tuple[datasets.Dataset, datasets.Dataset, datasets.Dataset]:
+    if config.language == "english":
         return load_english_data()
 
-    else:
-        # Corpus: K_wik
-        data_txt, data_ref = [], []
+    if config.language == "german":
+        return load_german_data()
 
-        with open("./data_train.csv", "r", encoding="utf-8") as f:
-            reader = csv.reader(f, delimiter=",", quoting=csv.QUOTE_ALL)
-            next(reader, None)
-
-            for row in reader:
-                data_txt.append(row[0])
-                data_ref.append(row[1])
+    if config.language == "multilingual":
+        return load_multilingual_data()
 
 
 
-        ds_wik = datasets.arrow_dataset.Dataset.from_pandas(
-            pd.DataFrame(
-                list(zip(data_txt, data_ref)),
-                columns=["text", "summary"]
-            )
-        )
-
-        # Corpus: K_nws
-        df_nws = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
-        df_nws = df_nws[["article", "highlights"]]
-        df_nws.columns = ["text", "summary"]
-        df_nws = df_nws[~df_nws["summary"].str.contains("ZEIT")]
-        df_nws = df_nws.dropna()
-        ds_nws = datasets.arrow_dataset.Dataset.from_pandas(df_nws)
-        ds_nws = ds_nws.remove_columns("__index_level_0__")
-
-        # Corpus: K_mls
-        ds_mls = datasets.load_dataset("mlsum", "de", split="train")
-        ds_mls = ds_mls.remove_columns(["topic", "url", "title", "date"])
-
-        text_corpus_mls = []
-        summary_corpus_mls = []
-
-        for entry in ds_mls:
-            text = entry["text"]
-            summary = entry["summary"]
-
-            if summary in text:
-                text = text[len(summary) + 1:len(text)]
-
-            text_corpus_mls.append(text)
-            summary_corpus_mls.append(summary)
-            
 
 
 
-        ds_mls = datasets.arrow_dataset.Dataset.from_pandas(
-            pd.DataFrame(
-                list(zip(text_corpus_mls, summary_corpus_mls)),
-                columns=["text", "summary"]
-            )
-        )
-
-        # Action: Concat
-        german_data = datasets.concatenate_datasets([
-            ds_wik.select(
-                range(0, int(len(ds_wik) * ratio_corpus_wik))),
-            ds_nws.select(
-                range(0, int(len(ds_nws) * ratio_corpus_nws))),
-            ds_mls.select(
-                range(0, int(len(ds_mls) * ratio_corpus_mls)))
-        ])
-
-        if str(language) == "multilingual":
-            english_data, _, _ = load_english_data()
-            english_data = english_data.remove_columns("id")
-
-            prepared_data = datasets.concatenate_datasets([
-                german_data.shuffle(),
-                english_data.select(
-                    range(0, int(len(english_data) * ratio_corpus_eng))
-                ).shuffle()
-            ])
-
-        else:
-            prepared_data = german_data.shuffle()
-
-        # Action: Split
-        train_size = int(len(prepared_data) * 0.900)
-        valid_size = int(len(prepared_data) * 0.025)
-        test_size = int(len(prepared_data) * 0.075)
-
-        train_data = prepared_data.select(
-            range(0, train_size)
-        )
-
-        val_data = prepared_data.select(
-            range(train_size, train_size + valid_size)
-        )
-
-        test_data = prepared_data.select(
-            range(train_size + valid_size, train_size + valid_size + test_size)
-        )
-
-        del prepared_data
-
-        return train_data.shuffle(), val_data.shuffle(), test_data.shuffle()
 
 
-def load_english_data():
+
+
+def load_english_data()
+	-> Tuple[datasets.Dataset, datasets.Dataset, datasets.Dataset]:
     train_data = datasets.load_dataset(
         "cnn_dailymail", "3.0.0", split="train",
-        ignore_verifications=True)
-        
+        ignore_verifications=True
+    )
+
     val_data = datasets.load_dataset(
-        "cnn_dailymail", "3.0.0", split="validation[:10%]",
-        ignore_verifications=True)
-        
+        "cnn_dailymail", "3.0.0", split="validation[:50%]",
+        ignore_verifications=True
+    )
+
     test_data = datasets.load_dataset(
-        "cnn_dailymail", "3.0.0", split="test[:5%]",
-        ignore_verifications=True)
+        "cnn_dailymail", "3.0.0", split="test[:50%]",
+        ignore_verifications=True
+    )
 
-
-
-
-
-
+    train_data = train_data.select(
+        range(0, int(len(train_data) * config.ratio_corpus_eng))
+    )
 
     train_data = train_data.rename_column("article", "text")
     train_data = train_data.rename_column("highlights", "summary")
+    train_data = train_data.remove_columns("id")
+
     val_data = val_data.rename_column("article", "text")
     val_data = val_data.rename_column("highlights", "summary")
+    val_data = val_data.remove_columns("id")
+
     test_data = test_data.rename_column("article", "text")
     test_data = test_data.rename_column("highlights", "summary")
+    test_data = test_data.remove_columns("id")
+
+    return train_data.shuffle(), val_data.shuffle(), test_data.shuffle()
+
+
+def load_german_data()
+	-> Tuple[datasets.Dataset, datasets.Dataset, datasets.Dataset]:
+    ds_wik = load_corpus_wik()
+    ds_nws = load_corpus_nws()
+    ds_mls = load_corpus_mls()
+    
+    german_data = datasets.concatenate_datasets([
+        ds_wik.select(
+            range(0, int(len(ds_wik) * config.ratio_corpus_wik))),
+        ds_nws.select(
+            range(0, int(len(ds_nws) * config.ratio_corpus_nws))),
+        ds_mls.select(
+            range(0, int(len(ds_mls) * config.ratio_corpus_mls)))
+    ])
+
+    train_size = int(len(german_data) * config.train_size)
+    valid_size = int(len(german_data) * config.val_size)
+    test_size = int(len(german_data) * config.test_size)
+
+    train_data = german_data.select(
+        range(0, train_size)
+    )
+
+    val_data = german_data.select(
+        range(train_size, train_size + valid_size)
+    )
+
+    test_data = german_data.select(
+        range(train_size + valid_size, train_size + valid_size + test_size)
+    )
 
     return train_data, val_data, test_data
 
 
-def test_cuda():
+
+
+def load_corpus_wik() -> datasets.Dataset:
+    data_txt, data_ref = [], []
+
+    with open("./data_train.csv", "r", encoding="utf-8") as f:
+        reader = csv.reader(f, delimiter=",", quoting=csv.QUOTE_ALL)
+        next(reader, None)
+
+        for row in reader:
+            data_txt.append(row[0])
+            data_ref.append(row[1])
+
+    df_wik = pd.DataFrame(
+        list(zip(data_txt, data_ref)),
+        columns=["text", "summary"]
+    )
+
+    ds_wik = datasets.arrow_dataset.Dataset.from_pandas(df_wik)
+
+    return ds_wik.shuffle()
+
+
+def load_corpus_nws() -> datasets.Dataset:
+    df_nws = pd.read_excel("./data_train_test.xlsx", engine="openpyxl")
+    df_nws = df_nws[["article", "highlights"]]
+    df_nws.columns = ["text", "summary"]
+    df_nws = df_nws[~df_nws["summary"].str.contains("ZEIT")]
+    df_nws = df_nws.dropna()
+    ds_nws = datasets.arrow_dataset.Dataset.from_pandas(df_nws)
+    ds_nws = ds_nws.remove_columns("__index_level_0__")
+
+    return ds_nws.shuffle()
+
+
+
+
+
+def load_corpus_mls() -> datasets.Dataset:
+    ds_mls = datasets.load_dataset("mlsum", "de", split="train")
+    ds_mls = ds_mls.remove_columns(["topic", "url", "title", "date"])
+
+    text_corpus_mls = []
+    summary_corpus_mls = []
+
+    for entry in ds_mls:
+        text = entry["text"]
+        summary = entry["summary"]
+        
+        if summary in text:
+            text = text[len(summary) + 1:len(text)]
+
+        text_corpus_mls.append(text)
+        summary_corpus_mls.append(summary)
+
+    df_mls = pd.DataFrame(
+        list(zip(text_corpus_mls, summary_corpus_mls)),
+        columns=["text", "summary"]
+    )
+
+    ds_mls = datasets.arrow_dataset.Dataset.from_pandas(df_mls)
+
+    return ds_mls.shuffle()
+
+
+
+
+
+
+
+
+
+
+
+def load_multilingual_data()
+	-> Tuple[datasets.Dataset, datasets.Dataset, datasets.Dataset]:
+    english_data, _, _ = load_english_data()
+    german_data, _, _ = load_german_data()
+
+    multilingual_data = datasets.concatenate_datasets([
+        german_data, english_data
+    ]).shuffle()
+
+    train_size = int(len(multilingual_data) * config.train_size)
+    valid_size = int(len(multilingual_data) * config.val_size)
+    test_size = int(len(multilingual_data) * config.test_size)
+
+    train_data = multilingual_data.select(
+        range(0, train_size)
+    )
+
+    val_data = multilingual_data.select(
+        range(train_size, train_size + valid_size)
+    )
+    
+    test_data = multilingual_data.select(
+        range(train_size + valid_size, train_size + valid_size + test_size)
+    )
+
+    return train_data, val_data, test_data
+
+
+def test_cuda() -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     torch.cuda.empty_cache()
 
@@ -189,10 +247,10 @@ def test_cuda():
     print("Version:", torch.__version__)
 
 
-def explore_corpus(data):
+def explore_corpus(data: datasets.Dataset) -> None:
     df = pd.DataFrame(data)
 
-	text_list = []
+    text_list = []
     summary_list = []
 
     for index, row in df.iterrows():
@@ -207,17 +265,26 @@ def explore_corpus(data):
         if isinstance(typ, ClassLabel):
             df[column] = df[column].transform(lambda i: typ.names[i])
 
-def empty_cache():
+
+def empty_cache() -> None:
     gc.collect()
     torch.cuda.empty_cache()
     psutil.virtual_memory()
 
-    # print(torch.cuda.get_device_properties(0).total_memory)
-    # print(torch.cuda.memory_reserved(0))
-    # print(torch.cuda.memory_allocated(0))
 
 
-def load_tokenizer_and_model(from_checkpoint=False):
+
+
+
+
+
+
+
+
+
+
+def load_tokenizer_and_model(from_checkpoint: bool = False)
+	-> Tuple[transformers.AutoTokenizer, transformers.EncoderDecoderModel]:
     tokenizer = transformers.AutoTokenizer.from_pretrained(
         config.tokenizer_name, strip_accent=False
     )
@@ -235,13 +302,9 @@ def load_tokenizer_and_model(from_checkpoint=False):
 
     else:
         if "mbart" in config.model_name:
-            tf2tf = transformers.AutoModelForSeq2SeqLM.from_pretrained(
+            tf2tf = transformers.MBartForConditionalGeneration.from_pretrained(
                 config.model_name
             )
-
-
-
-
 
         else:
             tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
@@ -249,9 +312,13 @@ def load_tokenizer_and_model(from_checkpoint=False):
             )
 
     return tokenizer, tf2tf
-
-
-def configure_model(tf2tf, tokenizer):
+    
+    
+    
+    
+    
+    
+def configure_model(tf2tf: transformers.EncoderDecoderModel, tokenizer: transformers.AutoTokenizer):
     tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
     tf2tf.config.bos_token_id = tokenizer.bos_token_id
     tf2tf.config.eos_token_id = tokenizer.sep_token_id
@@ -274,36 +341,40 @@ def configure_model(tf2tf, tokenizer):
 # Imports
 import datasets
 import transformers
-import tf2tf_tud_gpu_config as config
-import tf2tf_tud_gpu_helpers as helpers
+import tf2tf_gpu_config as config
+import tf2tf_gpu_helpers as helpers
 
 
 # Main
 tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=False)
-
-train_data, val_data, test_data = helpers.load_data(
-    language=config.language,
-    ratio_corpus_wik=config.ratio_corpus_wik,
-    ratio_corpus_nws=config.ratio_corpus_nws,
-    ratio_corpus_mls=config.ratio_corpus_mls,
-    ratio_corpus_eng=config.ratio_corpus_eng
-)
+train_data, val_data, test_data = helpers.load_data()
+rouge = datasets.load_metric("rouge")
 
 helpers.test_cuda()
 helpers.explore_corpus(train_data)
 helpers.empty_cache()
-rouge = datasets.load_metric("rouge")
 
 tf2tf = helpers.configure_model(tf2tf, tokenizer)
 tf2tf.to("cuda")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def process_data_to_model_inputs(batch):
     encoder_max_length = 512
     decoder_max_length = 128
-
-
-
 
     inputs = tokenizer(batch["text"], padding="max_length",
                        truncation=True, max_length=encoder_max_length)
@@ -316,8 +387,8 @@ def process_data_to_model_inputs(batch):
     batch["decoder_input_ids"] = outputs.input_ids
     batch["decoder_attention_mask"] = outputs.attention_mask
     batch["labels"] = outputs.input_ids.copy()
-    batch["labels"] = [[-100 if token == tokenizer.pad_token_id else token for token in labels]
-                       for labels in batch["labels"]]
+    batch["labels"] = [[-100 if token == tokenizer.pad_token_id else token
+    									for token in labels] for labels in batch["labels"]]
 
     return batch
 
@@ -337,9 +408,6 @@ train_data.set_format(
              "decoder_attention_mask",
              "labels"]
 )
-
-
-
 val_data = val_data.map(
     process_data_to_model_inputs,
     batched=True,
@@ -376,30 +444,50 @@ def compute_metrics(pred):
         "rouge2_recall": round(rouge_output.recall, 4),
         "rouge2_fmeasure": round(rouge_output.fmeasure, 4),
     }
-training_args = transformers.Seq2SeqTrainingArguments(
-    predict_with_generate=True,
-    evaluation_strategy="steps",
-    per_device_train_batch_size=config.batch_size,
-    per_device_eval_batch_size=config.batch_size,
-    output_dir=config.path_output,
-    warmup_steps=1000,
-    save_steps=10000,
-    logging_steps=2000,
-    eval_steps=10000,
-    save_total_limit=1,
-    learning_rate=5e-5,
-    adafactor=True,
-    fp16=True
-)
+if "mbart" in config.model_name:
+    training_args = transformers.TrainingArguments(
+        output_dir=config.path_output,
+        logging_dir=config.path_output,
+        per_device_train_batch_size=1,
+        per_device_eval_batch_size=1,
+        num_train_epochs=1,
+        warmup_steps=500,
+        weight_decay=0.01
+    )
 
-trainer = transformers.Seq2SeqTrainer(
-    model=tf2tf,
-    args=training_args,
-    compute_metrics=compute_metrics,
-    train_dataset=train_data,
-    eval_dataset=val_data,
-    tokenizer=tokenizer
-)
+    trainer = transformers.Trainer(
+        model=tf2tf,
+        args=training_args,
+        train_dataset=train_data,
+        eval_dataset=val_data
+    )
+
+else:
+    training_args = transformers.Seq2SeqTrainingArguments(
+        predict_with_generate=True,
+        evaluation_strategy="steps",
+        per_device_train_batch_size=config.batch_size,
+        per_device_eval_batch_size=config.batch_size,
+        output_dir=config.path_output,
+        warmup_steps=1000,
+        save_steps=10000,
+        logging_steps=2000,
+        eval_steps=10000,
+        save_total_limit=1,
+        learning_rate=5e-5,
+        adafactor=True,
+        fp16=True
+    )
+
+
+    trainer = transformers.Seq2SeqTrainer(
+        model=tf2tf,
+        args=training_args,
+        compute_metrics=compute_metrics,
+        train_dataset=train_data,
+        eval_dataset=val_data,
+        tokenizer=tokenizer
+    )
 
 trainer.train()
 \end{lstlisting}
@@ -410,70 +498,87 @@ trainer.train()
 \begin{lstlisting}[language=Python, caption=Evaluationscode]
 # Imports
 import datasets
-from psutil import test
-import tf2tf_tud_gpu_config as config
-import tf2tf_tud_gpu_helpers as helpers
+import transformers
+import tf2tf_gpu_config as config
+import tf2tf_gpu_helpers as helpers
 
 
 # Main
-tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=True)
-
-train_data, val_data, test_data = helpers.load_data(
-    language=config.language,
-    ratio_corpus_wik=config.ratio_corpus_wik,
-    ratio_corpus_nws=config.ratio_corpus_nws,
-    ratio_corpus_mls=config.ratio_corpus_mls,
-    ratio_corpus_eng=config.ratio_corpus_eng
-)
-
-helpers.test_cuda()
-helpers.explore_corpus(train_data)
-helpers.empty_cache()
 rouge = datasets.load_metric("rouge")
 
-tf2tf = helpers.configure_model(tf2tf, tokenizer)
-tf2tf.to("cuda")
+if "mbart" in config.model_name:
+    data, _, _ = helpers.load_data()
+    model = transformers.pipeline("summarization")
+    
+    list_of_texts = list(data["text"])
+    list_of_candidates = list(data["summary"])
+    list_of_summaries, list_of_predictions = [], []   
+
+    for i in range(0, len(list_of_texts) - 1):
+        try:
+            summary = model(
+                str(list_of_texts[i])[0:1024],
+                max_length=156,
+                min_length=64,
+                do_sample=False
+            )[0]["summary_text"]
+
+            list_of_predictions.append(summary)
+            list_of_summaries.append(list_of_candidates[i])
+
+        except Exception as e:
+            print(e)
 
 
-
-
-
-
-
-
-
-def generate_summary(batch):
-    inputs = tokenizer(
-        batch["text"],
-        padding="max_length",
-        truncation=True,
-        max_length=512,
-        return_tensors="pt"
+    print(
+        rouge.compute(
+            predictions=list_of_predictions,
+            references=list_of_summaries,
+            rouge_types=["rouge2"]
+        )["rouge2"].mid
     )
 
-    input_ids = inputs.input_ids.to("cuda")
-    attention_mask = inputs.attention_mask.to("cuda")
+else:
+    tokenizer, tf2tf = helpers.load_tokenizer_and_model(from_checkpoint=True)
+    train_data, val_data, test_data = helpers.load_data()
 
-    outputs = tf2tf.generate(input_ids, attention_mask=attention_mask)
-    output_str = tokenizer.batch_decode(outputs, skip_special_tokens=True)
-    batch["pred_summary"] = output_str
+    tf2tf = helpers.configure_model(tf2tf, tokenizer)
+    tf2tf.to("cuda")
 
-    return batch
+    def generate_summary(batch):
+        inputs = tokenizer(
+            batch["text"],
+            padding="max_length",
+            truncation=True,
+            max_length=512,
+            return_tensors="pt"
+        )
+
+        input_ids = inputs.input_ids.to("cuda")
+        attention_mask = inputs.attention_mask.to("cuda")
+
+        outputs = tf2tf.generate(input_ids, attention_mask=attention_mask)
+        output_str = tokenizer.batch_decode(outputs, skip_special_tokens=True)
+        batch["pred_summary"] = output_str
+
+        return batch
 
 
-results = test_data.map(
-    generate_summary,
-    batched=True,
-    batch_size=config.batch_size
-)
 
-print(
-    rouge.compute(
-        predictions=results["pred_summary"],
-        references=results["summary"],
-        rouge_types=["rouge2"]
-    )["rouge2"].mid
-)
+
+    results = test_data.map(
+        generate_summary,
+        batched=True,
+        batch_size=config.batch_size
+    )
+
+    print(
+        rouge.compute(
+            predictions=results["pred_summary"],
+            references=results["summary"],
+            rouge_types=["rouge2"]
+        )["rouge2"].mid
+    )
 \end{lstlisting}
 \newpage
 
@@ -499,17 +604,17 @@ print(
 
 
 # Imports
-import gc
 import csv
-import torch
-import psutil
 import datasets
-import transformers
+import gc
+import psutil
 import pandas as pd
+import torch
+import transformers
 
 from datasets import ClassLabel
 from IPython.display import display, HTML
-
+from typing import Tuple
 
 
 
@@ -520,87 +625,7 @@ drive.mount("/content/drive")
 path_drive = "/content/drive/My Drive/Temp/"
 
 
-# Config
-language = "german"  # english, german, multilingual
-model_name = "bert-base-multilingual-cased"
-tokenizer_name = "bert-base-multilingual-cased"
-batch_size = 16
-
-path_output = path_drive + "Models/"
-path_checkpoint = path_output + "/checkpoint"
-
-
-# Helpers
-def test_cuda():
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    torch.cuda.empty_cache()
-
-    print("Device:", device)
-    print("Version:", torch.__version__)
-
-
-def empty_cache():
-    gc.collect()
-    torch.cuda.empty_cache()
-    psutil.virtual_memory()
-
-
-def load_tokenizer_and_model(from_checkpoint=False):
-    tokenizer = transformers.AutoTokenizer.from_pretrained(
-        tokenizer_name, strip_accent=False
-    )
-
-    if from_checkpoint:
-        if "mbart" in model_name:
-            tf2tf = transformers.AutoModelForSeq2SeqLM.from_pretrained(
-                path_checkpoint
-            )
-
-        else:
-            tf2tf = transformers.EncoderDecoderModel.from_pretrained(
-                path_checkpoint
-            )
-
-    else:
-        if "mbart" in model_name:
-            tf2tf = transformers.MBartForConditionalGeneration.from_pretrained(
-                model_name
-            )
-
-        else:
-            tf2tf = transformers.EncoderDecoderModel.from_encoder_decoder_pretrained(
-                model_name, model_name, tie_encoder_decoder=True
-            )
-
-    return tokenizer, tf2tf
-
-
-
-
-
-
-
-
-
-
-
-
-def configure_model(tf2tf, tokenizer):
-    tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
-    tf2tf.config.bos_token_id = tokenizer.bos_token_id
-    tf2tf.config.eos_token_id = tokenizer.sep_token_id
-    tf2tf.config.pad_token_id = tokenizer.pad_token_id
-
-    tf2tf.config.max_length = 128
-    tf2tf.config.min_length = 56
-    tf2tf.config.no_repeat_ngram_size = 3
-    tf2tf.config.early_stopping = True
-    tf2tf.config.length_penalty = 2.0
-    tf2tf.config.num_beams = 2
-
-    return tf2tf
-
-
+# Methods
 def split_long_texts(parts, text):
     limit = 512
 
@@ -621,6 +646,15 @@ def split_long_texts(parts, text):
     return parts
     
 
+
+
+
+
+
+
+
+
+
 # Example (BERT, XLM-R)
 tokenizer, tf2tf = load_tokenizer_and_model(from_checkpoint=True)
 
@@ -631,14 +665,13 @@ if language == "english":
     corpus = corpus_english
 
 if language == "multilingual":
-    corpus = corpus_german + corpus_english
+    corpus = corpus_english + corpus_german
 
 tf2tf = configure_model(tf2tf, tokenizer)
 tf2tf.to("cuda")
 
 test_cuda()
 empty_cache()
-rouge = datasets.load_metric("rouge")
 
 cnt = 0
 
@@ -657,6 +690,7 @@ for text in corpus:
 
     df = pd.DataFrame({"text": article, "summary": highlights})
     test_data = datasets.arrow_dataset.Dataset.from_pandas(df)
+
     def generate_summary(batch):
         inputs = tokenizer(
             batch["text"],
@@ -665,7 +699,7 @@ for text in corpus:
             max_length=512,
             return_tensors="pt"
         )
-
+        
         input_ids = inputs.input_ids.to("cuda")
         attention_mask = inputs.attention_mask.to("cuda")
 
@@ -689,7 +723,7 @@ for text in corpus:
 
     with open(path_output + "summary_" + language + "_" + model_name + "_text-" + str(cnt) + ".txt", "w", encoding="utf-8") as f:
         f.write(summary[0]["pred_summary"])
-        
+
 
 
 # Example (BART)
@@ -700,7 +734,13 @@ cnt = 0
 
 for text in corpus:
     cnt += 1
-    summary = model(text, max_length=156, min_length=64, do_sample=False)[0]["summary_text"]
+    
+    summary = model(
+        text,
+        max_length=156,
+        min_length=64,
+        do_sample=False
+    )[0]["summary_text"]
 
     with open(path_output + "summary_" + language + "_BART_text-" + str(cnt) + ".txt", "w", encoding="utf-8") as f:
         f.write(summary)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  12 JUN 2021 10:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  13 JUN 2021 16:57
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -2276,16 +2276,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--84
-
- []
-
 [55]) [56]
 \openout2 = `source/content/Zusammenfassung.aux'.
 
@@ -3452,7 +3442,8 @@ nput line 6.
 
 
 ] [90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102]
-[103] [104] [105] [106] [107] [108]) [109] (source/formal/Literature.tex
+[103] [104] [105] [106] [107] [108] [109] [110]) [111]
+(source/formal/Literature.tex
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 []\OT1/cmr/m/n/10.95 AI-United: LSTM als neu-ro-na-les Netz-werk mit
  []
@@ -3659,10 +3650,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29217 strings out of 480257
- 548695 string characters out of 2881437
- 1371676 words of memory out of 3000000
- 44032 multiletter control sequences out of 15000+200000
+ 29277 strings out of 480257
+ 549550 string characters out of 2881437
+ 1360676 words of memory out of 3000000
+ 44050 multiletter control sequences out of 15000+200000
  547947 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,1994s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3683,9 +3674,9 @@ sfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (126 pages, 1849849 bytes).
+Output written on Thesis.pdf (128 pages, 1860380 bytes).
 PDF statistics:
- 2799 PDF objects out of 2984 (max. 8388607)
- 1030 named destinations out of 1200 (max. 500000)
+ 2855 PDF objects out of 2984 (max. 8388607)
+ 1072 named destinations out of 1200 (max. 500000)
  732 words of extra memory for PDF output out of 10000 (max. 10000000)
 

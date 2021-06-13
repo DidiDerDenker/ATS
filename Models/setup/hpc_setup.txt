@@ -49,9 +49,9 @@ srun --pty -p alpha -n 1 -c 4 --gres=gpu:1 --mem-per-cpu 5772 -t 24:00:00 bash -
 
 cd /home/davo557d/project
 source venv/bin/activate
-python tf2tf_tud_gpu_train.py
-python tf2tf_tud_gpu_eval.py
-python tf2tf_tud_gpu_example.py
+python tf2tf_gpu_train.py
+python tf2tf_gpu_eval.py
+python tf2tf_gpu_example.py
 
 cd /scratch/ws/1/davo557d-ws_project
 nvidia-smi -l 100
@@ -62,9 +62,9 @@ sacct -S 2021-06-01
 skill id
 
 cd /scratch/ws/1/davo557d-ws_project
-cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-40000 /home/davo557d/project
+cp -r /scratch/ws/1/davo557d-ws_project/checkpoint-100000 /home/davo557d/project
 cd /home/davo557d/project + download in vsc
-rm -rf checkpoint-40000
+rm -rf checkpoint-100000
 
 ===== Cache =====
 cd /home/davo557d/project/venv/lib/python3.7/site-packages
