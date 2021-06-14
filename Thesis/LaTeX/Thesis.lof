@@ -24,14 +24,15 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Architektur und Funktionsweise von ELMo \cite {IRE18}.\relax }}{33}{figure.caption.81}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Architektur von BERT mit MLM \cite [S.~3]{DEV19}.\relax }}{35}{figure.caption.86}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{36}{figure.caption.87}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces BERT, GPT und BART im Vergleich \cite [S.~2]{LEW19}.\relax }}{38}{figure.caption.92}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{43}{figure.caption.105}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{44}{figure.caption.106}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Loss in der SOTA-Reproduktion im Modellvergleich.\relax }}{53}{figure.caption.117}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Loss in der Adaption auf deutschen Daten im Modellvergleich.\relax }}{53}{figure.caption.118}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Loss in der Adaption auf multilingualen Daten im Modellvergleich.\relax }}{54}{figure.caption.119}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Loss in der SOTA-Reproduktion im Modellvergleich.\relax }}{54}{figure.caption.119}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Loss in der Adaption auf deutschen Daten im Modellvergleich.\relax }}{55}{figure.caption.120}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Loss in der Adaption auf multilingualen Daten im Modellvergleich.\relax }}{55}{figure.caption.121}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

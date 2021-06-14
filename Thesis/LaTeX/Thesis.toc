@@ -33,31 +33,31 @@
 \contentsline {subsection}{\numberline {3.3.1}ELMo}{32}{subsection.79}%
 \contentsline {subsection}{\numberline {3.3.2}GPT}{33}{subsection.82}%
 \contentsline {subsection}{\numberline {3.3.3}BERT}{34}{subsection.84}%
-\contentsline {subsection}{\numberline {3.3.4}XLM}{36}{subsection.88}%
+\contentsline {subsection}{\numberline {3.3.4}XLM-R}{36}{subsection.88}%
 \contentsline {subsection}{\numberline {3.3.5}BART}{37}{subsection.90}%
-\contentsline {section}{\numberline {3.4}Metriken}{37}{section.92}%
-\contentsline {subsection}{\numberline {3.4.1}ROUGE}{37}{subsection.97}%
-\contentsline {subsection}{\numberline {3.4.2}BLEU}{39}{subsection.99}%
-\contentsline {chapter}{\numberline {4}Automatic Text Summarization}{40}{chapter.100}%
-\contentsline {section}{\numberline {4.1}Typisierung von Systemen}{40}{section.101}%
-\contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{41}{section.102}%
-\contentsline {section}{\numberline {4.3}Konzeption einer Architektur}{42}{section.103}%
-\contentsline {chapter}{\numberline {5}Datengrundlage}{46}{chapter.106}%
-\contentsline {chapter}{\numberline {6}Experimente}{49}{chapter.107}%
-\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{49}{section.108}%
-\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{50}{section.110}%
-\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{50}{section.111}%
-\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{50}{section.112}%
-\contentsline {section}{\numberline {6.5}Optimierung der Hyperparameter}{51}{section.113}%
-\contentsline {chapter}{\numberline {7}Evaluation}{52}{chapter.114}%
-\contentsline {section}{\numberline {7.1}Automatische Auswertung}{52}{section.115}%
-\contentsline {section}{\numberline {7.2}Qualitative Analyse}{54}{section.120}%
-\contentsline {chapter}{\numberline {8}Zusammenfassung}{57}{chapter.121}%
-\contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{58}{chapter.122}%
-\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{59}{appendix.123}%
-\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{64}{appendix.124}%
-\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{69}{appendix.125}%
-\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{79}{appendix.126}%
-\contentsline {chapter}{Quellcode}{89}{chapter*.127}%
-\contentsline {chapter}{Literaturverzeichnis}{85}{lstnumber.853}%
+\contentsline {section}{\numberline {3.4}Metriken}{38}{section.93}%
+\contentsline {subsection}{\numberline {3.4.1}ROUGE}{39}{subsection.98}%
+\contentsline {subsection}{\numberline {3.4.2}BLEU}{40}{subsection.100}%
+\contentsline {chapter}{\numberline {4}Automatic Text Summarization}{41}{chapter.101}%
+\contentsline {section}{\numberline {4.1}Typisierung von Systemen}{41}{section.102}%
+\contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{42}{section.103}%
+\contentsline {section}{\numberline {4.3}Konzeption einer Architektur}{43}{section.104}%
+\contentsline {chapter}{\numberline {5}Datengrundlage}{47}{chapter.107}%
+\contentsline {chapter}{\numberline {6}Experimente}{50}{chapter.108}%
+\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{50}{section.109}%
+\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{51}{section.111}%
+\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{51}{section.112}%
+\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{51}{section.113}%
+\contentsline {section}{\numberline {6.5}Optimierung der Hyperparameter}{52}{section.114}%
+\contentsline {chapter}{\numberline {7}Evaluation}{53}{chapter.115}%
+\contentsline {section}{\numberline {7.1}Automatische Auswertung}{53}{section.117}%
+\contentsline {section}{\numberline {7.2}Qualitative Analyse}{56}{section.122}%
+\contentsline {chapter}{\numberline {8}Zusammenfassung}{58}{chapter.123}%
+\contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{59}{chapter.124}%
+\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{60}{appendix.125}%
+\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{65}{appendix.126}%
+\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{70}{appendix.127}%
+\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{80}{appendix.128}%
+\contentsline {chapter}{Quellcode}{90}{chapter*.129}%
+\contentsline {chapter}{Literaturverzeichnis}{85}{lstnumber.855}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

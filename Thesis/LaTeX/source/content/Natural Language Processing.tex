@@ -243,14 +243,28 @@ Um zudem weitergehende Informationen auf Satzebene zu erhalten, werden dem Train
 \ac{BERT} wurde initial in zwei verschiedenen Versionen veröffentlicht: BASE und LARGE. Die veröffentlichten Modelle wurden von den Forschern der Google AI Language auf zwei verschiedenen Korpora mit insgesamt über drei Millionen Wörtern trainiert. Sei $L$ die Anzahl der Schichten (oder: Transformer-Module), $H$ die Größe der verborgenen Schichten und $A$ die Anzahl der Self-Attention-Heads, dann sind die Versionen wie folgt definiert \cite[S.~3-5]{DEV19}. $$\text{BERT}_{\text{BASE}}: (L=12, H=768, A=12) \text{ mit } 110 \text{M Parametern}$$ $$\text{BERT}_{\text{LARGE}}: (L=24, H=1024, A=16) \text{ mit } 340 \text{M Parametern}$$
 
 
-\subsection{XLM}
+\subsection{XLM-R}
 \noindent
 \ac{XLM-R} ist ein weiteres Language Model, welches 2019 von Facebook AI veröffentlicht wurde und der Architektur von \ac{BERT} nahekommt. Es basiert demnach ebenfalls auf der bereits bekannten Transformer-Architektur. Es wird weiterhin über die Vorhersage absichtlich versteckter Textabschnitte unüberwacht trainiert. \ac{XLM-R} zeichnet sich insbesondere durch die multilinguale Funktionsweise aus. Hierfür wurde es auf mehr als zwei Terabyte an Textdaten vortrainiert, darunter Texte aus 100 verschiedenen Sprachen. Die Next Sentence Prediciton entfällt hingegen im Vergleich zu \ac{BERT}, während die \ac{LR} deutlich erhöht wird. Letztlich ist von \ac{XLM-R} durch die entsprechenden Anpassungen eine qualitative Verbesserung in verschiedenen \ac{NLP}-Aufgaben gegenüber der multilingualen Version von \ac{BERT} zu erwarten. Offensichtlich werden sprachübergreifende verborgene Strukturen erlernt, welche sich gegenseitig begünstigen. Darüber hinaus verwendet \ac{XLM-R} einen sprachübergreifenden Tokenizer. \ac{XLM-R} fordert Rechnern allerdings auch eine höhere Leistung ab \cite{CON20}.
 
 
 \subsection{BART}
 \noindent
-\ac{BART} ist eine weitere Architektur der Facebook AI aus dem Jahre 2019, welche sich insbesondere für das Vortraining von Sequence-to-Sequence-Modellen eignet. Hierfür wird eingehender Text mithilfe einer Rauschfunktion verändert. Das Modell versucht daraufhin, den ursprünglichen Text zu rekonstruieren, um unüberwacht einen Lernfortschritt zu erzielen. \ac{BART} generalisiert bisherige Architekturen wie \ac{BERT} oder auch \ac{GPT}, weshalb es sich weiterhin um eine Transformer-Architektur handelt. Die besten Ergebnisse erzielte \ac{BART} in der jüngsten Vergangenheit bei \ac{NLG}-Aufgaben wie der \ac{ATS}, sowohl mono- als auch multilingual. Dabei schließt \ac{BART} qualitativ nicht nur zu \ac{XLM-R} auf, sondern übersteigt sie zu Teilen sogar \cite{LEW19}.
+\ac{BART} ist eine weitere Architektur der Facebook AI aus dem Jahre 2019, welche sich insbesondere für das Vortraining von Sequence-to-Sequence-Modellen eignet. Hierfür wird eingehender Text mithilfe einer Rauschfunktion verändert, ähnlich wie beim bidirektionalen Maskieren in \ac{BERT}. Das Modell versucht daraufhin, den ursprünglichen Text zu rekonstruieren, um unüberwacht einen Lernfortschritt zu erzielen. Somit ist \ac{BART} nicht auf bestimmte \ac{NLP}-Aufgaben limitiert, sondern vielseitig einsetzbar, wenngleich die Entwickler die besondere Eignung für \ac{NLG}-Aufgaben unter der Bedingung eines entsprechenden Fine-Tunings hervorheben \cite[S.~1]{LEW19}.\\
+
+\noindent
+Wiederholend und vergleichend sei aufgeführt (siehe \autoref{pic:DlrComparison}): \ac{BERT} maskiert eingehenden Text bidirektional, bevor fehlende Token unabhängig davon prognostiziert werden. Dabei eignet sich \ac{BERT} insbesondere als Encoder, während er die \ac{NLG}-Fähigkeiten eines Decoders erst schwerlich erlernen muss. \ac{GPT} prognostiziert fehlende Token indes autoregressiv, jedoch nicht bidirektional. Daher eignet sich \ac{GPT} insbesondere als Decoder. \ac{BART} bedient sich nun den wesentlichen Vorteilen der beiden genannten \ac{DLR}. Demnach wird eingehender Text bei \ac{BART} ebenfalls bidirektional maskiert und prognostiziert Encoder). Anschließend wird die Wahrscheinlichkeit des eingegangenen Textes autoregressiv berechnet (Decoder). In einem weiterführenden Fine-Tuning sind hingegen nur unberauschte Texte zu verwenden, da die bereits erlernten verborgenen Zustände der \ac{DLR} zum Einsatz kommen. \ac{BART} generalisiert also bisherige Architekturen wie \ac{BERT} oder auch \ac{GPT}, weshalb es sich weiterhin um eine Transformer-Architektur handelt \cite[S.~2-3]{LEW19}.\\
+
+\noindent
+Die besten Ergebnisse erzielte \ac{BART} in der jüngsten Vergangenheit bei eben genau \ac{NLG}-Aufgaben wie der \ac{ATS}, sowohl mono- als auch multilingual. Dabei schließt \ac{BART} qualitativ nicht nur zu \ac{BERT} und \ac{XLM-R} auf, sondern übersteigt sie zu Teilen sogar \cite{LEW19}.
+\newpage
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.45\linewidth]{./source/images/dlrcomparison.png}}
+  \caption{BERT, GPT und BART im Vergleich \cite[S.~2]{LEW19}.}
+  \label{pic:DlrComparison}
+\end{figure}
 
 
 \section{Metriken}
@@ -271,7 +285,8 @@ $$\frac{\text{Anzahl übereinstimmender Wörter}}{\text{Anzahl der Wörter in de
 Wie man sieht, ändert sich nur der Nenner. Im oben genannten Beispiel gilt somit: $\text{Precision} = \frac{5}{6} = 0.8\overline{3}$. Nimmt man ferner \glqq Der letzte Sommer war wieder sehr warm und trocken\grqq{} als neue \ac{SYSZ} an, dann reduziert sich der Precision-Score aufgrund der erhöhten Anzahl unrelevanter Wörter wie folgt: $\text{Precision} = \frac{5}{9} = 0.5\overline{5}$. Weiterhin kann der Measure-Score als gewöhnlicher F-Score verstanden und interpretiert werden. Er ergibt sich als harmonisches Mittel zwischen dem Recall und der Precision, womit er beide Scores berücksichtigt \cite[S.~1-3]{LIN04}.\\
 
 \noindent
-\ac{ROUGE} wird allgemein auch als \ac{ROUGE}-N geschrieben, wobei das N bestimmt, ob obige Kennzahlen auf Grundlagen von Uni-, Bi- oder Trigrammen berechnet werden sollen. Im genannten Beispiel wurden also die \ac{ROUGE}-1 Recall-, Precision- und Measure-Scores berechnet. Zudem existieren Ansätze, welche die \ac{LCS} verfolgen. Diese werden hier jedoch vernachlässigt.\\
+\ac{ROUGE} wird allgemein auch als \ac{ROUGE}-N geschrieben, wobei das N bestimmt, ob obige Kennzahlen auf Grundlagen von Uni-, Bi- oder Trigrammen berechnet werden sollen. Im genannten Beispiel wurden also die \ac{ROUGE}-1 Recall-, Precision- und Measure-Scores berechnet. Zudem existieren Ansätze, welche die \ac{LCS} verfolgen. Diese werden hier jedoch vernachlässigt.
+\newpage
 
 \noindent
 Trotz oder gerade wegen der wissenschaftlichen Verbreitung des \ac{ROUGE}-Scores kommt immer mehr Kritik auf. Demnach kann \ac{ROUGE} beispielsweise nicht zwischen verschiedenen aber bedeutungsähnlichen Wörtern unterscheiden. Dies führt tendenziell zu einer schlechteren Bewertung, obgleich ein gegebener Text etwa in einer entsprechenden \ac{SYSZ} präzise zusammengefasst wurde. Außerdem wird den Texten zur Berechnung des \ac{ROUGE}-Scores Kleinschreibung abverlangt, unabhängig von den vorgeschalteten Modellen. Die Bewertung geschieht also eher auf syntaktischer als auf semantischer Basis. Aufgrund der bereits genannten weitreichenden Nutzung des \ac{ROUGE}-Scores und der damit gegebenen Vergleichbarkeit kommt er trotzdem in dieser Arbeit zum Einsatz \cite[S.~5]{LIN04}.
@@ -282,4 +297,4 @@ Trotz oder gerade wegen der wissenschaftlichen Verbreitung des \ac{ROUGE}-Scores
 \ac{BLEU} kommt der Funktionsweise von \ac{ROUGE} weitestgehend gleich. Demnach repräsentiert der Score ebenfalls die Ähnlichkeit längendefinierter N-Gramme. Dabei wird weiterhin für jede \ac{SYSZ} eine entsprechende \ac{REFZ} gefordert. Beide Metriken funktionieren indes sprachunabhängig. Im Unterschied zu \ac{ROUGE} führt \ac{BLEU} einen multiplikativen Bestrafungsterm ein, um zu kurze \ac{SYSZ} zu entwerten. Dies ist nicht notwendig, wenn die \ac{SYSZ} länger ist als die \ac{REFZ}. Der Precision-Score berücksichtigt dies bereits \cite[S.~5]{PAP02}.\\
 
 \noindent
-Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstützt, eignet er sich gewissermaßen auch für \ac{ATS}-Aufgaben. Zuletzt konnte wissenschaftlich bewiesen werden, dass der \ac{BLEU}-Score recht gut mit menschlichen Bewertungen korreliert. Aufgrund ähnelnder Nachteile zu denen des \ac{ROUGE}-Score und fehlender wissenschaftlicher Vergleichbarkeit wird der \ac{BLEU}-Score in dieser Arbeit nicht verwendet \cite[S.~6-7]{PAP02}.
+Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstützt, eignet er sich gewissermaßen auch für \ac{ATS}-Aufgaben. Zuletzt konnte wissenschaftlich bewiesen werden, dass der \ac{BLEU}-Score recht gut mit menschlichen Bewertungen korreliert. Aufgrund ähnelnder Nachteile zu denen des \ac{ROUGE}-Score und fehlender wissenschaftlicher Vergleichbarkeit im Kontext dieser Arbeit wird der \ac{BLEU}-Score nicht verwendet \cite[S.~6-7]{PAP02}.

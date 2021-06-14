@@ -3,12 +3,29 @@
 \label{chap:Evaluation}
 
 \noindent
-In diesem Kapitel werden alle Experimente umfangreich evaluiert. Dies geschieht einerseits auf Basis der ausgewählten Metriken, andererseits in Form einer qualitativen Analyse der aus den Anhängen A und B generierten Zusammenfassungen.
+In diesem Kapitel werden die Experimente umfangreich evaluiert. Dies geschieht einerseits automatisiert auf Basis der ausgewählten Metriken, andererseits manuell in Form einer qualitativen Analyse der aus den Anhängen A und B generierten Zusammenfassungen. Die Experimente werden zwecks anschließender Zuordnung wie folgt kodiert:
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{ | p{1cm} | p{7.5cm} | }
+\hline
+\textbf{ID} & \textbf{Experiment} \\
+\hline
+1 & Reproduktion auf englischen Daten \\
+\hline
+2 & Adaption auf deutschen Daten \\
+\hline
+3 & Adaption auf multilingualen Daten \\
+\hline
+\end{tabular}
+\caption{Kodierung der Experimente.}
+\label{table:ExpCoding}
+\end{table}
 
 
 \section{Automatische Auswertung}
 \noindent
-In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller Experimente gesamtheitlich dokumentiert. Dabei werden die Experimente anhand der genutzten \ac{DLR} und der Sprache der eingegangenen Textdaten differenziert. Über die angefügte ID lassen sich die Experimente numerisch identifizieren und zuordnen.\\
+In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller Experimente gesamtheitlich dokumentiert. Dabei ist die Konfiguration der Experimente jeweils anhand der ID, der genutzten \ac{DLR} und der Sprache der eingegangenen Textdaten nachvollziehbar. Die drei letztgenannten Spalten sind als zusammengesetzter Primärschlüssel zu verstehen.
 
 \begin{table}[htb]
 \centering
@@ -18,7 +35,7 @@ In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller
 \hline
 1 & BERT & EN & 15.78 & 10.25 & 12.11 \\
 \hline
-1 & XLM-R & EN & 11.76 & 8.89 & 9.88 \\
+1 & XLM-R & EN & 16.49 & 17.12 & 16.25 \\
 \hline
 2 & BERT & DE & 15.93 & 10.52 & 11.97 \\
 \hline
@@ -28,7 +45,7 @@ In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller
 \hline
 3 & XLM-R & EN \& DE & 16.44 & 15.45 & 15.35 \\
 \hline
-3 & BART & EN \& DE & 19.39 & 11.08 & 13.73 \\
+3 & BART & EN \& DE & 15.01 & 12.43 & 13.10 \\
 \hline
 \end{tabular}
 \caption{Ergebnisse im Experimentvergleich.}
@@ -36,51 +53,74 @@ In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller
 \end{table}
 
 \noindent
-Im ersten Experiment geschah die Reproduktion des \ac{SOTA} auf Basis englischsprachiger Daten. \ac{BERT} ist demnach unter Akzeptanz womöglich unbekannter Nebenbedingungen \ac{SOTA}-konform. \ac{XLM-R} hingegen bleibt weit zurück und bedarf aufgrund der komplexen Architektur einem noch umfangreicheren Fine-Tuning. Die Lernfortschritte sind anhand der Fehlerentwicklung in \autoref{pic:ExpEnLoss} visualisiert. Hierbei ist auch der Rückstand von \ac{XLM-R} nachvollziehbar.\\
+\textbf{Experiment 1: Reproduktion auf englischen Daten}\\
+\noindent
+Im ersten Experiment geschah die Reproduktion des \ac{SOTA} auf Basis englischsprachiger Textdaten. Das \ac{TF2TF} ist demnach unter Nutzung von \ac{BERT} und \ac{XLM-R} weitestgehend \ac{SOTA}-konform. Im Bereich der \ac{XLM-R} ist jedoch ein ungewöhnlich hoher R-Precision-Score auffallend, welcher sich in der Berechnung auch auf den R-Measure-Score auswirkt. Dies bedeutet per Formel eine hohe Übereinstimmung zwischen den Wörtern der Originaltexte und der generierten Zusammenfassungen. Eine weitergehende Ursache hierfür wird erst im nachfolgenden Kapitel ergründet. Die Lernfortschritte sind anhand der Fehlerentwicklung in \autoref{pic:ExpEnLoss} visualisiert. Hierbei ist zu erkennen, dass \ac{XLM-R} erst spät, dann aber ebenbürtig lernt.\\
 
 \begin{figure}[h]
   \centering
-  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/lossenglish.png}}
+  \fbox{\includegraphics[width=0.55\linewidth]{./source/images/lossenglish.png}}
   \caption{Loss in der SOTA-Reproduktion im Modellvergleich.}
   \label{pic:ExpEnLoss}
 \end{figure}
 
 \noindent
-Im zweiten Experiment geschah die Adaption der \ac{TF2TF} auf die deutsche Sprache. Hierfür kamen entsprechend ausschließlich deutschsprachige Daten zum Einsatz. \autoref{table:ExpEvaluation} gibt hierbei zu erkennen, dass \ac{BERT} wertmäßig in Englisch in etwa genauso gut wie in Deutsch ist. Der \ac{SOTA} wird indes unter Akzeptanz eines gewissen Rauschens von beiden Modellen erreicht. Die Lernfortschritte sind in bekannter Weise in \autoref{pic:ExpDeLoss} visualisiert. Hier ist zudem die Assimilation beider Modelle nachvollziehbar.\\
+\textbf{Experiment 2: Adaption auf deutschen Daten}\\
+\noindent
+Im zweiten Experiment geschah erstmalig die sprachtechnische Adaption der \ac{TF2TF}. Hierfür kamen demnach ausschließlich deutschsprachige Daten zum Einsatz. \autoref{table:ExpEvaluation} gibt hierbei zu erkennen, dass das Modell unter Nutzung von \ac{BERT} qualitativ in Englisch genauso gut wie in Deutsch ist. Im Bereich der \ac{XLM-R} sind nun keine auffallenden Werte mehr zu verzeichnen. Wertmäßig gleichen sich die \ac{TF2TF} nun unter Nutzung beider \ac{DLR} unter Akzeptanz eines gewissen Rauschens auf \ac{SOTA}-Niveau. Die Lernfortschritte sind in bekannter Weise in \autoref{pic:ExpDeLoss} visualisiert.
+\newpage
 
 \begin{figure}[h]
   \centering
-  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/lossgerman.png}}
+  \fbox{\includegraphics[width=0.55\linewidth]{./source/images/lossgerman.png}}
   \caption{Loss in der Adaption auf deutschen Daten im Modellvergleich.}
   \label{pic:ExpDeLoss}
 \end{figure}
-\newpage
 
 \noindent
-In dritten Experiment wurden alle verfügbaren Daten genutzt, um die \ac{TF2TF} einem Fine-Tuning zu unterziehen. \ac{BART} wird indes aus externer Quelle bezogen. In \autoref{table:ExpEvaluation} wird ersichtlich, dass sich \ac{BERT} unter multilingualen Trainingsdaten verbessert, \ac{XLM-R} hingegen nicht. \ac{BART} tritt wertmäßig deutlich hervor. In \autoref{pic:ExpMlLoss} wird zudem deutlich, dass \ac{XLM-R} erst spät, dann aber zielgerichtet trainiert. Hier scheint also die Nutzung umfangreicherer Trainingsdaten vielversprechend.\\
+\textbf{Experiment 3: Adaption auf multilingualen Daten}\\
+\noindent
+In dritten Experiment geschah die sprachtechnische Adaption der \ac{TF2TF} auf Basis multilingualer Textdaten. \ac{BART} wird indes aus externer Quelle bezogen. Die Evaluation hingegen geschieht im Kontext dieser Arbeit ausschließlich auf deutschsprachigen Textdaten. In \autoref{table:ExpEvaluation} wird ersichtlich, dass sich das Modell unter Nutzung von \ac{BERT} nun über den \ac{SOTA} hinaus verbessert, während im Bereich der \ac{XLM-R} erneut auffallende Werte entstehen. \ac{BART} entspricht ebenfalls dem \ac{SOTA}. Hier sei jedoch angemerkt, dass er den \ac{SOTA} auf Basis einer englischsprachigen Evaluation übersteigt. In \autoref{pic:ExpMlLoss} ist abermals die recht späte Konvergenz der \ac{XLM-R} nachvollziehbar, welche womöglich auf die architektonischen Unterschiede der genutzten \ac{DLR} zurückzuführen ist.\\
 
 \begin{figure}[h]
   \centering
-  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/lossmultilingual.png}}
+  \fbox{\includegraphics[width=0.55\linewidth]{./source/images/lossmultilingual.png}}
   \caption{Loss in der Adaption auf multilingualen Daten im Modellvergleich.}
   \label{pic:ExpMlLoss}
 \end{figure}
+\newpage
 
 
 \section{Qualitative Analyse}
 \noindent
-Die soeben evaluierten Experimente werden nun ergänzend qualitativ analysiert. Hierfür werden die \ac{TF2TF} aller Experimente sprachabhängig entweder Anhang A oder Anhang B unterzogen, indem die dort enthaltenen mitunter herausfordernden Texte maschinell zusammengefasst und subjektiv bewertet werden. Eine derartige Analyse ist erforderlich, um die Qualität sowie die praktische Eignung der trainierten \ac{TF2TF} vollends beurteilen zu können. Die qualitative Analyse ist außerdem erforderlich, um den teilweise kritisch begutachteten sowie eher statistisch veranlagten \ac{ROUGE}-Score qualitativ einzuordnen. Zudem sei bemerkt, dass die Zusammenfassungen in englischer und deutscher Sprache modellübergreifend den Anhängen C und D zu entnehmen sind.
-\newpage
+Die soeben wertmäßig evaluierten Experimente werden nun ergänzend qualitativ analysiert. Hierfür werden die \ac{TF2TF} aller Experimente sprachabhängig entweder Anhang A oder Anhang B unterzogen, indem die dort enthaltenen mitunter herausfordernden Texte maschinell zusammengefasst und subjektiv bewertet werden. Eine derartige Analyse ist erforderlich, um die Qualität sowie die praktische Eignung der trainierten \ac{TF2TF} vollends beurteilen zu können. Die qualitative Analyse ist außerdem erforderlich, um den teilweise kritisch begutachteten sowie statistisch veranlagten \ac{ROUGE}-Score qualitativ einzuordnen. Zudem sei bemerkt, dass die in diesem Kapitel referenzierten Zusammenfassungen in englischer und deutscher Sprache modellübergreifend stets den Anhängen C und D zu entnehmen sind.\\
 
 \noindent
-Im ersten Experiment werden die englischen \ac{TF2TF} miteinander verglichen, namentlich \ac{BERT} und \ac{XLM-R}. Die obige Auswertung hebt hierbei \ac{BERT} als wertmäßig bestes Modell hervor. Die generierten Zusammenfassungen bestätigen diese Aussage aus praktischer Sicht für die getroffene Modellauswahl, obwohl Informationen teilweise leicht fehlerbehaftet sind. Dies wird im Kontext dieser Arbeit als \ac{SOTA}-konform interpretiert. \ac{XLM-R} hingegen ist unbrauchbar, insbesondere wegen der ungenügenden Grammatik und Orthographie. Somit sind auch viele der neu generierten Informationen schlichtweg falsch.\\
+\textbf{Experiment 1: Reproduktion auf englischen Daten}\\
+\noindent
+Im ersten Experiment wurden die englischen \ac{TF2TF} miteinander verglichen, namentlich \ac{BERT} und \ac{XLM-R}. Die obige Auswertung hebt hierbei \ac{XLM-R} als wertmäßig bestes Modell hervor. Die beispielhaft generierten Zusammenfassungen bestätigen dies jedoch nicht. Die Gefahr der Exploitation macht sich zwar nicht durch das Lernen der Textstruktur bemerkbar, dafür allerdings durch häufig vorkommende Wiederholungen von mutmaßlich wichtigen Wörtern oder Wortpassagen aus den jeweiligen Originaltexten.\\
 
 \noindent
-Im zweiten Experiment werden die deutschen \ac{TF2TF} miteinander verglichen. Hier entspricht \ac{BERT} zwar wertmäßig dem \ac{SOTA}, schneidet jedoch vor allem bei Texten unbekannter Art eher schlecht ab. Dabei wird die Abhängigkeit des Modells von der Beschaffenheit der Trainingsdaten deutlich, insbesondere anhand der Natur der Zusammenfassungen. Hier ist nämlich ein typisches Element der Nachrichtendomäne erkennbar, da anstatt einer konventionellen Zusammenfassung oftmals ein Teaser generiert wird, der den Leser binden und zum Text weiterleiten soll. Dieses Verhalten ist jedoch nicht auf das Modell zurückzuführen, sondern auf die Trainingsdaten, welche größtenteils eben jener Nachrichtendomäne entstammen. Dies unterstreicht insgesamt die Notwendigkeit einer intensiven Datenanalyse. Hinsichtlich eines praktischen Einsatzes ist also stets ein anforderungsgerechter Korpus zu formieren. Zudem ist der Einfluss des vortrainierten Modells bemerkbar, beispielsweise im Text über das Finale der WM 2014. Hier wird im originalen Text von Jogi Löw geschrieben, in der Zusammenfassung hingegen von Jürgen Klopp. Letzterer wurde zuvor jedoch nie erwähnt. Dies kann mit der geringen Distanz beider Personen im Vektorraum erklärt werden und ist somit zwar sachlogisch falsch, mathematisch jedoch nachvollziehbar. Dies tritt in ähnlicher Weise auch in den anderen Zusammenfassungen auf. Ein Fine-Tuning mit sehr viel mehr Trainingsdaten verspricht dieses Rauschen hinreichend zu minimieren. Die deutsche \ac{XLM-R} lässt eine Verbesserung gegenüber der englischen \ac{XLM-R} vermuten. Dies lässt sich mithilfe der qualitativen Analyse bestätigen. Die zuvor ungenügende Grammatik und Orthographie ist nun korrekt erlernt. Gegenüber dem deutschen \ac{BERT} sind die inhaltlichen Schwächen zwar reduziert, jedoch nicht vollumfänglich beseitigt. Ansonsten ist erwartungsgemäß erneut das lockende Element aus der Nachrichtendomäne erkennbar. Dies wird bekanntermaßen von den Trainingsdaten bewirkt, weshalb dieses Verhalten wohl modellübergreifend auftritt.
-\newpage
+Betrachtet man hingegen die generierten Zusammenfassungen von \ac{BERT}, so ist dieser im Kontext der vorliegenden Arbeit als \ac{SOTA}-konform zu interpretieren, obgleich teilweise leicht fehlerbehafteter oder gar falscher Informationen.\\
 
 \noindent
-Im dritten Experiment werden die multilingual trainierten \ac{TF2TF} miteinander verglichen. Hierbei verbessert sich \ac{BERT} wertmäßig. Subjektiv verbessert er sich in Englisch nun bis hin zur praktischen Eignung, in Deutsch jedoch nicht, weil in Form von Overfitting offensichtlich Sätze der Trainingsdaten auswendig gelernt wurden. \ac{XLM-R} erzielt keine Verbesserung, da die ursprüngliche Sprache häufig verwechselt und in der generierten Zusammenfassung gemischt wird. \ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in einer deutschen Zusammenfassung zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das Modell der Wahl, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist wertmäßig und subjektiv wieder Erwarten nur leicht unterlegen.
+\textbf{Experiment 2: Adaption auf deutschen Daten}\\
+\noindent
+Im zweiten Experiment werden die deutschen \ac{TF2TF} miteinander verglichen. Hier entspricht \ac{BERT} zwar wertmäßig dem \ac{SOTA}, schneidet jedoch vor allem bei Texten unbekannter Art eher schlecht ab. Dabei wird die Abhängigkeit des Modells von der Beschaffenheit der Trainingsdaten deutlich, insbesondere anhand der Natur der Zusammenfassungen. Hier ist nämlich ein typisches Element der Nachrichtendomäne erkennbar, da anstatt einer konventionellen Zusammenfassung oftmals ein Teaser generiert wird, der den Leser binden und zum Text weiterleiten soll. Dieses Verhalten ist jedoch nicht auf das Modell zurückzuführen, sondern auf die Trainingsdaten, welche größtenteils eben jener Nachrichtendomäne entstammen. Dies unterstreicht insgesamt die Notwendigkeit einer intensiven Datenanalyse. Hinsichtlich eines praktischen Einsatzes ist also stets ein anforderungsgerechter Korpus zu formieren. Zudem ist der Einfluss des vortrainierten Modells bemerkbar, beispielsweise im Text über das Finale der WM 2014. Hier wird im originalen Text von Jogi Löw geschrieben, in der Zusammenfassung hingegen von Jürgen Klopp. Letzterer wurde zuvor jedoch nie erwähnt. Dies kann mit der geringen Distanz beider Personen im Vektorraum erklärt werden und ist somit zwar sachlogisch falsch, mathematisch jedoch nachvollziehbar. Dies tritt in ähnlicher Weise auch in den anderen Zusammenfassungen auf. Ein Fine-Tuning mit sehr viel mehr Trainingsdaten verspricht dieses Rauschen hinreichend zu minimieren.\\
+
+\noindent
+Die deutsche \ac{XLM-R} weist nun unauffällige aber ordentliche Werte auf. Die Eignung lässt sich mithilfe der qualitativen Analyse bestätigen. Die zuvor identifizierten Eigenarten treten nun nicht mehr auf. Gegenüber dem deutschen \ac{BERT} sind die inhaltlichen Schwächen zwar reduziert, jedoch nicht vollumfänglich beseitigt. Ansonsten ist erwartungsgemäß erneut das lockende Element aus der Nachrichtendomäne erkennbar. Dies wird bekanntermaßen von den Trainingsdaten bewirkt, weshalb dieses Verhalten wohl modellübergreifend auftritt.\\
+
+\noindent
+\textbf{Experiment 3: Adaption auf multilingualen Daten}\\
+\noindent
+Im dritten Experiment werden die multilingual trainierten \ac{TF2TF} miteinander verglichen. Hierbei verbessert sich \ac{BERT} wertmäßig. Subjektiv verbessert er sich in Englisch nun bis hin zur praktischen Eignung, in Deutsch jedoch nicht.\\
+
+\noindent
+\ac{XLM-R} erzielt keine Verbesserung, da die ursprüngliche Sprache häufig verwechselt und in der generierten Zusammenfassung gemischt wird.\\
+
+\noindent
+\ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in einer deutschen Zusammenfassung zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das Modell der Wahl, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist wertmäßig und subjektiv wieder Erwarten nur leicht unterlegen.
 
 % TODO: Optimierung mit bewährtem Modell vornehmen (auf 10-20% der Daten), sonst in Experimenten nicht mehr ankündigen
 

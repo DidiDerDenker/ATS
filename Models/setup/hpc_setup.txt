@@ -28,10 +28,12 @@ conda install libgcc
 python -V
 nvidia-smi -l 1
 ipython
+
 from transformers import pipeline
 text = "Dies ist ein Test"
-summarizer = pipeline("summarization", device=0)
-summarizer(text)
+model = pipeline("summarization", device=0)
+summary = model(text)
+print(summary)
 
 ===== Visual Studio Code =====
 Install the OpenSSH-Extension
