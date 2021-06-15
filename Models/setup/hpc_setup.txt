@@ -53,7 +53,6 @@ cd /home/davo557d/project
 source venv/bin/activate
 python tf2tf_gpu_train.py
 python tf2tf_gpu_eval.py
-python tf2tf_gpu_example.py
 
 cd /scratch/ws/1/davo557d-ws_project
 nvidia-smi -l 100

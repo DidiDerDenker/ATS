@@ -52,12 +52,12 @@
 \contentsline {chapter}{\numberline {7}Evaluation}{53}{chapter.115}%
 \contentsline {section}{\numberline {7.1}Automatische Auswertung}{53}{section.117}%
 \contentsline {section}{\numberline {7.2}Qualitative Analyse}{56}{section.122}%
-\contentsline {chapter}{\numberline {8}Zusammenfassung}{58}{chapter.123}%
-\contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{59}{chapter.124}%
-\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{60}{appendix.125}%
-\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{65}{appendix.126}%
-\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{70}{appendix.127}%
-\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{80}{appendix.128}%
-\contentsline {chapter}{Quellcode}{90}{chapter*.129}%
-\contentsline {chapter}{Literaturverzeichnis}{85}{lstnumber.855}%
+\contentsline {chapter}{\numberline {8}Zusammenfassung}{59}{chapter.124}%
+\contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{60}{chapter.125}%
+\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{61}{appendix.126}%
+\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{66}{appendix.127}%
+\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{71}{appendix.128}%
+\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{81}{appendix.129}%
+\contentsline {chapter}{Quellcode}{91}{chapter*.130}%
+\contentsline {chapter}{Literaturverzeichnis}{85}{lstnumber.857}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
