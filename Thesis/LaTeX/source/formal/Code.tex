@@ -319,7 +319,7 @@ def load_tokenizer_and_model(from_checkpoint: bool = False)
     
     
 def configure_model(tf2tf: transformers.EncoderDecoderModel, tokenizer: transformers.AutoTokenizer)
-	-> tf2tf: transformers.EncoderDecoderModel:
+	-> transformers.EncoderDecoderModel:
     tf2tf.config.decoder_start_token_id = tokenizer.cls_token_id
     tf2tf.config.bos_token_id = tokenizer.bos_token_id
     tf2tf.config.eos_token_id = tokenizer.sep_token_id
