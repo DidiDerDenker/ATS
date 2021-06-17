@@ -8,7 +8,7 @@ Unter Kenntnis der Grundlagen des \ac{DL}, des \ac{NLP} und der \ac{ATS} wird nu
 
 \section{Entwicklungsumgebung}
 \noindent
-Die Entwicklung und die Durchführung aller Experimente geschieht in Python. Dies ist eine Programmiersprache, welche sich insbesondere für \ac{ML}- und \ac{DL}-Zwecke eignet. Dabei werden Trainingsprozesse durch \ac{CUDA} unterstützt, wenn entsprechende Voraussetzungen erfüllt sind. \ac{CUDA} ist eine von NVIDIA entwickelte Technik, welche es ermöglicht, bestimmte Operationen mithilfe der GPU zu beschleunigen \cite{NVI21}. Zudem ist es in dieser Umgebung möglich, vortrainierte Modelle wie \ac{BERT}, {XLM-R} und \ac{BART} zu laden und Architekturen weitergehend gemäß der bereits bekannten Konfiguration zu präparieren, darunter beispielsweise die beschriebene Encoder-Decoder-Architektur. Dies wird durch die Bibliothek PyTorch und das US-Unternehmen HuggingFace, welches den Code als Open Source bereitstellt, ermöglicht. HuggingFace stellt zudem verschiedene Klassen zum Trainieren von Sequence-to-Sequence-Modellen bereit \cite{HUG21}. Darüber hinaus erfolgen alle Experimente dieser Arbeit über einen legitimierten Zugang auf dem Hochleitungsrechner der TU Dresden, namentlich Taurus, um das Potenzial der verfügbaren Umgebung mithilfe einer leistungsstarken GPU (NVIDIA V100) vollends auszuschöpfen \cite{ZIH21}. Der Quellcode ist dem Anhang zu entnehmen.
+Die Entwicklung und die Durchführung aller Experimente geschieht in Python. Dies ist eine Programmiersprache, welche sich insbesondere für \ac{ML}- und \ac{DL}-Zwecke eignet. Dabei werden Trainingsprozesse durch \ac{CUDA} unterstützt, wenn entsprechende Voraussetzungen erfüllt sind. \ac{CUDA} ist eine von NVIDIA entwickelte Technik, welche es ermöglicht, bestimmte Operationen mithilfe der GPU zu beschleunigen \cite{NVI21}. Zudem ist es in dieser Umgebung möglich, vortrainierte Modelle wie \ac{BERT}, {XLM-R} und \ac{BART} zu laden und Architekturen weitergehend gemäß der bereits bekannten Konfiguration zu präparieren, darunter beispielsweise die beschriebene Encoder-Decoder-Architektur. Dies wird durch die Bibliothek PyTorch und das US-Unternehmen HuggingFace, welches den Code als Open Source bereitstellt, ermöglicht. HuggingFace stellt zudem verschiedene Klassen zum Trainieren von Sequence-to-Sequence-Modellen bereit \cite{HUG21}. Darüber hinaus erfolgen alle Experimente dieser Arbeit über einen legitimierten Zugang auf dem Hochleitungsrechner der TU Dresden, namentlich Taurus, um das Potenzial der verfügbaren Umgebung mithilfe einer leistungsstarken GPU (NVIDIA A100) vollends auszuschöpfen \cite{ZIH21}. Der Quellcode ist dem Anhang zu entnehmen.
 \newpage
 
 
@@ -25,9 +25,3 @@ Anschließend wird die Adaption auf die deutsche Sprache erprobt. Die bislang ge
 \section{Adaption auf multilingualen Daten}
 \noindent
 Basierend auf der Annahme, multilinguale \ac{DLR} würden von verborgenen Strukturen anderer Sprachen profitieren, werden erneut zwei \ac{TF2TF} unter Nutzung beider \ac{DLR} jeweils auf einem Mix aus allen englisch- und deutschsprachigen Daten ($K_{eng} \cup K_{wik} \cup K_{nws} \cup K_{mls}$) trainiert und auf Basis einer deutschsprachigen Evaluation mit den bisherigen Fortschritten verglichen. \ac{BART} wird nun ebenfalls herangezogen, allerdings nicht selbst trainiert, sondern fortan nur als multilingual weitertrainiertes Modell von HuggingFace bezogen.
-\newpage
-
-
-\section{Optimierung der Hyperparameter}
-\noindent
-Weitere Experimente, wie beispielsweise die Optimierung der Hyperparameter oder die Variation der jeweiligen Korpusanteile, werden im nächsten Kapitel nach der grundlegenden Evaluation der hier konzipierten Experimente abgeleitet und durchgeführt.
