@@ -5,9 +5,11 @@
 % Diskussion und Ausblick:
 - Fortschritte mit präsentiertem Forschungsstand vergleichen
 - Kritik aus den letzten beiden Kapitel hier zusammenfassen, nochmals begründen und Anpassungsmöglichkeiten beschreiben
+- NLU gut, NLG herausfordernd
+- Hyperparameteroptimierung bei Transformern schwierig, nur bei TF2TF als Einheit gewinnbringend
 - Umgang mit kurzen und langen Texten analysieren
 - Training vor Overfitting stoppen, ggf. geeignete Metriken dafür finden
-- Zukünftig mehr Aufmerksamkeit auf die Kollektion von Daten notwendig, Modell lernt datenentsprechend (Fortschritte erkennbar, Funktionalität der Modelle bewiesen, aber unbedingt mehr Daten), d.h. mit qualitativen Daten sind ggf. nicht mal architektonische Anpassungen nötig, sondern nur ein erneutes Training auf einer veränderten Datengrundlage, ggf. auch Data Augmentation oder Übersetzungen denkbar
+- Zukünftig mehr Aufmerksamkeit auf die Kollektion von Daten notwendig, Modell lernt datenentsprechend (eher Proof of Concept, d.h. Fortschritte erkennbar, Funktionalität der Modelle bewiesen, aber unbedingt mehr Daten), d.h. mit qualitativen Daten sind ggf. nicht mal architektonische Anpassungen nötig, sondern nur ein erneutes Training auf einer veränderten Datengrundlage, ggf. auch Data Augmentation oder Übersetzungen denkbar, vermuteter Grund: Zu wenig Daten und daher überparametrisiert, Daten ggf. kritisieren
 - Exploitation wegen der Struktur der Artikel nochmal aufgreifen, Optimierung auf bewährtem Modell mit 10-20 Prozent
 - Adaption auf Sprache, Domäne, Textart (Abstractive Dialogue Summarization with Sentence-Gated Modeling Optimized by Dialogue Acts/ Using a KG-Copy Network for Non-Goal Oriented Dialogues/ Automatic Dialogue Summary Generation of Customer Service/ Global Summarization of Medical Dialogue by Exploiting Local Structures, Fine-Tuning in Zieldomäne immer notwendig, d.h. wenn bekannt ist, dass das Modell für medizinische Texte angewandt werden soll, sollte man das Fine-Tuning mit entsprechenden Daten ausführen, ggf. erneut Hyperparameter optimieren, Verdichtung von Protokollen einer Videosprechstunde, Gefahr: Initial bereits hohe Informationsdichte bei medizinischen Texten wie Diktaten, d.h. "Was fällt raus?")
 - Pareto-Prinzip für Maschine wie für Menschen auch, daher Empfehlung > 1 Mio. Daten, weil hinten raus viel Detailarbeit passiert
