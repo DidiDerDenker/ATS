@@ -80,7 +80,7 @@ Im zweiten Experiment geschah erstmalig die sprachtechnische Adaption der \ac{TF
 \noindent
 \textbf{Experiment 3: Adaption auf multilingualen Daten}\\
 \noindent
-In dritten Experiment geschah die sprachtechnische Adaption der \ac{TF2TF} auf Basis multilingualer Textdaten. \ac{BART} wird indes aus externer Quelle bezogen. Die Evaluation hingegen geschieht im Kontext dieser Arbeit ausschließlich auf deutschsprachigen Textdaten. In \autoref{table:ExpEvaluation} wird ersichtlich, dass sich das Modell unter Nutzung von \ac{BERT} nun über den \ac{SOTA} hinaus verbessert, während im Bereich der \ac{XLM-R} erneut auffallende Werte entstehen. \ac{BART} entspricht ebenfalls dem \ac{SOTA}. Hier sei jedoch angemerkt, dass er den \ac{SOTA} auf Basis einer englischsprachigen Evaluation übersteigt. In \autoref{pic:ExpMlLoss} ist abermals die recht späte Konvergenz der \ac{XLM-R} nachvollziehbar, welche womöglich auf die architektonischen Unterschiede der genutzten \ac{DLR} zurückzuführen ist.\\
+Im dritten Experiment geschah die sprachtechnische Adaption der \ac{TF2TF} auf Basis multilingualer Textdaten. \ac{BART} wird indes aus externer Quelle bezogen. Die Evaluation geschieht im Kontext dieser Arbeit ausschließlich auf deutschsprachigen Textdaten. In \autoref{table:ExpEvaluation} wird ersichtlich, dass sich das Modell unter Nutzung von \ac{BERT} nun über den \ac{SOTA} hinaus verbessert, während im Bereich der \ac{XLM-R} erneut auffallende Werte entstehen. \ac{BART} entspricht ebenfalls dem \ac{SOTA}. Hier sei jedoch angemerkt, dass er den \ac{SOTA} auf Basis einer englischsprachigen Evaluation übersteigt. In \autoref{pic:ExpMlLoss} ist abermals die recht späte Konvergenz der \ac{XLM-R} nachvollziehbar, welche womöglich auf die architektonischen Unterschiede der \ac{DLR} zurückzuführen ist.\\
 
 \begin{figure}[h]
   \centering
@@ -131,4 +131,4 @@ Das \ac{TF2TF} unter Nutzung von \ac{BERT} verbessert sich in Englisch nun bis h
 \ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in deutschen Zusammenfassungen zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das beste Modell, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist wertmäßig und subjektiv wider Erwarten nur leicht unterlegen.\\
 
 \noindent
-Die Ergebnisse wurden nun nicht nur evaluiert und analysiert, sondern teilweise bereits bewertet und begründet. Dies wird nachfolgend an entsprechender Stelle hinreichend fortgeführt.
+Die Ergebnisse wurden nun nicht nur evaluiert und analysiert, sondern teilweise bereits bewertet und begründet. Dies wird nachfolgend hinreichend fortgeführt.
