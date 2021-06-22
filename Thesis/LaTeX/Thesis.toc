@@ -53,10 +53,10 @@
 \contentsline {section}{\numberline {7.2}Qualitative Analyse}{55}{section.121}%
 \contentsline {chapter}{\numberline {8}Zusammenfassung}{58}{chapter.123}%
 \contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{60}{chapter.124}%
-\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{62}{appendix.125}%
-\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{67}{appendix.126}%
-\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{72}{appendix.127}%
-\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{82}{appendix.128}%
-\contentsline {chapter}{Quellcode}{92}{chapter*.129}%
+\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{63}{appendix.125}%
+\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{68}{appendix.126}%
+\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{73}{appendix.127}%
+\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{83}{appendix.128}%
+\contentsline {chapter}{Quellcode}{93}{chapter*.129}%
 \contentsline {chapter}{Literaturverzeichnis}{85}{lstnumber.856}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
