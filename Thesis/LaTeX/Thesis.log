@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  23 JUN 2021 10:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  24 JUN 2021 11:52
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -3766,12 +3766,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
+<./source/images/signature.png, id=2493, 506.89375pt x 257.96375pt>
+File: ./source/images/signature.png Graphic file (type png)
+<use ./source/images/signature.png>
+Package pdftex.def Info: ./source/images/signature.png  used on input line 11.
+(pdftex.def)             Requested size: 67.2169pt x 34.20561pt.
 ) [120
 
 
 
 
-] (Thesis.aux ("source/content/Deep Learning.aux")
+ <./source/images/signature.png>] (Thesis.aux
+("source/content/Deep Learning.aux")
 ("source/content/Natural Language Processing.aux")
 ("source/content/Automatic Text Summarization.aux")
 (source/content/Datengrundlage.aux) (source/content/Experimente.aux)
@@ -3785,10 +3791,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 29290 strings out of 480257
- 549744 string characters out of 2881437
+ 29297 strings out of 480257
+ 549939 string characters out of 2881437
  1360876 words of memory out of 3000000
- 44059 multiletter control sequences out of 15000+200000
+ 44064 multiletter control sequences out of 15000+200000
  547947 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,1994s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3809,9 +3815,9 @@ sfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (131 pages, 1923862 bytes).
+Output written on Thesis.pdf (131 pages, 1981475 bytes).
 PDF statistics:
- 2951 PDF objects out of 2984 (max. 8388607)
- 1078 named destinations out of 1200 (max. 500000)
- 729 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2954 PDF objects out of 2984 (max. 8388607)
+ 1079 named destinations out of 1200 (max. 500000)
+ 734 words of extra memory for PDF output out of 10000 (max. 10000000)
 
