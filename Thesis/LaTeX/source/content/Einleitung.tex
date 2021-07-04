@@ -22,14 +22,12 @@ Die Anforderungen an ein \ac{ATS}-Modell lassen sich aus dem individuell anvisie
 
 \noindent
 Aus technischer Sicht kommen bei der \ac{ATS} im Rahmen von \ac{ML} grundsätzlich Sequence-to-Sequence-Modelle zum Einsatz. Dabei wird stets eine Eingabesequenz $x = [x_{1}, ..., x_{n}]$ in eine Ausgabesequenz $y = [y_{1}, ..., y_{m}]$ überführt, wobei $n$ die Eingabelänge und $m$ die Ausgabelänge ist. Die Sequenzen werden von Vektoren repräsentiert. Mithin wird bei der \ac{ATS} $m$ \textless \, $n$ intendiert. Sequenzen bestehen hierbei aus Symbolen, also etwa Zeichen, Zeichenketten oder auch Ziffern. Architekturen modellieren also die bedingte Wahrscheinlichkeit $P(y \mid x)$ \cite[S.~32-33]{NIT19}. Die maßgebliche Herausforderung ist hierbei zum einen, dass \ac{ATS}-Modelle tatsächlich die wichtigsten Informationen einer Eingabesequenz identifizieren. Zum anderen gilt es, diese Informationen in eine entsprechende Ausgabesequenz zu integrieren. Eben diese Ausgabesequenz ist zudem orthographisch und grammatikalisch korrekt zu generieren. Üblicherweise wird dieser Vorgang als Paraphrasierung bezeichnet. Auch Menschen müssen diese Fähigkeit erst einmal schwerlich erlernen.
+\newpage
 
 
 \section{Zielsetzung}
 \noindent
-Das Ziel dieser Arbeit ist dementsprechend die abstraktive Zusammenfassung einzelner Dokumente, wobei multilingual vortrainierte Modelle mittels \ac{TL} auf die deutsche Sprache adaptiert werden. Die Arbeit ist somit außerdem eine potenzielle Grundlage für die beiden dargestellten Einsatzgebiete aus dem Gesundheitswesen. Die Adaption auf die Domäne oder auch die Dialogorientierung ist nicht Teil dieser Arbeit.
-\newpage
-
-Die Forschungsfragen lauten wie folgt:
+Das Ziel dieser Arbeit ist dementsprechend die abstraktive Zusammenfassung einzelner Dokumente, wobei multilingual vortrainierte Modelle mittels \ac{TL} auf die deutsche Sprache adaptiert werden. Die Arbeit ist somit außerdem eine potenzielle Grundlage für die beiden dargestellten Einsatzgebiete aus dem Gesundheitswesen. Die Adaption auf die Domäne oder auch die Dialogorientierung ist nicht Teil dieser Arbeit. Die Forschungsfragen lauten wie folgt:
 
 \begin{itemize}
 	\item Wie lassen sich Texte automatisiert zusammenfassen?
@@ -53,10 +51,11 @@ Nach der Einleitung werden zunächst die Grundlagen des \ac{DL} und des \ac{NLP}
 
 \section{Forschungsstand \& Referenzen}
 \noindent
-Aufgrund der stetig fortschreitenden Entwicklungen überholt sich der Forschungsstand der \ac{ATS} regelmäßig. Dennoch haben sich in den vergangenen Jahren gewisse Tendenzen erkennen lassen. Bereits zur Jahrtausendwende existierten erste \ac{ATS}-Systeme. Waren die ersten Ansätze zumeist noch extraktiv, wurde sich in den vergangenen Jahren mehr und mehr auf die abstraktiven Ansätze konzentriert. Vor 2016 waren Ansätze mit \ac{RNN} und \ac{LSTM} sehr populär \cite{NAL16}. In den Jahren 2016 und 2017 etablierten sich Ansätze, welche auf \ac{RL} basierten \cite{PAU17}. Seit 2018 legten diverse Ansätze mit Encoder-Decoder-Architekturen die Grundlage des heutigen \ac{SOTA} \cite{YAN19, ROT20}, denn um den \ac{SOTA} konkurrieren fast ausschließlich sogenannte Transformer. Diese basieren auf den Encoder-Decoder-Architekturen, implementieren verschiedenartige Attention-Mechanismen und haben sich qualitativ bewiesen. Diese Arbeit wird daher ebenfalls diesen Ansatz verfolgen, darüber hinaus jedoch die bislang unzulänglich behandelte Adaption auf die deutsche Sprache behandeln.\\
+Aufgrund der stetig fortschreitenden Entwicklungen überholt sich der Forschungsstand der \ac{ATS} regelmäßig. Dennoch haben sich in den vergangenen Jahren gewisse Tendenzen erkennen lassen. Bereits zur Jahrtausendwende existierten erste \ac{ATS}-Systeme. Waren die ersten Ansätze zumeist noch extraktiv, wurde sich in den vergangenen Jahren mehr und mehr auf die abstraktiven Ansätze konzentriert. Vor 2016 waren Ansätze mit \ac{RNN} und \ac{LSTM} sehr populär \cite{NAL16}. In den Jahren 2016 und 2017 etablierten sich Ansätze, welche auf \ac{RL} basierten \cite{PAU17}.
+\newpage
 
 \noindent
-Die Qualität der \ac{ATS} kann mithilfe des sogenannten ROUGE-Scores evaluiert werden. Dieser wird ebenso wie andere noch unerklärte Architekturen in einem nachfolgenden Kapitel dieser Arbeit umfangreich erläutert und kann zunächst als gegeben betrachtet werden.\\
+Seit 2018 legten diverse Ansätze mit Encoder-Decoder-Architekturen die Grundlage des heutigen \ac{SOTA}, denn um den \ac{SOTA} konkurrieren fast ausschließlich sogenannte Transformer \cite{YAN19, ROT20}. Diese basieren auf den Encoder-Decoder-Architekturen, implementieren verschiedenartige Attention-Mechanismen und konnten sich qualitativ beweisen. Diese Arbeit wird daher ebenfalls diesen Ansatz verfolgen, darüber hinaus jedoch die bislang unzulänglich behandelte Adaption auf die deutsche Sprache behandeln.\\
 
 \noindent
-Weiterhin hat der Durchbruch frei verfügbarer vortrainierter Modelle die \ac{NLP}-Welt revolutioniert, wie beispielsweise \ac{BERT} \cite{DEV19} sowie diverse Weiterentwicklungen. Verschiedenste \ac{NLP}-Aufgaben wie die \ac{ATS} konnten hiervon sehr stark profitieren. Die konkreten Funktionsweisen werden im Verlauf dieser Arbeit vertieft, wenn entsprechende Grundlagen kenntlich gemacht wurden. Dort werden der Forschungsstand der \ac{ATS} und vergleichbare Arbeiten separat thematisiert sowie entsprechende Verbesserungen hervorgehoben.
+Weiterhin hat der Durchbruch frei verfügbarer vortrainierter Modelle die \ac{NLP}-Welt revolutioniert, wie beispielsweise \ac{BERT} sowie diverse Weiterentwicklungen \cite{DEV19}. Verschiedenste \ac{NLP}-Aufgaben wie die \ac{ATS} konnten hiervon sehr stark profitieren. Die konkreten Funktionsweisen werden im Verlauf dieser Arbeit vertieft, wenn entsprechende Grundlagen kenntlich gemacht wurden. Dort werden der Forschungsstand der \ac{ATS} und vergleichbare Arbeiten separat thematisiert sowie entsprechende Verbesserungen hervorgehoben.

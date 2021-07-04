@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  2 JUL 2021 15:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  4 JUL 2021 11:32
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1352,7 +1352,7 @@ Overfull \hbox (2.41267pt too wide) detected at line 6
 
 
 ]
-Overfull \hbox (2.03766pt too wide) detected at line 61
+Overfull \hbox (2.03766pt too wide) detected at line 60
  []\OT1/cmr/bx/n/12 116
  []
 
@@ -1395,17 +1395,11 @@ although it is yet undefined on input line 7.
 Package acronym Info: Label `acro:NLP' newly defined as it shall be overridden
 although it is yet undefined on input line 7.
 
-Overfull \hbox (25.21555pt too wide) in paragraph at lines 6--8
-\OT1/cmr/m/n/12 sung von Nach-rich-ten und Ge-spr[]achsprotokollen oder auch di
-e Ge-ne-rie-rung von []Uberschriften,
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-<./source/images/summarizationprocess.png, id=461, 370.38374pt x 179.92218pt>
+<./source/images/summarizationprocess.png, id=448, 370.38374pt x 179.92218pt>
 File: ./source/images/summarizationprocess.png Graphic file (type png)
 <use ./source/images/summarizationprocess.png>
 Package pdftex.def Info: ./source/images/summarizationprocess.png  used on inpu
@@ -1430,63 +1424,48 @@ File: omlcmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 24.
-Package acronym Info: Label `acro:TL' newly defined as it shall be overridden
-although it is yet undefined on input line 29.
 
 [2]
+Package acronym Info: Label `acro:TL' newly defined as it shall be overridden
+although it is yet undefined on input line 30.
 Package acronym Info: Label `acro:DL' newly defined as it shall be overridden
-although it is yet undefined on input line 43.
+although it is yet undefined on input line 41.
  [3]
-<./source/images/overview.png, id=507, 1222.5675pt x 1589.94pt>
+<./source/images/overview.png, id=494, 1222.5675pt x 1589.94pt>
 File: ./source/images/overview.png Graphic file (type png)
 <use ./source/images/overview.png>
-Package pdftex.def Info: ./source/images/overview.png  used on input line 48.
+Package pdftex.def Info: ./source/images/overview.png  used on input line 46.
 (pdftex.def)             Requested size: 246.47339pt x 320.52972pt.
 Package acronym Info: Label `acro:RNN' newly defined as it shall be overridden
-although it is yet undefined on input line 56.
+although it is yet undefined on input line 54.
 Package acronym Info: Label `acro:LSTM' newly defined as it shall be overridden
 
-although it is yet undefined on input line 56.
+although it is yet undefined on input line 54.
 Package acronym Info: Label `acro:RL' newly defined as it shall be overridden
-although it is yet undefined on input line 56.
+although it is yet undefined on input line 54.
+ [4 <./source/images/overview.png>]
 Package acronym Info: Label `acro:SOTA' newly defined as it shall be overridden
 
-although it is yet undefined on input line 56.
+although it is yet undefined on input line 58.
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--57
-
+Overfull \hbox (15.45168pt too wide) in paragraph at lines 57--59
+\OT1/cmr/m/n/12 Encoder-Decoder-Architekturen, im-ple-men-tie-ren ver-schie-den
+-ar-ti-ge Attention-Mechanismen
  []
 
-[4 <./source/images/overview.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
 Package acronym Info: Label `acro:BERT' newly defined as it shall be overridden
 
-although it is yet undefined on input line 62.
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--63
-
- []
-
+although it is yet undefined on input line 61.
 ) [5]
 \openout2 = `"source/content/Deep Learning.aux"'.
 
  ("source/content/Deep Learning.tex"
 chapter 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--12
-
- []
-
-Package acronym Info: Label `acro:MLP' newly defined as it shall be overridden
-although it is yet undefined on input line 14.
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
-
- []
-
 [6
 
 
@@ -1494,307 +1473,208 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
 
 ]
-<./source/images/artificialneuron.png, id=559, 551.81157pt x 307.90031pt>
+<./source/images/artificialneuron.png, id=540, 551.81157pt x 307.90031pt>
 File: ./source/images/artificialneuron.png Graphic file (type png)
 <use ./source/images/artificialneuron.png>
 Package pdftex.def Info: ./source/images/artificialneuron.png  used on input li
-ne 18.
-(pdftex.def)             Requested size: 246.47339pt x 137.52965pt.
-<./source/images/multilayerperceptron.png, id=562, 854.44218pt x 462.22687pt>
+ne 16.
+(pdftex.def)             Requested size: 268.8813pt x 150.0362pt.
+Package acronym Info: Label `acro:MLP' newly defined as it shall be overridden
+although it is yet undefined on input line 22.
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
+
+ []
+
+<./source/images/multilayerperceptron.png, id=547, 854.44218pt x 462.22687pt>
 File: ./source/images/multilayerperceptron.png Graphic file (type png)
 <use ./source/images/multilayerperceptron.png>
 Package pdftex.def Info: ./source/images/multilayerperceptron.png  used on inpu
-t line 25.
-(pdftex.def)             Requested size: 268.8813pt x 145.45412pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
+t line 26.
+(pdftex.def)             Requested size: 291.28238pt x 157.57118pt.
+[7 <./source/images/artificialneuron.png> <./source/images/multilayerperceptron
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
 
  []
 
-[7 <./source/images/artificialneuron.png> <./source/images/multilayerperceptron
-.png>]
-<./source/images/supervisedlearning.png, id=574, 334.3692pt x 189.8292pt>
+<./source/images/supervisedlearning.png, id=559, 334.3692pt x 189.8292pt>
 File: ./source/images/supervisedlearning.png Graphic file (type png)
 <use ./source/images/supervisedlearning.png>
 Package pdftex.def Info: ./source/images/supervisedlearning.png  used on input 
-line 35.
+line 40.
 (pdftex.def)             Requested size: 313.69029pt x 178.10056pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
 
  []
 
-<./source/images/fittingtypes.png, id=579, 748.29562pt x 247.67531pt>
+<./source/images/fittingtypes.png, id=564, 748.29562pt x 247.67531pt>
 File: ./source/images/fittingtypes.png Graphic file (type png)
 <use ./source/images/fittingtypes.png>
-Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 4
-5.
-(pdftex.def)             Requested size: 291.28238pt x 96.41158pt.
-[8 <./source/images/supervisedlearning.png> <./source/images/fittingtypes.png>]
-
-Overfull \hbox (0.71439pt too wide) in paragraph at lines 58--60
-\OT1/cmr/m/n/12 ver-bor-ge-nen Zust[]anden in ver-bor-ge-nen Schich-ten ver-ar-
-bei-ten k[]onnen [[],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
+Package pdftex.def Info: ./source/images/fittingtypes.png  used on input line 5
+0.
+(pdftex.def)             Requested size: 336.0982pt x 111.245pt.
+[8 <./source/images/supervisedlearning.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 62--64
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-<./source/images/hiddenstates.png, id=602, 744.53156pt x 216.05719pt>
-File: ./source/images/hiddenstates.png Graphic file (type png)
-<use ./source/images/hiddenstates.png>
-Package pdftex.def Info: ./source/images/hiddenstates.png  used on input line 6
-9.
-(pdftex.def)             Requested size: 358.50612pt x 104.03923pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--76
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 77--79
+[9 <./source/images/fittingtypes.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
-
- []
-
-Package acronym Info: Label `acro:GRU' newly defined as it shall be overridden
-although it is yet undefined on input line 84.
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--85
-
- []
-
-[10 <./source/images/hiddenstates.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
-
- []
-
-<./source/images/lstmcell.png, id=634, 747.54282pt x 333.49594pt>
-File: ./source/images/lstmcell.png Graphic file (type png)
-<use ./source/images/lstmcell.png>
-Package pdftex.def Info: ./source/images/lstmcell.png  used on input line 91.
-(pdftex.def)             Requested size: 313.69029pt x 139.9452pt.
-
-Overfull \hbox (10.16006pt too wide) in paragraph at lines 96--98
-[][] \OT1/cmr/m/n/12 be-steht bei den [][] hier-durch ins-be-son-de-re dar-in, 
-dass lang-fris-ti-ge Abh[]angigkeiten
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
-
- []
-
-[11 <./source/images/lstmcell.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 104--106
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--112
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
-
- []
-
-[12]
-Overfull \hbox (6.8664pt too wide) in paragraph at lines 116--118
+Overfull \hbox (3.60254pt too wide) in paragraph at lines 75--77
 \OT1/cmr/m/n/12 De-co-der dar-aus die Aus-ga-be-se-quenz $\OML/cmm/m/it/12 y \O
 T1/cmr/m/n/12 = [\OML/cmm/m/it/12 y[]; :::; y[]\OT1/cmr/m/n/12 ]$ ge-ne-rie-ren
- kann [[]]. 
+ kann [[],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--118
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-<./source/images/encoderdecoder.png, id=671, 499.11469pt x 108.405pt>
+<./source/images/encoderdecoder.png, id=593, 499.11469pt x 108.405pt>
 File: ./source/images/encoderdecoder.png Graphic file (type png)
 <use ./source/images/encoderdecoder.png>
 Package pdftex.def Info: ./source/images/encoderdecoder.png  used on input line
- 121.
-(pdftex.def)             Requested size: 313.69029pt x 68.13339pt.
-[13 <./source/images/encoderdecoder.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
+ 80.
+(pdftex.def)             Requested size: 336.0982pt x 73.00148pt.
+[10 <./source/images/encoderdecoder.png>]
+Package acronym Info: Label `acro:SDPA' newly defined as it shall be overridden
+
+although it is yet undefined on input line 89.
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
 
  []
 
-<./source/images/attentionlayer.png, id=686, 597.73312pt x 426.84468pt>
-File: ./source/images/attentionlayer.png Graphic file (type png)
-<use ./source/images/attentionlayer.png>
-Package pdftex.def Info: ./source/images/attentionlayer.png  used on input line
- 137.
-(pdftex.def)             Requested size: 179.24963pt x 128.00229pt.
 
-Overfull \hbox (25.10722pt too wide) in paragraph at lines 142--144
-\OT1/cmr/m/n/12 Die Funk-ti-ons-wei-se des Attention-Mechanismus in-ner-halb ei
--ner Encoder-Decoder-Architektur
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--144
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
-[14 <./source/images/attentionlayer.png>]
-<./source/images/attentionmechanism.png, id=701, 577.40718pt x 453.94594pt>
-File: ./source/images/attentionmechanism.png Graphic file (type png)
-<use ./source/images/attentionmechanism.png>
-Package pdftex.def Info: ./source/images/attentionmechanism.png  used on input 
-line 151.
-(pdftex.def)             Requested size: 246.47339pt x 193.77298pt.
-<./source/images/selfattention.png, id=704, 550.30594pt x 352.31625pt>
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
+
+ []
+
+<./source/images/selfattention.png, id=619, 550.30594pt x 352.31625pt>
 File: ./source/images/selfattention.png Graphic file (type png)
 <use ./source/images/selfattention.png>
 Package pdftex.def Info: ./source/images/selfattention.png  used on input line 
-158.
-(pdftex.def)             Requested size: 201.65755pt x 129.10237pt.
- [15 <./source/images/attentionmechanism.png> <./source/images/selfattention.pn
-g>]
-Overfull \hbox (17.22116pt too wide) in paragraph at lines 167--169
+103.
+(pdftex.def)             Requested size: 224.06548pt x 143.45067pt.
+
+Overfull \hbox (17.22116pt too wide) in paragraph at lines 111--113
 \OT1/cmr/m/n/12 In-for-ma-tio-nen po-si-ti-ons-u-n-abh[]angig und satz[]ubergre
 ifend iden-ti-fi-ziert [[]].
  []
 
-<./source/images/multiheadattention.png, id=715, 715.17188pt x 395.97937pt>
+[12 <./source/images/selfattention.png>]
+<./source/images/multiheadattention.png, id=630, 715.17188pt x 395.97937pt>
 File: ./source/images/multiheadattention.png Graphic file (type png)
 <use ./source/images/multiheadattention.png>
 Package pdftex.def Info: ./source/images/multiheadattention.png  used on input 
-line 172.
-(pdftex.def)             Requested size: 313.69029pt x 173.68767pt.
+line 117.
+(pdftex.def)             Requested size: 336.0982pt x 186.09221pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--181
-
- []
-
-
-Overfull \hbox (12.8476pt too wide) in paragraph at lines 182--184
-\OT1/cmr/m/n/12 Architektonisch wer-den die re-kur-ren-ten Schich-ten bis-he-ri
--ger Sequence-to-Sequence-Modelle
- []
-
-
-Overfull \hbox (11.57208pt too wide) in paragraph at lines 182--184
-\OT1/cmr/m/n/12 durch Transformer-Module er-setzt. Die-se be-ste-hen aus ei-ner
- Multi-Head-Attention-Schicht,
- []
-
-
-Overfull \hbox (13.98372pt too wide) in paragraph at lines 182--184
-\OT1/cmr/m/n/12 ei-nem po-si-ti-ons-abh[]angigen Feed-Forward-Netzwerk und ei-n
-er Layer-Normalization-Schicht.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 182--184
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
-[16 <./source/images/multiheadattention.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
+Overfull \hbox (5.4977pt too wide) in paragraph at lines 127--129
+\OT1/cmr/m/n/12 nem po-si-ti-ons-abh[]angigen Feed-Forward-Netzwerk und ei-ner 
+Layer-Normalization-Schicht.
  []
 
-<./source/images/transformerarchitecture.png, id=728, 560.8453pt x 679.78969pt>
+[13 <./source/images/multiheadattention.png>]
+<./source/images/transformerarchitecture.png, id=641, 560.8453pt x 679.78969pt>
 
 File: ./source/images/transformerarchitecture.png Graphic file (type png)
 <use ./source/images/transformerarchitecture.png>
 Package pdftex.def Info: ./source/images/transformerarchitecture.png  used on i
-nput line 190.
-(pdftex.def)             Requested size: 291.28238pt x 353.05702pt.
-[17 <./source/images/transformerarchitecture.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
+nput line 133.
+(pdftex.def)             Requested size: 313.69029pt x 380.21286pt.
+ [14 <./source/images/transformerarchitecture.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--203
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
 
  []
 
 Package acronym Info: Label `acro:LR' newly defined as it shall be overridden
-although it is yet undefined on input line 205.
+although it is yet undefined on input line 151.
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
+Underfull \hbox (badness 10000) in paragraph at lines 150--152
 
  []
 
-<./source/images/gradientdescent.png, id=744, 895.09406pt x 245.41687pt>
+<./source/images/gradientdescent.png, id=659, 895.09406pt x 245.41687pt>
 File: ./source/images/gradientdescent.png Graphic file (type png)
 <use ./source/images/gradientdescent.png>
 Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
-e 209.
-(pdftex.def)             Requested size: 291.28238pt x 79.86438pt.
-[18 <./source/images/gradientdescent.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 215--217
+e 155.
+(pdftex.def)             Requested size: 313.69029pt x 86.00952pt.
+[15 <./source/images/gradientdescent.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
 
 
-Overfull \hbox (1.84435pt too wide) in paragraph at lines 218--220
+Overfull \hbox (1.84435pt too wide) in paragraph at lines 164--166
 \OT1/cmr/m/n/12 Ef-fekt ver-spricht [[], S. 437]. Die Gr[]oe der Stich-pro-be 
 wird []ublicherweise
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--220
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--223
+Underfull \hbox (badness 10000) in paragraph at lines 167--169
 
  []
 
-<./source/images/momentumupdate.png, id=764, 319.1925pt x 322.95656pt>
+<./source/images/momentumupdate.png, id=679, 319.1925pt x 322.95656pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
- 226.
+ 172.
 (pdftex.def)             Requested size: 134.44064pt x 136.02519pt.
 Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
 
-although it is yet undefined on input line 232.
+although it is yet undefined on input line 178.
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--233
-
- []
-
-[19 <./source/images/momentumupdate.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 239--241
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
-<./source/images/finetuning.png, id=785, 682.04813pt x 344.03531pt>
+[16 <./source/images/momentumupdate.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
+
+ []
+
+<./source/images/finetuning.png, id=700, 682.04813pt x 344.03531pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
-Package pdftex.def Info: ./source/images/finetuning.png  used on input line 244
+Package pdftex.def Info: ./source/images/finetuning.png  used on input line 190
 .
 (pdftex.def)             Requested size: 313.69029pt x 158.2319pt.
-[20 <./source/images/finetuning.png>]) [21]
+[17 <./source/images/finetuning.png>]) [18]
 \openout2 = `"source/content/Natural Language Processing.aux"'.
 
 
@@ -1814,7 +1694,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[22
+[19
 
 
 
@@ -1835,7 +1715,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--29
 
  []
 
-[23]
+[20]
 Package acronym Info: Label `acro:NLTK' newly defined as it shall be overridden
 
 although it is yet undefined on input line 31.
@@ -1867,7 +1747,7 @@ Overfull \hbox (14.57538pt too wide) in paragraph at lines 36--38
 noch den sub-jek-ti-ven Pr[]aferenzen
  []
 
-[24]
+[21]
 Underfull \hbox (badness 10000) in paragraph at lines 42--44
 
  []
@@ -1882,18 +1762,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
-<./source/images/tokenization.png, id=845, 693.34032pt x 115.93312pt>
+<./source/images/tokenization.png, id=760, 693.34032pt x 115.93312pt>
 File: ./source/images/tokenization.png Graphic file (type png)
 <use ./source/images/tokenization.png>
 Package pdftex.def Info: ./source/images/tokenization.png  used on input line 5
 6.
 (pdftex.def)             Requested size: 268.8813pt x 44.96075pt.
-[25 <./source/images/tokenization.png>]
+[22 <./source/images/tokenization.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-[26]
+[23]
 Package acronym Info: Label `acro:OHE' newly defined as it shall be overridden
 although it is yet undefined on input line 80.
 
@@ -1906,7 +1786,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--84
 
  []
 
-<./source/images/onehotencoding.png, id=874, 515.67656pt x 238.64156pt>
+<./source/images/onehotencoding.png, id=788, 515.67656pt x 238.64156pt>
 File: ./source/images/onehotencoding.png Graphic file (type png)
 <use ./source/images/onehotencoding.png>
 Package pdftex.def Info: ./source/images/onehotencoding.png  used on input line
@@ -1914,7 +1794,7 @@ Package pdftex.def Info: ./source/images/onehotencoding.png  used on input line
 (pdftex.def)             Requested size: 291.28238pt x 134.79994pt.
 Package acronym Info: Label `acro:BOW' newly defined as it shall be overridden
 although it is yet undefined on input line 95.
-[27 <./source/images/onehotencoding.png>] [28]
+[24 <./source/images/onehotencoding.png>] [25]
 Package acronym Info: Label `acro:W2V' newly defined as it shall be overridden
 although it is yet undefined on input line 136.
 
@@ -1927,8 +1807,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 141--143
 
  []
 
-[29]
-<./source/images/onlinesphere.png, id=913, 650.43pt x 563.85657pt>
+[26]
+<./source/images/onlinesphere.png, id=828, 650.43pt x 563.85657pt>
 File: ./source/images/onlinesphere.png Graphic file (type png)
 <use ./source/images/onlinesphere.png>
 Package pdftex.def Info: ./source/images/onlinesphere.png  used on input line 1
@@ -1936,7 +1816,7 @@ Package pdftex.def Info: ./source/images/onlinesphere.png  used on input line 1
 (pdftex.def)             Requested size: 336.0982pt x 291.3659pt.
 Package acronym Info: Label `acro:BPE' newly defined as it shall be overridden
 although it is yet undefined on input line 158.
- [30 <./source/images/onlinesphere.png>]
+ [27 <./source/images/onlinesphere.png>]
 Package acronym Info: Label `acro:GloVe' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 167.
@@ -1955,7 +1835,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--174
 
  []
 
-[31]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 181--183
 
  []
@@ -1970,7 +1850,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-<./source/images/elmostructure.png, id=966, 825.0825pt x 653.44125pt>
+<./source/images/elmostructure.png, id=881, 825.0825pt x 653.44125pt>
 File: ./source/images/elmostructure.png Graphic file (type png)
 <use ./source/images/elmostructure.png>
 Package pdftex.def Info: ./source/images/elmostructure.png  used on input line 
@@ -1986,7 +1866,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 204--206
 
  []
 
-[32]
+[29]
 Underfull \hbox (badness 10000) in paragraph at lines 207--209
 
  []
@@ -1998,12 +1878,12 @@ m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 output \OMS/cmsy/m/n/12 j \OML/cmm/m
 /it/12 input; task\OT1/cmr/m/n/12 )$ [[],
  []
 
-[33 <./source/images/elmostructure.png>]
+[30 <./source/images/elmostructure.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
-[34]
+[31]
 Package acronym Info: Label `acro:MLM' newly defined as it shall be overridden
 although it is yet undefined on input line 223.
 
@@ -2011,14 +1891,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--224
 
  []
 
-<./source/images/bertencoder.png, id=1018, 645.91313pt x 520.19344pt>
+<./source/images/bertencoder.png, id=932, 645.91313pt x 520.19344pt>
 File: ./source/images/bertencoder.png Graphic file (type png)
 <use ./source/images/bertencoder.png>
 Package pdftex.def Info: ./source/images/bertencoder.png  used on input line 22
 7.
 (pdftex.def)             Requested size: 291.28238pt x 234.58493pt.
-[35 <./source/images/bertencoder.png>]
-<./source/images/inputrepresentation.png, id=1029, 936.49875pt x 235.63031pt>
+[32 <./source/images/bertencoder.png>]
+<./source/images/inputrepresentation.png, id=944, 936.49875pt x 235.63031pt>
 File: ./source/images/inputrepresentation.png Graphic file (type png)
 <use ./source/images/inputrepresentation.png>
 Package pdftex.def Info: ./source/images/inputrepresentation.png  used on input
@@ -2047,13 +1927,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 253--255
 
  []
 
-[36 <./source/images/inputrepresentation.png>]
+[33 <./source/images/inputrepresentation.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 256--258
 
  []
 
-[37]
-<./source/images/dlrcomparison.png, id=1082, 280.79906pt x 414.79968pt>
+[34]
+<./source/images/dlrcomparison.png, id=997, 280.79906pt x 414.79968pt>
 File: ./source/images/dlrcomparison.png Graphic file (type png)
 <use ./source/images/dlrcomparison.png>
 Package pdftex.def Info: ./source/images/dlrcomparison.png  used on input line 
@@ -2082,7 +1962,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 277--279
 
  []
 
-[38 <./source/images/dlrcomparison.png>]
+[35 <./source/images/dlrcomparison.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
@@ -2104,7 +1984,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 285--287
 
 Package acronym Info: Label `acro:LCS' newly defined as it shall be overridden
 although it is yet undefined on input line 289.
-[39]
+[36]
 Overfull \hbox (15.49988pt too wide) in paragraph at lines 297--299
 [][] \OT1/cmr/m/n/12 kommt der Funk-ti-ons-wei-se von [][] wei-test-ge-hend gle
 ich. Dem-nach re-pr[]asentiert
@@ -2115,7 +1995,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 297--299
 
  []
 
-) [40]
+) [37]
 \openout2 = `"source/content/Automatic Text Summarization.aux"'.
 
  ("source/content/Automatic Text Summarization.tex"
@@ -2125,7 +2005,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-[41
+[38
 
 
 
@@ -2148,7 +2028,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--38
 
  []
 
-[42]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
@@ -2166,13 +2046,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
-<./source/images/encoderdecoderbert.png, id=1220, 608.2725pt x 635.37375pt>
+<./source/images/encoderdecoderbert.png, id=1135, 608.2725pt x 635.37375pt>
 File: ./source/images/encoderdecoderbert.png Graphic file (type png)
 <use ./source/images/encoderdecoderbert.png>
 Package pdftex.def Info: ./source/images/encoderdecoderbert.png  used on input 
 line 59.
 (pdftex.def)             Requested size: 358.50612pt x 374.48915pt.
-[43]
+[40]
 Overfull \hbox (10.34766pt too wide) in paragraph at lines 64--66
 \OT1/cmr/m/n/12 Die Ge-wich-te der bi-di-rek-tio-na-len Self-Attention-Schichte
 n und der Feed-Forward-Schichten
@@ -2195,7 +2075,7 @@ Overfull \hbox (17.40953pt too wide) in paragraph at lines 67--69
 -wich-te der Cross-Attention-Schichten
  []
 
-[44 <./source/images/encoderdecoderbert.png>]
+[41 <./source/images/encoderdecoderbert.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
@@ -2211,7 +2091,7 @@ Overfull \hbox (19.83588pt too wide) in paragraph at lines 77--79
 -ten-den Transformer-Architekturen
  []
 
-[45]
+[42]
 Underfull \hbox (badness 10000) in paragraph at lines 81--83
 
  []
@@ -2226,7 +2106,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--61
 
  []
 
-[46]
+[43]
 \openout2 = `source/content/Datengrundlage.aux'.
 
  (source/content/Datengrundlage.tex
@@ -2241,7 +2121,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
-[47
+[44
 
 
 
@@ -2254,7 +2134,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-[48]) [49]
+[45]) [46]
 \openout2 = `source/content/Experimente.aux'.
 
  (source/content/Experimente.tex
@@ -2262,7 +2142,7 @@ chapter 6.
 Package acronym Info: Label `acro:CUDA' newly defined as it shall be overridden
 
 although it is yet undefined on input line 11.
-[50
+[47
 
 
 
@@ -2270,7 +2150,7 @@ although it is yet undefined on input line 11.
 
 
 
-]) [51]
+]) [48]
 \openout2 = `source/content/Evaluation.aux'.
 
  (source/content/Evaluation.tex
@@ -2285,7 +2165,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
  []
 
-[52
+[49
 
 
 
@@ -2294,14 +2174,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
 
 ]
-<./source/images/lossenglish.png, id=1348, 377.41pt x 262.9825pt>
+<./source/images/lossenglish.png, id=1262, 377.41pt x 262.9825pt>
 File: ./source/images/lossenglish.png Graphic file (type png)
 <use ./source/images/lossenglish.png>
 Package pdftex.def Info: ./source/images/lossenglish.png  used on input line 62
 .
 (pdftex.def)             Requested size: 246.47339pt x 171.74315pt.
- [53 <./source/images/lossenglish.png>]
-<./source/images/lossgerman.png, id=1362, 377.41pt x 262.9825pt>
+ [50 <./source/images/lossenglish.png>]
+<./source/images/lossgerman.png, id=1277, 377.41pt x 262.9825pt>
 File: ./source/images/lossgerman.png Graphic file (type png)
 <use ./source/images/lossgerman.png>
 Package pdftex.def Info: ./source/images/lossgerman.png  used on input line 75.
@@ -2312,13 +2192,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--84
 
  []
 
-<./source/images/lossmultilingual.png, id=1375, 377.41pt x 262.9825pt>
+<./source/images/lossmultilingual.png, id=1290, 377.41pt x 262.9825pt>
 File: ./source/images/lossmultilingual.png Graphic file (type png)
 <use ./source/images/lossmultilingual.png>
 Package pdftex.def Info: ./source/images/lossmultilingual.png  used on input li
 ne 87.
 (pdftex.def)             Requested size: 246.47339pt x 171.74315pt.
-[54 <./source/images/lossgerman.png> <./source/images/lossmultilingual.png>]
+[51 <./source/images/lossgerman.png> <./source/images/lossmultilingual.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
@@ -2333,7 +2213,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
 
-[55]
+[52]
 Package acronym Info: Label `acro:GBERT' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 113.
@@ -2347,7 +2227,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
-[56]
+[53]
 Underfull \hbox (badness 10000) in paragraph at lines 122--126
 
  []
@@ -2362,7 +2242,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
-) [57]
+) [54]
 \openout2 = `source/content/Zusammenfassung.aux'.
 
  (source/content/Zusammenfassung.tex
@@ -2372,7 +2252,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-[58
+[55
 
 
 
@@ -2396,7 +2276,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--21
 
  []
 
-) [59]
+) [56]
 \openout2 = `"source/content/Diskussion und Ausblick.aux"'.
 
  ("source/content/Diskussion und Ausblick.tex"
@@ -2416,7 +2296,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-[60
+[57
 
 
 
@@ -2444,7 +2324,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--25
 
  []
 
-[61]) [62] (source/formal/Appendix.tex
+[58]) [59] (source/formal/Appendix.tex
 chapter A.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
@@ -2461,7 +2341,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--12
 
  []
 
-[63
+[60
 
 
 
@@ -2483,7 +2363,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--22
 
  []
 
-[64]
+[61]
 Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
  []
@@ -2498,7 +2378,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--32
 
  []
 
-[65]
+[62]
 Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
@@ -2513,7 +2393,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--42
 
  []
 
-[66]
+[63]
 Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
  []
@@ -2528,7 +2408,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--52
 
  []
 
-[67]
+[64]
 chapter B.
 
 Underfull \hbox (badness 10000) in paragraph at lines 55--57
@@ -2545,7 +2425,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--63
 
  []
 
-[68
+[65
 
 
 ]
@@ -2563,7 +2443,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--73
 
  []
 
-[69]
+[66]
 Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
@@ -2578,7 +2458,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--83
 
  []
 
-[70]
+[67]
 Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
@@ -2593,7 +2473,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--93
 
  []
 
-[71]
+[68]
 Underfull \hbox (badness 10000) in paragraph at lines 95--97
 
  []
@@ -2608,7 +2488,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--103
 
  []
 
-[72]
+[69]
 chapter C.
 
 Underfull \hbox (badness 10000) in paragraph at lines 106--108
@@ -2670,7 +2550,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 132--137
 
  []
 
-[73
+[70
 
 
 ]
@@ -2708,7 +2588,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 152--157
 
  []
 
-[74]
+[71]
 Underfull \hbox (badness 10000) in paragraph at lines 159--161
 
  []
@@ -2768,7 +2648,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--190
 
  []
 
-[75]
+[72]
 Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
@@ -2803,7 +2683,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 205--210
 
  []
 
-[76]
+[73]
 Underfull \hbox (badness 10000) in paragraph at lines 212--214
 
  []
@@ -2863,7 +2743,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--243
 
  []
 
-[77]
+[74]
 Underfull \hbox (badness 10000) in paragraph at lines 245--247
 
  []
@@ -2898,7 +2778,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 258--263
 
  []
 
-[78]
+[75]
 Underfull \hbox (badness 10000) in paragraph at lines 265--267
 
  []
@@ -2958,7 +2838,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 291--296
 
  []
 
-[79]
+[76]
 Underfull \hbox (badness 10000) in paragraph at lines 298--300
 
  []
@@ -2993,7 +2873,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 311--316
 
  []
 
-[80]
+[77]
 Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
@@ -3053,7 +2933,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 344--349
 
  []
 
-[81]
+[78]
 Underfull \hbox (badness 10000) in paragraph at lines 351--353
 
  []
@@ -3088,7 +2968,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 364--369
 
  []
 
-[82]
+[79]
 chapter D.
 
 Underfull \hbox (badness 10000) in paragraph at lines 372--374
@@ -3150,7 +3030,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 398--403
 
  []
 
-[83
+[80
 
 
 ]
@@ -3188,7 +3068,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 418--423
 
  []
 
-[84]
+[81]
 Underfull \hbox (badness 10000) in paragraph at lines 425--427
 
  []
@@ -3248,7 +3128,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 451--456
 
  []
 
-[85]
+[82]
 Underfull \hbox (badness 10000) in paragraph at lines 458--460
 
  []
@@ -3283,7 +3163,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 471--476
 
  []
 
-[86]
+[83]
 Underfull \hbox (badness 10000) in paragraph at lines 478--480
 
  []
@@ -3343,7 +3223,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 504--509
 
  []
 
-[87]
+[84]
 Underfull \hbox (badness 10000) in paragraph at lines 511--513
 
  []
@@ -3378,7 +3258,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 524--529
 
  []
 
-[88]
+[85]
 Underfull \hbox (badness 10000) in paragraph at lines 531--534
 
  []
@@ -3443,7 +3323,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 558--563
 
  []
 
-[89]
+[86]
 Underfull \hbox (badness 10000) in paragraph at lines 565--567
 
  []
@@ -3478,7 +3358,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 578--583
 
  []
 
-[90]
+[87]
 Underfull \hbox (badness 10000) in paragraph at lines 585--587
 
  []
@@ -3538,7 +3418,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 611--616
 
  []
 
-[91]
+[88]
 Underfull \hbox (badness 10000) in paragraph at lines 618--620
 
  []
@@ -3573,68 +3453,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 631--1
 
  []
 
-[92]
+[89]
 (C:\Users\didid\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 6.
 
-[93
+[90
 
 
-] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104] [105] [106]
-[107] [108] [109] [110] [111] [112] [113] [114]) [115]
+] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103]
+[104] [105] [106] [107] [108] [109] [110] [111]) [112]
 (source/formal/Literature.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-[]\OT1/cmr/m/n/10.95 AI-United: LSTM als neu-ro-na-les Netz-werk mit
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-\OT1/cmr/m/n/10.95 lan-gem Kurz-zeit-ged[]achtnis, in: [][]$\OT1/cmtt/m/n/10.95
- http : / / www . ai-[]united . de /
- []
-
-
-Underfull \hbox (badness 7667) in paragraph at lines 8--9
-\OT1/cmtt/m/n/10.95 lstm-[]als-[]neuronales-[]netzwerk-[]mit-[]langem-[]kurzzei
-tgedaechtnis/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-[]\OT1/cmr/m/n/10.95 Arbel, Nir: How LSTM Net-works Sol-ve the Pro-blem of Va-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-\OT1/cmr/m/n/10.95 nis-hing Gra-di-ents, in: [][]$\OT1/cmtt/m/n/10.95 https : /
- / medium . datadriveninvestor . com /
- []
-
-
-Overfull \hbox (13.69691pt too wide) in paragraph at lines 11--12
-\OT1/cmtt/m/n/10.95 how-[]do-[]lstm-[]networks-[]solve-[]the-[]problem-[]of-[]v
-anishing-[]gradients-[]a6784971a577$[][]\OT1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 [][]$\OT1/cmtt/m/n/10.95 https : / / machinelearningmastery . com / gentle-[]in
 troduction-[]bag-[]words-[]model/$[][]\OT1/cmr/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
 []\OT1/cmr/m/n/10.95 Culurciello, Eu-ge-nio: The Fall of RNN/ LSTM, in: [][]$\O
 T1/cmtt/m/n/10.95 https :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
 \OT1/cmtt/m/n/10.95 / / towardsdatascience . com / the-[]fall-[]of-[]rnn-[]lstm
 -[]2d1594c74ce0$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+[]\OT1/cmr/m/n/10.95 Goncalves, Luis: Au-to-ma-tic Text Sum-ma-ri-za-ti-on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
+\OT1/cmr/m/n/10.95 with Ma-chi-ne Lear-ning, in: [][]$\OT1/cmtt/m/n/10.95 https
+ : / / medium . com / luisfredgs /
+ []
+
+
+Overfull \hbox (18.4456pt too wide) in paragraph at lines 42--43
+\OT1/cmtt/m/n/10.95 automatic-[]text-[]summarization-[]with-[]machine-[]learnin
+g-[]an-[]overview-[]68ded5717a25$[][]\OT1/cmr/m/n/10.95 ,
  []
 
 [116
@@ -3643,127 +3506,110 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-[]\OT1/cmr/m/n/10.95 Goncalves, Luis: Au-to-ma-tic Text Sum-ma-ri-za-ti-on
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-\OT1/cmr/m/n/10.95 with Ma-chi-ne Lear-ning, in: [][]$\OT1/cmtt/m/n/10.95 https
- : / / medium . com / luisfredgs /
- []
-
-
-Overfull \hbox (18.4456pt too wide) in paragraph at lines 48--49
-\OT1/cmtt/m/n/10.95 automatic-[]text-[]summarization-[]with-[]machine-[]learnin
-g-[]an-[]overview-[]68ded5717a25$[][]\OT1/cmr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 []\OT1/cmr/m/n/10.95 Irene: EL-Mo in Prac-ti-ce, in: [][]$\OT1/cmtt/m/n/10.95 h
 ttps : / / ireneli . eu / 2018 / 12 / 17 /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 []\OT1/cmr/m/n/10.95 Karani, Dhru-vil: In-tro-duc-ti-on to Word Em-bed-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 \OT1/cmr/m/n/10.95 ding and Word2Vec, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
 towardsdatascience . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 \OT1/cmtt/m/n/10.95 introduction-[]to-[]word-[]embedding-[]and-[]word2vec-[]652
 d0c2060fa$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 []\OT1/cmr/m/n/10.95 Karim, Rai-mi: Self-Attention, in: [][]$\OT1/cmtt/m/n/10.9
 5 https : / / towardsdatascience . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 []\OT1/cmr/m/n/10.95 Lemberger, Pir-min: De-ep Lear-ning Mo-dels for Au-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 \OT1/cmr/m/n/10.95 to-ma-tic Sum-ma-ri-za-ti-on, in: [][]$\OT1/cmtt/m/n/10.95 h
 ttps : / / towardsdatascience . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 \OT1/cmtt/m/n/10.95 deep-[]learning-[]models-[]for-[]automatic-[]summarization-
 []4c2b89f2a9ea$[][]\OT1/cmr/m/n/10.95 , Auf-ruf
  []
 
-[117]
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 []\OT1/cmr/m/n/10.95 McCullum, Nick: De-ep Lear-ning Neural Net-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 \OT1/cmr/m/n/10.95 works Ex-plai-ned, in: [][]$\OT1/cmtt/m/n/10.95 https : / / 
 www . freecodecamp . org / news /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 \OT1/cmtt/m/n/10.95 deep-[]learning-[]neural-[]networks-[]explained-[]in-[]plai
 n-[]english/$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 []\OT1/cmr/m/n/10.95 Moberg, John: A De-ep Di-ve in-to Mul-ti-lin-gu-al
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 \OT1/cmr/m/n/10.95 NLP Mo-dels, in: [][]$\OT1/cmtt/m/n/10.95 https : / / peltar
 ion . com / blog / data-[]science /
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+[117]
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 []\OT1/cmr/m/n/10.95 NVIDIA: CU-DA Tool-kit, in: [][]$\OT1/cmtt/m/n/10.95 https
  : / / developer . nvidia . com /
  []
 
-[118]
-Underfull \hbox (badness 3148) in paragraph at lines 139--140
+
+Underfull \hbox (badness 3148) in paragraph at lines 130--131
 []\OT1/cmr/m/n/10.95 SpaCy: Ger-man Mo-dels, in: [][]$\OT1/cmtt/m/n/10.95 https
  : / / spacy . io / models / de$[][]\OT1/cmr/m/n/10.95 , Auf-ruf am
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+[118]
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 []\OT1/cmr/m/n/10.95 Thaker, Ma-dhav: Com-pa-ring Text Sum-ma-ri-za-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 \OT1/cmr/m/n/10.95 ti-on Tech-ni-ques, in: [][]$\OT1/cmtt/m/n/10.95 https : / /
  towardsdatascience . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 []\OT1/cmr/m/n/10.95 Von Pla-ten, Pa-trick: Le-ver-a-ging Pre-trained Lan-gua-g
 e Mo-del
  []
 
 
-Underfull \hbox (badness 6876) in paragraph at lines 151--152
+Underfull \hbox (badness 6876) in paragraph at lines 142--143
 \OT1/cmr/m/n/10.95 Check-points for Encoder-Decoder Mo-dels, in: [][]$\OT1/cmtt
 /m/n/10.95 https : / / huggingface . co / blog /
  []
@@ -3778,7 +3624,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
-<./source/images/signature.png, id=2501, 506.89375pt x 257.96375pt>
+<./source/images/signature.png, id=2410, 506.89375pt x 257.96375pt>
 File: ./source/images/signature.png Graphic file (type png)
 <use ./source/images/signature.png>
 Package pdftex.def Info: ./source/images/signature.png  used on input line 11.
@@ -3799,10 +3645,10 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29309 strings out of 480257
- 550234 string characters out of 2881437
- 1361030 words of memory out of 3000000
- 44071 multiletter control sequences out of 15000+200000
+ 29266 strings out of 480257
+ 549194 string characters out of 2881437
+ 1360244 words of memory out of 3000000
+ 44043 multiletter control sequences out of 15000+200000
  547947 words of font info for 75 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,12n,101p,10634b,1994s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3823,9 +3669,9 @@ sfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (131 pages, 2008895 bytes).
+Output written on Thesis.pdf (128 pages, 1882812 bytes).
 PDF statistics:
- 2965 PDF objects out of 2984 (max. 8388607)
- 1083 named destinations out of 1200 (max. 500000)
- 739 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2867 PDF objects out of 2984 (max. 8388607)
+ 1072 named destinations out of 1200 (max. 500000)
+ 711 words of extra memory for PDF output out of 10000 (max. 10000000)
 
