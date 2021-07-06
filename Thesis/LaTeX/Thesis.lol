@@ -9,11 +9,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {D.1}Konfigurationsdatei}{90}{lstlisting.134}%
-\contentsline {lstlisting}{\numberline {D.2}Hilfsmethoden}{91}{lstlisting.159}%
-\contentsline {lstlisting}{\numberline {D.3}Trainingscode}{100}{lstlisting.461}%
-\contentsline {lstlisting}{\numberline {D.4}Evaluationscode}{105}{lstlisting.615}%
-\contentsline {lstlisting}{\numberline {D.5}Beispielcode}{108}{lstlisting.700}%
+\contentsline {lstlisting}{\numberline {B.1}Konfigurationsdatei}{80}{lstlisting.132}%
+\contentsline {lstlisting}{\numberline {B.2}Hilfsmethoden}{81}{lstlisting.157}%
+\contentsline {lstlisting}{\numberline {B.3}Trainingscode}{90}{lstlisting.459}%
+\contentsline {lstlisting}{\numberline {B.4}Evaluationscode}{95}{lstlisting.613}%
+\contentsline {lstlisting}{\numberline {B.5}Beispielcode}{98}{lstlisting.698}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
