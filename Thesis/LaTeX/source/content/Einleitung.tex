@@ -13,9 +13,13 @@ Die \ac{ATS} ist dem Bereich des \ac{NLP} zuzuordnen und gewinnt zunehmend an wi
   \label{pic:SummarizationProcess}
 \end{figure}
 
+\section{Motivation}
 \noindent
-Mit besonderem Fokus auf das Gesundheitswesen lassen sich weiterhin zwei konkrete Einsatzgebiete konstruieren, in denen ein \ac{ATS}-Modell in einem ganzheitlichen System als autarkes Modul implementiert werden könnte. Einerseits ist die Zusammenfassung von Patientengesprächen denkbar, wenn eine entsprechende Spracherkennung mit integrierter Sprechererkennung vorgeschaltet ist. Die verdichteten Informationen ließen sich anschließend zum Beispiel in Patientenakten exportieren oder anderweitig klassifizieren. Andererseits können Pflegeroboter, welche mitunter demente Patienten betreuen, durch ein \ac{ATS}-Modell mit notwendigem Kontextwissen für die anstehenden Gespräche ausgestattet werden. Somit werden die Gespräche persönlicher.
+Mit besonderem Fokus auf das Gesundheitswesen lassen sich weiterhin zwei konkrete Einsatzgebiete konstruieren, in denen ein \ac{ATS}-Modell in einem ganzheitlichen System als autarkes Modul implementiert werden könnte. Einerseits ist die Zusammenfassung von Patientengesprächen denkbar, wenn eine entsprechende Spracherkennung mit integrierter Sprechererkennung vorgeschaltet ist.
 \newpage
+
+\noindent
+Die verdichteten Informationen ließen sich anschließend zum Beispiel in Patientenakten exportieren oder anderweitig klassifizieren. Außerdem können Pflegeroboter, welche mitunter demente Patienten betreuen, durch ein \ac{ATS}-Modell mit notwendigem Kontextwissen für die anstehenden Gespräche ausgestattet werden. Somit werden die Gespräche im Sinne der Behandlung persönlicher und erfolgreicher.\\
 
 \noindent
 Die Anforderungen an ein \ac{ATS}-Modell lassen sich aus dem individuell anvisierten Einsatzgebiet ableiten und können anhand verschiedener Faktoren klassifiziert werden. Demnach kann man prinzipiell zwischen dem extraktiven und dem abstraktiven Ansatz differenzieren \cite[S.~5]{GAM16}. Extraktive Methoden bewerten die Sätze des ursprünglichen Textes anhand wort- und satzbezogener Attribute. Die Zusammenfassung entsteht sodann aus dem bewertungsgerechten Kopieren dieser Sätze \cite[S.~205-207]{KIA17}. Abstraktive Methoden hingegen verwenden Deep-Learning-Algorithmen, um Informationen zu identifizieren und entsprechende Zusammenfassungen mit völlig neuen Sätzen zu generieren \cite[S.~1]{NIT19}. Weiterhin ist zu entscheiden, ob einzelne oder mehrere Dokumente zusammengefasst werden sollen, welcher Domäne diese Dokumente entstammen und ob möglicherweise eine Dialogorientierung vorliegt.\\
@@ -38,7 +42,7 @@ Das Ziel dieser Arbeit ist dementsprechend die abstraktive Zusammenfassung einze
 
 \section{Aufbau der Arbeit}
 \noindent
-Nach der Einleitung werden zunächst die Grundlagen des \ac{DL} und des \ac{NLP} dargestellt. Im Kapitel des \ac{DL} werden neuronale Netze als solches definiert und relevante Architekturen vorgestellt. Die Eigenschaften und die Relevanz von Hyperparametern und von \ac{TL} schließen sich an. Im Kapitel des \ac{NLP} werden neben der prinzipiellen Arbeit mit natürlicher Sprache und der entsprechenden Vorverarbeitung insbesondere sogenannte Word Embeddings und Deep Language Representations thematisiert. Bevor die bis dahin behandelten Komponenten in ein tatsächliches Modell integriert werden können, ist die Beschreibung des Forschungsstandes und der Datengrundlage erforderlich. Nachfolgend werden verschiedene Experimente durchgeführt und evaluiert. Der entsprechende Quellcode wird in Python entwickelt. \autoref{pic:Overview} stellt den Aufbau der Arbeit dar. Hier werden gleichzeitig die kapitelübergreifenden Zusammenhänge deutlich.
+Nach der Einleitung werden zunächst die Grundlagen des \ac{DL} und des \ac{NLP} dargestellt. Im Kapitel des \ac{DL} werden neuronale Netze als solches definiert und relevante Architekturen vorgestellt. Die Eigenschaften und die Relevanz von Hyperparametern und von \ac{TL} schließen sich an. Im Kapitel des \ac{NLP} werden neben der prinzipiellen Arbeit mit natürlicher Sprache und der entsprechenden Vorverarbeitung insbesondere sogenannte Deep Language Representations thematisiert. Bevor die bis dahin behandelten Komponenten in ein tatsächliches Modell integriert werden können, ist die weitergehende Beschreibung des Forschungsstandes und der Datengrundlage erforderlich. Nachfolgend werden verschiedene Experimente durchgeführt und evaluiert, welche unter anderem die Reproduktion des \ac{SOTA} und die Adaption auf die deutsche Sprache vorsehen. Der entsprechende Quellcode wird in Python entwickelt. \autoref{pic:Overview} stellt den Aufbau der Arbeit dar. Hier werden gleichzeitig die kapitelübergreifenden Zusammenhänge deutlich.
 \newpage
 
 \begin{figure}[h]

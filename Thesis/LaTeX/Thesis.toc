@@ -5,57 +5,62 @@
 \contentsline {chapter}{Abkürzungsverzeichnis}{V}{chapter*.10}%
 \contentsline {chapter}{Quellcodeverzeichnis}{VII}{chapter*.11}%
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.12}%
-\contentsline {section}{\numberline {1.1}Zielsetzung}{3}{section.17}%
-\contentsline {section}{\numberline {1.2}Aufbau der Arbeit}{3}{section.19}%
-\contentsline {section}{\numberline {1.3}Forschungsstand \& Referenzen}{4}{section.22}%
-\contentsline {chapter}{\numberline {2}Deep Learning}{6}{chapter.28}%
-\contentsline {section}{\numberline {2.1}Neuronale Netze}{6}{section.29}%
-\contentsline {section}{\numberline {2.2}Architekturen}{9}{section.35}%
-\contentsline {subsection}{\numberline {2.2.1}Encoder-Decoder-Networks}{9}{subsection.36}%
-\contentsline {subsection}{\numberline {2.2.2}Attention in Neural Networks}{11}{subsection.38}%
-\contentsline {subsection}{\numberline {2.2.3}Transformer Networks}{13}{subsection.42}%
-\contentsline {section}{\numberline {2.3}Hyperparameter}{15}{section.44}%
-\contentsline {section}{\numberline {2.4}Transfer Learning}{17}{section.49}%
-\contentsline {chapter}{\numberline {3}Natural Language Processing}{19}{chapter.51}%
-\contentsline {section}{\numberline {3.1}Vorverarbeitung}{20}{section.54}%
-\contentsline {subsection}{\numberline {3.1.1}Textbereinigung}{20}{subsection.55}%
-\contentsline {subsection}{\numberline {3.1.2}Textnormalisierung}{20}{subsection.56}%
-\contentsline {subsection}{\numberline {3.1.3}Tokenisierung}{22}{subsection.58}%
-\contentsline {section}{\numberline {3.2}Word Embeddings}{23}{section.60}%
-\contentsline {subsection}{\numberline {3.2.1}One-Hot-Encoding}{24}{subsection.61}%
-\contentsline {subsection}{\numberline {3.2.2}Bag-of-Words}{24}{subsection.64}%
-\contentsline {subsection}{\numberline {3.2.3}Skip-Gram-Model}{25}{subsection.67}%
-\contentsline {subsection}{\numberline {3.2.4}Word2Vec}{26}{subsection.68}%
-\contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{27}{subsection.71}%
-\contentsline {subsection}{\numberline {3.2.6}GloVe}{28}{subsection.73}%
-\contentsline {section}{\numberline {3.3}Deep Language Representations}{29}{section.75}%
-\contentsline {subsection}{\numberline {3.3.1}ELMo}{29}{subsection.77}%
-\contentsline {subsection}{\numberline {3.3.2}GPT}{30}{subsection.80}%
-\contentsline {subsection}{\numberline {3.3.3}BERT}{31}{subsection.82}%
-\contentsline {subsection}{\numberline {3.3.4}XLM-R}{33}{subsection.86}%
-\contentsline {subsection}{\numberline {3.3.5}BART}{34}{subsection.88}%
-\contentsline {section}{\numberline {3.4}Metriken}{35}{section.91}%
-\contentsline {subsection}{\numberline {3.4.1}ROUGE}{36}{subsection.96}%
-\contentsline {subsection}{\numberline {3.4.2}BLEU}{37}{subsection.98}%
-\contentsline {chapter}{\numberline {4}Automatic Text Summarization}{38}{chapter.99}%
-\contentsline {section}{\numberline {4.1}Typisierung von Systemen}{38}{section.100}%
-\contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{39}{section.101}%
-\contentsline {section}{\numberline {4.3}Konzeption einer Architektur}{40}{section.102}%
-\contentsline {chapter}{\numberline {5}Datengrundlage}{44}{chapter.105}%
-\contentsline {chapter}{\numberline {6}Experimente}{47}{chapter.106}%
-\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{47}{section.107}%
-\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{48}{section.109}%
-\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{48}{section.110}%
-\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{48}{section.111}%
-\contentsline {chapter}{\numberline {7}Evaluation}{49}{chapter.112}%
-\contentsline {section}{\numberline {7.1}Automatische Auswertung}{49}{section.114}%
-\contentsline {section}{\numberline {7.2}Qualitative Analyse}{52}{section.119}%
-\contentsline {chapter}{\numberline {8}Zusammenfassung}{55}{chapter.121}%
-\contentsline {chapter}{\numberline {9}Diskussion und Ausblick}{57}{chapter.122}%
-\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{60}{appendix.123}%
-\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{65}{appendix.124}%
-\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{70}{appendix.125}%
-\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{80}{appendix.126}%
-\contentsline {chapter}{Quellcode}{90}{chapter*.127}%
-\contentsline {chapter}{Literaturverzeichnis}{116}{lstnumber.854}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.16}%
+\contentsline {section}{\numberline {1.2}Zielsetzung}{3}{section.18}%
+\contentsline {section}{\numberline {1.3}Aufbau der Arbeit}{3}{section.20}%
+\contentsline {section}{\numberline {1.4}Forschungsstand \& Referenzen}{4}{section.24}%
+\contentsline {chapter}{\numberline {2}Deep Learning}{6}{chapter.29}%
+\contentsline {section}{\numberline {2.1}Neuronale Netze}{6}{section.30}%
+\contentsline {section}{\numberline {2.2}Architekturen}{9}{section.36}%
+\contentsline {subsection}{\numberline {2.2.1}Encoder-Decoder-Networks}{9}{subsection.37}%
+\contentsline {subsection}{\numberline {2.2.2}Attention in Neural Networks}{11}{subsection.39}%
+\contentsline {subsection}{\numberline {2.2.3}Transformer Networks}{13}{subsection.43}%
+\contentsline {section}{\numberline {2.3}Hyperparameter}{15}{section.45}%
+\contentsline {section}{\numberline {2.4}Transfer Learning}{17}{section.50}%
+\contentsline {chapter}{\numberline {3}Natural Language Processing}{19}{chapter.52}%
+\contentsline {section}{\numberline {3.1}Vorverarbeitung}{20}{section.55}%
+\contentsline {subsection}{\numberline {3.1.1}Textbereinigung}{20}{subsection.56}%
+\contentsline {subsection}{\numberline {3.1.2}Textnormalisierung}{20}{subsection.57}%
+\contentsline {subsection}{\numberline {3.1.3}Tokenisierung}{22}{subsection.59}%
+\contentsline {section}{\numberline {3.2}Word Embeddings}{23}{section.61}%
+\contentsline {subsection}{\numberline {3.2.1}One-Hot-Encoding}{24}{subsection.62}%
+\contentsline {subsection}{\numberline {3.2.2}Bag-of-Words}{24}{subsection.65}%
+\contentsline {subsection}{\numberline {3.2.3}Skip-Gram-Model}{25}{subsection.68}%
+\contentsline {subsection}{\numberline {3.2.4}Word2Vec}{26}{subsection.69}%
+\contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{27}{subsection.72}%
+\contentsline {subsection}{\numberline {3.2.6}GloVe}{28}{subsection.74}%
+\contentsline {section}{\numberline {3.3}Deep Language Representations}{29}{section.76}%
+\contentsline {subsection}{\numberline {3.3.1}ELMo}{29}{subsection.78}%
+\contentsline {subsection}{\numberline {3.3.2}GPT}{30}{subsection.81}%
+\contentsline {subsection}{\numberline {3.3.3}BERT}{31}{subsection.83}%
+\contentsline {subsection}{\numberline {3.3.4}XLM-R}{33}{subsection.87}%
+\contentsline {subsection}{\numberline {3.3.5}BART}{34}{subsection.89}%
+\contentsline {section}{\numberline {3.4}Metriken}{35}{section.92}%
+\contentsline {subsection}{\numberline {3.4.1}ROUGE}{36}{subsection.97}%
+\contentsline {subsection}{\numberline {3.4.2}BLEU}{37}{subsection.99}%
+\contentsline {chapter}{\numberline {4}Automatic Text Summarization}{38}{chapter.100}%
+\contentsline {section}{\numberline {4.1}Typisierung von Systemen}{38}{section.101}%
+\contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{39}{section.102}%
+\contentsline {section}{\numberline {4.3}Konzeption einer Architektur}{40}{section.103}%
+\contentsline {section}{\numberline {4.4}Adaption der Sprache}{43}{section.106}%
+\contentsline {chapter}{\numberline {5}Datengrundlage}{44}{chapter.107}%
+\contentsline {chapter}{\numberline {6}Experimente}{47}{chapter.108}%
+\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{47}{section.109}%
+\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{48}{section.111}%
+\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{48}{section.112}%
+\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{48}{section.113}%
+\contentsline {chapter}{\numberline {7}Evaluation}{49}{chapter.114}%
+\contentsline {section}{\numberline {7.1}Automatische Auswertung}{49}{section.116}%
+\contentsline {section}{\numberline {7.2}Qualitative Analyse}{52}{section.121}%
+\contentsline {chapter}{\numberline {8}Fazit}{55}{chapter.123}%
+\contentsline {section}{\numberline {8.1}Zusammenfassung}{55}{section.124}%
+\contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{56}{section.125}%
+\contentsline {section}{\numberline {8.3}Praktische Implikationen}{57}{section.126}%
+\contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{57}{section.127}%
+\contentsline {chapter}{\numberline {A}Korpus zur qualitativen Analyse (Englisch)}{60}{appendix.128}%
+\contentsline {chapter}{\numberline {B}Korpus zur qualitativen Analyse (Deutsch)}{65}{appendix.129}%
+\contentsline {chapter}{\numberline {C}Zusammenfassungen der qualitativen Analyse (Englisch)}{70}{appendix.130}%
+\contentsline {chapter}{\numberline {D}Zusammenfassungen der qualitativen Analyse (Deutsch)}{80}{appendix.131}%
+\contentsline {chapter}{Quellcode}{90}{chapter*.132}%
+\contentsline {chapter}{Literaturverzeichnis}{116}{lstnumber.859}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

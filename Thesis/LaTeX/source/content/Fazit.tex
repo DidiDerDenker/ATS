@@ -1,0 +1,66 @@
+\chapter{Fazit}
+\thispagestyle{fancy}
+\label{chap:Fazit}
+
+\noindent
+Die bereits evaluierten und analysierten Ergebnisse werden nun zusammengefasst und weitergehend diskutiert. Dabei wird neben der Zusammenfassung insbesondere das Vorgehen reflektiert, die praktischen Implikationen dargestellt und weiterer Forschungsbedarf abgeleitet.
+
+
+\section{Zusammenfassung}
+\noindent
+In dieser Arbeit wurde die Adaption multilingual vortrainierter Modelle zur automatischen Zusammenfassung von Texten auf die deutsche Sprache erforscht und demonstriert. Hierfür wurden entsprechende Grundlagen in \ac{DL} und \ac{NLP} offengelegt. Dabei ist insbesondere der kontextbezogene Fortschritt durch \ac{TL} in Verbindung mit den eingeführten \ac{DLR} hervorzuheben. Um das Ziel dieser Arbeit zu erreichen und die Forschungsfragen hinreichend zu beantworten, schlossen sich verschiedene Experimente an, deren Architektur und Datengrundlage zuvor methodisch aufbauend definiert wurde.\\
+
+\noindent
+Das Ziel dieser Arbeit, multilingual vortrainierte Modelle mittels \ac{TL} auf die deutsche Sprache zu adaptieren, konnte mithilfe von \ac{TF2TF} unter Nutzung von \ac{BERT} und \ac{BART} erreicht werden. Die entsprechenden Architekturen erreichen den \ac{SOTA} der \ac{ATS} in Englisch sowie in Deutsch. Die analysierten qualitativen Schwächen sind jeweils mit existierenden \ac{SOTA}-Modellen vergleichbar und daher akzeptabel. Hierbei ist außerdem anzumerken, dass mit HuggingFace selbst eines der größten Unternehmen der Branche, welches theoretisch über entsprechende Ressourcen verfügt, keine optimalen Ergebnisse erzielt. Es folgt die Beantwortung der einleitend formulierten Forschungsfragen.
+\newpage
+
+\noindent
+\textbf{Wie lassen sich Texte automatisiert zusammenfassen?}\\
+\noindent
+Hierfür bedarf es einer Architektur, welche die Grundlagen des \ac{NLP} vereint, entsprechend vortrainierte \ac{DLR} integriert und ein weitergehendes Fine-Tuning auf möglichst vielen paarweisen Textdaten ermöglicht, um die Herausforderungen des \ac{NLU} und der {NLG} zu bewältigen. Dies wird beispielsweise von einem Sequence-to-Sequence-Transformer-Modell, welches über einen Encoder und einen Decoder verfügt, erfüllt.\\
+
+\noindent
+\textbf{Wie können existierende Modelle auf eine andere Sprache adaptiert werden?}\\
+\noindent
+Hierfür sind nicht zwingend architektonische Anpassungen notwendig, sondern vielmehr ein Austausch der Textdaten in der entsprechenden Zielsprache. Die oben beschriebene Architektur ist folglich in der Lage, sprachabhängige Strukturen dynamisch zu erlernen. Dabei wird die Qualität der Adaption entscheidend von den vortrainierten Modellen sowie den zugeführten Textdaten beeinflusst. Hier wird im folgenden Kapitel hinreichend angeknüpft.\\
+
+\noindent
+\textbf{Wie qualitativ und skalierbar ist die Lösung?}\\
+\noindent
+Während die untersuchten Architekturen wertmäßig den \ac{SOTA} erreichen, konnten qualitativ verschiedene Eigenarten identifiziert werden. Dies ist jedoch meist nicht den Architekturen selbst anzurechnen, sondern den zugeführten Textdaten, da sich die Architekturen in anderen Sprachen mit entsprechend umfangreichen und qualitativen Textdaten bereits bewährt haben. Daher ist gleichermaßen nicht davon auszugehen, dass die Architekturen größere Probleme mit der deutschen Sprache haben. Wurde ein Modell erst einmal hinreichend trainiert, kann es veröffentlicht, in Anwendungen implementiert und somit entsprechend skaliert werden. Hierbei ist das Echtzeitverhalten jedoch hinreichend zu analysieren, insofern dies im Anwendungsfall relevant ist.
+
+
+\section{Reflexion des Vorgehens}
+\noindent
+TODO
+\newpage
+
+
+\section{Praktische Implikationen}
+\noindent
+Es ist zu erkennen, dass die trainierten Modelle datenentsprechend lernen. Die Lernfortschritte in Englisch und nach erfolgter Adaption auch in Deutsch bestätigen die Eignung der \ac{TF2TF} für die \ac{ATS}, insbesondere unter Nutzung von \ac{BERT} und \ac{BART}. Dabei können die Herausforderungen des \ac{NLU} und der \ac{NLG} bewältigt werden. Praktisch ist die erprobte Architektur somit aus technischer und qualitativer Sicht implementierfähig, insofern ein domänen- und sprachspezifisches Training durchgeführt wird. Die entsprechenden Anforderungen werden nachfolgend offengelegt. Hinsichtlich einer praktischen Anwendung bedarf es zwingend einer nachgelagerten Anwendung, welche das entsprechend vortrainierte Modell einbindet. Das Modell wird in einem gewöhnlichen Format abgespeichert, sodass die Integration problemlos erfolgen kann.
+
+
+\section{Weiterer Forschungsbedarf}
+\noindent
+Um die Qualität der Adaption vor allem im deutschsprachigen Raum hinreichend zu verbessern, bedarf es unbedingt einer überarbeiteten Datengrundlage. Hat diese keinen angemessenen Umfang, so sind die trainierten Modelle gemäß Overfitting überparametrisiert. Dies führt mitunter dazu, dass Wörter, welche je nach Domäne in unterschiedlichen Kontexten vorkommen, falsch verstanden werden. Außerdem entstehen Probleme bei Wörtern, die den Wortschatz der trainierten Modelle übersteigen. Damit eben jene Modelle besser generalisieren, ist also zunächst der Umfang der Datengrundlage deutlich zu erweitern. Dabei sind stets die bekannten Anforderungen zu erfüllen. Aufgrund des qualitativen Einflusses sind hierbei unbedingt die Eigenarten der verwendeten Textdaten zu analysieren und entsprechend vorzuverarbeiten. Hier bietet es sich an, Textdaten der Zieldomäne zu nutzen, um die Qualität der \ac{ATS} im Kontext des jeweiligen Anwendungsfalls zu erhöhen. Eine allgemeinsprachliche Nutzung bedarf entsprechend noch umfangreicherer Textdaten. Den Umfang der Datengrundlage gilt es also stets zu maximieren, während die Eigenarten der Textdaten dem Anwendungsfall gerecht sein sollten. Zudem ist festzuhalten, dass sich die Sprache und die Domäne der \ac{ATS} über die im jeweils erforderlichen Fine-Tuning zugeführten Textdaten steuern lässt.
+\newpage
+
+\noindent
+Möglich sind außerdem Ansätze wie die sogenannte Data Augmentation oder auch die Übersetzung anderssprachiger Texte, um künstlich neue Textdaten für den deutschsprachigen Raum zu erzeugen. Hier ist die entstehende Qualität der Textdaten in jedem Fall mit höchster Vorsicht zu untersuchen. Um also weitergehende Fortschritte in der deutschsprachigen \ac{ATS} zu erzielen, sind verschiedenartige Projekte, welche sich ausschließlich auf die Formation neuer Korpora konzentrieren, unabdingbar.\\
+
+\noindent
+Das Pareto-Prinzip kann indes vom Menschen auf die Maschine übertragen werden und knüpft hier unmittelbar an. Demnach erfolgen 80\% der Arbeit in nur 20\% der Zeit. Die letzten 20\% der Arbeit bedürfen folglich ganze 80\% der Zeit. Hier passieren allerdings ganz entscheidende Dinge. Dies bedeutet, dass das \ac{TF2TF} mit fortwährender Trainingsdauer etliche Feinheiten der zugeführten Textdaten erlernt, welche sich erheblich auf die Qualität auswirken. Gleichzeitig lassen sich entsprechende Schwächen der generierten Zusammenfassungen auf eben diese fehlende Phase zurückführen, welche aus unzureichenden Textdaten resultiert. Eine umfangreichere Datengrundlage, bestenfalls mit einem Umfang im Millionenbereich, ist daher umso wichtiger.\\
+
+\noindent
+Darüber hinaus ist es je nach Anwendungsfall beispielsweise sinnvoll, das Verhalten der \ac{ATS} unter Zugabe kurzer und langer Texte zu analysieren. Anpassungen lassen sich bei Bedarf mit einem sogenannten Sliding Window Approach, welcher das methodische Teilen und Konkatenieren der Texte vorsieht, vornehmen. Hier sei angemerkt, dass HuggingFace bereits entsprechende Methoden mitliefert und daher immerhin strukturbezogene Exploitation vorbeugt.\\
+
+\noindent
+Im Verlauf der Experimente fielen zudem wiederholt ungewöhnliche \ac{ROUGE}-Scores auf. Zumeist entstammt auch dieses Phänomen den Eigenarten der zugrundeliegenden Textdaten. Dennoch sind geeignete Metriken zu erforschen und auszuwählen, welche es im Kontext der \ac{ATS} ermöglichen, das Training vor einem potenziellen Overfitting zu stoppen. Dies würde jedoch folglich eine äußerst komplizierte Messung des Generalisierungseffektes bedeuten und ist daher eine wesentliche Herausforderung, deren Bewältigung einen ähnlich großen Durchbruch in der Wissenschaft der \ac{ATS} bewirken könnte, wie es die vortrainierten \ac{DLR} taten.
+\newpage
+
+\noindent
+Weiterhin ist die Optimierung der Hyperparameter notwendig. Zwar ist dies bei extern vortrainierten Modellen wie den \ac{DLR} nur eingeschränkt möglich, dafür bietet \ac{TF2TF} entsprechende Konfigurationsmöglichkeiten. Die Hyperparameter sind entweder vor oder adaptiv während des Trainings zu definieren. Meist sind die Ergebnisse bereits nach der Zugabe von 10-20\% der eigentlichen Daten repräsentativ und somit vergleichbar, weshalb die Optimierung keine unzähligen vollständigen Trainingsläufe erfordert. Neben der \ac{LR} und der Batch Size ist unter anderem auch die Anzahl der Aufwärmschritte, die Anzahl der verborgenen Schichten und die Anzahl der Attention-Heads zu bestimmen. Darüber hinaus können verschiedene Parameter des verwendeten Tokenizers konfiguriert werden. Nicht zuletzt ist das Teilen der Gewichte zwischen dem Encoder und dem Decoder zu erproben. In der verwendeten Konfiguration des \ac{TF2TF} werden Texte mit einer Länge von 512 Token akzeptiert, während entsprechende Zusammenfassungen auf 128 Token limitiert sind. Dies entspricht einer Kompressionsrate von 75\%. Die Natur der entstehenden \ac{ATS} ist nicht nur über diese Werte, sondern abermals über die zugeführten Textdaten bestimmbar. Somit lässt sich erwartungsgemäß je nach Anwendungsfall auch die Kompressionsrate bedarfsgerecht steuern \cite[S.~14-15]{NIT19}.\\
+
+\noindent
+In Bezugnahme auf die zu Beginn konstruierten Einsatzgebiete aus dem Gesundheitswesen lassen sich folgende Maßnahmen ableiten: Die Datengrundlage ist mit umfangreichen medizinischen Texten zu erweitern, bevor ein entsprechendes Fine-Tuning mit anschließender Optimierung der Hyperparameter erfolgen kann. Es existieren hierbei jedoch neue domänenspezifische Gefahren. Demnach gestaltet sich insbesondere die Zusammenfassung von Patientengesprächen als höchst kompliziert, weil initial bereits eine hohe Informationsdichte vorliegt und somit wahrscheinlich ein gewisser Informationsverlust entsteht.
