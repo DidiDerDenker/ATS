@@ -37,14 +37,18 @@ test_size: float = 0.075
 import csv
 import datasets
 import gc
+import matplotlib.pyplot as plt
 import psutil
 import pandas as pd
+import string
 import torch
 import transformers
 import tf2tf_gpu_config as config
 
+from collections import Counter
 from datasets import ClassLabel
-from typing import Tuple
+from nltk import ngrams
+from typing import List, Tuple
 
 
 # Methods
@@ -57,10 +61,6 @@ def load_data() -> Tuple[datasets.Dataset, datasets.Dataset, datasets.Dataset]:
 
     if config.language == "multilingual":
         return load_multilingual_data()
-
-
-
-
 
 
 
@@ -627,7 +627,7 @@ path_drive = "/content/drive/My Drive/Temp/"
 
 
 # Methods
-def split_long_texts(parts, text):
+def split_long_texts(parts: List[str], text: str):
     limit = 512
 
     if len(text) > limit:
@@ -745,4 +745,106 @@ for text in corpus:
 
     with open(path_output + "summary_" + language + "_BART_text-" + str(cnt) + ".txt", "w", encoding="utf-8") as f:
         f.write(summary)
+\end{lstlisting}
+\newpage
+
+\section*{Datenexploration}
+\begin{lstlisting}[language=Python, caption=Datenexploration]
+# Imports
+import datasets
+import transformers
+import tf2tf_gpu_config as config
+import tf2tf_gpu_helpers as helpers
+
+
+# Methods
+def clean(text: str) -> str:
+    text = " ".join([w.lower() for w in text.split()])
+    text = text.translate(str.maketrans("", "", string.punctuation))
+
+    return text
+
+
+def analyze_text_lenghts(corpus: List[str]) -> None:
+    lengths = []
+
+    for text in corpus:
+        lengths.append(len(text.split()))
+
+    fig = plt.figure(figsize=(10, 6))
+
+    plt.hist(lengths, bins=40)
+    plt.xlabel("Anzahl der Woerter", fontsize=18)
+    plt.ylabel("Anzahl der Texte", fontsize=18)
+    plt.xticks(rotation=0, fontsize=12)
+    plt.yticks(rotation=0, fontsize=12)
+    plt.tight_layout()
+
+    plt.show()
+
+
+
+def analyze_most_common_words(corpus: List[str], k: int = 20) -> None:
+    words = []
+
+    for text in corpus:
+        token_list = clean(text).split()
+
+        for token in token_list:
+            if len(token) > 1:
+                words.append(token)
+
+    most_common_words = Counter(words).most_common(k)
+
+    x = [tuple[0] for tuple in most_common_words]
+    y = [tuple[1] for tuple in most_common_words]
+
+    fig = plt.figure(figsize=(10, 6))
+
+    plt.bar(x, y)
+    plt.xlabel("Woerter", fontsize=18)
+    plt.ylabel("Anzahl", fontsize=18)
+    plt.xticks(rotation=90, fontsize=12)
+    plt.yticks(rotation=0, fontsize=12)
+    plt.tight_layout()
+
+    plt.show()
+
+
+def analyze_n_grams(corpus: List[str], n: int = 3, n_most_common_n_grams: int = 20) -> None:
+    n_grams = []
+
+    for text in corpus:
+        try:
+            for n_gram in ngrams(text.split(), n):
+                n_grams.append(n_gram)
+
+        except Exception as e:
+            print(e)
+
+    most_common_n_grams = Counter(n_grams).most_common(n_most_common_n_grams)
+
+    x = [" ".join(tuple[0]) for tuple in most_common_n_grams]
+    y = [tuple[1] for tuple in most_common_n_grams]
+
+    fig = plt.figure(figsize=(10, 6))
+
+    plt.bar(x, y)
+    plt.xlabel("N-Gramme", fontsize=18)
+    plt.ylabel("Anzahl", fontsize=18)
+    plt.xticks(rotation=90, fontsize=12)
+    plt.yticks(rotation=0, fontsize=12)
+    plt.tight_layout()
+
+    plt.show()
+    
+    
+# Main
+data, _, _ = load_data()
+corpus = list(data["text"])
+
+analyze_text_lenghts(corpus)
+analyze_most_common_words(corpus)
+analyze_n_grams(corpus, n=2)
+analyze_n_grams(corpus, n=3)
 \end{lstlisting}

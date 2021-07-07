@@ -93,7 +93,7 @@ Im dritten Experiment geschah die sprachtechnische Adaption der \ac{TF2TF} auf B
 
 \section{Qualitative Analyse}
 \noindent
-Die soeben wertmäßig evaluierten Experimente werden nun ergänzend qualitativ analysiert. Hierfür werden die \ac{TF2TF} aller Experimente sprachabhängig entweder Anhang A oder Anhang B unterzogen, indem die dort enthaltenen mitunter herausfordernden Texte maschinell zusammengefasst und subjektiv bewertet werden. Eine derartige Analyse ist erforderlich, um die Qualität sowie die praktische Eignung der trainierten \ac{TF2TF} vollends beurteilen zu können. Die qualitative Analyse ist außerdem erforderlich, um den teilweise kritisch begutachteten sowie statistisch veranlagten \ac{ROUGE}-Score qualitativ einzuordnen. Jedem Text ist zudem eine manuell verfasste Zusammenfassung zugeordnet, welche als GOLD-Standard bezeichnet wird \cite{WIS14}. Die in diesem Kapitel referenzierten Zusammenfassungen sind in englischer und deutscher Sprache modellübergreifend stets den Anhängen A und B zu entnehmen.\\
+Die soeben wertmäßig evaluierten Experimente werden nun ergänzend qualitativ analysiert. Hierfür werden die \ac{TF2TF} aller Experimente sprachabhängig entweder Anhang A oder Anhang B unterzogen, indem die dort enthaltenen mitunter herausfordernden Texte maschinell zusammengefasst und subjektiv bewertet werden. Die Bewertung geschieht anhand des ursprünglichen Textes und dem angefügten Gold-Standard. Eine derartige Analyse ist erforderlich, um die Qualität sowie die praktische Eignung der trainierten \ac{TF2TF} vollends beurteilen zu können. Die qualitative Analyse ist außerdem erforderlich, um den teilweise kritisch begutachteten sowie statistisch veranlagten \ac{ROUGE}-Score qualitativ einzuordnen. Die in diesem Kapitel referenzierten Zusammenfassungen sind in englischer und deutscher Sprache modellübergreifend stets den Anhängen A und B zu entnehmen.\\
 
 \noindent
 \textbf{Experiment 1: Reproduktion auf englischen Daten}\\
@@ -128,7 +128,36 @@ Ergänzend zum dritten Experiment ist zu analysieren, inwiefern wie wertmäßige
 Das \ac{TF2TF} unter Nutzung von \ac{BERT} verbessert sich in Englisch nun bis hin zur praktischen Eignung, in Deutsch jedoch nicht. Das \ac{TF2TF} unter Nutzung von \ac{XLM-R} erzielt hingegen keine Verbesserung. Dies ist vermutlich auf die erneut ungewöhnlich hohen Werte im Bereich der R-Precision und der R-Measure zurückzuführen. \ac{XLM-R} scheint große Probleme mit den vorliegenden englischsprachigen Textdaten zu haben.\\
 
 \noindent
-\ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in deutschen Zusammenfassungen zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das beste Modell, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist wertmäßig und subjektiv wider Erwarten nur leicht unterlegen.\\
+\ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in deutschen Zusammenfassungen zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das beste Modell, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist in englischer Sprache wertmäßig und subjektiv wider Erwarten nur leicht unterlegen, in deutscher Sprache hingegen deutlich.\\
 
 \noindent
-Vergleicht man die GOLD-Standards mit den maschinell generierten Zusammenfassungen, so werden die oben beschriebenen Eindrücke bestätigt. Die Ergebnisse wurden nun nicht nur evaluiert und analysiert, sondern teilweise bereits bewertet und begründet. Dies wird nachfolgend hinreichend fortgeführt.
+\textbf{Evaluation der Gold-Standards}\\
+\noindent
+Vergleicht man die Gold-Standards mit den maschinell generierten Zusammenfassungen, so werden die oben beschriebenen Eindrücke bestätigt. \autoref{table:GoldScores} vergleicht die \ac{ROUGE}-Scores aller multilingual vortrainierten Modelle auf Basis eben dieser Gold-Standards. 
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{ | p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} | }
+\hline
+\textbf{DLR} & \textbf{Sprache} & \textbf{R-Recall} & \textbf{R-Precision} & \textbf{R-Measure} \\
+\hline
+BERT & EN & 24.41 & 25.12 & 24.58 \\
+\hline
+XLM-R & EN & 18.35 & 19.19 & 18.55 \\
+\hline
+BART & EN & 26.12 & 20.54 & 22.91 \\
+\hline
+BERT & DE & 6.98 & 10.74 & 8.41 \\
+\hline
+XLM-R & DE & 10.20 & 12.84 & 11.16 \\
+\hline
+BART & DE & 11.49 & 16.01 & 12.94 \\
+\hline
+\end{tabular}
+\caption{ROUGE-Scores der multilingual vortrainierten Modelle auf Basis der Gold-Standards.}
+\label{table:GoldScores}
+\end{table}
+\newpage
+
+\noindent
+Inwieweit diese Werte belastbar sind, ist außerhalb dieser Arbeit zu ergründen. Es lässt sich nur mutmaßen, warum die Werte derart unterschiedlich ausfallen: Menschen können beim Verfassen der Gold-Standards beispielsweise Kontextwissen nutzen, welches gar nicht im ursprünglichen Text stand. Zudem besteht die Hypothese, dass Menschen unterbewusst N-Gramme aus dem ursprünglichen Text übernehmen, wodurch die Werte ungewöhnlich hoch sind. Abschließend ließe sich beurteilen, ob die in \autoref{table:GoldScores} dokumentierten Werte als obere Grenze interpretiert werden können.

@@ -23,9 +23,9 @@ Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: source/content/Fazit.aux
 I found no \bibdata command---while reading file Thesis.aux
 I found no \bibstyle command---while reading file Thesis.aux
-You've used 30 entries,
+You've used 29 entries,
             0 wiz_defined-function locations,
-            147 strings with 902 characters,
+            145 strings with 892 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0

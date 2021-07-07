@@ -43,22 +43,25 @@
 \contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{39}{section.102}%
 \contentsline {section}{\numberline {4.3}Konzeption einer Architektur}{40}{section.103}%
 \contentsline {section}{\numberline {4.4}Adaption der Sprache}{43}{section.106}%
-\contentsline {chapter}{\numberline {5}Datengrundlage}{44}{chapter.107}%
-\contentsline {chapter}{\numberline {6}Experimente}{47}{chapter.108}%
-\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{47}{section.109}%
-\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{48}{section.111}%
-\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{48}{section.112}%
-\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{48}{section.113}%
-\contentsline {chapter}{\numberline {7}Evaluation}{49}{chapter.114}%
-\contentsline {section}{\numberline {7.1}Automatische Auswertung}{49}{section.116}%
-\contentsline {section}{\numberline {7.2}Qualitative Analyse}{52}{section.121}%
-\contentsline {chapter}{\numberline {8}Fazit}{55}{chapter.123}%
-\contentsline {section}{\numberline {8.1}Zusammenfassung}{55}{section.124}%
-\contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{56}{section.125}%
-\contentsline {section}{\numberline {8.3}Praktische Implikationen}{57}{section.126}%
-\contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{57}{section.127}%
-\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{60}{appendix.128}%
-\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{70}{appendix.129}%
-\contentsline {chapter}{Quellcode}{80}{chapter*.130}%
-\contentsline {chapter}{Literaturverzeichnis}{103}{lstnumber.857}%
+\contentsline {chapter}{\numberline {5}Datengrundlage}{45}{chapter.107}%
+\contentsline {section}{\numberline {5.1}Datenauswahl}{46}{section.108}%
+\contentsline {section}{\numberline {5.2}Datenexploration}{47}{section.109}%
+\contentsline {section}{\numberline {5.3}Hinweise}{48}{section.111}%
+\contentsline {chapter}{\numberline {6}Experimente}{49}{chapter.112}%
+\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{49}{section.113}%
+\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{50}{section.115}%
+\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{50}{section.116}%
+\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{50}{section.117}%
+\contentsline {chapter}{\numberline {7}Evaluation}{51}{chapter.118}%
+\contentsline {section}{\numberline {7.1}Automatische Auswertung}{51}{section.120}%
+\contentsline {section}{\numberline {7.2}Qualitative Analyse}{54}{section.125}%
+\contentsline {chapter}{\numberline {8}Fazit}{58}{chapter.128}%
+\contentsline {section}{\numberline {8.1}Zusammenfassung}{58}{section.129}%
+\contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{59}{section.130}%
+\contentsline {section}{\numberline {8.3}Praktische Implikationen}{60}{section.131}%
+\contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{60}{section.132}%
+\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{63}{appendix.133}%
+\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{73}{appendix.134}%
+\contentsline {chapter}{Quellcode}{83}{chapter*.135}%
+\contentsline {chapter}{Literaturverzeichnis}{109}{lstnumber.961}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -19,7 +19,7 @@ Zunächst erfolgt die Reproduktion des \ac{SOTA} auf Grundlage der konzipierten 
 
 \section{Adaption auf deutschen Daten}
 \noindent
-Anschließend wird die Adaption auf die deutsche Sprache erprobt. Die bislang genutzte Architektur, welche bekanntermaßen Transformer integriert, kann auf Grundlage umfangreicher verschiedensprachiger ungelabelter Textdaten im Sinne des \ac{DL} und \ac{TL} multilingual vortrainiert werden, ohne architektonische Anpassungen vornehmen zu müssen. Hierbei werden sprachübergreifende verborgene Strukturen erlernt, um anschließend monolingual davon zu profitieren. Zudem wird dem Problem entgegengewirkt, dass sprachintern zu wenig Textdaten zur Verfügung stehen \cite{MOB20}. \ac{DLR}, welche organisationsextern bereits multilingual vortrainiert und bereitgestellt wurden, sind unter anderem erneut die multilingualen Versionen von \ac{BERT} und \ac{XLM-R}. Hinsichtlich einer anschließenden deutschsprachigen Nutzung in der \ac{ATS} ist folglich ein entsprechendes sprachbezogenes Training erforderlich. Hierfür werden zwei weitere \ac{TF2TF} unter Nutzung der oben genannten \ac{DLR} jeweils auf Basis aller deutschsprachigen Daten ($K_{wik} \cup K_{nws} \cup K_{mls}$) trainiert und evaluiert.
+Anschließend wird die Adaption auf die deutsche Sprache erprobt. Dies erfolgt bekanntermaßen über den Austausch der Textdaten in die Zielsprache, hier Deutsch. Dafür werden zwei weitere \ac{TF2TF} unter Nutzung der oben genannten \ac{DLR} jeweils auf Basis aller deutschsprachigen Daten ($K_{wik} \cup K_{nws} \cup K_{mls}$) trainiert und evaluiert.
 
 
 \section{Adaption auf multilingualen Daten}

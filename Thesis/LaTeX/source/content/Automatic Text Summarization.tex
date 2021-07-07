@@ -3,7 +3,7 @@
 \label{chap:Automatic Text Summarization}
 
 \noindent
-Unter Kenntnis der theoretischen Grundlagen werden die Ausführungen zur \ac{ATS} in diesem Kapitel ausgeweitet, basierend auf den einordnenden Worten aus der Einleitung. Dabei werden die grundlegenden Informationen vollständigerweise zusammengefasst und mithilfe des neu gewonnenen Wissens nochmalig eingeordnet. Darüber hinaus wird insbesondere der Forschungsstand vertieft, vergleichbare Arbeiten analysiert und daraufhin selbst eine Architektur konzipiert.\\
+Unter Kenntnis der theoretischen Grundlagen werden die Ausführungen zur \ac{ATS} in diesem Kapitel ausgeweitet, basierend auf den einordnenden Worten aus der Einleitung. Dabei werden die grundlegenden Informationen vollständigerweise zusammengefasst und mithilfe des neu gewonnenen Wissens nochmalig eingeordnet. Darüber hinaus wird insbesondere der Forschungsstand vertieft, vergleichbare Arbeiten analysiert und daraufhin eine Architektur dargestellt.
 
 
 \section{Typisierung von Systemen}
@@ -49,7 +49,7 @@ In den soeben vertieften Publikationen wird ersichtlich, dass gemäß \ac{TL} vo
 
 \section{Konzeption einer Architektur}
 \noindent
-Mit dem bisherigen Wissen wird nun eine Architektur konzipiert. Diese ist als \ac{TF2TF} zu verstehen. Dabei wird sowohl der Encoder als auch der Decoder durch eine eigenständige gemäß \ac{TL} vortrainierte \ac{DLR} repräsentiert. Aufgrund der bereits beschriebenen Grundlagen wird nun die weitergehende Konfiguration der Architektur definiert. Hierbei gibt es unter anderem die folgenden beiden Möglichkeiten, um den Encoder zum \ac{NLU} und den Decoder zur \ac{NLG} zu initialisieren \cite[S.~2]{ROT20}.\\
+Mit dem bisherigen Wissen wird nun eine Architektur vorgestellt. Diese ist als \ac{TF2TF} zu verstehen. Dabei wird sowohl der Encoder als auch der Decoder durch eine eigenständige gemäß \ac{TL} vortrainierte \ac{DLR} repräsentiert. Aufgrund der bereits beschriebenen Grundlagen wird nun die weitergehende Konfiguration der Architektur definiert. Hierbei gibt es unter anderem die folgenden beiden Möglichkeiten, um den Encoder zum \ac{NLU} und den Decoder zur \ac{NLG} zu initialisieren \cite[S.~2]{ROT20}.\\
 
 \noindent
 Einerseits ist es möglich, den Encoder und den Decoder jeweils mit einer autarken \ac{DLR} zu initialisieren, beispielsweise den Encoder mit \ac{BERT} und den Decoder mit \ac{GPT}. Andererseits ist es aber auch möglich, sowohl den Encoder als auch den Decoder mit dem gleichen Checkpoint einer \ac{DLR} zu initialisieren, welche ursprünglich nur als Encoder trainiert wurde, beispielsweise mit \ac{BERT}. Gemäß \ac{TL} wird so im Kontext von \ac{NLP} und \ac{ATS} das Neuerlernen einer Sprache umgangen. Aufgrund der Verfügbarkeit von \ac{BERT} wird in der Folge nur letztere Möglichkeit betrachtet. Die folgenden Ausführungen sind in \autoref{pic:EncoderDecoderBert} visualisiert \cite[S.~2-3]{ROT20}.\\
@@ -89,4 +89,13 @@ Texte werden also zusammenfassend in den nachfolgenden Schritten jeweils nach 51
 
 \section{Adaption der Sprache}
 \noindent
-TODO
+Die oben beschriebene Architektur, welche bekanntermaßen Transformer integriert, kann auf Grundlage umfangreicher verschiedensprachiger ungelabelter Textdaten im Sinne des \ac{DL} und \ac{TL} multilingual vortrainiert werden, ohne architektonische Anpassungen vornehmen zu müssen. Hierbei werden sprachübergreifend verborgene Strukturen erlernt, um anschließend monolingual davon zu profitieren. Zudem wird dem Problem entgegengewirkt, dass sprachintern zu wenig Textdaten zur Verfügung stehen \cite{MOB20}.\\
+
+\noindent
+\ac{DLR}, welche organisationsextern bereits multilingual vortrainiert und bereitgestellt wurden, sind unter anderem die multilingualen Versionen von \ac{BERT} und \ac{XLM-R}. Hinsichtlich einer anschließenden deutschsprachigen Nutzung in der \ac{ATS} ist folglich zwingend ein entsprechendes sprachbezogenes Training erforderlich \cite[S.~3-4]{YAN19}. Die Sprache der in diesem Fine-Tuning zugeführten Textdaten bestimmt stets die Zielsprache des entstehenden \ac{ATS}-Modells. Die Adaption gilt also nicht nur für die deutsche Sprache.\\
+
+\noindent
+Dennoch gibt es verschiedene Eigenarten in der deutschen Sprache, welche zu berücksichtigen sind. Die Syntax unterliegt demnach unzähligen Ausnahmen, welche mitunter eine Uneindeutigkeit der Sprache bewirken. Zudem ist es möglich, lange und somit teilweise noch unbekannte Komposita zu konstruieren. Darüber hinaus werden Elemente anderer Sprachen immer weiter in die deutsche Sprache integriert, wie etwa Anglizismen. Dabei werden die Grenzen der einzelnen Sprachen immer unkenntlicher, was modellseitig zu Ungenauigkeiten führen kann. Nicht zuletzt verfügt die deutsche Sprache über Umlaute, welche eine entsprechende Unterstützung erfordern \cite{SPR16}.\\
+
+\noindent
+Ähnlich wie die sprachtechnische Adaption kann auch eine domänenspezifische Adaption erfolgen. Dies geht aber womöglich über den Austausch der Textdaten hinaus und bedarf mitunter architektonischen Anpassungen, welche das \ac{NLU} und die \ac{NLG} in der Zieldomäne begünstigen.
