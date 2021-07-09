@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  7 JUL 2021 13:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  9 JUL 2021 14:51
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1576,9 +1576,9 @@ Package pdftex.def Info: ./source/images/selfattention.png  used on input line
 103.
 (pdftex.def)             Requested size: 224.06548pt x 143.45067pt.
 
-Overfull \hbox (17.22116pt too wide) in paragraph at lines 111--113
+Overfull \hbox (13.9573pt too wide) in paragraph at lines 111--113
 \OT1/cmr/m/n/12 In-for-ma-tio-nen po-si-ti-ons-u-n-abh[]angig und satz[]ubergre
-ifend iden-ti-fi-ziert [[]].
+ifend iden-ti-fi-ziert [[],
  []
 
 [12 <./source/images/selfattention.png>]
@@ -1587,26 +1587,32 @@ File: ./source/images/multiheadattention.png Graphic file (type png)
 <use ./source/images/multiheadattention.png>
 Package pdftex.def Info: ./source/images/multiheadattention.png  used on input 
 line 117.
-(pdftex.def)             Requested size: 336.0982pt x 186.09221pt.
+(pdftex.def)             Requested size: 313.69029pt x 173.68767pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 124--126
 
  []
 
 
-Overfull \hbox (5.4977pt too wide) in paragraph at lines 127--129
-\OT1/cmr/m/n/12 nem po-si-ti-ons-abh[]angigen Feed-Forward-Netzwerk und ei-ner 
-Layer-Normalization-Schicht.
+Overfull \hbox (11.04625pt too wide) in paragraph at lines 127--129
+\OT1/cmr/m/n/12 nem po-si-ti-ons-abh[]angigen Feed-Forward-Netzwerk und zwei La
+yer-Normalization-Schichten
+ []
+
+
+Overfull \hbox (2.00822pt too wide) in paragraph at lines 127--129
+\OT1/cmr/m/n/12 [[], S. 3]. Die Multi-Head-Attention-Schicht f[]uhrt Be-rech-nu
+n-gen gem[]a
  []
 
 [13 <./source/images/multiheadattention.png>]
-<./source/images/transformerarchitecture.png, id=661, 560.8453pt x 679.78969pt>
+<./source/images/transformerarchitecture.png, id=662, 560.8453pt x 679.78969pt>
 
 File: ./source/images/transformerarchitecture.png Graphic file (type png)
 <use ./source/images/transformerarchitecture.png>
 Package pdftex.def Info: ./source/images/transformerarchitecture.png  used on i
 nput line 133.
-(pdftex.def)             Requested size: 313.69029pt x 380.21286pt.
+(pdftex.def)             Requested size: 336.0982pt x 407.3687pt.
  [14 <./source/images/transformerarchitecture.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
@@ -1624,7 +1630,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--152
 
  []
 
-<./source/images/gradientdescent.png, id=679, 895.09406pt x 245.41687pt>
+<./source/images/gradientdescent.png, id=682, 895.09406pt x 245.41687pt>
 File: ./source/images/gradientdescent.png Graphic file (type png)
 <use ./source/images/gradientdescent.png>
 Package pdftex.def Info: ./source/images/gradientdescent.png  used on input lin
@@ -1645,7 +1651,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--169
 
  []
 
-<./source/images/momentumupdate.png, id=698, 319.1925pt x 322.95656pt>
+<./source/images/momentumupdate.png, id=700, 319.1925pt x 322.95656pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
@@ -1654,20 +1660,15 @@ Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
 Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
 
 although it is yet undefined on input line 178.
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--179
-
- []
-
 [16 <./source/images/momentumupdate.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
-<./source/images/finetuning.png, id=718, 682.04813pt x 344.03531pt>
+<./source/images/finetuning.png, id=720, 682.04813pt x 344.03531pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
-Package pdftex.def Info: ./source/images/finetuning.png  used on input line 190
+Package pdftex.def Info: ./source/images/finetuning.png  used on input line 191
 .
 (pdftex.def)             Requested size: 313.69029pt x 158.2319pt.
 [17 <./source/images/finetuning.png>]) [18]
@@ -1758,7 +1759,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
-<./source/images/tokenization.png, id=779, 693.34032pt x 115.93312pt>
+<./source/images/tokenization.png, id=781, 693.34032pt x 115.93312pt>
 File: ./source/images/tokenization.png Graphic file (type png)
 <use ./source/images/tokenization.png>
 Package pdftex.def Info: ./source/images/tokenization.png  used on input line 5
@@ -1782,7 +1783,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--84
 
  []
 
-<./source/images/onehotencoding.png, id=807, 515.67656pt x 238.64156pt>
+<./source/images/onehotencoding.png, id=809, 515.67656pt x 238.64156pt>
 File: ./source/images/onehotencoding.png Graphic file (type png)
 <use ./source/images/onehotencoding.png>
 Package pdftex.def Info: ./source/images/onehotencoding.png  used on input line
@@ -1804,7 +1805,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 141--143
  []
 
 [26]
-<./source/images/onlinesphere.png, id=847, 650.43pt x 563.85657pt>
+<./source/images/onlinesphere.png, id=849, 650.43pt x 563.85657pt>
 File: ./source/images/onlinesphere.png Graphic file (type png)
 <use ./source/images/onlinesphere.png>
 Package pdftex.def Info: ./source/images/onlinesphere.png  used on input line 1
@@ -1846,7 +1847,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
-<./source/images/elmostructure.png, id=900, 825.0825pt x 653.44125pt>
+<./source/images/elmostructure.png, id=902, 825.0825pt x 653.44125pt>
 File: ./source/images/elmostructure.png Graphic file (type png)
 <use ./source/images/elmostructure.png>
 Package pdftex.def Info: ./source/images/elmostructure.png  used on input line 
@@ -1887,14 +1888,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--224
 
  []
 
-<./source/images/bertencoder.png, id=951, 645.91313pt x 520.19344pt>
+<./source/images/bertencoder.png, id=953, 645.91313pt x 520.19344pt>
 File: ./source/images/bertencoder.png Graphic file (type png)
 <use ./source/images/bertencoder.png>
 Package pdftex.def Info: ./source/images/bertencoder.png  used on input line 22
 7.
 (pdftex.def)             Requested size: 291.28238pt x 234.58493pt.
 [32 <./source/images/bertencoder.png>]
-<./source/images/inputrepresentation.png, id=963, 936.49875pt x 235.63031pt>
+<./source/images/inputrepresentation.png, id=965, 936.49875pt x 235.63031pt>
 File: ./source/images/inputrepresentation.png Graphic file (type png)
 <use ./source/images/inputrepresentation.png>
 Package pdftex.def Info: ./source/images/inputrepresentation.png  used on input
@@ -1929,7 +1930,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 256--258
  []
 
 [34]
-<./source/images/dlrcomparison.png, id=1016, 280.79906pt x 414.79968pt>
+<./source/images/dlrcomparison.png, id=1018, 280.79906pt x 414.79968pt>
 File: ./source/images/dlrcomparison.png Graphic file (type png)
 <use ./source/images/dlrcomparison.png>
 Package pdftex.def Info: ./source/images/dlrcomparison.png  used on input line 
@@ -2037,7 +2038,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
-<./source/images/encoderdecoderbert.png, id=1154, 608.2725pt x 635.37375pt>
+<./source/images/encoderdecoderbert.png, id=1156, 608.2725pt x 635.37375pt>
 File: ./source/images/encoderdecoderbert.png Graphic file (type png)
 <use ./source/images/encoderdecoderbert.png>
 Package pdftex.def Info: ./source/images/encoderdecoderbert.png  used on input 
@@ -2193,14 +2194,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
 
 ]
-<./source/images/lossenglish.png, id=1300, 377.41pt x 262.9825pt>
+<./source/images/lossenglish.png, id=1302, 377.41pt x 262.9825pt>
 File: ./source/images/lossenglish.png Graphic file (type png)
 <use ./source/images/lossenglish.png>
 Package pdftex.def Info: ./source/images/lossenglish.png  used on input line 62
 .
 (pdftex.def)             Requested size: 246.47339pt x 171.74315pt.
  [52 <./source/images/lossenglish.png>]
-<./source/images/lossgerman.png, id=1314, 377.41pt x 262.9825pt>
+<./source/images/lossgerman.png, id=1316, 377.41pt x 262.9825pt>
 File: ./source/images/lossgerman.png Graphic file (type png)
 <use ./source/images/lossgerman.png>
 Package pdftex.def Info: ./source/images/lossgerman.png  used on input line 75.
@@ -2211,7 +2212,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--84
 
  []
 
-<./source/images/lossmultilingual.png, id=1327, 377.41pt x 262.9825pt>
+<./source/images/lossmultilingual.png, id=1329, 377.41pt x 262.9825pt>
 File: ./source/images/lossmultilingual.png Graphic file (type png)
 <use ./source/images/lossmultilingual.png>
 Package pdftex.def Info: ./source/images/lossmultilingual.png  used on input li
@@ -3883,7 +3884,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
-<./source/images/signature.png, id=2525, 506.89375pt x 257.96375pt>
+<./source/images/signature.png, id=2527, 506.89375pt x 257.96375pt>
 File: ./source/images/signature.png Graphic file (type png)
 <use ./source/images/signature.png>
 Package pdftex.def Info: ./source/images/signature.png  used on input line 11.
@@ -3927,9 +3928,9 @@ sfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (124 pages, 1917673 bytes).
+Output written on Thesis.pdf (124 pages, 1918350 bytes).
 PDF statistics:
- 3022 PDF objects out of 3580 (max. 8388607)
+ 3024 PDF objects out of 3580 (max. 8388607)
  1177 named destinations out of 1200 (max. 500000)
  759 words of extra memory for PDF output out of 10000 (max. 10000000)
 
