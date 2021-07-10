@@ -12,8 +12,8 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Multi-Head-Attention \cite [S.~400]{ZHA20}.\relax }}{13}{figure.caption.42}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Transformer-Architektur \cite [S.~3]{VAS17}.\relax }}{14}{figure.caption.44}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Konvergenzverhalten im Gradientenverfahren \cite [S.~429]{ZHA20}.\relax }}{15}{figure.caption.47}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Gradientenverfahren unter Einfluss eines Momentums \cite {CSNOJ}.\relax }}{16}{figure.caption.48}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Fine-Tuning vortrainierter Modelle \cite [S.~555]{ZHA20}.\relax }}{17}{figure.caption.51}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Gradientenverfahren unter Einfluss eines Momentums \cite {CSNOJ}.\relax }}{17}{figure.caption.49}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Fine-Tuning vortrainierter Modelle \cite [S.~555]{ZHA20}.\relax }}{18}{figure.caption.51}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Tokenisierung eines beispielhaften Satzes.\relax }}{22}{figure.caption.60}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces One-Hot-Encoding mit zwei beispielhaften Sätzen.\relax }}{24}{figure.caption.64}%

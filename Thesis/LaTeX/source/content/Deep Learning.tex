@@ -159,23 +159,20 @@ Die \ac{LR} ist ein Hyperparameter, der bestimmt, wie viel Einfluss jede einzeln
 \newpage
 
 \noindent
-Neben der sorgfältigen manuellen Auswahl der \ac{LR} ist es weiterhin möglich, eine adaptive \ac{LR} einzuführen. Hierbei wird die \ac{LR} in jeder Epoche verändert. Üblich ist hier eine Reduktion der \ac{LR}, wenn bereits akzeptable Ergebnisse erreicht wurden \cite[S.~433]{ZHA20}.\\
+Neben der manuellen Auswahl der \ac{LR} ist es weiterhin möglich, eine adaptive \ac{LR} einzuführen. Hierbei wird die \ac{LR} in jeder Epoche verändert. Üblich ist hier eine Reduktion der \ac{LR}, wenn bereits akzeptable Ergebnisse erreicht wurden \cite[S.~433]{ZHA20}.\\
 
 \noindent
-Außerdem existiert das stochastische Gradientenverfahren, welches pro Epoche nur eine Stichprobe der verfügbaren Trainingsdaten berücksichtigt und einen generalisierenden Effekt verspricht \cite[S.~290]{GOO16}. Die Größe der Stichprobe wird üblicherweise als Batch Size bezeichnet und an dieser Stelle nur als weitergehender Hyperparameter genannt.\\
+Es bedarf meist umfangreicher Trainingsdaten, damit die entstehenden Modelle hinreichend generalisieren. Um den damit einhergehenden Rechenaufwand zu bewältigen, gibt es das stochastische Gradientenverfahren als Erweiterung des originalen Gradientenverfahrens. Hierbei wird die Fehlerfunktion auf einer kleineren Stichprobe approximiert und nicht wie sonst üblich als Summe über alle verfügbaren Daten berechnet \cite[S.~149]{GOO16}. Die Größe der Stichprobe wird üblicherweise als Batch Size bezeichnet und sei an dieser Stelle nur als weitergehender Hyperparameter genannt.\\
 
 \noindent
-Weiterhin unterstützt das Momentum die bereits beschriebene \ac{LR} auf der Suche nach dem globalen Minimum in der Fehlerfunktion. Dabei berücksichtigt es den Durchschnitt vorheriger Gradienten. Auf dieser Grundlage wird entschieden, in welche Richtung das stochastische Gradientenverfahren weiter absteigen soll, wie \autoref{pic:MomentumUpdate} zeigt. Das Momentum ist somit potenziell in der Lage, lokale Minima zu überspringen und die Suche erst im tatsächlichen globalen Minimum zu beenden \cite[S.~292-295]{GOO16}.\\
+Weiterhin unterstützt das Momentum die bereits beschriebene \ac{LR} auf der Suche nach dem globalen Minimum in der Fehlerfunktion. Dabei berücksichtigt es den Durchschnitt vorheriger Gradienten. Anschließend wird entschieden, in welche Richtung das stochastische Gradientenverfahren weiter absteigen soll, wie \autoref{pic:MomentumUpdate} zeigt. Das Momentum ist somit potenziell in der Lage, lokale Minima zu überspringen und die Suche erst im tatsächlichen globalen Minimum zu beenden \cite[S.~292-295]{GOO16}. Bei der Auswahl eines hohen Momentums sollte die \ac{LR} eher niedriger sein, oder anders herum. Eine Möglichkeit der stochastischen Optimierung ist hierbei \ac{ADAM}. Dieser Algorithmus übernimmt nicht nur die Auswahl der adaptiven \ac{LR}, sondern auch die Auswahl des entsprechenden Momentums. \ac{ADAM} arbeitet weitreichenden Analysen zufolge effizient für daten- und parameterintensive Probleme. Dabei konvergiert der Algorithmus üblicherweise schneller als vergleichbare Optimierungsalgorithmen \cite[S.~1-2]{KIN17}.
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.3\linewidth]{./source/images/momentumupdate.png}}
+  \fbox{\includegraphics[width=0.35\linewidth]{./source/images/momentumupdate.png}}
   \caption{Gradientenverfahren unter Einfluss eines Momentums \cite{CSNOJ}.}
   \label{pic:MomentumUpdate}
 \end{figure}
-
-\noindent
-Bei der Auswahl eines hohen Momentums sollte die \ac{LR} eher niedriger sein, oder anders herum. Eine Möglichkeit der stochastischen Optimierung ist hierbei \ac{ADAM}. Dieser Algorithmus übernimmt nicht nur die Auswahl der adaptiven \ac{LR}, sondern auch die Auswahl des entsprechenden Momentums. \ac{ADAM} arbeitet weitreichenden Analysen zufolge effizient für daten- und parameterintensive Probleme. Dabei konvergiert der Algorithmus üblicherweise schneller als vergleichbare Optimierungsalgorithmen \cite[S.~1-2]{KIN17}.
 \newpage
 
 \noindent

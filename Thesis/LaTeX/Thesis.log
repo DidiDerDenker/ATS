@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  9 JUL 2021 14:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  9 JUL 2021 16:39
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -1646,36 +1646,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--166
 
  []
 
+Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-<./source/images/momentumupdate.png, id=700, 319.1925pt x 322.95656pt>
+although it is yet undefined on input line 168.
+<./source/images/momentumupdate.png, id=705, 319.1925pt x 322.95656pt>
 File: ./source/images/momentumupdate.png Graphic file (type png)
 <use ./source/images/momentumupdate.png>
 Package pdftex.def Info: ./source/images/momentumupdate.png  used on input line
  172.
-(pdftex.def)             Requested size: 134.44064pt x 136.02519pt.
-Package acronym Info: Label `acro:ADAM' newly defined as it shall be overridden
+(pdftex.def)             Requested size: 156.84856pt x 158.69853pt.
 
-although it is yet undefined on input line 178.
-[16 <./source/images/momentumupdate.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 186--188
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 183--185
 
  []
 
-<./source/images/finetuning.png, id=720, 682.04813pt x 344.03531pt>
+<./source/images/finetuning.png, id=719, 682.04813pt x 344.03531pt>
 File: ./source/images/finetuning.png Graphic file (type png)
 <use ./source/images/finetuning.png>
-Package pdftex.def Info: ./source/images/finetuning.png  used on input line 191
+Package pdftex.def Info: ./source/images/finetuning.png  used on input line 188
 .
 (pdftex.def)             Requested size: 313.69029pt x 158.2319pt.
-[17 <./source/images/finetuning.png>]) [18]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17 <./source/images/momentumupdate.png>]) [18 <./source/images/finetuning.png>
+]
 \openout2 = `"source/content/Natural Language Processing.aux"'.
 
-
-("source/content/Natural Language Processing.tex"
+ ("source/content/Natural Language Processing.tex"
 chapter 3.
 Package acronym Info: Label `acro:NLU' newly defined as it shall be overridden
 although it is yet undefined on input line 6.
@@ -3928,7 +3929,7 @@ sfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (124 pages, 1918350 bytes).
+Output written on Thesis.pdf (124 pages, 1918522 bytes).
 PDF statistics:
  3024 PDF objects out of 3580 (max. 8388607)
  1177 named destinations out of 1200 (max. 500000)
