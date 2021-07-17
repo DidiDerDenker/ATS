@@ -23,45 +23,39 @@
 \contentsline {subsection}{\numberline {3.1.2}Textnormalisierung}{20}{subsection.57}%
 \contentsline {subsection}{\numberline {3.1.3}Tokenisierung}{22}{subsection.59}%
 \contentsline {section}{\numberline {3.2}Word Embeddings}{23}{section.61}%
-\contentsline {subsection}{\numberline {3.2.1}One-Hot-Encoding}{24}{subsection.62}%
-\contentsline {subsection}{\numberline {3.2.2}Bag-of-Words}{24}{subsection.65}%
-\contentsline {subsection}{\numberline {3.2.3}Skip-Gram-Model}{25}{subsection.68}%
-\contentsline {subsection}{\numberline {3.2.4}Word2Vec}{26}{subsection.69}%
-\contentsline {subsection}{\numberline {3.2.5}Byte-Pair-Encoding}{27}{subsection.72}%
-\contentsline {subsection}{\numberline {3.2.6}GloVe}{28}{subsection.74}%
-\contentsline {section}{\numberline {3.3}Deep Language Representations}{29}{section.76}%
-\contentsline {subsection}{\numberline {3.3.1}ELMo}{29}{subsection.78}%
-\contentsline {subsection}{\numberline {3.3.2}GPT}{30}{subsection.81}%
-\contentsline {subsection}{\numberline {3.3.3}BERT}{31}{subsection.83}%
-\contentsline {subsection}{\numberline {3.3.4}XLM-R}{33}{subsection.87}%
-\contentsline {subsection}{\numberline {3.3.5}BART}{34}{subsection.89}%
-\contentsline {section}{\numberline {3.4}Metriken}{35}{section.92}%
-\contentsline {subsection}{\numberline {3.4.1}ROUGE}{36}{subsection.97}%
-\contentsline {subsection}{\numberline {3.4.2}BLEU}{37}{subsection.99}%
-\contentsline {chapter}{\numberline {4}Automatic Text Summarization}{38}{chapter.100}%
-\contentsline {section}{\numberline {4.1}Typisierung von Systemen}{38}{section.101}%
-\contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{39}{section.102}%
-\contentsline {section}{\numberline {4.3}Konzeption einer Architektur}{40}{section.103}%
-\contentsline {section}{\numberline {4.4}Adaption der Sprache}{43}{section.106}%
-\contentsline {chapter}{\numberline {5}Datengrundlage}{45}{chapter.107}%
-\contentsline {section}{\numberline {5.1}Datenauswahl}{46}{section.108}%
-\contentsline {section}{\numberline {5.2}Datenexploration}{47}{section.109}%
-\contentsline {section}{\numberline {5.3}Hinweise}{48}{section.111}%
-\contentsline {chapter}{\numberline {6}Experimente}{49}{chapter.112}%
-\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{49}{section.113}%
-\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{50}{section.115}%
-\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{50}{section.116}%
-\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{50}{section.117}%
-\contentsline {chapter}{\numberline {7}Evaluation}{51}{chapter.118}%
-\contentsline {section}{\numberline {7.1}Automatische Auswertung}{51}{section.120}%
-\contentsline {section}{\numberline {7.2}Qualitative Analyse}{54}{section.125}%
-\contentsline {chapter}{\numberline {8}Fazit}{58}{chapter.128}%
-\contentsline {section}{\numberline {8.1}Zusammenfassung}{58}{section.129}%
-\contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{59}{section.130}%
-\contentsline {section}{\numberline {8.3}Praktische Implikationen}{60}{section.131}%
-\contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{60}{section.132}%
-\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{63}{appendix.133}%
-\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{73}{appendix.134}%
-\contentsline {chapter}{Quellcode}{83}{chapter*.135}%
-\contentsline {chapter}{Literaturverzeichnis}{109}{lstnumber.961}%
+\contentsline {section}{\numberline {3.3}Deep Language Representations}{24}{section.63}%
+\contentsline {subsection}{\numberline {3.3.1}ELMo}{24}{subsection.65}%
+\contentsline {subsection}{\numberline {3.3.2}GPT}{25}{subsection.70}%
+\contentsline {subsection}{\numberline {3.3.3}BERT}{26}{subsection.72}%
+\contentsline {subsection}{\numberline {3.3.4}XLM-R}{28}{subsection.76}%
+\contentsline {subsection}{\numberline {3.3.5}BART}{29}{subsection.78}%
+\contentsline {section}{\numberline {3.4}Metriken}{30}{section.81}%
+\contentsline {subsection}{\numberline {3.4.1}ROUGE}{31}{subsection.86}%
+\contentsline {subsection}{\numberline {3.4.2}BLEU}{32}{subsection.88}%
+\contentsline {chapter}{\numberline {4}Automatic Text Summarization}{33}{chapter.89}%
+\contentsline {section}{\numberline {4.1}Typisierung von Systemen}{33}{section.90}%
+\contentsline {section}{\numberline {4.2}Vertiefung des Forschungsstands}{34}{section.91}%
+\contentsline {section}{\numberline {4.3}Wahl einer Architektur}{35}{section.92}%
+\contentsline {section}{\numberline {4.4}Adaption der Sprache}{38}{section.95}%
+\contentsline {chapter}{\numberline {5}Datengrundlage}{40}{chapter.96}%
+\contentsline {section}{\numberline {5.1}Datenauswahl}{41}{section.97}%
+\contentsline {section}{\numberline {5.2}Datenexploration}{42}{section.98}%
+\contentsline {section}{\numberline {5.3}Hinweise}{43}{section.100}%
+\contentsline {chapter}{\numberline {6}Experimente}{44}{chapter.101}%
+\contentsline {section}{\numberline {6.1}Entwicklungsumgebung}{44}{section.102}%
+\contentsline {section}{\numberline {6.2}Reproduktion auf englischen Daten}{45}{section.104}%
+\contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{45}{section.105}%
+\contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{45}{section.106}%
+\contentsline {chapter}{\numberline {7}Evaluation}{46}{chapter.107}%
+\contentsline {section}{\numberline {7.1}Automatische Auswertung}{46}{section.109}%
+\contentsline {section}{\numberline {7.2}Qualitative Analyse}{49}{section.114}%
+\contentsline {chapter}{\numberline {8}Fazit}{53}{chapter.117}%
+\contentsline {section}{\numberline {8.1}Zusammenfassung}{53}{section.118}%
+\contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{54}{section.119}%
+\contentsline {section}{\numberline {8.3}Praktische Implikationen}{55}{section.120}%
+\contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{55}{section.121}%
+\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{58}{appendix.122}%
+\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{68}{appendix.123}%
+\contentsline {chapter}{Quellcode}{78}{chapter*.124}%
+\contentsline {chapter}{Literaturverzeichnis}{104}{lstnumber.950}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -16,20 +16,18 @@
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Fine-Tuning vortrainierter Modelle \cite [S.~555]{ZHA20}.\relax }}{18}{figure.caption.51}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Tokenisierung eines beispielhaften Satzes.\relax }}{22}{figure.caption.60}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces One-Hot-Encoding mit zwei beispielhaften Sätzen.\relax }}{24}{figure.caption.64}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Word2Vec mit dem Embedding Projector von TensorFlow.\relax }}{27}{figure.caption.71}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Architektur und Funktionsweise von ELMo \cite {IRE18}.\relax }}{30}{figure.caption.80}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Architektur von BERT mit MLM \cite [S.~3]{DEV19}.\relax }}{32}{figure.caption.85}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{33}{figure.caption.86}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces BERT, GPT und BART im Vergleich \cite [S.~2]{LEW19}.\relax }}{35}{figure.caption.91}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Architektur und Funktionsweise von ELMo \cite {IRE18}.\relax }}{25}{figure.caption.69}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Architektur von BERT mit MLM \cite [S.~3]{DEV19}.\relax }}{27}{figure.caption.74}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Repräsentation von Textdaten mithilfe von BERT \cite [S.~3]{DEV19}.\relax }}{28}{figure.caption.75}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces BERT, GPT und BART im Vergleich \cite [S.~2]{LEW19}.\relax }}{30}{figure.caption.80}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{41}{figure.caption.105}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sequence-to-Sequence-Transformer-Modell mit BERT \cite {VON20}.\relax }}{36}{figure.caption.94}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Loss in der SOTA-Reproduktion im Modellvergleich.\relax }}{52}{figure.caption.122}%
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Loss in der Adaption auf deutschen Daten im Modellvergleich.\relax }}{53}{figure.caption.123}%
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Loss in der Adaption auf multilingualen Daten im Modellvergleich.\relax }}{53}{figure.caption.124}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Loss in der SOTA-Reproduktion im Modellvergleich.\relax }}{47}{figure.caption.111}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Loss in der Adaption auf deutschen Daten im Modellvergleich.\relax }}{48}{figure.caption.112}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Loss in der Adaption auf multilingualen Daten im Modellvergleich.\relax }}{48}{figure.caption.113}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

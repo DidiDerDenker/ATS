@@ -47,7 +47,7 @@ Rothe et al. verfolgten 2020 eine Transformer-to-Transformer-Architektur zur \ac
 In den soeben vertieften Publikationen wird ersichtlich, dass gemäß \ac{TL} vortrainierte Transformer sowohl als Encoder als auch als Decoder genutzt werden können, stets unter gegebener Austauschbarkeit. Die sprachtechnische Adaption hingegen wurde bislang nur unzulänglich oder nicht-öffentlich erprobt. Daher wird in dieser Arbeit eine Architektur zur \ac{ATS} eingeführt, welche die Fortschritte aufgreift sowie vorhandene Unzulänglichkeiten verbessert. Hierfür werden Transformer-Kombinationen mit besonderem Fokus auf die deutschsprachige Adaption erprobt. Gemäß dem \ac{SOTA} werden \ac{BERT}, \ac{XLM-R} und \ac{BART} ausgewählt, nicht hingegen \ac{ELMo} und \ac{GPT}.
 
 
-\section{Konzeption einer Architektur}
+\section{Wahl einer Architektur}
 \noindent
 Mit dem bisherigen Wissen wird nun eine Architektur vorgestellt. Diese ist als \ac{TF2TF} zu verstehen. Dabei wird sowohl der Encoder als auch der Decoder durch eine eigenständige gemäß \ac{TL} vortrainierte \ac{DLR} repräsentiert. Aufgrund der bereits beschriebenen Grundlagen wird nun die weitergehende Konfiguration der Architektur definiert. Hierbei gibt es unter anderem die folgenden beiden Möglichkeiten, um den Encoder zum \ac{NLU} und den Decoder zur \ac{NLG} zu initialisieren \cite[S.~2]{ROT20}.\\
 

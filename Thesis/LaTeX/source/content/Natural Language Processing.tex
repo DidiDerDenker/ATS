@@ -71,110 +71,14 @@ Die Python-Bibliotheken \ac{NLTK} und SpaCy stellen entsprechende wortbasierte T
 Algorithmen können Texte nicht in ihrer Rohform verarbeiten. Texte bedürfen einer geeigneten mathematischen Form. Word Embeddings überführen Texte oder ganze Korpora hierfür in einen Vektorraum (engl. Vector Space), um Wörter syntaktisch, semantisch und insbesondere untereinander in Kontext zu bringen. Dabei wird ein Wortschatz benutzt, welcher die entsprechenden Vektoren, bestehend aus eindeutig kodierbaren ganzzahligen Werten, aufbaut \cite{KAR18}. Die Ableitung der Vektoren aus den Textdaten wird auch als Feature Extraction oder Feature Encoding bezeichnet. Insgesamt befindet man sich hier im Bereich des Language Modeling \cite{BRO19}.\\
 
 \noindent
-Word Embeddings werden üblicherweise noch vor der Entwicklung der ursprünglich anvisierten \ac{NLP}-Aufgabe trainiert, weshalb ihnen ein unmittelbarer qualitativer Einfluss zugesprochen wird. Die entstehenden Modelle sind in der Folge schnell implementierbar. Weiterhin sind sie skalierbar, da sie als Grundlage verschiedenster nachgelagerter \ac{NLP}-Aufgaben eingesetzt werden können \cite{NIT19}. Word Embeddings können durch verschiedene mehr oder minder komplexe Ansätze realisiert werden. Diese werden nachfolgend vorgestellt, wobei stets verdeutlicht wird, wie der entsprechende Vektorraum aufgebaut und in Kontext gebracht wird. Dabei wird außerdem deutlich, dass sich die verschiedenen Ansätze nicht für jede \ac{NLP}-Aufgabe eignen, sondern sie vielmehr einschränken. Obgleich nicht alle Ansätze für die \ac{ATS} relevant sein werden, sind sie als Grundlage zu verstehen.
-\newpage
-
-
-\subsection{One-Hot-Encoding}
-\noindent
-\ac{OHE} ist einer der einfachsten Ansätze, um Texte in einen Vektorraum einzubetten. Dabei werden allgemein kategorische Variablen in ein numerisches und somit mathematisch verarbeitbares Format gebracht \cite{KAR18}. Seien nun zwei gleichbedeutende Sätze gegeben. Eben jene Sätze sowie der entsprechende Wortschatz und die binär kodierten Vektoren sind in \autoref{pic:OneHotEncoding} ersichtlich. Die Vektoren sind hierbei als Matrix zusammengefasst, wobei die Zeilen und Spalten anhand der Anfangsbuchstaben der Wörter kenntlich gemacht sind.\\
+Word Embeddings werden üblicherweise noch vor der Entwicklung der ursprünglich anvisierten \ac{NLP}-Aufgabe trainiert, weshalb ihnen ein unmittelbarer qualitativer Einfluss zugesprochen wird. Die entstehenden Modelle sind in der Folge schnell implementierbar. Weiterhin sind sie skalierbar, da sie als Grundlage verschiedenster nachgelagerter \ac{NLP}-Aufgaben eingesetzt werden können \cite{NIT19}. Word Embeddings können durch verschiedene mehr oder minder komplexe Ansätze realisiert werden, beispielsweise One-Hot-Encoding, Bag-of-Words, Skip-Gram-Model. Dabei eignen sich die verschiedenen Ansätze nicht für jede \ac{NLP}-Aufgabe, sondern schränken sie vielmehr ein.\\
 
 \noindent
-Versucht man nun, diese Vektoren in einem Vektorraum zu visualisieren, dann entspricht jeder Vektor einer eigenen Dimension. Dabei wird allerdings klar, dass keine dimensionsübergreifenden Projektionen existieren \cite{KAR18}. Dies bedeutet, dass die Wörter \textit{gutes} und \textit{schönes} genauso verschieden sind, wie die Wörter \textit{heute} und \textit{ist}. Dies ist offensichtlich falsch. \ac{OHE} ist dennoch als Grundlage zu verstehen, wobei etwaige Probleme innerhalb der nachfolgenden Ansätze weiterbehandelt werden.\\
-
-\begin{figure}[h!]
-  \centering
-  \fbox{\includegraphics[width=0.65\linewidth]{./source/images/onehotencoding.png}}
-  \caption{One-Hot-Encoding mit zwei beispielhaften Sätzen.}
-  \label{pic:OneHotEncoding}
-\end{figure}
-
-
-\subsection{Bag-of-Words}
-\noindent
-\ac{BOW} realisieren die Feature Extraction, indem entsprechende Modelle das Aufkommen von in einem Wortschatz definierter Wörter über eine Vielzahl von Texten zählen. Dabei ist allerdings ein gewisser Informationsverlust zu erwarten, da beispielsweise die Reihenfolge der Wörter nicht berücksichtigt wird \cite[S.~262]{RAS19}. \autoref{table:BagOfWords} zeigt beispielhaft eine Matrix eines solchen \ac{BOW}-Modells.
+Aufgrund der späteren Relevanz wird nun ausschließlich das sogenannte \ac{BPE} vorgestellt. \ac{BPE} ist ein Algorithmus zur Datenkompression. Hierfür werden zusammenhängende Bytes mit einem Byte ersetzt, welches nicht in den sonstigen Daten auftritt \cite[S.~24]{NIT19}. Sei hierfür folgendes Beispiel gegeben: $$aaabcaacab = \boldsymbol{Z}\boldsymbol{Y}c\boldsymbol{Z}c\boldsymbol{Y}$$ $$\text{mit } \boldsymbol{Z} = aa \text{ und } \boldsymbol{Y} = ab$$
 \newpage
 
 \noindent
-In den Zeilen sind die betrachteten Texte indiziert, in den Spalten hingegen die Wörter des frei erfundenen Wortschatzes. Die Matrix hat demnach eine daran orientierte fixe Größe. In den Zellen ergeben sich somit die Häufigkeiten der Wörter, bezogen auf ihr Aufkommen in den einzelnen Texten \cite{BRO19}.
-
-\begin{table}[htb]
-\centering
-\begin{tabular}{ | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | p{1.8cm} | }
-\hline
-\textbf{ID} & \textbf{Heute} & \textbf{ist} & \textbf{schönes} & \textbf{Wetter} \\
-\hline
-Text 1 & 2 & 8 & 1 & 3 \\
-\hline
-Text 2 & 1 & 3 & 0 & 2 \\
-\hline
-Text 3 & 0 & 4 & 1 & 4 \\
-\hline
-\end{tabular}
-\caption{Bag-of-Words mit einem beispielhaften Wortschatz \cite{HUI20}.}
-\label{table:BagOfWords}
-\end{table}
-
-\noindent
-Nachteilig ist dieser Ansatz hinsichtlich der \ac{ATS} insbesondere dadurch, dass die Reihenfolge der Wörter nicht berücksichtigt wird. Wie in \autoref{table:BagOfWords} ersichtlich wurde, lassen sich aus der Matrix keine Informationen über die Semantik oder Grammatik rekonstruieren. Aus technischer Sicht würde die Matrix bei steigender Wortschatzgröße nicht nur mitwachsen, sondern zudem viele Null-Einträge enthalten \cite{HUI20}. Vorteilig ist dieser Ansatz hingegen für eher schlichtere \ac{NLP}-Aufgaben. Hier sei die Klassifikation von Dokumenten als mögliches Einsatzgebiet genannt.
-
-
-\subsection{Skip-Gram-Model}
-\noindent
-Ein weiterer frequenzbasierter Ansatz besteht in sogenannten Skip-Gram-Modellen. Diese unterliegen der Annahme, dass sich der Kontext eines gegebenen Wortes in Form von einer Textsequenz generieren lässt. Sei hierfür nun beispielhaft und gleichermaßen abstrakt die Sequenz {\{\textit{a, b, c, d, e}\}} gegeben. Zudem sei \textit{c} das Zielwort und die lokale Fenstergröße zwei. Ein Skip-Gram-Modell modelliert die bedingten Wahrscheinlichkeiten für die vor- und nachstehenden Kontextwörter \cite[S.~640]{ZHA20}. Hierfür gilt die folgende Formel: $$P(a, b, d, e \mid c)$$
-
-\noindent
-Gemäß der weitergehenden Annahme, die Kontextwörter ließen sich auf Grundlage eines gegebenen Zielwortes unabhängig voneinander generieren, kann die Formel wie folgt umgeschrieben werden: $$P(a \mid c) \cdot P(b \mid c) \cdot P(d \mid c) \cdot P(e \mid c)$$
-\newpage
-
-\noindent
-Sei darüber hinaus abstrakter Wortschatz gegeben. Dabei erfordert jedes darin enthaltene Wort zwei mehrdimensionale Vektoren. Einen, um das Wort als Zielwort zu evaluieren, und einen, um das Wort in den unterschiedlichen Kontexten einzuordnen. Mithilfe dieser Vektoren können die bedingten Wahrscheinlichkeiten des entsprechenden Modells trainiert werden. Autark ist jedoch auch dieser Ansatz ungeeignet für die \ac{ATS} \cite[S.~641]{ZHA20}.
-
-
-\subsection{Word2Vec}
-\noindent
-Der Ansatz des \ac{W2V} kombiniert \ac{BOW}-Modelle mit Skip-Gram-Modellen, um die Nachteile des \ac{OHE} weitergehend aufzuarbeiten. Dabei werden \ac{BOW}-Modelle jedoch in kontinuierlicher Form genutzt. Diese funktionieren in umgekehrter Weise zu den Skip-Gram-Modellen. Damit ist folglich eine beidseitige Herangehensweise möglich. Der Kontext kann also aus einem gegebenen Zielwort und das Zielwort wiederum aus einem gegebenen Kontext ermittelt werden \cite[S.~644]{ZHA20}.\\
-
-\noindent
-Die entsprechenden bedingten Wahrscheinlichkeiten können gemäß der nachstehenden Formeln modelliert werden. Dabei werden Skip-Gram-Modelle (erstgenannt) den \ac{BOW}-Modellen (zweitgenannt) anhand des oben genannten Beispiels gegenübergestellt. $$P(a, b, d, e \mid c) \qquad P(c \mid a, b, d, e)$$
-
-\noindent
-\ac{W2V}-Modelle können mithilfe neuronaler Netze trainiert werden. Dies befähigt sie, Zusammenhänge zwischen Wörtern zu erlernen. Hierbei werden Distanzen minimiert, die aus den zuvor beschriebenen Vektoren hervorgehen. Dieser Ansatz eignet sich in der Folge etwa dazu, Synonyme für gegebene Wörter zu bestimmen. \ac{ATS}-Modelle, welche den \ac{W2V}-Ansatz verfolgen, konnten sich in der Vergangenheit bereits in akzeptablem Maße beweisen \cite{KAR18}.\\
-
-\noindent
-\autoref{pic:OnlineSphere} zeigt die beispielhaften Projektionen von etwa 10.000 Wörtern, welche mit dem Embedding Projektor von TensorFlow und einer entsprechenden Hauptkomponentenanalyse generiert wurden. Dabei ist das Ergebnis der Suche nach dem Wort $play$ zu sehen. Es ist erkennbar, dass bedeutungsähnliche Wörter kürzere Distanzen aufweisen.
-\newpage
-
-\begin{figure}[h!]
-  \centering
-  \fbox{\includegraphics[width=0.75\linewidth]{./source/images/onlinesphere.png}}
-  \caption{Word2Vec mit dem Embedding Projector von TensorFlow.}
-  \label{pic:OnlineSphere}
-\end{figure}
-
-
-\subsection{Byte-Pair-Encoding}
-\noindent
-\ac{BPE} ist ein Algorithmus zur Datenkompression. Hierfür werden zusammenhängende Bytes mit einem Byte ersetzt, welches nicht in den sonstigen Daten auftritt \cite[S.~24]{NIT19}. Sei folgendes Beispiel gegeben: $$aaabcaacab = \boldsymbol{Z}\boldsymbol{Y}c\boldsymbol{Z}c\boldsymbol{Y}$$ $$\text{mit } \boldsymbol{Z} = aa \text{ und } \boldsymbol{Y} = ab$$
-
-\noindent
-\ac{BPE} eignet sich insbesondere dafür, seltene Wörter zu berücksichtigten. In diesen verbirgt sich mitunter eine nicht zu vernachlässigende Bedeutung. Aufgrund der kodierenden Funktion wird \ac{BPE} auch als Subword Embedding bezeichnet, während die komprimierende Funktion kleinere Modellgrößen verursacht \cite[S.~24]{NIT19}. \ac{ATS}-Modelle, welche den \ac{W2V}-Ansatz verfolgen, konnten sich in der Vergangenheit ebenfalls in akzeptablem Maße beweisen.
-\newpage
-
-
-\subsection{GloVe}
-\noindent
-\ac{GloVe} ist ein weiterer Algorithmus zur Einbettung von Texten in einen Vektorraum, welcher syntaktische und semantische Bedeutungen repräsentiert \cite[S.~1]{PEN14}.\\
-
-\noindent
-Hierfür wird sich einer Matrix bedient, welche das gemeinsame Aufkommen der im Korpus enthaltenen Wörter paarweise gegenüberstellt. Sie wird daher auch als Word-Word-Co-Occurrence-Matrix bezeichnet und besitzt eine maximale Komplexität von $O(|V|^2)$, wenn $V$ die Wortschatzgröße ist. \ac{GloVe} sieht dabei vor, die Matrix unter Nutzung lokaler Kontextfenster global zu faktorisieren \cite[S.~2]{PEN14}.\\
-
-\noindent
-Hierbei werden sehr große Matrizen durch mehrere niederrangige Matrizen approximiert. Dies ermöglicht es, die verborgenen statistischen Informationen des zugrundeliegenden Korpus anhand linearer Substrukturen zu explorieren und letztlich zu extrahieren. Dabei werden lokale Kontextfenster verwendet, wie sie bei verschiedenen oben genannten Ansätzen bereits beschrieben wurden, beispielsweise bei \ac{W2V} \cite[S.~24]{NIT19}.\\
-
-\noindent
-\ac{GloVe} ist praktisch als vortrainiertes Modell verfügbar. Dies basiert auf vier verschiedenen Korpora mit insgesamt etwa 55 Milliarden Token und einer durchschnittlichen Wortschatzgröße von etwa 1,5 Millionen Token. Im Training werden hierbei in der Matrix nur von Null verschiedene Werte berücksichtigt. Die mittlere quadratische Abweichung wird zudem als Fehlerfunktion ausgewählt. Das initiale Training ist zwar sehr rechenintensiv, dafür allerdings im Sinne des \ac{TL} a priori nur einmalig auszuführen. \ac{NLP}-Aufgaben, darunter auch die \ac{ATS}, profitierten stark vom Erfolg des \ac{GloVe}-Ansatzes. Trotzdem ist der Einsatz stets sorgfältig zu evaluieren, da innerhalb der modellinternen Vorverarbeitung die zugrundeliegenden Korpora beispielsweise auf Kleinschreibung forciert wurden. Dies müsste bei nachstehenden \ac{NLP}-Aufgaben ebenfalls berücksichtigt werden \cite[S.~6-9]{PEN14}.
-\newpage
+\ac{BPE} eignet sich insbesondere dafür, seltene Wörter zu berücksichtigten. In diesen verbirgt sich mitunter eine nicht zu vernachlässigende Bedeutung. Aufgrund der kodierenden Funktion wird \ac{BPE} auch als Subword Embedding bezeichnet, während die komprimierende Funktion kleinere Modellgrößen bewirkt \cite[S.~24]{NIT19}.
 
 
 \section{Deep Language Representations}
@@ -194,7 +98,7 @@ Zuerst sei \ac{ELMo} als Deep Contextualized Word Representation genannt. Es wur
 
 \begin{figure}[h!]
   \centering
-  \fbox{\includegraphics[width=0.7\linewidth]{./source/images/elmostructure.png}}
+  \fbox{\includegraphics[width=0.65\linewidth]{./source/images/elmostructure.png}}
   \caption{Architektur und Funktionsweise von ELMo \cite{IRE18}.}
   \label{pic:ElmoStructure}
 \end{figure}
@@ -216,11 +120,11 @@ Im mathematischen Sinne wurde im Kontext der \ac{ATS} bislang meist die Wahrsche
 Zudem sei \ac{BERT} als mögliches Modell zur \ac{DLR} genannt. Es wurde von Forschern der Google AI Language entwickelt und 2019 veröffentlicht. \ac{BERT} basiert auf ebenfalls der bereits bekannten Transformer-Architektur, wobei unstrukturierte Textdaten mithilfe links- und rechtsseitiger Kontextfenster bidirektional angelernt werden. Dabei entstammen die Daten verschiedenartigen \ac{NLP}-Aufgaben, sodass \ac{BERT} zumeist aufgabenunabhängig einsetzbar ist. Im anschließenden Fine-Tuning werden die vortrainierten modellinternen Parameter zunächst initialisiert und wiederum mithilfe von gelabelten Daten angepasst. \ac{BERT} zeichnet sich weiterhin dadurch aus, dass er höchst anpassungsfähig ist und sich die vortrainierte Architektur nur minimal von der weitertrainierten Architektur unterscheidet \cite[S.~1-3]{DEV19}.\\
 
 \noindent
-Nun wird die Architektur von \ac{BERT} umfassender untersucht, indem die einleitenden Worte aufgegriffen und theoretisch ergründet werden. \ac{BERT} ist prinzipiell als Encoder zu verstehen, welcher durch einen mehrschichtigen bidirektionalen Transformer repräsentiert wird. Dabei werden die Schichten durch Transformer-Module repräsentiert. Diese verfügen über entsprechende Attention-Mechanismen, um kontextuelle Informationen zu erkennen. Weiterhin werden Sequenzen nicht nur einseitig betrachtet, sondern beidseitig, also bidirektional. Somit werden wortbezogene Kontexte gelernt, was insbesondere zu einem tieferen Verständnis der Sprache seitens \ac{BERT} führt. Dies ist ein großer Vorteil gegenüber bisheriger Architekturen, inklusive \ac{ELMo} und \ac{GPT}, welche Sequenzen zumeist nur einseitig betrachten konnten, also von links nach rechts oder andersherum. Aufgrund der qualitativen Vorteile von \ac{BERT} wird es umfänglicher als die ausgewählten Vorgänger und Konkurrenten analysiert \cite[S.~3]{DEV19}.
+Nun wird die Architektur von \ac{BERT} umfassender untersucht, indem die einleitenden Worte aufgegriffen und theoretisch ergründet werden. \ac{BERT} ist prinzipiell als Encoder zu verstehen, welcher durch einen mehrschichtigen bidirektionalen Transformer repräsentiert wird. Dabei werden die Schichten durch Transformer-Module repräsentiert. Diese verfügen über entsprechende Attention-Mechanismen, um kontextuelle Informationen zu erkennen. Weiterhin werden Sequenzen nicht nur einseitig betrachtet, sondern beidseitig, also bidirektional. Somit werden wortbezogene Kontexte gelernt, was zu einem tieferen Verständnis der Sprache seitens \ac{BERT} führt. Dies ist ein großer Vorteil gegenüber Architektur wie \ac{ELMo} oder \ac{GPT}, welche Sequenzen zumeist nur einseitig betrachten konnten, also von links nach rechts oder andersherum.
 \newpage
 
 \noindent
-Um \ac{BERT} entsprechend vortrainieren zu können, werden \ac{MLM} genutzt. Bevor die Textdaten in die Architektur geführt werden, werden etwa 15\% der Wörter durch ein $[\text{MASK}]$-Token ersetzt. Daraufhin versucht das Modell, die maskierten Token auf Grundlage der umliegenden nicht-maskierten Token vorherzusagen (engl. Next Word Prediction). Da die zu erwartenden Wörter bekannt sind, kann über eine Klassifikationsschicht ein Lerneffekt erzielt werden, indem entsprechende Matrizen dimensional transformiert und wertmäßig aktualisiert werden. \autoref{pic:BertEncoder} zeigt die beschriebene Architektur \cite[S.~4-5]{DEV19}.\\
+Aufgrund der qualitativen Vorteile von \ac{BERT} wird er nachfolgend umfänglicher als die ausgewählten Vorgänger und Konkurrenten analysiert \cite[S.~3]{DEV19}. Um \ac{BERT} entsprechend vortrainieren zu können, werden \ac{MLM} genutzt. Bevor die Textdaten in die Architektur geführt werden, werden etwa 15\% der Wörter durch ein $[\text{MASK}]$-Token ersetzt. Daraufhin versucht das Modell, die maskierten Token auf Grundlage der umliegenden nicht-maskierten Token vorherzusagen (engl. Next Word Prediction). Da die zu erwartenden Wörter bekannt sind, kann über eine Klassifikationsschicht ein Lerneffekt erzielt werden, indem entsprechende Matrizen dimensional transformiert und wertmäßig aktualisiert werden. \autoref{pic:BertEncoder} zeigt die beschriebene Architektur \cite[S.~4-5]{DEV19}.\\
 
 \begin{figure}[h!]
   \centering
@@ -231,7 +135,7 @@ Um \ac{BERT} entsprechend vortrainieren zu können, werden \ac{MLM} genutzt. Bev
 
 \noindent
 Um zudem weitergehende Informationen auf Satzebene zu erhalten, werden dem Training paarweise Sätze zugeführt. Seien $A$ und $B$ zwei solcher Sätze, dann ist $B$ zu 50\% ein auf $A$ folgender Satz und zu 50\% ein zufälliger Satz des Korpus. Dies wird erneut im Sinne einer Klassifikation gelernt (engl. Next Sentence Prediction). Wie \ac{BERT} die eingehenden Sequenzen einbettet und repräsentiert, wird in \autoref{pic:InputRepresentation} deutlich. Dabei handelt es sich um die Summe der Token Embeddings, Segment Embeddings und Position Embeddings. Hierbei kann entschieden werden, ob Klein- und Großschreibung berücksichtigt werden soll \cite[S.~3-5]{DEV19}.
-\newpage
+\\
 
 \begin{figure}[h!]
   \centering
@@ -258,7 +162,7 @@ Wiederholend und vergleichend sei aufgeführt (siehe \autoref{pic:DlrComparison}
 
 \noindent
 Die besten Ergebnisse erzielte \ac{BART} in der jüngsten Vergangenheit bei eben genau \ac{NLG}-Aufgaben wie der \ac{ATS}, sowohl mono- als auch multilingual. Dabei schließt \ac{BART} qualitativ nicht nur zu \ac{BERT} und \ac{XLM-R} auf, sondern übersteigt sie zu Teilen sogar \cite{LEW19}.
-\newpage
+\\
 
 \begin{figure}[h!]
   \centering
@@ -266,6 +170,7 @@ Die besten Ergebnisse erzielte \ac{BART} in der jüngsten Vergangenheit bei eben
   \caption{BERT, GPT und BART im Vergleich \cite[S.~2]{LEW19}.}
   \label{pic:DlrComparison}
 \end{figure}
+\newpage
 
 
 \section{Metriken}
@@ -287,10 +192,14 @@ Wie man sieht, ändert sich nur der Nenner. Im oben genannten Beispiel gilt somi
 
 \noindent
 \ac{ROUGE} wird allgemein auch als \ac{ROUGE}-N geschrieben, wobei das N bestimmt, ob obige Kennzahlen auf Grundlagen von Uni-, Bi- oder Trigrammen berechnet werden sollen. Im genannten Beispiel wurden also die \ac{ROUGE}-1 Recall-, Precision- und Measure-Scores berechnet. Zudem existieren Ansätze, welche die \ac{LCS} verfolgen. Diese werden hier jedoch vernachlässigt.
+\\
+
+\noindent
+Trotz oder gerade wegen der wissenschaftlichen Verbreitung des \ac{ROUGE}-Scores kommt immer mehr Kritik auf. Demnach kann \ac{ROUGE} beispielsweise nicht zwischen verschiedenen aber bedeutungsähnlichen Wörtern unterscheiden.
 \newpage
 
 \noindent
-Trotz oder gerade wegen der wissenschaftlichen Verbreitung des \ac{ROUGE}-Scores kommt immer mehr Kritik auf. Demnach kann \ac{ROUGE} beispielsweise nicht zwischen verschiedenen aber bedeutungsähnlichen Wörtern unterscheiden. Dies führt tendenziell zu einer schlechteren Bewertung, obgleich ein gegebener Text etwa in einer entsprechenden \ac{SYSZ} präzise zusammengefasst wurde. Außerdem wird den Texten zur Berechnung des \ac{ROUGE}-Scores Kleinschreibung abverlangt, unabhängig von den vorgeschalteten Modellen. Die Bewertung geschieht also eher auf syntaktischer als auf semantischer Basis. Aufgrund der bereits genannten weitreichenden Nutzung des \ac{ROUGE}-Scores und der damit gegebenen Vergleichbarkeit kommt er trotzdem in dieser Arbeit zum Einsatz \cite[S.~5]{LIN04}.
+Dies führt tendenziell zu einer schlechteren Bewertung, obgleich ein gegebener Text etwa in einer entsprechenden \ac{SYSZ} präzise zusammengefasst wurde. Außerdem wird den Texten zur Berechnung des \ac{ROUGE}-Scores Kleinschreibung abverlangt, unabhängig von den vorgeschalteten Modellen. Die Bewertung geschieht also eher auf syntaktischer als auf semantischer Basis. Aufgrund der bereits genannten weitreichenden Nutzung des \ac{ROUGE}-Scores und der damit gegebenen Vergleichbarkeit kommt er trotzdem in dieser Arbeit zum Einsatz \cite[S.~5]{LIN04}.
 
 	
 \subsection{BLEU}
