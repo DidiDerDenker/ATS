@@ -80,7 +80,7 @@ Im zweiten Experiment geschah erstmalig die sprachtechnische Adaption der \ac{TF
 \noindent
 \textbf{Experiment 3: Adaption auf multilingualen Daten}\\
 \noindent
-Im dritten Experiment geschah die sprachtechnische Adaption der \ac{TF2TF} auf Basis multilingualer Textdaten. \ac{BART} wird indes aus externer Quelle bezogen. Die Evaluation geschieht im Kontext dieser Arbeit ausschließlich auf deutschsprachigen Textdaten. In \autoref{table:ExpEvaluation} wird ersichtlich, dass sich das Modell unter Nutzung von \ac{BERT} nun über den \ac{SOTA} hinaus verbessert, während im Bereich der \ac{XLM-R} erneut auffallende Werte entstehen. \ac{BART} entspricht ebenfalls dem \ac{SOTA}. Hier sei jedoch angemerkt, dass er den \ac{SOTA} auf Basis einer englischsprachigen Evaluation übersteigt. In \autoref{pic:ExpMlLoss} ist abermals die recht späte Konvergenz der \ac{XLM-R} nachvollziehbar, welche womöglich auf die architektonischen Unterschiede der \ac{DLR} zurückzuführen ist.\\
+Im dritten Experiment geschah die sprachtechnische Adaption der \ac{TF2TF} auf Basis multilingualer Textdaten. \ac{BART} wird indes aus externer Quelle bezogen. Die Evaluation geschieht im Kontext dieser Arbeit ausschließlich auf deutschsprachigen Textdaten. In \autoref{table:ExpEvaluation} wird ersichtlich, dass sich das Modell unter Nutzung von \ac{BERT} nun über den \ac{SOTA} hinaus verbessert, während im Bereich der \ac{XLM-R} erneut auffallende Werte entstehen. \ac{BART} entspricht ebenfalls dem \ac{SOTA}, auch ohne Fine-Tuning. Hier sei weiterhin angemerkt, dass er den \ac{SOTA} auf Basis einer englischsprachigen Evaluation übersteigt. In \autoref{pic:ExpMlLoss} ist abermals die recht späte Konvergenz der \ac{XLM-R} nachvollziehbar, welche womöglich auf die architektonischen Unterschiede der \ac{DLR} zurückzuführen ist.\\
 
 \begin{figure}[h]
   \centering
@@ -128,12 +128,13 @@ Ergänzend zum dritten Experiment ist zu analysieren, inwiefern wie wertmäßige
 Das \ac{TF2TF} unter Nutzung von \ac{BERT} verbessert sich in Englisch nun bis hin zur praktischen Eignung, in Deutsch jedoch nicht. Das \ac{TF2TF} unter Nutzung von \ac{XLM-R} erzielt hingegen keine Verbesserung. Dies ist vermutlich auf die erneut ungewöhnlich hohen Werte im Bereich der R-Precision und der R-Measure zurückzuführen. \ac{XLM-R} scheint große Probleme mit den vorliegenden englischsprachigen Textdaten zu haben.\\
 
 \noindent
-\ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in deutschen Zusammenfassungen zu verzeichnen. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das beste Modell, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist in englischer Sprache wertmäßig und subjektiv wider Erwarten nur leicht unterlegen, in deutscher Sprache hingegen deutlich.\\
+\ac{BART} weist aufgrund der identischen Datengrundlage ein ähnliches Verhalten wie die monolingualen \ac{TF2TF} auf, scheint jedoch insgesamt robuster zu sein und auch ohne Fine-Tuning weniger Fehler zu machen. Dennoch sind auch hier inhaltliche Mängel sowie erstmalig auch englische Wörter in deutschen Zusammenfassungen zu verzeichnen. Diese können potenziell durch ein entsprechendes Fine-Tuning ausgemerzt werden. Entgegen obig formulierter Erwartung scheint \ac{BART} dem lockenden Element der Nachrichtendomäne nicht nachzukommen. \ac{BART} ist für die \ac{ATS} in englischer Sprache das beste Modell, in deutscher Sprache vermutlich nur mit einem hinreichenden Fine-Tuning. \ac{BERT} ist in englischer Sprache wertmäßig und subjektiv wider Erwarten nur leicht unterlegen, in deutscher Sprache hingegen deutlich.\\
 
 \noindent
 \textbf{Evaluation der Gold-Standards}\\
 \noindent
 Vergleicht man die Gold-Standards mit den maschinell generierten Zusammenfassungen, so werden die oben beschriebenen Eindrücke bestätigt. \autoref{table:GoldScores} vergleicht die \ac{ROUGE}-Scores aller multilingual vortrainierten Modelle auf Basis eben dieser Gold-Standards. 
+\newpage
 
 \begin{table}[htb]
 \centering
@@ -157,7 +158,6 @@ BART & DE & 11.49 & 16.01 & 12.94 \\
 \caption{ROUGE-Scores der multilingual vortrainierten Modelle auf Basis der Gold-Standards.}
 \label{table:GoldScores}
 \end{table}
-\newpage
 
 \noindent
 Inwieweit diese Werte belastbar sind, ist außerhalb dieser Arbeit zu ergründen. Es lässt sich nur mutmaßen, warum die Werte derart unterschiedlich ausfallen: Menschen können beim Verfassen der Gold-Standards beispielsweise Kontextwissen nutzen, welches gar nicht im ursprünglichen Text stand. Zudem besteht die Hypothese, dass Menschen unterbewusst N-Gramme aus dem ursprünglichen Text übernehmen, wodurch die Werte ungewöhnlich hoch sind. Abschließend ließe sich beurteilen, ob die in \autoref{table:GoldScores} dokumentierten Werte als obere Grenze interpretiert werden können.

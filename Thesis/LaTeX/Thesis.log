@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  17 JUL 2021 14:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2020.10.21)  18 JUL 2021 14:17
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -2025,74 +2025,79 @@ File: ./source/images/encoderdecoderbert.png Graphic file (type png)
 <use ./source/images/encoderdecoderbert.png>
 Package pdftex.def Info: ./source/images/encoderdecoderbert.png  used on input 
 line 59.
-(pdftex.def)             Requested size: 358.50612pt x 374.48915pt.
+(pdftex.def)             Requested size: 313.69029pt x 327.67195pt.
 [35]
-Overfull \hbox (10.34766pt too wide) in paragraph at lines 64--66
-\OT1/cmr/m/n/12 Die Ge-wich-te der bi-di-rek-tio-na-len Self-Attention-Schichte
-n und der Feed-Forward-Schichten
- []
-
-
-Overfull \hbox (24.95027pt too wide) in paragraph at lines 64--66
-\OT1/cmr/m/n/12 Der De-co-der hin-ge-gen be-darf min-des-tens der nach-ste-hen-
-den An-pas-sun-gen [[]]. 
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 64--66
 
  []
 
 
-Overfull \hbox (17.40953pt too wide) in paragraph at lines 67--69
+Overfull \hbox (10.34766pt too wide) in paragraph at lines 67--69
+\OT1/cmr/m/n/12 Die Ge-wich-te der bi-di-rek-tio-na-len Self-Attention-Schichte
+n und der Feed-Forward-Schichten
+ []
+
+
+Overfull \hbox (24.95027pt too wide) in paragraph at lines 67--69
+\OT1/cmr/m/n/12 Der De-co-der hin-ge-gen be-darf min-des-tens der nach-ste-hen-
+den An-pas-sun-gen [[]]. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+
+Overfull \hbox (17.40953pt too wide) in paragraph at lines 70--72
 \OT1/cmr/m/n/12 text-ba-sier-ten Se-quen-zen ver-ar-bei-ten zu k[]onnen. Die Ge
 -wich-te der Cross-Attention-Schichten
  []
 
 [36 <./source/images/encoderdecoderbert.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 71--73
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
 
-Overfull \hbox (19.83588pt too wide) in paragraph at lines 77--79
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+
+Overfull \hbox (19.83588pt too wide) in paragraph at lines 80--82
 \OT1/cmr/m/n/12 mo-dellabh[]angig. Un-ter Ver-wen-dung der als sehr ro-bust gel
 -ten-den Transformer-Architekturen
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 81--83
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 84--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
-[38]
+
 Underfull \hbox (badness 10000) in paragraph at lines 94--96
 
  []
 
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
-Overfull \hbox (18.85858pt too wide) in paragraph at lines 97--99
+ []
+
+
+Overfull \hbox (18.85858pt too wide) in paragraph at lines 100--102
 \OT1/cmr/m/n/12 Dennoch gibt es ver-schie-de-ne Ei-gen-ar-ten in der deut-schen
  Spra-che, wel-che zu ber[]ucksichtigen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--99
+Underfull \hbox (badness 10000) in paragraph at lines 100--102
 
  []
 
@@ -2176,14 +2181,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
 
 ]
-<./source/images/lossenglish.png, id=1194, 377.41pt x 262.9825pt>
+<./source/images/lossenglish.png, id=1195, 377.41pt x 262.9825pt>
 File: ./source/images/lossenglish.png Graphic file (type png)
 <use ./source/images/lossenglish.png>
 Package pdftex.def Info: ./source/images/lossenglish.png  used on input line 62
 .
 (pdftex.def)             Requested size: 246.47339pt x 171.74315pt.
  [47 <./source/images/lossenglish.png>]
-<./source/images/lossgerman.png, id=1208, 377.41pt x 262.9825pt>
+<./source/images/lossgerman.png, id=1209, 377.41pt x 262.9825pt>
 File: ./source/images/lossgerman.png Graphic file (type png)
 <use ./source/images/lossgerman.png>
 Package pdftex.def Info: ./source/images/lossgerman.png  used on input line 75.
@@ -2194,7 +2199,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 80--84
 
  []
 
-<./source/images/lossmultilingual.png, id=1221, 377.41pt x 262.9825pt>
+<./source/images/lossmultilingual.png, id=1222, 377.41pt x 262.9825pt>
 File: ./source/images/lossmultilingual.png Graphic file (type png)
 <use ./source/images/lossmultilingual.png>
 Package pdftex.def Info: ./source/images/lossmultilingual.png  used on input li
@@ -3866,7 +3871,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--9
 
  []
 
-<./source/images/signature.png, id=2421, 506.89375pt x 257.96375pt>
+<./source/images/signature.png, id=2422, 506.89375pt x 257.96375pt>
 File: ./source/images/signature.png Graphic file (type png)
 <use ./source/images/signature.png>
 Package pdftex.def Info: ./source/images/signature.png  used on input line 11.
@@ -3910,9 +3915,9 @@ sfonts/cm/cmsy10.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb><C:/Users/didid/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/didid/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (119 pages, 1695588 bytes).
+Output written on Thesis.pdf (119 pages, 1696203 bytes).
 PDF statistics:
- 2896 PDF objects out of 2984 (max. 8388607)
+ 2897 PDF objects out of 2984 (max. 8388607)
  1157 named destinations out of 1200 (max. 500000)
  701 words of extra memory for PDF output out of 10000 (max. 10000000)
 
