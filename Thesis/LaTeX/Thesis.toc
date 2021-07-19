@@ -54,8 +54,8 @@
 \contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{54}{section.119}%
 \contentsline {section}{\numberline {8.3}Praktische Implikationen}{55}{section.120}%
 \contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{55}{section.121}%
-\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{58}{appendix.122}%
-\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{68}{appendix.123}%
-\contentsline {chapter}{Quellcode}{78}{chapter*.124}%
-\contentsline {chapter}{Literaturverzeichnis}{104}{lstnumber.950}%
+\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{59}{appendix.122}%
+\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{69}{appendix.123}%
+\contentsline {chapter}{Quellcode}{79}{chapter*.124}%
+\contentsline {chapter}{Literaturverzeichnis}{105}{lstnumber.950}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
