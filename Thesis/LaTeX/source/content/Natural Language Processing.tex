@@ -208,3 +208,8 @@ Dies führt tendenziell zu einer schlechteren Bewertung, obgleich ein gegebener 
 
 \noindent
 Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstützt, eignet er sich gewissermaßen auch für \ac{ATS}-Aufgaben. Zuletzt konnte wissenschaftlich bewiesen werden, dass der \ac{BLEU}-Score recht gut mit menschlichen Bewertungen korreliert. Aufgrund ähnelnder Nachteile zu denen des \ac{ROUGE}-Score und fehlender wissenschaftlicher Vergleichbarkeit im Kontext dieser Arbeit wird der \ac{BLEU}-Score nicht verwendet \cite[S.~6-7]{PAP02}.
+
+
+\subsection{Sentence-Transformer}
+\noindent
+Bislang wissenschaftlich nicht im Kontext der \ac{ATS} erprobt und daher als selbst konstruierter Ansatz zu bewerten ist die Nutzung sogenannter  Sentence-Transformer anstatt von \ac{ROUGE} oder \ac{BLEU}. Letztere sind nicht in der Lage, zwei Texte wie die \ac{REFZ} und die \ac{SYSZ} semantisch miteinander zu vergleichen. Prinzipiell betten Sentence-Transformer multilinguale Texte auf Satzebene in einen Vektorraum ein. Anschließend ist die Distanz der Vektoren zweier eingehender Sätze messbar. Möglich ist es demnach, die generierten Zusammenfassungen im Trainingsprozess mit den Distanzen der Sentence-Transformer zu bewerten und entsprechend zu optimieren \cite{FEN20}.\\
