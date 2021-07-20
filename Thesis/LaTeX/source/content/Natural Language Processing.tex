@@ -212,4 +212,18 @@ Obgleich der \ac{BLEU}-Score primär die Bewertung von Übersetzungen unterstüt
 
 \subsection{Sentence-Transformer}
 \noindent
-Bislang wissenschaftlich nicht im Kontext der \ac{ATS} erprobt und daher als selbst konstruierter Ansatz zu bewerten ist die Nutzung sogenannter  Sentence-Transformer anstatt von \ac{ROUGE} oder \ac{BLEU}. Letztere sind nicht in der Lage, zwei Texte wie die \ac{REFZ} und die \ac{SYSZ} semantisch miteinander zu vergleichen. Prinzipiell betten Sentence-Transformer multilinguale Texte auf Satzebene in einen Vektorraum ein. Anschließend ist die Distanz der Vektoren zweier eingehender Sätze messbar. Möglich ist es demnach, die generierten Zusammenfassungen im Trainingsprozess mit den Distanzen der Sentence-Transformer zu bewerten und entsprechend zu optimieren \cite{FEN20}.\\
+Bislang wissenschaftlich nicht im Kontext der \ac{ATS} erprobt und daher als selbst konstruierter Ansatz zu bewerten ist die Nutzung sogenannter  Sentence-Transformer anstatt von \ac{ROUGE} oder \ac{BLEU}. Die bisherigen Metriken sind nicht dazu fähig, Texte wie die \ac{REFZ} und die \ac{SYSZ} semantisch miteinander zu vergleichen. Hier werden die Stärken der Sentence-Transformer vermutet.
+\newpage
+
+\noindent
+Sentence-Transformer sind Architekturen, welche multilinguale Textdaten auf Satzebene nach einem entsprechenden initialen Training einbetten. Dabei kommen zwei separate Encoder zum Einsatz, welche durch einen vortrainierten \ac{BERT} repräsentiert werden. Die kodierten Sätze gehen folglich als Sentence Embedding in die letzte Schicht ein \cite[S.~1]{FEN20}. \autoref{pic:SentenceTransformer} visualisiert die grob beschriebene Architektur entsprechend.\\
+
+\begin{figure}[h!]
+  \centering
+  \fbox{\includegraphics[width=0.6\linewidth]{./source/images/sentencetransformer.png}}
+  \caption{Sentence-Transformer mit BERT als Encoder \cite[S.~1]{FEN20}.}
+  \label{pic:SentenceTransformer}
+\end{figure}
+
+\noindent
+Über die Kosinus-Distanz kann anschließend die Distanz zwischen den Vektoren zweier eingehender Sätze gemessen werden. Somit ist es möglich, die \ac{REFZ} mit den \ac{SYSZ} im Trainingsprozess zu vergleichen und modellinterne Gewichtsanpassungen an den berechneten Distanzen auszurichten \cite[S.~2]{FEN20}.
