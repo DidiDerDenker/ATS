@@ -3,54 +3,56 @@
 \label{chap:Evaluation}
 
 \noindent
-In diesem Kapitel werden die Experimente umfangreich evaluiert. Dies geschieht einerseits automatisiert auf Basis der ausgewählten Metriken, andererseits manuell in Form einer qualitativen Analyse der aus den Anhängen A und B generierten Zusammenfassungen. Die Experimente werden zwecks anschließender Zuordnung wie folgt kodiert:
-
-\begin{table}[htb]
-\centering
-\begin{tabular}{ | p{1cm} | p{7.5cm} | }
-\hline
-\textbf{ID} & \textbf{Experiment} \\
-\hline
-1 & Reproduktion auf englischen Daten \\
-\hline
-2 & Adaption auf deutschen Daten \\
-\hline
-3 & Adaption auf multilingualen Daten \\
-\hline
-\end{tabular}
-\caption{Kodierung der Experimente.}
-\label{table:ExpCoding}
-\end{table}
+In diesem Kapitel werden die Experimente umfangreich evaluiert. Dies geschieht einerseits automatisiert auf Basis der ausgewählten Metriken, andererseits manuell in Form einer qualitativen Analyse der aus den Anhängen A und B generierten Zusammenfassungen.
 
 
 \section{Automatische Auswertung}
 \noindent
-In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller Experimente gesamtheitlich dokumentiert. Dabei ist die Konfiguration der Experimente jeweils anhand der ID, der genutzten \ac{DLR} und der Sprache der eingegangenen Textdaten nachvollziehbar. Die drei letztgenannten Spalten sind als zusammengesetzter Primärschlüssel zu verstehen.
+In \autoref{table:ExpEvaluation} sind die \ac{ROUGE}-Scores der \ac{TF2TF} aller Experimente gesamtheitlich dokumentiert. Dabei ist die Konfiguration der Experimente jeweils anhand der genutzten \ac{DLR} und der Sprache der eingegangenen Textdaten nachvollziehbar. Die Experimente sind spaltenweise zu lesen. Es gelten die folgenden Abkürzungen: R-[R]ecall, R-[P]recision, R-[M]easure. Die erste Zeile zeigt wertmäßig den \ac{SOTA} der \ac{ATS}, unabhängig von den in dieser Arbeit verwendeten Architekturen.
 
 \begin{table}[htb]
 \centering
-\begin{tabular}{ | p{1cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} | }
+\small
+\begin{tabular}{ | l | c c c | c c c | c c c | }
 \hline
-\textbf{ID} & \textbf{DLR} & \textbf{Sprache} & \textbf{R-Recall} & \textbf{R-Precision} & \textbf{R-Measure} \\
+
+DLR / Sprache
+& \multicolumn{3}{| c |}{EN} 
+& \multicolumn{3}{| c |}{DE} 
+& \multicolumn{3}{| c |}{EN \& DE} \\
+\cline{2-10}
+
+& R & P & M 
+& R & P & M
+& R & P & M \\
 \hline
-1 & BERT & EN & 15.78 & 10.25 & 12.11 \\
+
+state-of-the-art
+& 15.96 & 10.34 & 12.22
+& - & - & -
+& - & - & - \\
+
+bert-base-multilingual-cased 
+& 15.78 & 10.25 & 12.11 
+& 15.93 & 10.52 & 11.97
+& 16.76 & 11.18 & 12.68 \\
+
+xlm-roberta-base 
+& 16.49 & 17.12 & 16.25 
+& 15.93 & 10.32 & 11.86 
+& 16.44 & 15.45 & 15.35 \\
+
+facebook/mbart-large-cc25 
+& - & - & - 
+& - & - & - 
+& 15.01 & 12.43 & 13.10 \\
 \hline
-1 & XLM-R & EN & 16.49 & 17.12 & 16.25 \\
-\hline
-2 & BERT & DE & 15.93 & 10.52 & 11.97 \\
-\hline
-2 & XLM-R & DE & 15.93 & 10.32 & 11.86 \\
-\hline
-3 & BERT & EN \& DE & 16.76 & 11.18 & 12.68 \\
-\hline
-3 & XLM-R & EN \& DE & 16.44 & 15.45 & 15.35 \\
-\hline
-3 & BART & EN \& DE & 15.01 & 12.43 & 13.10 \\
-\hline
+
 \end{tabular}
 \caption{Ergebnisse im Experimentvergleich.}
 \label{table:ExpEvaluation}
 \end{table}
+\newpage
 
 \noindent
 \textbf{Experiment 1: Reproduktion auf englischen Daten}\\
@@ -133,31 +135,45 @@ Das \ac{TF2TF} unter Nutzung von \ac{BERT} verbessert sich in Englisch nun bis h
 \noindent
 \textbf{Evaluation der Gold-Standards}\\
 \noindent
-Vergleicht man die Gold-Standards mit den maschinell generierten Zusammenfassungen, so werden die oben beschriebenen Eindrücke bestätigt. \autoref{table:GoldScores} vergleicht die \ac{ROUGE}-Scores aller multilingual vortrainierten Modelle auf Basis eben dieser Gold-Standards. 
-\newpage
+Vergleicht man die Gold-Standards mit den maschinell generierten Zusammenfassungen, so werden die oben beschriebenen Eindrücke bestätigt. \autoref{table:GoldScores} vergleicht die \ac{ROUGE}-Scores aller multilingual vortrainierten Modelle auf Basis eben dieser Gold-Standards. Die Tabelle ist in bekannter Weise zu interpretieren, wobei die Sprache nun die Sprache der Zusammenfassungen beschreibt.
 
 \begin{table}[htb]
 \centering
-\begin{tabular}{ | p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} | }
+\small
+\begin{tabular}{ | l | c c c | c c c | c c c | }
 \hline
-\textbf{DLR} & \textbf{Sprache} & \textbf{R-Recall} & \textbf{R-Precision} & \textbf{R-Measure} \\
+
+DLR / Sprache
+& \multicolumn{3}{| c |}{EN} 
+& \multicolumn{3}{| c |}{DE} \\
+\cline{2-7}
+
+& R & P & M 
+& R & P & M \\
 \hline
-BERT & EN & 24.41 & 25.12 & 24.58 \\
+
+state-of-the-art
+& 15.96 & 10.34 & 12.22
+& - & - & - \\
+
+bert-base-multilingual-cased 
+& 24.41 & 25.12 & 24.58
+& 6.98 & 10.74 & 8.41 \\
+
+xlm-roberta-base 
+& 18.35 & 19.19 & 18.55
+& 10.20 & 12.84 & 11.16 \\
+
+facebook/mbart-large-cc25 
+& 26.12 & 20.54 & 22.91
+& 11.49 & 16.01 & 12.94 \\
 \hline
-XLM-R & EN & 18.35 & 19.19 & 18.55 \\
-\hline
-BART & EN & 26.12 & 20.54 & 22.91 \\
-\hline
-BERT & DE & 6.98 & 10.74 & 8.41 \\
-\hline
-XLM-R & DE & 10.20 & 12.84 & 11.16 \\
-\hline
-BART & DE & 11.49 & 16.01 & 12.94 \\
-\hline
+
 \end{tabular}
 \caption{Ergebnisse des Vergleichs mit dem Gold-Standard.}
 \label{table:GoldScores}
 \end{table}
+\newpage
 
 \noindent
 Inwieweit diese Werte belastbar sind, ist außerhalb dieser Arbeit zu ergründen. Es lässt sich nur mutmaßen, warum die Werte derart unterschiedlich ausfallen: Menschen können beim Verfassen der Gold-Standards beispielsweise Kontextwissen nutzen, welches gar nicht im ursprünglichen Text stand. Zudem besteht die Hypothese, dass Menschen unterbewusst N-Gramme aus dem ursprünglichen Text übernehmen, wodurch die Werte ungewöhnlich hoch sind. Abschließend ließe sich beurteilen, ob die in \autoref{table:GoldScores} dokumentierten Werte als obere Grenze interpretiert werden können.

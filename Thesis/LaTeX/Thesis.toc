@@ -48,15 +48,15 @@
 \contentsline {section}{\numberline {6.3}Adaption auf deutschen Daten}{46}{section.107}%
 \contentsline {section}{\numberline {6.4}Adaption auf multilingualen Daten}{46}{section.108}%
 \contentsline {chapter}{\numberline {7}Evaluation}{47}{chapter.109}%
-\contentsline {section}{\numberline {7.1}Automatische Auswertung}{47}{section.111}%
-\contentsline {section}{\numberline {7.2}Qualitative Analyse}{50}{section.116}%
-\contentsline {chapter}{\numberline {8}Fazit}{54}{chapter.119}%
-\contentsline {section}{\numberline {8.1}Zusammenfassung}{54}{section.120}%
-\contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{55}{section.121}%
-\contentsline {section}{\numberline {8.3}Praktische Implikationen}{56}{section.122}%
-\contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{56}{section.123}%
-\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{59}{appendix.124}%
-\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{69}{appendix.125}%
-\contentsline {chapter}{Quellcode}{79}{chapter*.126}%
-\contentsline {chapter}{Literaturverzeichnis}{105}{lstnumber.952}%
+\contentsline {section}{\numberline {7.1}Automatische Auswertung}{47}{section.110}%
+\contentsline {section}{\numberline {7.2}Qualitative Analyse}{50}{section.115}%
+\contentsline {chapter}{\numberline {8}Fazit}{54}{chapter.118}%
+\contentsline {section}{\numberline {8.1}Zusammenfassung}{54}{section.119}%
+\contentsline {section}{\numberline {8.2}Reflexion des Vorgehens}{55}{section.120}%
+\contentsline {section}{\numberline {8.3}Praktische Implikationen}{56}{section.121}%
+\contentsline {section}{\numberline {8.4}Weiterer Forschungsbedarf}{56}{section.122}%
+\contentsline {chapter}{\numberline {A}Qualitative Analyse (Englisch)}{59}{appendix.123}%
+\contentsline {chapter}{\numberline {B}Qualitative Analyse (Deutsch)}{69}{appendix.124}%
+\contentsline {chapter}{Quellcode}{79}{chapter*.125}%
+\contentsline {chapter}{Literaturverzeichnis}{105}{lstnumber.951}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
